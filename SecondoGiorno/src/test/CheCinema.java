@@ -5,9 +5,9 @@ public class CheCinema {
 	public static void main(String[] args) {
 		
 			//VARIABILI SU UTENTE
-		String genere = "m";
+		String genere = "f";
 		String tifoso = "s";
-		String giorno = "martedì";
+		String giorno = "domenica";
 			//VARIABILI CONDIZIONI
 		boolean isLun = giorno.equalsIgnoreCase("lunedì");
 		boolean isMar = giorno.equalsIgnoreCase("martedì");
@@ -16,17 +16,16 @@ public class CheCinema {
 		boolean isTifoso = tifoso.equalsIgnoreCase("s");
 		
 		double prezzo = 9.50;
+		double sconto1 = 5;
+		double sconto2 = 6.60;
 		
-		if((isLun && !isM)||(isMar && isTifoso))
-			prezzo = 4.50;
-		
-//		if(giorno.equalsIgnoreCase("martedì") && isTifoso)
-//			prezzo = 4.50;
+		if((isLun && isM)||(isMar && isTifoso))
+			prezzo = prezzo - sconto1;
 		
 		if(isDom)
-			prezzo = 2.90;
+			prezzo = prezzo - sconto2;
 		
-		String risposta = "Il biglietto costa: " + prezzo + "€";
+		String risposta = "Il biglietto costa: " + prezzo + " €";
 		
 		System.out.println(risposta);
 	}
