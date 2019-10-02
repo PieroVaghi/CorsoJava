@@ -8,7 +8,7 @@ public class HelloWorld
 		/* programma: funzione che ci permette di risolvere un problema
 		 * problema: scrivere ciao in console
 		 */
-		System.out.println("Ciaone!");
+		System.out.println("Ciao!");
 		
 	} // chiude il main
 
