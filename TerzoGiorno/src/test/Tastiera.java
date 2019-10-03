@@ -41,7 +41,8 @@ public class Tastiera {
 		
 		System.out.println(risposta);
 		
-
+		tastiera.close();
+		
 	}
 
 }
