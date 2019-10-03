@@ -18,8 +18,8 @@ public class Tastiera {
 		String valoreEta = tastiera.nextLine();
 		int eta = Integer.parseInt(valoreEta);
 		System.out.println("Di che genere sei? M/F");
-		String genere = tastiera.nextLine();
-		boolean isGenerM = genere.equalsIgnoreCase("M");
+		String genere = tastiera.nextLine().toUpperCase();
+		boolean isGenerM = genere.equals("M");
 		System.out.println("Tifoso? S/N");
 		boolean isTifoso = tastiera.nextLine().equalsIgnoreCase("S");
 
