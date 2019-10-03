@@ -11,11 +11,7 @@ public class Scomputeriamo {
 		
 		System.out.println("Seleziona modello di CPU: i3, i5, i7");
 		String cpu = tastiera.nextLine();
-		System.out.println("Seleziona modello di RAM: DDR3, DDR4, DDR5");
-		String ram = tastiera.nextLine();
-		System.out.println("Indica quanti GB di RAM hai bisogno:");
-		int gbRam = Integer.parseInt(tastiera.nextLine());
-		
+				
 		switch (cpu.toLowerCase()) {
 			case "i3":
 				prezzo += 30;
@@ -31,6 +27,9 @@ public class Scomputeriamo {
 			break;
 		}
 		
+		System.out.println("Seleziona modello di RAM: DDR3, DDR4, DDR5");
+		String ram = tastiera.nextLine();
+				
 		switch (ram.toUpperCase()) {
 			case "DDR3":
 				prezzo += 1*gbRam;
@@ -45,6 +44,9 @@ public class Scomputeriamo {
 				System.out.println("Mi dispiace ma non risulta inserita una RAM valida!");
 			break;
 		}
+		
+		System.out.println("Indica quanti GB di RAM hai bisogno:");
+		int gbRam = Integer.parseInt(tastiera.nextLine());
 		
 		if(gbRam>64)
 			System.out.println("Mi dispiace ma non possediamo abbastanza RAM in ufficio");
