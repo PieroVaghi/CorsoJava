@@ -37,47 +37,47 @@ public class SwitchCase {
 //		if(mese.equalsIgnoreCase("dicembre"))
 //			risposta = "31 giorni";
 
-		switch(mese)
+		switch(mese.toLowerCase())		//Stabilisco a priori una convenzione in modo da permettere la sicura uguaglianza con uno dei casi
 		{
 			case"gennaio":
 				risposta = "31 giorni";
-				break;
+			break;
 			case"febbraio":
 				risposta = "28/29 giorni";
-				break;
+			break;
 			case"marzo":
 				risposta = "31 giorni";
-				break;
+			break;
 			case"aprile":
 				risposta = "30 giorni";
-				break;
+			break;
 			case"maggio":
 				risposta = "31 giorni";
-				break;
+			break;
 			case"giugno":
 				risposta = "30 giorni";
-				break;
+			break;
 			case"luglio":
 				risposta = "31 giorni";
-				break;
+			break;
 			case"agosto":
 				risposta = "31 giorni";
-				break;
+			break;
 			case"settembre":
 				risposta = "30 giorni";
-				break;
+			break;
 			case"ottobre":
 				risposta = "31 giorni";
-				break;
+			break;
 			case"novembre":
 				risposta = "30 giorni";
-				break;
+			break;
 			case"dicembre":
 				risposta = "31 giorni";
-				break;
-			default:
+			break;
+			default:					//Mi prevengo dagli errori!
 				risposta = "Ma scrivi giusto!!!";
-				break;
+			break;
 		}
 		
 		
