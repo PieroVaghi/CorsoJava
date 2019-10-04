@@ -10,7 +10,6 @@ public class Librificio {
 		double prezzoPag = 0.05;
 		double prezzoTot = 0;
 		String risposta = "";
-		boolean maggiorato = true;
 		
 		System.out.println("Benvenuto!\nQual'è il titolo del libro che avete selezionato?");
 		String titolo = tastiera.nextLine();
@@ -22,8 +21,9 @@ public class Librificio {
 		String genere = tastiera.nextLine().toLowerCase();
 		
 		prezzoTot = prezzoPag * pagNum;
+//		double prezzo1 = ((int)(prezzoTot*100))/100;
 		
-		risposta = 	"Scheda Tecnica:\n"	+
+		risposta = 	"\tScheda Tecnica:\n"	+
 					"# Titolo:\t\t"			+ titolo + "\n" +
 					"# Autore:\t\t"			+ autore + "\n" +
 					"# NPag:\t\t\t"			+ pagNum + "\n" +
@@ -41,12 +41,15 @@ public class Librificio {
 				prezzoTot *= 1.1;
 			break;
 			default:
-				maggiorato = false;
+				risposta += ".";
 			break;
 		}
 		
-		if(maggiorato)
+		if(!risposta.endsWith("."))
+		{
+//			double prezzo2 = ((int)(prezzoTot*100))/100;
 			risposta += "# Prezzo maggiorato:\t" + prezzoTot + " €";
+		}
 		
 		System.out.println(risposta);
 		
