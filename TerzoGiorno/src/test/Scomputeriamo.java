@@ -8,11 +8,10 @@ public class Scomputeriamo {
 		Scanner tastiera = new Scanner(System.in);
 		double prezzo = 0;
 		String cornice = "+---------------------------------------+";
-		String risposta = cornice + "\n|\tScheda Tecnica:\t\t\t|\n|\tCPU = ";
+		String risposta = "";
 		int vali3 = 30, vali5 = 80, vali7 = 150;
 		int ddr3 = 1, ddr4 = 3, ddr5 = 5;
 		int valoreGaming = 150;
-		
 		
 		System.out.println("Seleziona modello di CPU: i3, i5, i7");
 		String cpu = tastiera.nextLine().toLowerCase();
@@ -21,7 +20,6 @@ public class Scomputeriamo {
 		System.out.println("Indica quanti GB di RAM hai bisogno:");
 		int gbRam = Integer.parseInt(tastiera.nextLine());
 		boolean isGaming = gbRam>=16 && (cpu.equals("i5")||cpu.equals("i7"));
-		boolean schedaValida = true;
 				
 		switch (cpu) {
 			case "i3":
@@ -34,8 +32,7 @@ public class Scomputeriamo {
 				prezzo += vali7;
 				break;
 			default:
-				schedaValida = false;
-				System.out.println("ATTENZIONE! non risulta inserita una CPU valida!");
+				risposta += ("ATTENZIONE! non risulta inserita una CPU valida!\n");
 				break;
 		}
 		
@@ -51,27 +48,23 @@ public class Scomputeriamo {
 			break;
 			default:
 				prezzo = 0;
-				schedaValida = false;
-				System.out.println("ATTENZIONE! non risulta inserita una RAM valida!");
+				risposta += ("ATTENZIONE! non risulta inserita una RAM valida!\n");
 			break;
 		}
 		
-		if(gbRam>64) {
-			schedaValida = false;
-			System.out.println("Mi dispiace ma non possediamo abbastanza RAM in ufficio");
+		if(gbRam>64 || gbRam<1 && gbRam%2==0) {
+			risposta += ("Mi dispiace ma non possediamo abbastanza RAM in ufficio\n");
 		}
 		
 		if(isGaming)
 			prezzo += valoreGaming;
 		
-		if(schedaValida) {
-			risposta += cpu +
+		if(risposta.isEmpty()) 
+			risposta += cornice + "\n|\tScheda Tecnica:\t\t\t|\n|\tCPU = " + cpu +
 						"\t\t\t|\n|\tRAM = " + ram + " da " + gbRam + "GB" +
 						"\t\t|\n|\tPrezzo Finale = " + prezzo + " €\t\t|\n" + cornice;
-			System.out.println(risposta);
-		} else 
-			System.out.println("\nNon sono state inserite specifiche corrette");
 		
+		System.out.println(risposta);
 		tastiera.close();
 
 	}
