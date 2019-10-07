@@ -53,31 +53,40 @@ public class Tris {
 		
 			switch (coordinata) {
 				case "11":
-					c11 = segno;
+					if(c11.equals(" "))
+						c11 = segno;
 				break;
 				case "12":
-					c12 = segno;
+					if(c12.equals(" "))
+						c12 = segno;
 				break;
 				case "13":
-					c13 = segno;
+					if(c13.equals(" "))
+						c13 = segno;
 				break;
 				case "21":
-					c21 = segno;
+					if(c21.equals(" "))
+						c21 = segno;
 				break;
 				case "22":
-					c22 = segno;
+					if(c22.equals(" "))
+						c22 = segno;
 				break;
 				case "23":
-					c23 = segno;
+					if(c23.equals(" "))
+						c23 = segno;
 				break;
 				case "31":
-					c31 = segno;
+					if(c31.equals(" "))
+						c31 = segno;
 				break;
 				case "32":
-					c32 = segno;
+					if(c32.equals(" "))
+						c32 = segno;
 				break;
 				case "33":
-					c33 = segno;
+					if(c33.equals(" "))
+						c33 = segno;
 				break;
 				default:
 					System.out.println("coordinata inserita non valida! Ripetere");
