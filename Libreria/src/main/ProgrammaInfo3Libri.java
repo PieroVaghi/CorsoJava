@@ -20,15 +20,15 @@ public class ProgrammaInfo3Libri {
 		int numLib = 3;
 		
 		String intro = "\nBuongiorno! Grazie per aver acquistato da noi!\n";
-		String menu = "\nPer conoscere il costo totale dell'ordine, premi\t\t--> 1\n"
-					+ "Per conoscere Il costo totale dei soli Fantasy, premi\t\t--> 2\n"
-					+ "Per conoscere la media dei prezzi dell'ordine, premi\t\t--> 3\n"
+		String menu = "\nPer conoscere il costo totale dell'ordine, premi\t\t\t--> 1\n"
+					+ "Per conoscere Il costo totale dei soli Fantasy, premi\t\t\t--> 2\n"
+					+ "Per conoscere la media dei prezzi dell'ordine, premi\t\t\t--> 3\n"
 					+ "Per visualizzare le schede complete di tutti gli acquisti, premi\t-->4\n";
 		
 		
 		int comando = 0, cont = 0;
 		
-		while (cont<3) {
+		while (cont<numLib) {
 			switch (cont) {
 			case 0:
 				System.out.println("Inserisci il primo libro:\n");
@@ -73,11 +73,11 @@ public class ProgrammaInfo3Libri {
 		
 		double costoTot = l1.costo() + l2.costo() + l3.costo();
 		double costoF = 0.0;
-		if(l1.genere.equalsIgnoreCase("Fantasy"));
+		if(l1.genere.equalsIgnoreCase("Fantasy"))
 			costoF += l1.sconto();
-		if(l2.genere.equalsIgnoreCase("Fantasy"));
+		if(l2.genere.equalsIgnoreCase("Fantasy"))
 			costoF += l2.sconto();
-		if(l3.genere.equalsIgnoreCase("Fantasy"));
+		if(l3.genere.equalsIgnoreCase("Fantasy"))
 			costoF += l3.sconto();
 			
 		String stampaTot =	l1.scheda() + 

@@ -9,7 +9,12 @@ public class Libro {
 		double prezzo;
 		
 		
-		
+		/**
+		 * 
+		 * @return
+		 * Ritorna il prezzo in base alle pagine del libro
+		 * tenendo conto dei costi per pagina
+		 */
 		
 		public double costo() {
 			prezzo = nPag;
@@ -30,6 +35,7 @@ public class Libro {
 			return prezzo;
 		}
 		
+
 		public String etichettaSconto() {
 			String risposta = "";
 			if(casaEditrice.equalsIgnoreCase("gloraifantasia"))
@@ -39,49 +45,93 @@ public class Libro {
 			return risposta;
 		}
 		
-		public double sconto() {
-			prezzo = costo();
-			switch (casaEditrice.toLowerCase()) {
-				case "gloria fantasia":
-					prezzo -= prezzo/100*10;
-				break;
-				case "pazienza":
-					prezzo -= prezzo/100*5;
-				break;
-				default:
-				break; 
-			}
-			return prezzo;
+
+		public double valoreSconto() {
+			double risposta = 0;
+			if(casaEditrice.equalsIgnoreCase("gloraifantasia"))
+				risposta = costo()*0.1 ;
+			if(casaEditrice.equalsIgnoreCase("pazienza"))
+				risposta = costo()*0.05;
+			return risposta;
 		}
+		
+		/**
+		 * 
+		 * @return
+		 * Restituisco il prezzo del libro scontato,
+		 * dipende dalla casa editrice
+		 */
+		
+		public double sconto() {
+//			prezzo = costo();
+//			switch (casaEditrice.toLowerCase()) {
+//				case "gloria fantasia":
+//					prezzo -= valoreSconto();
+//				break;
+//				case "pazienza":
+//					prezzo -= valoreSconto();
+//				break;
+//				default:
+//				break; 
+//			}
+			return costo()-valoreSconto();
+		}
+		
+		/**
+		 * 
+		 * @return
+		 * True se è audiolibro
+		 * False se non lo è
+		 */
 		
 		public boolean isAudioLibro() {
 			return nPag == 0;
 		}
 		
+		/**
+		 * 
+		 * @return
+		 * True se il genere è uno dei preferiti di GLoria:
+		 * Fantasy, Fantascienza o Horror
+		 */
+		
 		public boolean isGenereGloriaPref() {
-			return (genere.equalsIgnoreCase("fantasy") 		||
+			return  genere.equalsIgnoreCase("fantasy") 		||
 					genere.equalsIgnoreCase("fantascienza") ||
-					genere.equalsIgnoreCase("horror"));
+					genere.equalsIgnoreCase("horror");
 		}
+		
+		/**
+		 * 
+		 * @return
+		 * Ritorna un oggetto Libro che è la copia di quello su cui è stato chiamato.
+		 */
 		
 		public Libro copia() {
 			Libro copia = new Libro();
 			copia.titolo = titolo;
 			copia.autore = autore;
 			copia.nPag = nPag;
+			copia.genere = genere;
 			copia.casaEditrice = casaEditrice;
 			return copia;
 		}
 		
+		/**
+		 * 
+		 * @return
+		 * Restituisce la scheda del libro
+		 */
+		
 		public String scheda() {
-			String risposta = 	"SCHEDA LIBRO:" +
-								"\n-------------------------------------------------------" +
-								"\nTitolo:\t\t\t" 		+ titolo 		+
-								"\nAutore:\t\t\t" 		+ autore 		+
-								"\nNumero Pagine:\t\t" 	+ nPag 			+
-								"\nCasa Editrice:\t\t"	+ casaEditrice 	+
-								"\nCosto Scontato:\t\t"	+ sconto()		+
-								"\nE' un audiolibro?:\t"+ isAudioLibro();
-;			return risposta;
+			return	"SCHEDA LIBRO:" +
+					"\n-------------------------------------------------------" +
+					"\nTitolo:\t\t\t" 		+ titolo 		+
+					"\nAutore:\t\t\t" 		+ autore 		+
+					"\nNumero Pagine:\t\t" 	+ nPag 			+
+					"\nGenere:\t\t" 		+ genere 		+
+					"\nCasa Editrice:\t\t"	+ casaEditrice 	+
+					"\nCosto Scontato:\t\t"	+ sconto()		+
+					"\nE' un audiolibro?:\t"+ (isAudioLibro() ? "Si è un audiolibro" : "No");
 		}
 }
