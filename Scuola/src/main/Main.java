@@ -1,7 +1,6 @@
 package main;
 
 import java.util.Scanner;
-
 import entities.Studente;
 
 public class Main {
@@ -62,7 +61,7 @@ public class Main {
 				break;
 				case 4: 
 					stampa += (gio.anniAlDiploma() == 0) ? 	"Ti manca meno di un anno al diploma o ti sei già diplomato, quindi non stressare!" 
-														:	"Per diplomarti ti mancano " + gio.anniAlDiploma() + "anni";
+														:	"Per diplomarti ti mancano " + gio.anniAlDiploma() + " anni";
 				break;
 				case 5:
 					stampa += gio.stampaStudente();
