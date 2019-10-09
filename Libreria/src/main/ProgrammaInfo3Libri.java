@@ -1,5 +1,6 @@
 package main;
 
+import java.io.File;
 import java.util.Scanner;
 
 import entities.Libro;
@@ -19,6 +20,13 @@ public class ProgrammaInfo3Libri {
 //		System.out.println("Quanti libri vuole acquistare?");
 		int numLib = 3;
 		
+//		Scanner dati = new Scanner(new File(""));
+//		
+//		String menu = "";
+//		while(dati.hasNextLine()) {
+//			
+//		}
+		
 		String intro = "\nBuongiorno! Grazie per aver acquistato da noi!\n";
 		String menu = "\nPer conoscere il costo totale dell'ordine, premi\t\t\t--> 1\n"
 					+ "Per conoscere Il costo totale dei soli Fantasy, premi\t\t\t--> 2\n"
@@ -29,46 +37,47 @@ public class ProgrammaInfo3Libri {
 		int comando = 0, cont = 0;
 		
 		while (cont<numLib) {
-			switch (cont) {
-			case 0:
-				System.out.println("Inserisci il primo libro:\n");
-			break;
-			case 1:
-				System.out.println("Inserisci il secondo libro:\n");
-			break;
-			case 2:
-				System.out.println("Inserisci il terzo libro:\n");
-			break;
-			default:
-			break;
-		}
 			
-		System.out.println("Inserisci titolo:");
-		lt.titolo = tastiera.nextLine(); 
-		System.out.println("Inserisci autore:");
-		lt.autore = tastiera.nextLine();
-		System.out.println("Inserisci numero di pagine:");
-		lt.nPag = Integer.parseInt(tastiera.nextLine());
-		System.out.println("Inserisci il genere:");
-		lt.genere = tastiera.nextLine();
-		System.out.println("Inserisci casa editrice:");
-		lt.casaEditrice = tastiera.nextLine();
-		System.out.println("------------------------------------------------------\n");
-		
-		switch (cont) {
-			case 0:
-				l1 = lt.copia();
-			break;
-			case 1:
-				l2 = lt.copia();
-			break;
-			case 2:
-				l3 = lt.copia();
-			break;
-			default:
-			break;
-		}
-		cont ++;
+			switch (cont) {
+				case 0:
+					System.out.println("Inserisci il primo libro:\n");
+				break;
+				case 1:
+					System.out.println("Inserisci il secondo libro:\n");
+				break;
+				case 2:
+					System.out.println("Inserisci il terzo libro:\n");
+				break;
+				default:
+				break;
+			}
+			
+			System.out.println("Inserisci titolo:");
+			lt.titolo = tastiera.nextLine(); 
+			System.out.println("Inserisci autore:");
+			lt.autore = tastiera.nextLine();
+			System.out.println("Inserisci numero di pagine:");
+			lt.nPag = Integer.parseInt(tastiera.nextLine());
+			System.out.println("Inserisci il genere:");
+			lt.genere = tastiera.nextLine();
+			System.out.println("Inserisci casa editrice:");
+			lt.casaEditrice = tastiera.nextLine();
+			System.out.println("------------------------------------------------------\n");
+			
+			switch (cont) {
+				case 0:
+					l1 = lt.copia();
+				break;
+				case 1:
+					l2 = lt.copia();
+				break;
+				case 2:
+					l3 = lt.copia();
+				break;
+				default:
+				break;
+			}
+			cont ++;
 		}
 		
 		double costoTot = l1.costo() + l2.costo() + l3.costo();
