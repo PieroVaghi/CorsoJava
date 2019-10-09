@@ -54,12 +54,13 @@ public class Libro {
 		
 		public String scheda() {
 			String risposta = 	"SCHEDA LIBRO:" +
-								"\nTitolo:\t\t" 		+ titolo 	+
-								"\nAutore:\t\t" 		+ autore 	+
-								"\nNumero Pagine:\t" 	+ nPag 		+
-								"\nCasa Editrice:\t"	+ casaEditrice +
-								"\nPrezzo:\t"			+ costo() 	+
-								"\nEventuale Prezzo Scontato: " + sconto();
-			return risposta;
+								"\n-----------------------------------" +
+								"\nTitolo:\t\t\t" 		+ titolo 		+
+								"\nAutore:\t\t\t" 		+ autore 		+
+								"\nNumero Pagine:\t\t" 	+ nPag 			+
+								"\nCasa Editrice:\t\t"	+ casaEditrice 	+
+								"\nCosto Scontato:\t\t"	+ sconto()		+
+								"\nE' un audiolibro?:\t"+ isAudioLibro();
+;			return risposta;
 		}
 }
