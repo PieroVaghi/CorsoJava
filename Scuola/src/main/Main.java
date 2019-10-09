@@ -48,7 +48,7 @@ public class Main {
 			String stampa = "";
 			switch (comando) {
 				case 0: 
-					stampa += intro;
+					stampa += intro + menu;
 				break;
 				case 1: 
 					stampa += "La Media totale delle tue materie è: " + gio.media();
@@ -66,14 +66,18 @@ public class Main {
 				case 5:
 					stampa += gio.stampaStudente();
 				break;
+				case 9:
+					stampa += menu;
+				break;
 				default:
 					stampa += "Hai inserito un comando errato LOLLONE!";
 				break;
 			}
 			
-			stampa += "\n\nInserisci un nuovo comando oppure 0 per terminare:" + menu;
+			stampa += "\n\n--> Inserisci un comando, 9 per rileggere il menù oppure 0 per terminare:";
 			System.out.println(stampa);
 			comando = Integer.parseInt(tastiera.nextLine());
+			
 		} while(comando!=0);
 		
 		System.out.println("Ciaone!!!");

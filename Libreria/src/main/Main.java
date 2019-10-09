@@ -22,28 +22,28 @@ public class Main {
 		
 		//INSERIMENTO DATI STUDENTE - ASSEGNAZIONI DELLE PROPRIETA? DI UN OGGETTO
 		
-		System.out.println("Inserisci nome:");
-		gio.nome = tastiera.nextLine();
-		System.out.println("Inserisci cognome:");
-		gio.cognome = tastiera.nextLine();
-		System.out.println("Inserisci data di nascita:");
-		gio.datanascita = tastiera.nextLine();
-		System.out.println("Inserisci Titolo di Studio Pregresso:");
-		gio.titolostudiopreg = tastiera.nextLine();
-		System.out.println("Inserisci indirizzo di studi:");
-		gio.indirizzo = tastiera.nextLine();
-		System.out.println("Inserisci sezione:");
-		gio.sezione = tastiera.nextLine();
-		System.out.println("Inserisci Anno di Diploma:");
-		gio.annodiploma = Integer.parseInt(tastiera.nextLine());
-		System.out.println("Inserisci la media dei voti di inglese:");
-		gio.mediaing = Double.parseDouble(tastiera.nextLine());
-		System.out.println("Inserisci la media dei voti di italiano:");
-		gio.mediaita = Double.parseDouble(tastiera.nextLine());
-		System.out.println("Inserisci la media dei voti di informatica:");
-		gio.mediainf = Double.parseDouble(tastiera.nextLine());
-		System.out.println("Inserisci la media dei voti di matematica:");
-		gio.mediamat = Double.parseDouble(tastiera.nextLine());
+//		System.out.println("Inserisci nome:");
+//		gio.nome = tastiera.nextLine();
+//		System.out.println("Inserisci cognome:");
+//		gio.cognome = tastiera.nextLine();
+//		System.out.println("Inserisci data di nascita:");
+//		gio.datanascita = tastiera.nextLine();
+//		System.out.println("Inserisci Titolo di Studio Pregresso:");
+//		gio.titolostudiopreg = tastiera.nextLine();
+//		System.out.println("Inserisci indirizzo di studi:");
+//		gio.indirizzo = tastiera.nextLine();
+//		System.out.println("Inserisci sezione:");
+//		gio.sezione = tastiera.nextLine();
+//		System.out.println("Inserisci Anno di Diploma:");
+//		gio.annodiploma = Integer.parseInt(tastiera.nextLine());
+//		System.out.println("Inserisci la media dei voti di inglese:");
+//		gio.mediaing = Double.parseDouble(tastiera.nextLine());
+//		System.out.println("Inserisci la media dei voti di italiano:");
+//		gio.mediaita = Double.parseDouble(tastiera.nextLine());
+//		System.out.println("Inserisci la media dei voti di informatica:");
+//		gio.mediainf = Double.parseDouble(tastiera.nextLine());
+//		System.out.println("Inserisci la media dei voti di matematica:");
+//		gio.mediamat = Double.parseDouble(tastiera.nextLine());
 
 
 

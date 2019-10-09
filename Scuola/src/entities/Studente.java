@@ -7,8 +7,12 @@ public class Studente {
 	public int annodiploma, nMaterie;
 	public double mediaita, mediaing, mediainf, mediamat;
 	
-	//Metodi 
+	//METODI 
 
+	/**
+	 * @return
+	 * Restituisce la media di tutte le materieS
+	 */
 	public double media()
 	{
 		nMaterie = 4;
