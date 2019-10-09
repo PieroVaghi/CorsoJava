@@ -7,7 +7,8 @@ public class Studente {
 	public int annodiploma, nMaterie;
 	public double mediaita, mediaing, mediainf, mediamat;
 	
-	//metodi HACK TO-DO:
+	//Metodi 
+
 	public double media()
 	{
 		nMaterie = 4;
