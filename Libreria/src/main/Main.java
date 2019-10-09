@@ -23,7 +23,7 @@ public class Main {
 		//INSERIMENTO DATI STUDENTE - ASSEGNAZIONI DELLE PROPRIETA? DI UN OGGETTO
 		
 		System.out.println("Inserisci titolo:");
-		l1.titolo = tastiera.nextLine();
+		l1.titolo = tastiera.nextLine(); 
 		System.out.println("Inserisci autore:");
 		l1.autore = tastiera.nextLine();
 		System.out.println("Inserisci numero di pagine:");

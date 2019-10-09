@@ -37,7 +37,7 @@ public class Libro {
 					prezzo = prezzo/100*5;
 				break;
 				default:
-				break;
+				break; 
 			}
 			return prezzo;
 		}
