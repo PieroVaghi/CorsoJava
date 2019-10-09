@@ -5,7 +5,7 @@ import java.util.Scanner;
 import entities.Libro;
 
 
-public class Main {
+public class ProgrammaInfoLibro {
 
 	public static void main(String[] args) {
 		

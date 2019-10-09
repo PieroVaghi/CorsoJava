@@ -9,22 +9,34 @@ public class Libro {
 		double prezzo;
 		
 		
+		
+		
 		public double costo() {
+			prezzo = nPag;
 			if (isAudioLibro())
 				prezzo = 15.0;
 			else
 				switch (genere.toLowerCase()) {
 					case "horror":
-						prezzo = nPag * 0.04;
+						prezzo *= 0.04;
 					break;
 					case "giallo":
-						prezzo = nPag * 0.02;
+						prezzo *= 0.02;
 					break;
 					default:
-						prezzo = nPag * 0.06;
+						prezzo *= 0.06;
 					break;
 				}
 			return prezzo;
+		}
+		
+		public String etichettaSconto() {
+			String risposta = "";
+			if(casaEditrice.equalsIgnoreCase("gloraifantasia"))
+				risposta += "hai lo sconto del 10%";
+			if(casaEditrice.equalsIgnoreCase("pazienza"))
+				risposta += "hai lo sconto del 5%";
+			return risposta;
 		}
 		
 		public double sconto() {
@@ -34,7 +46,7 @@ public class Libro {
 					prezzo -= prezzo/100*10;
 				break;
 				case "pazienza":
-					prezzo = prezzo/100*5;
+					prezzo -= prezzo/100*5;
 				break;
 				default:
 				break; 
@@ -52,9 +64,18 @@ public class Libro {
 					genere.equalsIgnoreCase("horror"));
 		}
 		
+		public Libro copia() {
+			Libro copia = new Libro();
+			copia.titolo = titolo;
+			copia.autore = autore;
+			copia.nPag = nPag;
+			copia.casaEditrice = casaEditrice;
+			return copia;
+		}
+		
 		public String scheda() {
 			String risposta = 	"SCHEDA LIBRO:" +
-								"\n-----------------------------------" +
+								"\n-------------------------------------------------------" +
 								"\nTitolo:\t\t\t" 		+ titolo 		+
 								"\nAutore:\t\t\t" 		+ autore 		+
 								"\nNumero Pagine:\t\t" 	+ nPag 			+
