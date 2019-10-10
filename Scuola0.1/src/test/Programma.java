@@ -16,6 +16,7 @@ public class Programma {
 			menuITA += datiMenu.nextLine() + "\n";
 		}
 		datiMenu.close();
+		System.out.println(menuITA);	
 		
 		Studente s = new Studente();
 		percorso = "src/res/dati.txt";
@@ -39,13 +40,12 @@ public class Programma {
 		int comando = 0;
 		String risposta = "";
 		do {
-			System.out.println(menuITA);	
 			comando = Integer.parseInt(tastiera.nextLine());
 			risposta = "";
 			
 			switch (comando) {
 				case 0: 
-					risposta = "CIAO CIAO";
+					risposta = "Ciao Ciao..";
 				break;
 				case 1: 
 					risposta = "La Media totale delle tue materie è: " + s.media();
@@ -61,6 +61,9 @@ public class Programma {
 				break;
 				case 5:
 					risposta = s.toString();
+				break;
+				case 9:
+					risposta = menuITA;
 				break;
 				default:
 					risposta = "Hai inserito un comando errato LOLLONE!";

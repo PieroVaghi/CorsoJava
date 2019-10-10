@@ -13,5 +13,7 @@
   	  |   3 - per sapere se sei promosso          |
  	  |   4 - per sapere dove vai in erasmus      |
 	  |   5 - per vedere la tua anagrafica        |
+	  |                                           |
+	  |   9 - Stampa di nuovo menù                |
 	  |   0 - per terminare                       |	
 	  |___________________________________________|	
