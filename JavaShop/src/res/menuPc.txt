@@ -7,15 +7,17 @@
                                                   | |    
                                                   |_|    
                                                   
-      ___________________________________________                                           
-	 |                                           |
-	 |   Inserisci:                              |
-	 |   1 - per vedere la media dei voti        |
-	 |   2 - per vedere la somma dei voti        |
-  	 |   3 - per sapere se sei promosso          |
- 	 |   4 - per sapere dove vai in erasmus      |
-	 |   5 - per vedere la tua anagrafica        |
-	 |                                           |
-	 |   9 - Stampa di nuovo menù                |
-	 |   0 - per terminare                       |	
-	 |___________________________________________|	
+      __________________________________________________                                           
+	 |                                                  |
+	 |   Inserisci:                                     |
+	 |   1 - per conoscere il costo totale              |
+	 |   2 - per conoscere il costo della CPU           |
+  	 |   3 - per conoscere il costo della RAM           |
+ 	 |   4 - per conoscere il costo della MMA           |
+	 |   5 - per sapere se è un computer da gaming      |
+	 |   6 - per sapere se è un computer da ufficio     |
+	 |   7 - per visualizzare la scheda tecnica del PC  |
+	 |                                                  |
+	 |   9 - Stampa di nuovo menù                       |
+	 |   0 - per terminare                              |	
+	 |__________________________________________________|
