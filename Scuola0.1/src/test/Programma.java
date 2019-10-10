@@ -37,13 +37,39 @@ public class Programma {
 		
 		Scanner tastiera = new Scanner(System.in);
 		int comando = 0;
-		String risposts = "";
+		String risposta = "";
 		do {
-			System.out.println(menuITA);		
+			System.out.println(menuITA);	
+			comando = Integer.parseInt(tastiera.nextLine());
+			risposta = "";
+			
+			switch (comando) {
+				case 0: 
+					risposta = "CIAO CIAO";
+				break;
+				case 1: 
+					risposta = "La Media totale delle tue materie è: " + s.media();
+				break;
+				case 2: 
+					risposta = "La somma dei voti è " + s.somma();
+				break;
+				case 3: 
+					risposta = s.promosso() ? "Congratulazioni!!! Quest'anno sarai promosso!" : "Spiacenti, non sei stato promosso.. Impegniati di più e ritenta il prossimo anno!";
+				break;
+				case 4: 
+					risposta = s.erasmus();
+				break;
+				case 5:
+					risposta = s.toString();
+				break;
+				default:
+					risposta = "Hai inserito un comando errato LOLLONE!";
+				break;
+			}
 		} while (comando != 0);
 		
-		
 
+		tastiera.close();
 	}
 
 }
