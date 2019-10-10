@@ -54,7 +54,7 @@ public class Programma {
 					risposta = "La somma dei voti è " + s.somma();
 				break;
 				case 3: 
-					risposta = s.promosso() ? "Congratulazioni!!! Quest'anno sarai promosso!" : "Spiacenti, non sei stato promosso.. Impegniati di più e ritenta il prossimo anno!";
+					risposta = s.isPromosso() ? "Congratulazioni!!! Quest'anno sarai promosso!" : "Spiacenti, non sei stato promosso.. Impegniati di più e ritenta il prossimo anno!";
 				break;
 				case 4: 
 					risposta = s.erasmus();

@@ -31,7 +31,7 @@ public class Studente {
 	 * @return
 	 * True se promosso (media >= 6)
 	 */
-	public boolean promosso() {
+	public boolean isPromosso() {
 		return media() >= 6;
 	}
 	
@@ -53,4 +53,13 @@ public class Studente {
 						
 	}
 
+	public String toString() {
+		return 	"Nome: " 						+ nome 			+
+				"\nCognome: "					+ cognome 		+	
+				"\nData di Nascita: "			+ dataNascita 	+
+				"\nGenere: "					+ genere		+
+				"\nErasmus: "					+ erasmus()		+
+				"\nPromosso: "					+ (isPromosso() ? "Si" : "No")+
+				" con la media del "			+ media();
+	}
 }
