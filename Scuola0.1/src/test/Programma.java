@@ -66,6 +66,7 @@ public class Programma {
 					risposta = "Hai inserito un comando errato LOLLONE!";
 				break;
 			}
+			System.out.println(risposta);
 		} while (comando != 0);
 		
 

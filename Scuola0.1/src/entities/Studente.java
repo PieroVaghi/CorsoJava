@@ -10,21 +10,47 @@ public class Studente {
 	public double mediaIng;
 	public double mediaInf;
 	public double mediaMat;
-	public String media() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	/**
+	 * @return
+	 * Ritorna la media dei voti delle quattro materie
+	 */
+	public double media() {
+		return somma()/4;
 	}
-	public String somma() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	/**
+	 * @return
+	 * Ritorna la somma dei voti delle quattro materie
+	 */
+	public double somma() {
+		return mediaIta + mediaIng + mediaInf + mediaMat;
 	}
+	
+	/**
+	 * @return
+	 * True se promosso (media >= 6)
+	 */
 	public boolean promosso() {
-		// TODO Auto-generated method stub
-		return false;
+		return media() >= 6;
 	}
+	
+	/**
+	 * @return
+	 * Ritorna "Vancuver ti aspetta!" oppure "Australia arrivo!" o ancora "Non puoi andare in erasmus" in base alla tua media di inglese
+	 */
 	public String erasmus() {
-		// TODO Auto-generated method stub
-		return null;
+		return 
+				media() >= 7.5 
+								? 
+									mediaIng > 7 && mediaIng <9
+										? "Vancuver ti aspetta!"
+										: 
+											mediaIng >= 9
+												? "Australia arrivo!"
+												: "Non puoi andare in erasmus"
+								: "Non puoi andare in erasmus";
+						
 	}
 
 }
