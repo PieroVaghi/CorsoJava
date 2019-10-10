@@ -3,11 +3,13 @@
 \ \ \-./\ \  \ \  __\   \ \ \-.  \  \ \ \_\ \     \ \ \____  \ \ \  \ \  __<   \ \  __<   \ \ \  
  \ \_\ \ \_\  \ \_____\  \ \_\\"\_\  \ \_____\     \ \_____\  \ \_\  \ \_____\  \ \_\ \_\  \ \_\ 
   \/_/  \/_/   \/_____/   \/_/ \/_/   \/_____/      \/_____/   \/_/   \/_____/   \/_/ /_/   \/_/ 
-  
-  Inserisci:
-  0 per uscire
-  1 per costo
-  2 per sconto
-  3 se audio libro
-  4 per sapere se il genere è preferito
-  5 scheda
++-----------------------------------------------------------------------------------------------+ 
+|					 							|
+|	Inserisci:										|
+| 0 per uscire											|
+| 1 per il costo totale dell'ordine 								|
+| 2 per il costo totale dei soli libri Fantasy							|
+| 3 per la media dei prezzi dell'ordine								|
+| 4 per Stampare a schermo le schede di tutti i libri ordinati					|
+|					  						 	|
++-----------------------------------------------------------------------------------------------+

@@ -8,7 +8,7 @@ import entities.Libro;
 
 public class ProgrammaInfo3Libri {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		Scanner tastiera = new Scanner(System.in);
 		Libro lt = new Libro();
@@ -20,18 +20,22 @@ public class ProgrammaInfo3Libri {
 //		System.out.println("Quanti libri vuole acquistare?");
 		int numLib = 3;
 		
-//		Scanner dati = new Scanner(new File(""));
-//		
-//		String menu = "";
-//		while(dati.hasNextLine()) {
-//			
-//		}
+		Scanner dati = new Scanner(new File("src/res/menu.txt"));
 		
+		String menu = "";
+		while(dati.hasNextLine()) {
+			menu += dati.nextLine() + "\n";
+		}
+		
+		dati.close();
 		String intro = "\nBuongiorno! Grazie per aver acquistato da noi!\n";
-		String menu = "\nPer conoscere il costo totale dell'ordine, premi\t\t\t--> 1\n"
-					+ "Per conoscere Il costo totale dei soli Fantasy, premi\t\t\t--> 2\n"
-					+ "Per conoscere la media dei prezzi dell'ordine, premi\t\t\t--> 3\n"
-					+ "Per visualizzare le schede complete di tutti gli acquisti, premi\t-->4\n";
+		
+		
+		
+//		String menu = "\nPer conoscere il costo totale dell'ordine, premi\t\t\t--> 1\n"
+//					+ "Per conoscere Il costo totale dei soli Fantasy, premi\t\t\t--> 2\n"
+//					+ "Per conoscere la media dei prezzi dell'ordine, premi\t\t\t--> 3\n"
+//					+ "Per visualizzare le schede complete di tutti gli acquisti, premi\t-->4\n";
 		
 		
 		int comando = 0, cont = 0;
@@ -94,7 +98,7 @@ public class ProgrammaInfo3Libri {
 							l2.scheda() +
 				"\n------------------------------------------------------\n" +
 							l3.scheda() +
-				"\n------------------------------------------------------";
+				"\n------------------------------------------------------\n";
 		
 		do {
 			String stampa = "";
@@ -113,6 +117,7 @@ public class ProgrammaInfo3Libri {
 				break;
 				case 4:
 					stampa += stampaTot;
+				break;
 				case 9: 
 					stampa += menu;
 				break;
@@ -121,7 +126,7 @@ public class ProgrammaInfo3Libri {
 				break;
 			}
 			
-			stampa += "\n\n--> Inserisci un comando, 9 per rileggere il menù oppure 0 per terminare:";
+			stampa += "\n--> Inserisci un comando, 9 per rileggere il menù oppure 0 per terminare:";
 			System.out.println(stampa);
 			comando = Integer.parseInt(tastiera.nextLine());
 			
