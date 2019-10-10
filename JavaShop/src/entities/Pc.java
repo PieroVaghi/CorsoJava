@@ -17,7 +17,7 @@ public class Pc {
 	 */
 	public double costo() {
 		double costo = (costocpu()>0 && costoram()>0 && costomma()>0) ?  costocpu() + costoram() + costomma() : -1;
-		return costo;
+		return marca.equalsIgnoreCase("Ananas") ? costo*2 : costo;
 	}
 	
 	/**
