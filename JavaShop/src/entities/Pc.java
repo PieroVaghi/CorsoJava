@@ -110,7 +110,7 @@ public class Pc {
 				"\nMMA: "					+ mma			+
 				" GB di tipo: "				+ tipomma 		+
 				"\nCosto finale: "			+ costo() 		+
-				(isGaming() ? "\nE' un computer da Gaming super Hig-Tech Mega WOW!!!" : isOffice() ? "\nE' un buon computer da ufficio!" : "\nNon è un computer con cui si può giocare o lavorare.. Regalalo a tua zia!");
+				(isGaming() ? "\nE' un computer da Gaming SUPER HIGHT-TECH MEGA WOW!!!" : isOffice() ? "\nE' un buon computer da ufficio!" : "\nNon è un computer con cui si può giocare o lavorare.. Regalalo a tua zia!");
 	}
 	
 }
