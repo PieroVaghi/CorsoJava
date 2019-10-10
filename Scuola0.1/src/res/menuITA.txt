@@ -12,5 +12,6 @@
 	  |   2 - per vedere la somma dei voti        |
   	  |   3 - per sapere se sei promosso          |
  	  |   4 - per sapere dove vai in erasmus      |
-	  |   5 - per vedere la tua anagrafica        |	
+	  |   5 - per vedere la tua anagrafica        |
+	  |   0 - per terminare                       |	
 	  |___________________________________________|	
