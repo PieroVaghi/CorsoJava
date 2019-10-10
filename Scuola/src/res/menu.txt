@@ -1,0 +1,12 @@
+                                     _               _                _         
+  _ __    ___   _ _    _  _     ___ | |_   _  _   __| |  ___   _ _   | |_   ___ 
+ | '  \  / -_) | ' \  | || |   (_-< |  _| | || | / _` | / -_) | ' \  |  _| / -_)
+ |_|_|_| \___| |_||_|  \_,_|   /__/  \__|  \_,_| \__,_| \___| |_||_|  \__| \___|
+ 
+ +------------------------------------------------------------------------------+
+ |	Per conoscere la media dei tuoi voti, premi 		--> 1		|
+ |	Per sapere se sarai promosso o no, premi 		--> 2		|
+ |	Per sapere se e dove andrai in erasmus, premi 		--> 3		|
+ |	Per conoscere quanti anni ti mancano al diploma, premi 	--> 4		|
+ |	Per un'anteprima del tuo curriculum, premi 		--> 5		|
+ +------------------------------------------------------------------------------+

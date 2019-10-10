@@ -1,20 +1,28 @@
 package main;
 
+import java.io.File;
 import java.util.Scanner;
 import entities.Studente;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception { 
 
 		Scanner tastiera = new Scanner(System.in);
+		Scanner dati = new Scanner(new File("src/res/menu.txt"));
 		Studente gio = new Studente();
 		String intro = "\nBuongiorno! grazie per aver inserito i tuoi dati all'interno del nostro programma!\n";
-		String menu = "\nPer conoscere la media dei tuoi voti, premi\t\t--> 1\n"
-					+ "Per sapere se sarai promosso o no, premi\t\t--> 2\n"
-					+ "Per sapere se e dove andrai in erasmus, premi\t\t--> 3\n"
-					+ "Per conoscere quanti anni ti mancano al diploma, premi\t--> 4\n"
-					+ "Per un'anteprima del tuo curriculum, premi\t\t--> 5";
+		
+		String menu ="";
+		while(dati.hasNextLine()) {
+			menu += dati.nextLine() + "\n";
+		}
+		dati.close();
+//		String menu = "\nPer conoscere la media dei tuoi voti, premi\t\t--> 1\n"
+//					+ "Per sapere se sarai promosso o no, premi\t\t--> 2\n"
+//					+ "Per sapere se e dove andrai in erasmus, premi\t\t--> 3\n"
+//					+ "Per conoscere quanti anni ti mancano al diploma, premi\t--> 4\n"
+//					+ "Per un'anteprima del tuo curriculum, premi\t\t--> 5";
 		
 		int comando = 0;
 		
