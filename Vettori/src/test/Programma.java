@@ -14,6 +14,7 @@ public class Programma
 		int max = 0;
 		String risposta = "";
 		
+		// Carico Vettore da tastiera
 		while(contatore < numeri.length)
 		{
 			System.out.println("Inserisci valore:");
@@ -21,6 +22,7 @@ public class Programma
 			contatore++;
 		}
 		
+		// Stampo su schermo i valori del vettore
 		contatore = 0;
 		while(contatore < numeri.length)
 		{
@@ -28,6 +30,7 @@ public class Programma
 			contatore++;
 		}
 		
+		// Calcolo la media dei valori inseriti
 		contatore = 0;
 		while(contatore < numeri.length)
 		{
@@ -37,6 +40,7 @@ public class Programma
 		media /= numeri.length;
 		risposta += "\nLa media è: " + media; 
 		
+		// Trovo il valore max all'interno del vettore
 		contatore = 0;
 		while(contatore < numeri.length)
 		{
@@ -46,6 +50,7 @@ public class Programma
 		}
 		risposta += "\nIl valore massimo è: " + max; 
 		
+		// OUTPUT
 		System.out.println(risposta);
 		
 
