@@ -16,10 +16,9 @@ public class Programma
 			n++;												//
 			dati.nextLine();									// mettiamo dati.nextLine per mandare a capo DOPO l'incremento di n!
 		}
-		dati.close();
-		dati = new Scanner(new File(percorso));
+		dati.close();											// sono arrivato in fondo al file per contarlo e per ricominciare devo chiuderlo e 
+		dati = new Scanner(new File(percorso));					// riaprirlo
 		
-		int i = 0;
 		double media = 0;
 		String risposta = "";
 		
@@ -29,51 +28,37 @@ public class Programma
 		int[] numeri = new int[n];
 		
 		// Carico Vettore da tastiera
-		while(i < numeri.length)
-		{
+		for(int i = 0; i < numeri.length; i++) {
 			numeri[i] = Integer.parseInt(dati.nextLine());
-			i++;
 		}
 		dati.close();
 		
 		// Stampo su schermo i valori del vettore
-		i = 0;
-		while(i < numeri.length)
-		{
+		for(int i = 0; i < numeri.length; i++){
 			risposta += numeri[i] + "; ";
-			i++;
 		}
 		
 		// Calcolo la media dei valori inseriti
-		i = 0;
-		while(i < numeri.length)
-		{
+		for(int i = 0; i < numeri.length; i++){
 			media += numeri[i];
-			i++;
 		}
 		media /= numeri.length;
 		risposta += "\nLa media è: " + media; 
 		
 		// Trovo il valore max all'interno del vettore
 		// NO FUNZIONA CON NUMERI NEGATIVI!
-		i = 0;
 		int max = Integer.MIN_VALUE;
-		while(i < numeri.length)
-		{
+		for(int i = 0; i < numeri.length; i++){
 			if(max < numeri[i])
 				max = numeri[i];
-			i++;
 		}
 		risposta += "\nIl valore massimo è: " + max; 
 		
 		// Trovo il valore min all'interno del vettore
-		i = 0;
 		int min = max;		// op. Integer.MAX_VALUE
-		while(i < numeri.length)
-		{
+		for(int i = 0; i < numeri.length; i++){
 			if(min > numeri[i])
 				min = numeri[i];
-			i++;
 		}
 		risposta += "\nIl valore minimo è: " + min; 
 		
