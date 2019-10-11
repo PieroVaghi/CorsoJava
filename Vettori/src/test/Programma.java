@@ -8,57 +8,61 @@ public class Programma
 	public static void main(String[] args) 
 	{
 		Scanner tastiera = new Scanner(System.in);
-		int[] numeri = new int[5];
-		int contatore = 0;
+		int i = 0;
 		double media = 0;
-		int max = 0;
-		int min = 0;
 		String risposta = "";
 		
+		// Dichiaro Vettore
+		System.out.println("Quanti numeri vuoi inserire?");
+		int num = Integer.parseInt(tastiera.nextLine());
+		int[] numeri = new int[num];
+		
 		// Carico Vettore da tastiera
-		while(contatore < numeri.length)
+		while(i < numeri.length)
 		{
 			System.out.println("Inserisci valore:");
-			numeri[contatore] = Integer.parseInt(tastiera.nextLine());
-			contatore++;
+			numeri[i] = Integer.parseInt(tastiera.nextLine());
+			i++;
 		}
 		
 		// Stampo su schermo i valori del vettore
-		contatore = 0;
-		while(contatore < numeri.length)
+		i = 0;
+		while(i < numeri.length)
 		{
-			risposta += numeri[contatore] + "\t";
-			contatore++;
+			risposta += numeri[i] + "\t";
+			i++;
 		}
 		
 		// Calcolo la media dei valori inseriti
-		contatore = 0;
-		while(contatore < numeri.length)
+		i = 0;
+		while(i < numeri.length)
 		{
-			media += numeri[contatore];
-			contatore++;
+			media += numeri[i];
+			i++;
 		}
 		media /= numeri.length;
 		risposta += "\nLa media è: " + media; 
 		
 		// Trovo il valore max all'interno del vettore
-		contatore = 0;
-		while(contatore < numeri.length)
+		// NO FUNZIONA CON NUMERI NEGATIVI!
+		i = 0;
+		int max = Integer.MIN_VALUE;
+		while(i < numeri.length)
 		{
-			if(max < numeri[contatore])
-				max = numeri[contatore];
-			contatore++;
+			if(max < numeri[i])
+				max = numeri[i];
+			i++;
 		}
 		risposta += "\nIl valore massimo è: " + max; 
 		
 		// Trovo il valore min all'interno del vettore
-		contatore = 1;
-		min = numeri[0];
-		while(contatore < numeri.length - 1)
+		i = 0;
+		int min = max;		// op. Integer.MAX_VALUE
+		while(i < numeri.length)
 		{
-			if(min > numeri[contatore])
-				min = numeri[contatore];
-			contatore++;
+			if(min > numeri[i])
+				min = numeri[i];
+			i++;
 		}
 		risposta += "\nIl valore minimo è: " + min; 
 		
