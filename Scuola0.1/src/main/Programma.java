@@ -72,7 +72,6 @@ public class Programma {
 			System.out.println(risposta);
 		} while (comando != 0);
 		
-
 		tastiera.close();
 	}
 
