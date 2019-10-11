@@ -16,6 +16,7 @@ public class Programma
 		
 		while(contatore < numeri.length)
 		{
+			System.out.println("Inserisci valore:");
 			numeri[contatore] = Integer.parseInt(tastiera.nextLine());
 			contatore++;
 		}
