@@ -12,6 +12,7 @@ public class Programma
 		int contatore = 0;
 		double media = 0;
 		int max = 0;
+		int min = 0;
 		String risposta = "";
 		
 		// Carico Vettore da tastiera
@@ -49,6 +50,17 @@ public class Programma
 			contatore++;
 		}
 		risposta += "\nIl valore massimo è: " + max; 
+		
+		// Trovo il valore min all'interno del vettore
+		contatore = 1;
+		min = numeri[0];
+		while(contatore < numeri.length - 1)
+		{
+			if(min > numeri[contatore])
+				min = numeri[contatore];
+			contatore++;
+		}
+		risposta += "\nIl valore minimo è: " + min; 
 		
 		// OUTPUT
 		System.out.println(risposta);
