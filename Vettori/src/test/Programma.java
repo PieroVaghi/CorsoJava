@@ -1,35 +1,46 @@
 package test;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class Programma 
 {
 
-	public static void main(String[] args) 
+	public static void main(String[] args) throws Exception
 	{
-		Scanner tastiera = new Scanner(System.in);
+		String percorso = "src/res/dati.txt";
+		Scanner dati = new Scanner(new File(percorso));
+		
+		int n = 0;
+		while(dati.hasNextLine()) {								// .hasNextLine() controlla solo se c'è un'altra riga, non va a capo nel file! CICLO INFINITO!!!
+			n++;												//
+			dati.nextLine();									// mettiamo dati.nextLine per mandare a capo DOPO l'incremento di n!
+		}
+		dati.close();
+		dati = new Scanner(new File(percorso));
+		
 		int i = 0;
 		double media = 0;
 		String risposta = "";
 		
 		// Dichiaro Vettore
-		System.out.println("Quanti numeri vuoi inserire?");
-		int num = Integer.parseInt(tastiera.nextLine());
-		int[] numeri = new int[num];
+//		System.out.println("Quanti numeri vuoi inserire?"); 	//METODO CON PRIMO VALORE DEL FILE == LUNGHEZZA VETTORE
+//		int num = Integer.parseInt(dati.nextLine());
+		int[] numeri = new int[n];
 		
 		// Carico Vettore da tastiera
 		while(i < numeri.length)
 		{
-			System.out.println("Inserisci valore:");
-			numeri[i] = Integer.parseInt(tastiera.nextLine());
+			numeri[i] = Integer.parseInt(dati.nextLine());
 			i++;
 		}
+		dati.close();
 		
 		// Stampo su schermo i valori del vettore
 		i = 0;
 		while(i < numeri.length)
 		{
-			risposta += numeri[i] + "\t";
+			risposta += numeri[i] + "; ";
 			i++;
 		}
 		
@@ -70,7 +81,6 @@ public class Programma
 		System.out.println(risposta);
 		
 
-		tastiera.close();
 	}
 
 }
