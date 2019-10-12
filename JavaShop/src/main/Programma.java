@@ -20,7 +20,7 @@ public class Programma {
 		System.out.println(menuITA);	
 		
 		Pc s = new Pc();
-		percorso = "src/res/pcDiAldo.txt";
+		percorso = "src/res/pcDiPiero.txt";
 		Scanner datiStudente = new Scanner(new File(percorso));
 		
 		if(datiStudente.hasNextLine()) {
