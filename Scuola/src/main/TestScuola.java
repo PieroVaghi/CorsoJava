@@ -3,6 +3,7 @@ package main;
 import java.io.File;
 import java.util.Scanner;
 
+import aggregatore.Scuola;
 import entities.Docente;
 import entities.Studente;
 
@@ -10,65 +11,8 @@ public class TestScuola {
 
 	public static void main(String[] args) throws Exception {
 		
-		Scanner dati = new Scanner(new File("src/res/datiStudenti.txt"));
-		int nstudenti = Integer.parseInt(dati.nextLine());
-		
-		Studente[] studenti = new Studente[nstudenti];
-		int posizione = 0;
-		int contStu = 0;
-		
-		while(dati.hasNextLine()) {
-			String[] riga = dati.nextLine().split(",");
-			contStu++;
-			Studente s = new Studente();
-			s.nome = riga[0];
-			s.cognome = riga[1];
-			s.datanascita = riga[2];
-			s.genere = riga[3];
-			s.mediaita = Double.parseDouble(riga[4]);
-			s.mediaing = Double.parseDouble(riga[5]);
-			s.mediainf = Double.parseDouble(riga[6]);
-			s.mediamat = Double.parseDouble(riga[7]);
-			studenti[posizione] = s;
-			posizione++;
-			if(posizione == studenti.length)
-				break;
-		}
-		
-		if(contStu!=studenti.length) {
-			System.out.println("Attenzione! Riscontriamo discrepanze nei dati!");
-		}
-		
-		dati.close();
-		
-		dati = new Scanner(new File("src/res/datiDocenti.txt"));
-		int ndocenti = Integer.parseInt(dati.nextLine());
-		
-		Docente[] docenti = new Docente[ndocenti];
-		posizione = 0;
-		int contDoc = 0;
-		
-		while(dati.hasNextLine()) {
-			String[] riga = dati.nextLine().split(",");
-			Docente d = new Docente();
-			contDoc++;
-			d.nome = riga[0];
-			d.cognome = riga[1];
-			d.datanascita = riga[2];
-			d.materieinsegnate = riga[3];
-			d.anniesperienza = Integer.parseInt(riga[4]);
-			d.stipendiobase = Double.parseDouble(riga[5]);
-			docenti[posizione] = d;
-			posizione++;
-			if(posizione == docenti.length)
-				break;
-		}
-		
-		if(contDoc!=docenti.length) {
-			System.out.println("Attenzione! Riscontriamo discrepanze nei dati!");
-		}
-		
-		dati.close();
+		//Creo l'oggetto della classe aggregatrice
+		Scuola school = new Scuola();
 		
 		Scanner datimenu = new Scanner(new File("src/res/menu2.txt"));
 		String menu = "";
@@ -91,102 +35,43 @@ public class TestScuola {
 					risposta = "Ciao Bello!";
 				break;
 				case 1:
-					double somma = 0;
-					cont = 0;
-					risposta = "La media globale di tutti gli studeti è: ";
-					for(int i = 0; i < studenti.length; i++) {
-						if(studenti[i] != null) {
-							somma += studenti[i].media();
-							cont++;
-						}
-					}		
-					risposta += somma/cont;
+					risposta = "La media globale di tutti gli studeti è: " + school.mediaVotiStudenti() + "\n";
 				break;
 				case 2:
-					risposta = "Gli studenti promossi sono:\n";
-					for(int i = 0; i < studenti.length; i++)
-						if(studenti[i] != null) {
-							if(studenti[i].isPromosso())
-								risposta += studenti[i].nome + " " + 
-											studenti[i].cognome + "\n";
-						}
-					if(risposta.endsWith("sono:\n"))
-						risposta += "Nessuno è stato promosso quest'anno!";
+					risposta = "Gli studenti promossi sono:\n" + school.studentiPromossi() + "\n";
 				break;
 				case 3:
-					risposta = "Gli studenti bocciati sono:\n";
-					for(int i = 0; i < studenti.length; i++)
-						if(!studenti[i].isPromosso())
-							risposta += studenti[i].nome + " " + 
-										studenti[i].cognome + "\n";
-					if(risposta.endsWith("sono:\n"))
-						risposta += "Nessuno è stato bocciato quest'anno!";
+					risposta = "Gli studenti bocciati sono:\n" + school.studentiBocciati() + "\n";
 				break;
 				case 4:
-					risposta = "Gli studenti che andranno in erasmus sono:\n";
-					for(int i = 0; i < studenti.length; i++)
-						if(!studenti[i].erasmus().equals("Non andrai MAI in erasmus!"))
-							risposta += studenti[i].nome + " " + 
-										studenti[i].cognome + " " + studenti[i].erasmus() + "\n";
-					if(risposta.endsWith("sono:\n"))
-						risposta += "Nessuno andrà MAI in erasmus!";
+					risposta = "Gli studenti che andranno in erasmus sono:\n" + school.studentiInErasmus() + "\n";		
 				break;
 				case 5:
-					risposta = "Elenco Studenti:\n";
-					for(int i = 0; i < studenti.length; i++)
-						risposta += studenti[i].stampaStudente() +
-						"\n-------------------------------------------------\n";
+					risposta = "Elenco Studenti:\n\n" + school.stampaStudenti() + "\n";	
 				break;
 				case 6:
-					risposta = "Il numero totale degli studenti è: " + studenti.length;
+					risposta = "Il numero totale degli studenti è: " + school.numStudenti() + "\n";
 				break;
 				case 7:
-					risposta = "Il numero totale dei docenti è: " + docenti.length;
+					risposta = "Il numero totale dei docenti è: " + school.numDocenti() + "\n";
 				break;
 				case 8:
-					double sommaD = 0;
-					risposta = "La somma totale degli stipendi dei docenti è: ";
-					for(int i = 0; i < docenti.length; i++)
-						sommaD += docenti[i].stipendio();
-					risposta += sommaD + " €";
+					risposta = "La somma totale degli stipendi dei docenti è: " + school.sommaStipendi() + " €\n";
 				break;
 				case 9:
-					double mediaS = 0;
-					cont = 0;
-					risposta = "La media degli stipendi dei docenti è: ";
-					for(int i = 0; i < docenti.length; i++)
-						if(docenti[i] != null) {
-							mediaS += docenti[i].stipendio();
-							cont++;
-						}
-					risposta += mediaS/cont;
+					risposta = "La media degli stipendi dei docenti è: " + school.mediaStipendi() + "\n";
 				break;
 				case 10:
-					risposta = "Elenco Docenti:\n";
-					for(int i = 0; i < docenti.length; i++)
-						if(docenti[i] != null)
-							risposta += docenti[i].toString() + "\n" + 
-									"-------------------------------------------------" + "\n";
+					risposta = "Elenco Docenti:\n\n" + school.stampaDocenti() + "\n";					
 				break;
 				case 11:
-					risposta = "Il numero totale di persone presenti a scuola è: " + (docenti.length + studenti.length);
+					risposta = "Il numero totale di persone presenti a scuola è: " + school.numTotale() + "\n";
 				break;
 				case 12:
-					risposta = "Numero materie per docente:\n";
-					for(int i = 0; i < docenti.length; i++)
-						if(docenti[i] != null) {
-							risposta += docenti[i].nome + " " +
-										docenti[i].cognome + ": " + docenti[i].nMaterie() + "\n";
-						}
+					risposta = "Numero materie per docente:\n" + school.materiePerDocente() + "\n";	
 				break;
 				case 13:
-					risposta = "Docenti di informatica:\n";
-					for(int i = 0; i < docenti.length; i++)
-						if(docenti[i] != null)
-							if(docenti[i].materieinsegnate.contains("informatica"))
-							risposta += docenti[i].nome + " " +
-										docenti[i].cognome + "\n" ;
-									
+					risposta = "Docenti di informatica:\n" + school.docentiInformatica() + "\n";
 				break;
 				default:
 					risposta = "Hai inserito un comando non riconosciuto!";
