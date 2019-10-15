@@ -11,7 +11,7 @@ public class Studente {
 
 	/**
 	 * @return
-	 * Restituisce la media di tutte le materieS
+	 * Restituisce la media di tutte le materie
 	 */
 	public double media()
 	{

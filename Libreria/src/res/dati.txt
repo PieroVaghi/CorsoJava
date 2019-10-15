@@ -1,0 +1,4 @@
+3
+la straniera,diana gabaldon,fantasy-storico,libraccio,340
+i promessi sposi,manzoni alessandro,romanzo-storico,bontempi,340
+lo hobbit,tolkien,fantasy,bontempi,300

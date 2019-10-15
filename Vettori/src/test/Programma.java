@@ -27,7 +27,7 @@ public class Programma
 //		int num = Integer.parseInt(dati.nextLine());
 		int[] numeri = new int[n];
 		
-		// Carico Vettore da tastiera
+		// Carico Vettore da file
 		for(int i = 0; i < numeri.length; i++) {
 			numeri[i] = Integer.parseInt(dati.nextLine());
 		}

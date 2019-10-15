@@ -129,7 +129,7 @@ public class Libro {
 					"\nTitolo:\t\t\t" 		+ titolo 		+
 					"\nAutore:\t\t\t" 		+ autore 		+
 					"\nNumero Pagine:\t\t" 	+ nPag 			+
-					"\nGenere:\t\t" 		+ genere 		+
+					"\nGenere:\t\t\t" 		+ genere 		+
 					"\nCasa Editrice:\t\t"	+ casaEditrice 	+
 					"\nCosto Scontato:\t\t"	+ sconto()		+
 					"\nE' un audiolibro?:\t"+ (isAudioLibro() ? "Si è un audiolibro" : "No");

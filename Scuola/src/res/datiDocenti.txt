@@ -1,0 +1,6 @@
+5
+Giovanni,Blu,1978-01-02,italiano-matematica,30,1400
+Antonio,Giallo,1987-11-12,informatica,10,1250
+Sandrino,Verde,1969-08-17,fisica-chimica-informatica,45,1550
+Ludovico,Viola,1992-06-23,ed.fisica-ed.civica-nutrizione,4,1200
+Barbara,Barbareschi,1985-12-011,elettrotecnica-elettronica-fondamenti di automazioni-informatica,9,1350

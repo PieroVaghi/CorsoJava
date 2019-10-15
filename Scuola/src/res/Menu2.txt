@@ -1,0 +1,25 @@
+     _______   ______  __    __    ______    __           ___      
+    /       | /      ||  |  |  |  /  __  \  |  |         /   \     
+   |   (----`|   ----'|  |  |  | |  |  |  | |  |        /  ^  \    
+    \   \    |  |     |  |  |  | |  |  |  | |  |       /  /_\  \   
+ ----)   |   |  `---- |  `--'  | |  `--'  | |  `----  /  _____  \  
+|_______/     \______| \______/   \______/  |_______|/__/     \__\ 
+   
+   
+    +----------------------------------------------------------+
+    |  Inserisci:                                              |
+    | 0  -> per uscire                                         |
+    | 1  -> per vedere la media dei voti di tutti gli studenti |
+    | 2  -> per sapere il nome degli studenti promossi         |
+    | 3  -> per sapere il nome degli studenti bocciati         |
+    | 4  -> per sapere chi va in erasmus                       |
+    | 5  -> per vedere l'anagrafica di ciascun studente        |
+    | 6  -> per sapere il numero degli studenti                |
+    | 7  -> per sapere il numero dei docenti                   |
+    | 8  -> totale degli stipendi dei docenti                  |
+    | 9  -> media degli stipendi dei docenti                   |
+    | 10 -> per vedere l'anagrafica di ciascun docente         |
+    | 11 -> per sapere il totale persone che presenti a scuola |
+    | 12 -> per conoscere il numero di materie per insegnante  |
+    | 13 -> visualizza i nomi degli insegnanti di informatica  |
+    +----------------------------------------------------------+
