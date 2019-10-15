@@ -127,15 +127,15 @@ public class TestScuola {
 					for(int i = 0; i < studenti.length; i++)
 						if(!studenti[i].erasmus().equals("Non andrai MAI in erasmus!"))
 							risposta += studenti[i].nome + " " + 
-										studenti[i].cognome + "\n";
+										studenti[i].cognome + " " + studenti[i].erasmus() + "\n";
 					if(risposta.endsWith("sono:\n"))
 						risposta += "Nessuno andrà MAI in erasmus!";
 				break;
 				case 5:
 					risposta = "Elenco Studenti:\n";
 					for(int i = 0; i < studenti.length; i++)
-						risposta += studenti[i].stampaStudente() + "\n" + 
-						"-------------------------------------------------" + "\n";
+						risposta += studenti[i].stampaStudente() +
+						"\n-------------------------------------------------\n";
 				break;
 				case 6:
 					risposta = "Il numero totale degli studenti è: " + studenti.length;
