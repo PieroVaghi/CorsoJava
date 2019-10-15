@@ -80,6 +80,10 @@ public class Scuola {
 	
 	// METODI --------------------------------------------------------------
 	
+	/**
+	 * @return
+	 * Ritorna la media di tutti i voti di tutti gli studenti
+	 */
 	public double mediaVotiStudenti() {
 		double risposta = 0;
 		int cont = 0;
@@ -93,6 +97,11 @@ public class Scuola {
 		return risposta;
 	}
 	
+	/**
+	 * @return
+	 * Ritorna il nome e il cognome di tutti gli studenti promossi.
+	 * Nel caso non ce ne siano ritorna "Nessuno è stato promosso quest'anno!"
+	 */
 	public String studentiPromossi() {
 		String risposta = "";
 		for(int i = 0; i < studenti.length; i++)
@@ -106,6 +115,11 @@ public class Scuola {
 		return risposta;
 	}
 	
+	/**
+	 * @return
+	 * Ritorna il nome e il cognome di tutti gli studenti bocciati.
+	 * Nel caso non ce ne siano ritorna "Nessuno è stato bocciato quest'anno!"
+	 */
 	public String studentiBocciati() {
 		String risposta = "";
 		for(int i = 0; i < studenti.length; i++)
@@ -119,6 +133,11 @@ public class Scuola {
 		return risposta;
 	}	
 	
+	/**
+	 * @return
+	 * Ritorna il nome e il cognome di tutti gli studenti che andranno in erasmus e la loro destinazione.
+	 * Nel caso non ce ne siano ritorna "Nessuno andrà MAI in erasmus!"
+	 */
 	public String studentiInErasmus() {
 		String risposta = "";
 		for(int i = 0; i < studenti.length; i++)
@@ -131,6 +150,10 @@ public class Scuola {
 		return risposta;
 	}
 	
+	/**
+	 * @return
+	 * Ritorna l'elenco delle anagrafiche di tutti gli studenti della scuola
+	 */
 	public String stampaStudenti() {
 		String risposta = "";
 		for(int i = 0; i < studenti.length; i++)
@@ -140,18 +163,34 @@ public class Scuola {
 		return risposta;
 	}
 	
+	/**
+	 * @return
+	 * Ritorna il numero di studenti presenti nella scuola
+	 */
 	public int numStudenti() {
 		return studenti.length;
 	}
 	
+	/**
+	 * @return
+	 * Ritorna il numero di docenti presenti nella scuola
+	 */
 	public int numDocenti() {
 		return docenti.length;
 	}
 	
+	/**
+	 * @return
+	 * Ritorna il numero di totale di persone presenti nella scuola
+	 */
 	public int numTotale() {
 		return numStudenti() + numDocenti();
 	}
 	
+	/**
+	 * @return
+	 * Ritorna la somma di tutti gli sptipendi dei docenti
+	 */
 	public double sommaStipendi() {
 		double sommaD = 0;
 		for(int i = 0; i < docenti.length; i++)
@@ -160,6 +199,10 @@ public class Scuola {
 		return sommaD;
 	}
 
+	/**
+	 * @return
+	 * Ritorna la media degli stipendi di tutti i professori della scuola
+	 */
 	public double mediaStipendi() {
 		double risposta = 0;
 		int cont = 0;
@@ -172,6 +215,10 @@ public class Scuola {
 		return risposta;
 	}
 	
+	/**
+	 * @return
+	 * Ritorna l'elenco delle anagrafiche di tutti i docenti della scuola
+	 */
 	public String stampaDocenti() {
 		String risposta = "";
 		for(int i = 0; i < docenti.length; i++)
@@ -181,6 +228,10 @@ public class Scuola {
 		return risposta;
 	}
 	
+	/**
+	 * @return
+	 * Ritorna il nome eil cognome dei docenti e del numero di materie per ognuno di loro
+	 */
 	public String materiePerDocente() {
 		String risposta = "";
 		for(int i = 0; i < docenti.length; i++)
@@ -191,6 +242,10 @@ public class Scuola {
 		return risposta;
 	}
 	
+	/**
+	 * @return
+	 * Ritorna il nome e il cognome di tutti i docenti di informatica
+	 */
 	public String docentiInformatica() {
 		String risposta = "";
 		for(int i = 0; i < docenti.length; i++)
