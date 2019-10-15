@@ -4,8 +4,6 @@ import java.io.File;
 import java.util.Scanner;
 
 import aggregatore.Scuola;
-import entities.Docente;
-import entities.Studente;
 
 public class TestScuola {
 
@@ -29,7 +27,6 @@ public class TestScuola {
 			System.out.println(menu);
 			comando = Integer.parseInt(tastiera.nextLine());
 			String risposta = "";
-			int cont = 0;
 			switch(comando) {
 				case 0:
 					risposta = "Ciao Bello!";
@@ -56,10 +53,10 @@ public class TestScuola {
 					risposta = "Il numero totale dei docenti è: " + school.numDocenti() + "\n";
 				break;
 				case 8:
-					risposta = "La somma totale degli stipendi dei docenti è: " + school.sommaStipendi() + " €\n";
+					risposta = "La somma totale degli stipendi mensili dei docenti è: " + school.sommaStipendi() + " €\n";
 				break;
 				case 9:
-					risposta = "La media degli stipendi dei docenti è: " + school.mediaStipendi() + "\n";
+					risposta = "La media degli stipendi mensili dei docenti è: " + school.mediaStipendi() + "\n";
 				break;
 				case 10:
 					risposta = "Elenco Docenti:\n\n" + school.stampaDocenti() + "\n";					
@@ -72,6 +69,21 @@ public class TestScuola {
 				break;
 				case 13:
 					risposta = "Docenti di informatica:\n" + school.docentiInformatica() + "\n";
+				break;
+				case 14:
+					risposta = "Quest'anno, la scuola si porta a casa ben:\n" + school.guadagno() + " €\n";
+				break;
+				case 15:
+					risposta = school.isPovery() ? "Siamo poveri :(\n" : "Quest'anno ce la siamo sfangata!\n";
+				break;
+				case 16:
+					risposta = "La percentuale di studenti sul totale della scuola è: " + school.percentualeStudenti() + " %\n";
+				break;
+				case 17:
+					risposta = "Nella nostra scuola:\n" + school.infoErasmus() + "\n";
+				break;
+				case 18:
+					risposta = "La percentuale di studenti promossi sul totale della scuola è: " + school.percentualeStudentiPromossi() + " %\n";
 				break;
 				default:
 					risposta = "Hai inserito un comando non riconosciuto!";

@@ -20,6 +20,14 @@ public class Docente {
 	
 	/**
 	 * @return
+	 * Un docente prende annualmente lo stipendio * 14
+	 */
+	public double stipendioAnnuo() {
+		return stipendio()*14;
+	}
+	
+	/**
+	 * @return
 	 * il numero di cattedre del docente
 	 */
 	public int nMaterie() {

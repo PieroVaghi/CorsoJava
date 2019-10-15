@@ -52,14 +52,45 @@ public class Studente {
 	 * se la mediaing è maggiore o uguale a 9 allora si va
 	 * in Australia
 	 */
-	public String erasmus()
+	public String erasmusDestination()
 	{
 		if(media() >= 7.5 )
 			if(mediaing > 7 && mediaing < 9)
-				return "Si va in erasmus a Vancuver";
+				return "Vancuver";
 			if(mediaing >= 9)
+				return "Australia";
+		return "No";
+	}
+	
+	/**
+	 *  @return
+	 *  Ritorna la stringa di presentazione del'erasmus 
+	 */
+	public String erasmus()
+	{
+		switch(erasmusDestination()) {
+			case "Vancuver":
+				return "Si va in erasmus a Vancuver";
+			case "Australia":
 				return "Si va in erasmus in Australia";
-		return "Non andrai MAI in erasmus!";
+			default:
+				return "Non andrai MAI in erasmus!";
+		}
+	}
+	
+	/**
+	 *  @return
+	 *  ritorna il costo di un erasmus in base alla destinazione
+	 */
+	public double erasmusCosto() {
+		switch(erasmusDestination()) {
+		case "Vancuver":
+			return 300;
+		case "Australia":
+			return 500;
+		default:
+			return 0;
+	}
 	}
 	
 	/**

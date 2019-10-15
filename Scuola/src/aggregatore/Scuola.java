@@ -14,7 +14,7 @@ public class Scuola {
 	public Docente[] docenti;
 	public String[] aule;
 	
-	// COSTRUTTORE ---------------------------------------------------------
+	// COSTRUTTORE ----------------------------------------------------------------------------------------------------------
 	public Scuola() throws Exception {
 		
 		Scanner dati = new Scanner(new File("src/res/datiStudenti.txt"));
@@ -76,9 +76,11 @@ public class Scuola {
 		}
 		
 		dati.close();
+		
+		budget = 100000;
 	}
 	
-	// METODI --------------------------------------------------------------
+	// METODI ---------------------------------------------------------------------------------------------------------------
 	
 	/**
 	 * @return
@@ -255,5 +257,69 @@ public class Scuola {
 							docenti[i].cognome + "\n" ;
 		return risposta;		
 	}
+	
+	/**
+	 *  @return
+	 *  Ritorna quanto rimane del budget della scuola ogni anno al netto delle spese
+	 */
+	public double guadagno() {
+		double risposta = 0;
+		for(int i = 0; i < docenti.length; i++)
+			if(docenti[i] != null)
+				risposta += docenti[i].stipendioAnnuo();
+		for(int i = 0; i < studenti.length; i++)
+			if(studenti[i] != null)
+				risposta += studenti[i].erasmusCosto();
+		
+		return budget - risposta;		
+	}
+	
+	/**
+	 *  @return
+	 *  True se il guadagno annuo è minore di 10000€
+	 *  False se maggiore
+	 */
+	public boolean isPovery() {
+		return guadagno() < 10000;
+	}
+
+	/**
+	 *  @return
+	 *  Ritorna la percentuale di studenti sulle persone totali della scuola
+	 */
+	public double percentualeStudenti() {
+		return (numStudenti()*100.00)/numTotale();
+	}
+	
+	/**
+	 *  @return
+	 *  Ritorna il numero di studenti promossi
+	 */
+	public int numPromossi() {
+		int risposta = 0;
+		for(int i = 0; i < studenti.length; i++)
+			if(studenti[i] != null) {
+				if(studenti[i].isPromosso())
+					risposta ++;
+			};
+		return risposta;
+	}
+	
+	/**
+	 *  @return
+	 *  Ritorna la percentuale di studenti promossi
+	 */
+	public double percentualeStudentiPromossi() {
+		return (numPromossi()*100.00)/numStudenti();
+	}
+	
+	/**
+	 * @return
+	 * Info su erasmus
+	 */
+	public String infoErasmus() {
+		return "Erasmus in Australia da diitto ad una borsa di studio di 500€\nErasmus a Vancuver da diitto ad una borsa di studio di 300€";
+	}
+	
 	
 }

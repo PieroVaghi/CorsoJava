@@ -22,4 +22,9 @@
     | 11 -> per sapere il totale persone che presenti a scuola |
     | 12 -> per conoscere il numero di materie per insegnante  |
     | 13 -> visualizza i nomi degli insegnanti di informatica  |
-    +----------------------------------------------------------+
+    | 14 -> visualizza il guadagno annuo della scuola          |
+    | 15 -> scopri se la scuola è ricca oppure no              |
+    | 16 -> visualizza la percentuale di studenti nella scuola |
+    | 17 -> visualizza i costi dei vari erasmus                |
+    | 18 -> visualizza la percentuale di sudenti promossi      |	
+    +----------------------------------------------------------+    
