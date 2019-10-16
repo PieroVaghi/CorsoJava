@@ -7,6 +7,17 @@ public class Studente {
 	public int annodiploma, nMaterie;
 	public double mediaita, mediaing, mediainf, mediamat;
 	
+	//COSTRUTTORI
+	public Studente(){}
+	public Studente(String nome) {
+		this.nome = nome;
+	}
+	public Studente(String nome, String cognome) {
+		this.nome = nome;
+		this.cognome = cognome;
+	}
+	
+	
 	//METODI 
 
 	/**

@@ -30,4 +30,4 @@
     | 19 -> Visualizza il personale non docente e il suo ruolo |
     | 20 -> Visualizza il direttivo della scuola               |
     | 21 -> Per sapere il numero del personale non docente     |	
-    +----------------------------------------------------------+    
+    +----------------------------------------------------------+   

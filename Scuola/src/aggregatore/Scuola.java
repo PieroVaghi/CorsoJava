@@ -19,7 +19,7 @@ public class Scuola {
 	// COSTRUTTORE ----------------------------------------------------------------------------------------------------------
 	public Scuola() throws Exception {
 		
-		Scanner dati = new Scanner(new File("src/res/datiStudenti.txt"));
+		Scanner dati = new Scanner(new File("C:\\Users\\utente15\\git\\CorsoJava\\Scuola\\src\\res\\datiStudenti.txt"));
 		int nstudenti = Integer.parseInt(dati.nextLine());
 		
 		studenti = new Studente[nstudenti];
@@ -50,7 +50,7 @@ public class Scuola {
 		
 		dati.close();
 		
-		dati = new Scanner(new File("src/res/datiDocenti.txt"));
+		dati = new Scanner(new File("C:\\Users\\utente15\\git\\CorsoJava\\Scuola\\src\\res\\datiDocenti.txt"));
 		int ndocenti = Integer.parseInt(dati.nextLine());
 		
 		docenti = new Docente[ndocenti];
@@ -79,7 +79,7 @@ public class Scuola {
 		
 		dati.close();
 		
-		dati = new Scanner(new File("src/res/datiPnD.txt"));
+		dati = new Scanner(new File("C:\\Users\\utente15\\git\\CorsoJava\\Scuola\\src\\res\\datiPnD.txt"));
 		int npnd = Integer.parseInt(dati.nextLine());
 		
 		pnd = new PnD[npnd];

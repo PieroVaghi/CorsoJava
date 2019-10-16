@@ -12,7 +12,7 @@ public class TestScuola {
 		//Creo l'oggetto della classe aggregatrice
 		Scuola school = new Scuola();
 		
-		Scanner datimenu = new Scanner(new File("src/res/menu2.txt"));
+		Scanner datimenu = new Scanner(new File("C:\\Users\\utente15\\git\\CorsoJava\\Scuola\\src\\res\\Menu2.txt"));
 		String menu = "";
 		while(datimenu.hasNextLine()) {
 			menu += datimenu.nextLine() + "\n";
@@ -92,7 +92,7 @@ public class TestScuola {
 					risposta = "Personale dirigente:\n" + school.dirigenza() + "\n";
 				break;
 				case 21:
-					risposta = "Numero totale di personale non docente:\n" + school.numPnD() + "\n";
+					risposta = "Numero totale di personale non docente:" + school.numPnD() + "\n";
 				break;
 				default:
 					risposta = "Hai inserito un comando non riconosciuto!";
