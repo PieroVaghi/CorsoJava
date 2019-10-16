@@ -29,16 +29,16 @@ public class Scuola {
 		while(dati.hasNextLine()) {
 			String[] riga = dati.nextLine().split(",");
 			contStu++;
-			Studente s = new Studente();
-			s.nome = riga[0];
-			s.cognome = riga[1];
-			s.datanascita = riga[2];
-			s.genere = riga[3];
-			s.mediaita = Double.parseDouble(riga[4]);
-			s.mediaing = Double.parseDouble(riga[5]);
-			s.mediainf = Double.parseDouble(riga[6]);
-			s.mediamat = Double.parseDouble(riga[7]);
-			studenti[posizione] = s;
+			if(Studente.isValido(riga)) {
+				Studente s = new Studente(riga[0], riga[1]);
+				s.datanascita = riga[2];
+				s.genere = riga[3];
+				s.mediaita = Double.parseDouble(riga[4]);
+				s.mediaing = Double.parseDouble(riga[5]);
+				s.mediainf = Double.parseDouble(riga[6]);
+				s.mediamat = Double.parseDouble(riga[7]);
+				studenti[posizione] = s;
+			}
 			posizione++;
 			if(posizione == studenti.length)
 				break;
@@ -59,15 +59,17 @@ public class Scuola {
 		
 		while(dati.hasNextLine()) {
 			String[] riga = dati.nextLine().split(",");
-			Docente d = new Docente();
-			contDoc++;
-			d.nome = riga[0];
-			d.cognome = riga[1];
-			d.datanascita = riga[2];
-			d.materieinsegnate = riga[3];
-			d.anniesperienza = Integer.parseInt(riga[4]);
-			d.stipendiobase = Double.parseDouble(riga[5]);
-			docenti[posizione] = d;
+			if(Docente.isValido(riga)) {	
+				Docente d = new Docente();
+				contDoc++;
+				d.nome = riga[0];
+				d.cognome = riga[1];
+				d.datanascita = riga[2];
+				d.materieinsegnate = riga[3];
+				d.anniesperienza = Integer.parseInt(riga[4]);
+				d.stipendiobase = Double.parseDouble(riga[5]);
+				docenti[posizione] = d;
+			} 
 			posizione++;
 			if(posizione == docenti.length)
 				break;
@@ -88,15 +90,17 @@ public class Scuola {
 		
 		while(dati.hasNextLine()) {
 			String[] riga = dati.nextLine().split(",");
-			PnD p = new PnD();
-			contPnD++;
-			p.nome = riga[0];
-			p.cognome = riga[1];
-			p.datanascita = riga[2];
-			p.ruolo = riga[3];
-			p.anniesperienza = Integer.parseInt(riga[4]);
-			p.stipendiobase = Double.parseDouble(riga[5]);
-			pnd[posizione] = p;
+			if(PnD.isValido(riga)) {
+				PnD p = new PnD();
+				contPnD++;
+				p.nome = riga[0];
+				p.cognome = riga[1];
+				p.datanascita = riga[2];
+				p.ruolo = riga[3];
+				p.anniesperienza = Integer.parseInt(riga[4]);
+				p.stipendiobase = Double.parseDouble(riga[5]);
+				pnd[posizione] = p;
+			}
 			posizione++;
 			if(posizione == pnd.length)
 				break;
