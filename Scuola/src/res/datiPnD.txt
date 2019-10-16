@@ -1,0 +1,4 @@
+3
+Natalino,Balasso,1968-06-02,segreteria,25,1200
+Antonia,Bella,1987-11-12,bidelleria,10,1150
+Rodrigo,Rododendro,1994-06-23,direzione,5,1500

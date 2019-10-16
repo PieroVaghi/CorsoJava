@@ -53,10 +53,10 @@ public class TestScuola {
 					risposta = "Il numero totale dei docenti è: " + school.numDocenti() + "\n";
 				break;
 				case 8:
-					risposta = "La somma totale degli stipendi mensili dei docenti è: " + school.sommaStipendi() + " €\n";
+					risposta = "La somma totale degli stipendi mensili dei docenti è: " + school.sommaStipendiDocenti() + " €\n";
 				break;
 				case 9:
-					risposta = "La media degli stipendi mensili dei docenti è: " + school.mediaStipendi() + "\n";
+					risposta = "La media degli stipendi mensili dei docenti è: " + school.mediaStipendiDocenti() + "\n";
 				break;
 				case 10:
 					risposta = "Elenco Docenti:\n\n" + school.stampaDocenti() + "\n";					
@@ -84,6 +84,12 @@ public class TestScuola {
 				break;
 				case 18:
 					risposta = "La percentuale di studenti promossi sul totale della scuola è: " + school.percentualeStudentiPromossi() + " %\n";
+				break;
+				case 19:
+					risposta = "Personale non docente:\n" + school.ruoloPerPnD() + "\n";
+				break;
+				case 20:
+					risposta = "Personale dirigente:\n" + school.dirigenza() + "\n";
 				break;
 				default:
 					risposta = "Hai inserito un comando non riconosciuto!";

@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Scanner;
 
 import entities.Docente;
+import entities.PnD;
 import entities.Studente;
 
 public class Scuola {
@@ -12,6 +13,7 @@ public class Scuola {
 	public double budget;
 	public Studente[] studenti;
 	public Docente[] docenti;
+	public PnD[] pnd;
 	public String[] aule;
 	
 	// COSTRUTTORE ----------------------------------------------------------------------------------------------------------
@@ -77,7 +79,36 @@ public class Scuola {
 		
 		dati.close();
 		
-		budget = 100000;
+		dati = new Scanner(new File("src/res/datiPnD.txt"));
+		int npnd = Integer.parseInt(dati.nextLine());
+		
+		pnd = new PnD[npnd];
+		posizione = 0;
+		int contPnD = 0;
+		
+		while(dati.hasNextLine()) {
+			String[] riga = dati.nextLine().split(",");
+			PnD p = new PnD();
+			contPnD++;
+			p.nome = riga[0];
+			p.cognome = riga[1];
+			p.datanascita = riga[2];
+			p.ruolo = riga[3];
+			p.anniesperienza = Integer.parseInt(riga[4]);
+			p.stipendiobase = Double.parseDouble(riga[5]);
+			pnd[posizione] = p;
+			posizione++;
+			if(posizione == pnd.length)
+				break;
+		}
+		
+		if(contPnD!=pnd.length) {
+			System.out.println("Attenzione! Riscontriamo discrepanze nei dati!");
+		}
+		
+		dati.close();
+		
+		budget = 250000;		// Aumento Budget
 	}
 	
 	// METODI ---------------------------------------------------------------------------------------------------------------
@@ -180,24 +211,43 @@ public class Scuola {
 	public int numDocenti() {
 		return docenti.length;
 	}
+	/**
+	 * @return
+	 * Ritorna il numero di docenti presenti nella scuola
+	 */
+	public int numPnD() {
+		return pnd.length;
+	}
 	
 	/**
 	 * @return
 	 * Ritorna il numero di totale di persone presenti nella scuola
 	 */
 	public int numTotale() {
-		return numStudenti() + numDocenti();
+		return numStudenti() + numDocenti() + numPnD();
 	}
 	
 	/**
 	 * @return
-	 * Ritorna la somma di tutti gli sptipendi dei docenti
+	 * Ritorna la somma di tutti gli sptipendi mensili dei docenti
 	 */
-	public double sommaStipendi() {
+	public double sommaStipendiDocenti() {
 		double sommaD = 0;
 		for(int i = 0; i < docenti.length; i++)
 			if(docenti[i]!= null)
 				sommaD += docenti[i].stipendio();
+		return sommaD;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna la somma di tutti gli sptipendi mensili del personale non docente
+	 */
+	public double sommaStipendiPnD() {
+		double sommaD = 0;
+		for(int i = 0; i < pnd.length; i++)
+			if(pnd[i]!= null)
+				sommaD += pnd[i].stipendio();
 		return sommaD;
 	}
 
@@ -205,12 +255,28 @@ public class Scuola {
 	 * @return
 	 * Ritorna la media degli stipendi di tutti i professori della scuola
 	 */
-	public double mediaStipendi() {
+	public double mediaStipendiDocenti() {
 		double risposta = 0;
 		int cont = 0;
 		for(int i = 0; i < docenti.length; i++) 
 			if(docenti[i] != null) {
 				risposta += docenti[i].stipendio();
+				cont++;
+			}
+		risposta /= cont;
+		return risposta;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna la media degli stipendi di tutto il personale non docente della scuola
+	 */
+	public double mediaStipendiPnD() {
+		double risposta = 0;
+		int cont = 0;
+		for(int i = 0; i < pnd.length; i++) 
+			if(pnd[i] != null) {
+				risposta += pnd[i].stipendio();
 				cont++;
 			}
 		risposta /= cont;
@@ -232,7 +298,20 @@ public class Scuola {
 	
 	/**
 	 * @return
-	 * Ritorna il nome eil cognome dei docenti e del numero di materie per ognuno di loro
+	 * Ritorna l'elenco delle anagrafiche di tutto il personale non docente della scuola
+	 */
+	public String stampaPnD() {
+		String risposta = "";
+		for(int i = 0; i < pnd.length; i++)
+			if(pnd[i] != null)
+				risposta += pnd[i].toString() + "\n" + 
+						"-------------------------------------------------" + "\n";
+		return risposta;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna il nome e il cognome dei docenti e del numero di materie per ognuno di loro
 	 */
 	public String materiePerDocente() {
 		String risposta = "";
@@ -240,6 +319,20 @@ public class Scuola {
 			if(docenti[i] != null) {
 				risposta += docenti[i].nome + " " +
 							docenti[i].cognome + ": " + docenti[i].nMaterie() + "\n";
+			}
+		return risposta;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna il nome e il cognome del personale non docente e il ruolo per ognuno di loro
+	 */
+	public String ruoloPerPnD() {
+		String risposta = "";
+		for(int i = 0; i < pnd.length; i++)
+			if(pnd[i] != null) {
+				risposta += pnd[i].nome + " " +
+							pnd[i].cognome + ": " + pnd[i].ruolo + "\n";
 			}
 		return risposta;
 	}
@@ -259,6 +352,20 @@ public class Scuola {
 	}
 	
 	/**
+	 * @return
+	 * Ritorna il nome e il cognome di tutti i dirigenti
+	 */
+	public String dirigenza() {
+		String risposta = "";
+		for(int i = 0; i < pnd.length; i++)
+			if(pnd[i] != null)
+				if(pnd[i].ruolo.contains("direzione"))
+				risposta += pnd[i].nome + " " +
+							pnd[i].cognome + "\n" ;
+		return risposta;		
+	}
+	
+	/**
 	 *  @return
 	 *  Ritorna quanto rimane del budget della scuola ogni anno al netto delle spese
 	 */
@@ -270,6 +377,9 @@ public class Scuola {
 		for(int i = 0; i < studenti.length; i++)
 			if(studenti[i] != null)
 				risposta += studenti[i].erasmusCosto();
+		for(int i = 0; i < pnd.length; i++)
+			if(pnd[i] != null)
+				risposta += pnd[i].stipendioAnnuo();
 		
 		return budget - risposta;		
 	}
