@@ -8,25 +8,26 @@
    
     +----------------------------------------------------------+
     |  Inserisci:                                              |
-    | 0  -> per uscire                                         |
-    | 1  -> per vedere la media dei voti di tutti gli studenti |
-    | 2  -> per sapere il nome degli studenti promossi         |
-    | 3  -> per sapere il nome degli studenti bocciati         |
-    | 4  -> per sapere chi va in erasmus                       |
-    | 5  -> per vedere l'anagrafica di ciascun studente        |
-    | 6  -> per sapere il numero degli studenti                |
-    | 7  -> per sapere il numero dei docenti                   |
-    | 8  -> totale degli stipendi dei docenti                  |
-    | 9  -> media degli stipendi dei docenti                   |
-    | 10 -> per vedere l'anagrafica di ciascun docente         |
-    | 11 -> per sapere il totale persone che presenti a scuola |
-    | 12 -> per conoscere il numero di materie per insegnante  |
-    | 13 -> visualizza i nomi degli insegnanti di informatica  |
-    | 14 -> visualizza il guadagno annuo della scuola          |
-    | 15 -> scopri se la scuola è ricca oppure no              |
-    | 16 -> visualizza la percentuale di studenti nella scuola |
-    | 17 -> visualizza i costi dei vari erasmus                |
-    | 18 -> visualizza la percentuale di sudenti promossi      |
-    | 19 -> visualizza il personale non docente e il suo ruolo |
-    | 20 -> visualizza il direttivo della scuola               |	
+    | 0  -> Per uscire                                         |
+    | 1  -> Per vedere la media dei voti di tutti gli studenti |
+    | 2  -> Per sapere il nome degli studenti promossi         |
+    | 3  -> Per sapere il nome degli studenti bocciati         |
+    | 4  -> Per sapere chi va in erasmus                       |
+    | 5  -> Per vedere l'anagrafica di ciascun studente        |
+    | 6  -> Per sapere il numero degli studenti                |
+    | 7  -> Per sapere il numero dei docenti                   |
+    | 8  -> Totale degli stipendi dei docenti                  |
+    | 9  -> Media degli stipendi dei docenti                   |
+    | 10 -> Per vedere l'anagrafica di ciascun docente         |
+    | 11 -> Per sapere il totale persone che presenti a scuola |
+    | 12 -> Per conoscere il numero di materie per insegnante  |
+    | 13 -> Visualizza i nomi degli insegnanti di informatica  |
+    | 14 -> Visualizza il guadagno annuo della scuola          |
+    | 15 -> Scopri se la scuola è ricca oppure no              |
+    | 16 -> Visualizza la percentuale di studenti nella scuola |
+    | 17 -> Visualizza i costi dei vari erasmus                |
+    | 18 -> Visualizza la percentuale di sudenti promossi      |
+    | 19 -> Visualizza il personale non docente e il suo ruolo |
+    | 20 -> Visualizza il direttivo della scuola               |
+    | 21 -> Per sapere il numero del personale non docente     |	
     +----------------------------------------------------------+    

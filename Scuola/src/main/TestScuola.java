@@ -91,12 +91,15 @@ public class TestScuola {
 				case 20:
 					risposta = "Personale dirigente:\n" + school.dirigenza() + "\n";
 				break;
+				case 21:
+					risposta = "Numero totale di personale non docente:\n" + school.numPnD() + "\n";
+				break;
 				default:
 					risposta = "Hai inserito un comando non riconosciuto!";
 				break;
 			
 				
-			}
+			} 
 			System.out.println(risposta);
 		} while (comando != 0);
 		
