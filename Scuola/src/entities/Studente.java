@@ -99,13 +99,9 @@ public class Studente {
 	}
 	
 	public static boolean isGenereValido (String genere) {
-		if(genere.isEmpty())
-			return false;
 		switch (genere.toUpperCase()) {
 			case "M":
-				return true;
 			case "F":
-				return true;
 			case "N":
 				return true;
 			default:

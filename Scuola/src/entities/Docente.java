@@ -25,10 +25,7 @@ public class Docente {
 		if(stip.isEmpty())
 			return false;
 		double s = Double.parseDouble(stip);
-		if(s<200||s>10000)
-			return false;
-		else
-			return true;
+		return !(s<200||s>10000);
 	}
 
 
@@ -36,10 +33,7 @@ public class Docente {
 		if(anni.isEmpty())
 			return false;
 		int a = Integer.parseInt(anni);
-		if(a<0||a>60)
-			return false;
-		else
-			return true;
+		return !(a<0||a>60);
 	}
 	
 	
@@ -83,7 +77,9 @@ public class Docente {
 				else
 					return false;
 			return true;
-		} else return false;
+		} 
+		else 
+			return false;
 	}
 	
 	public static boolean isAnnoGiusto (int anno) {
