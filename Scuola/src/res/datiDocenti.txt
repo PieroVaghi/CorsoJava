@@ -1,5 +1,5 @@
 4
 Giovanni,Blu,1978-01-02,italiano-matematica,30,1300
 Antonio,Giallo,1987-11-12,informatica,10,1150
-Ludovico,Viola,1992-06-23,ed.fisica-ed.civica,4,1100
-Barbara,Barbareschi,1985-12-01,elettrotecnica-elettronica-fondamenti di automazioni-informatica,9,1250
+Ludovico,Viola,1992-06-23,inglese,4,1100
+Barbara,Barbareschi,1985-12-01,matematica-informatica,9,1250

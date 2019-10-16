@@ -45,7 +45,7 @@ public class Scuola {
 		}
 		
 		if(contStu!=studenti.length) {
-			System.out.println("Attenzione! Riscontriamo discrepanze nei dati!");
+			System.out.println("Attenzione! Riscontriamo discrepanze negli studenti!");
 		}
 		
 		dati.close();
@@ -76,7 +76,7 @@ public class Scuola {
 		}
 		
 		if(contDoc!=docenti.length) {
-			System.out.println("Attenzione! Riscontriamo discrepanze nei dati!");
+			System.out.println("Attenzione! Riscontriamo discrepanze nei docenti!");
 		}
 		
 		dati.close();
@@ -107,7 +107,7 @@ public class Scuola {
 		}
 		
 		if(contPnD!=pnd.length) {
-			System.out.println("Attenzione! Riscontriamo discrepanze nei dati!");
+			System.out.println("Attenzione! Riscontriamo discrepanze nei PnD!");
 		}
 		
 		dati.close();
