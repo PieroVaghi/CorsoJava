@@ -8,7 +8,10 @@ public class Laptop {
 	public static boolean isValido(String[] riga) {
 		return 	isCpu(riga[2]) 								&&
 				isMMA(riga[3], Integer.parseInt(riga[4])) 	&&
-				isRAM(riga[5], Integer.parseInt(riga[6]));
+				isRAM(riga[5], Integer.parseInt(riga[6]))	&&
+				isBatteria(Integer.parseInt(riga[7]))		&&
+				isPeso(Integer.parseInt(riga[8]))			&&
+				isPollici(Integer.parseInt(riga[9]))		;
 	}
 	
 	public static boolean isCpu(String modello) {
@@ -35,6 +38,19 @@ public class Laptop {
 				modello.equalsIgnoreCase("ddr5")) 
 				&& (val >= 2 && val <= 128);
 	}
+	
+	public static boolean isBatteria(int val) {
+		return 	(val >= 0 && val <= 24);
+	}
+	
+	public static boolean isPollici(int val) {
+		return 	(val >= 10 && val <= 31);
+	}
+	
+	public static boolean isPeso(int val) {
+		return 	(val >= 900 && val <= 7000);
+	}
+	
 	
 	/**
 	 * @return
