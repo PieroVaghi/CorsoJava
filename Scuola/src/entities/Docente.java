@@ -25,7 +25,7 @@ public class Docente {
 		if(stip.isEmpty())
 			return false;
 		double s = Double.parseDouble(stip);
-		return !(s<200||s>10000);
+		return !(s<20||s>3000);
 	}
 
 
@@ -33,7 +33,7 @@ public class Docente {
 		if(anni.isEmpty())
 			return false;
 		int a = Integer.parseInt(anni);
-		return !(a<0||a>60);
+		return !(a<0||a>50);
 	}
 	
 	
@@ -49,6 +49,8 @@ public class Docente {
 				case "inglese":
 				case "informatica":
 				case "matematica":
+				case "geografia":
+				case "storia":
 					break;
 				default: 
 					return false;
@@ -72,10 +74,7 @@ public class Docente {
 	public static boolean isBisestile (int anno) {
 		if(anno%4 == 0) {
 			if(anno%100 == 0) 
-				if(anno%400 == 0)
-					return true;
-				else
-					return false;
+				return(anno%400 == 0) ? true : false;
 			return true;
 		} 
 		else 
@@ -120,6 +119,7 @@ public class Docente {
 	}
 	
 	public static boolean isDataNascitaValida (String data) {
+		// YYYY-MM-DD
 		data = data.toLowerCase();
 		String[] lettere = "abcdefghijklmnopqrstuvwxyz,.;:_<>щати+з°§*й@#щ][{}м'|!Ј$%&/()=?^".split("");
 		for(int i = 0; i < lettere.length; i++)

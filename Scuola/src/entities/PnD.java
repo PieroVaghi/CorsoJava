@@ -2,6 +2,7 @@ package entities;
 
 import java.time.Year;
 
+
 public class PnD {
 	public String nome;
 	public String cognome;
@@ -44,12 +45,10 @@ public class PnD {
 	
 
 
-	private static boolean isRuoloValido(String materie) {
-		if(materie.isEmpty())
+	private static boolean isRuoloValido(String ruolo) {
+		if(ruolo.isEmpty())
 			return false;
-		String[] vRuolo = materie.split("-");
-		for(int i=0; i<vRuolo.length; i++)
-			switch (vRuolo[i].toLowerCase()) {
+			switch (ruolo.toLowerCase()) {
 				case "segreteria":
 				case "tecnicolab":
 				case "bidelleria":
