@@ -92,7 +92,44 @@ public class TestScuola {
 					risposta = "Personale dirigente:\n" + school.dirigenza() + "\n";
 				break;
 				case 21:
-					risposta = "Numero totale di personale non docente:" + school.numPnD() + "\n";
+					risposta = "Numero totale di personale non docente: " + school.numPnD() + "\n";
+				break;
+				case 22:
+					risposta = "La media dei voti di inglese è: " + school.mediainglese() + "\n";
+				break;
+				case 23:
+					risposta = "Il voto più alto di tutta la scuola è: " + school.votopiualto() + "\n";
+				break;
+				case 24:
+					risposta = "Il voto più basso di tutta la scuola è: " + school.votopiubasso() + "\n";
+				break;
+				case 25:
+					risposta = "Lo studente col voto più alto di tutta la scuola è: " + school.dichieilvotopiualto() + "\n";
+				break;
+				case 26:
+					risposta = "Lo studente col voto più basso di tutta la scuola è: " + school.dichieilvotopiubasso() + "\n";
+				break;
+				case 27:
+					risposta = "La media degli stipendi degli impiegati è pari a: " + school.mediastipendiimpiegati() + "\n";
+				break;
+				case 28:
+					risposta = "La media degli stipendi del personale non docente è: " + school.mediaStipendiPnD() + "\n";
+				break;
+				case 29:
+					risposta = "Lo stipendio più alto di tutta la scuola è:" + school.stipendiopiualto() + "\n";
+				break;
+				case 30:
+					risposta = "Lo stipendio più basso di tutta la scuola è:" + school.stipendiopiubasso() + "\n";
+				break;
+				case 31:
+					System.out.println("Inserisci il ruolo che vuoi ricercare:");
+					String ruolo = tastiera.nextLine();
+					risposta = "La media degli stipendi del personale " + ruolo + " è: " + school.mediastipendiperruolo(ruolo) + "\n";
+				break;
+				case 32:
+					System.out.println("Inserisci il ruolo che vuoi ricercare:");
+					ruolo = tastiera.nextLine();
+					risposta = "Il personale " + ruolo + " è: " + school.ricerca(ruolo) + "\n";
 				break;
 				default:
 					risposta = "Hai inserito un comando non riconosciuto!";

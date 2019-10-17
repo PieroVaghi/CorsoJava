@@ -435,5 +435,204 @@ public class Scuola {
 		return "Erasmus in Australia da diitto ad una borsa di studio di 500€\nErasmus a Vancuver da diitto ad una borsa di studio di 300€";
 	}
 	
+	/**
+	 * @return
+	 * Media dei voti di inglese di tutti gli studenti
+	 */
+	public double mediainglese() {
+		double risposta = 0;
+		int i = 0;
+		for(i = 0; i < studenti.length; i++)
+				risposta += studenti[i].mediaing;
+		return risposta/i;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna il voto più alto in ita presente
+	 */
+	public String votoITApiualto() {
+		String risposta = "";
+		double max = Double.MIN_VALUE;
+		for(int i = 0; i < studenti.length; i++)
+			if(studenti[i].mediaita > max) {
+				max = studenti[i].mediaita;
+				risposta = studenti[i].nome;
+			}
+		return risposta+="," + max;
+	}
+		
+	/**
+	 * @return
+	 * Ritorna il voto più alto in inglese presente
+	 */
+	public String votoINGpiualto() {
+		String risposta = "";
+		double max = Double.MIN_VALUE;
+		for(int i = 0; i < studenti.length; i++)
+			if(studenti[i].mediaing > max) {
+				max = studenti[i].mediaing;
+				risposta = studenti[i].nome;
+			}
+		return risposta+="," + max;
+	}
+		
+	/**
+	 * @return
+	 * Ritorna il voto più alto in informatica presente
+	 */
+	public String votoINFpiualto() {
+		String risposta = "";
+		double max = Double.MIN_VALUE;
+		for(int i = 0; i < studenti.length; i++)
+			if(studenti[i].mediainf > max) {
+				max = studenti[i].mediainf;
+				risposta = studenti[i].nome;
+			}
+		return risposta+="," + max;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna il voto più alto in mat presente
+	 */
+	public String votoMATpiualto() {
+		String risposta = "";
+		double max = Double.MIN_VALUE;
+		for(int i = 0; i < studenti.length; i++)
+			if(studenti[i].mediamat > max) {
+				max = studenti[i].mediamat;
+				risposta = studenti[i].nome;
+			}
+		return risposta+="," + max;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna il voto più alto in assoluto presente
+	 */
+	public double votopiualto() {
+		double max = Double.MIN_VALUE;
+		for(int i=0; i<studenti.length; i++)
+			if(max < studenti[i].votoPiuAlto())
+				max = studenti[i].votoPiuAlto();
+		return max;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna il nome dello studente con il voto più alto in assoluto presente
+	 */
+	public String dichieilvotopiualto() {
+		String risposta = "";
+		double max = Double.MIN_VALUE;
+		for(int i=0; i<studenti.length; i++)
+			if(max < studenti[i].votoPiuAlto())
+				risposta = studenti[i].nome;
+		return risposta;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna il voto più basso in assoluto presente
+	 */
+	public double votopiubasso() {
+		double min = Double.MAX_VALUE;
+		for(int i=0; i<studenti.length; i++)
+			if(min > studenti[i].votoPiuBasso())
+				min = studenti[i].votoPiuBasso();
+		return min;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna il nome dello studente con il voto più alto in assoluto presente
+	 */
+	public String dichieilvotopiubasso() {
+		String risposta = "";
+		double min = Double.MAX_VALUE;
+		for(int i=0; i<studenti.length; i++)
+			if(min > studenti[i].votoPiuBasso()) {
+				min = studenti[i].votoPiuBasso();
+				risposta += studenti[i].nome;
+			}
+		return risposta;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna lo stipendio più alto in assoluto presente
+	 */
+	public double stipendiopiualto() {
+		double max = Double.MIN_VALUE;
+		for(int i=0; i<docenti.length; i++)
+			if(max < docenti[i].stipendio())
+				max = docenti[i].stipendio();
+		for(int i=0; i<pnd.length; i++)
+			if(max < pnd[i].stipendio())
+				max = pnd[i].stipendio();
+		return max;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna lo stipendio più basso in assoluto presente
+	 */
+	public double stipendiopiubasso() {
+		double min = Double.MAX_VALUE;
+		for(int i=0; i<docenti.length; i++)
+			if(min > docenti[i].stipendio())
+				min = docenti[i].stipendio();
+		for(int i=0; i<pnd.length; i++)
+			if(min > pnd[i].stipendio())
+				min = pnd[i].stipendio();
+		return min;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna la media degli stipendi del ruolo passato come parametro
+	 */
+	public double mediastipendiperruolo(String ruolo) {
+		double risposta = 0;
+		int cont = 0;
+		for(int i=0; i<pnd.length; i++)
+			if(pnd[i].ruolo.equalsIgnoreCase(ruolo)) {
+				cont ++;
+				risposta += pnd[i].stipendio();
+			}
+		return risposta/cont;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna il nome del personale che ricopre in indicato ruolo
+	 */
+	public String ricerca(String ruolo) {
+		String risposta = "";
+		for(int i=0; i<pnd.length; i++)
+			if(pnd[i].ruolo.equalsIgnoreCase(ruolo)) 
+				risposta += pnd[i].nome + " " + pnd[i].cognome + "\n";
+		return risposta;
+	}
+	
+	/**
+	 * @return
+	 * Ritorna la media degli stipendi degli impiegati della scuola
+	 */
+	public double mediastipendiimpiegati() {
+		double media = 0;
+		int cont = 0;
+		for(int i=0; i<docenti.length; i++) {
+			cont++;
+			media += docenti[i].stipendio();
+		}
+		for(int i=0; i<pnd.length; i++){
+			cont++;
+			media += pnd[i].stipendio();
+		}
+		return media/cont;
+	}
+	
 	
 }

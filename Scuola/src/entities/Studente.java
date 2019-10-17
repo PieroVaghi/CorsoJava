@@ -216,7 +216,37 @@ public class Studente {
 			return 500;
 		default:
 			return 0;
+		}
 	}
+	
+	/**
+	 *  @return
+	 *  Ritorna il voto più alto tra le medie
+	 */
+	public double votoPiuAlto() {
+		double max = mediaita;
+		if(max < mediaing)
+			max = mediaing;
+		if(max < mediainf)
+			max = mediainf;
+		if(max < mediamat)
+			max = mediamat;
+		return max;
+	}
+	
+	/**
+	 *  @return
+	 *  Ritorna il voto più basso tra le medie
+	 */
+	public double votoPiuBasso() {
+		double min = mediaita;
+		if(min > mediaing)
+			min = mediaing;
+		if(min > mediainf)
+			min = mediainf;
+		if(min > mediamat)
+			min = mediamat;
+		return min;
 	}
 	
 	/**
