@@ -6,9 +6,9 @@ public class Pc {
 	public int mma, ram;
 	
 	public static boolean isValido(String[] riga) {
-		return 	isCpu(riga[0]) 								&&
-				isMMA(riga[1], Integer.parseInt(riga[2])) 	&&
-				isRAM(riga[3], Integer.parseInt(riga[4]));
+		return 	isCpu(riga[2]) 								&&
+				isMMA(riga[3], Integer.parseInt(riga[4])) 	&&
+				isRAM(riga[5], Integer.parseInt(riga[6]));
 	}
 	
 	public static boolean isCpu(String modello) {
