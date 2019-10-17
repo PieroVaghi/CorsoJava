@@ -1,0 +1,18 @@
+       __       ___      ____    ____      ___              _______. __    __    ______   .______   
+      |  |     /   \     \   \  /   /     /   \            /       ||  |  |  |  /  __  \  |   _  \  
+      |  |    /  ^  \     \   \/   /     /  ^  \          |   (----`|  |__|  | |  |  |  | |  |_)  | 
+.--.  |  |   /  /_\  \     \      /     /  /_\  \          \   \    |   __   | |  |  |  | |   ___/  
+|  `--'  |  /  _____  \     \    /     /  _____  \     .----)   |   |  |  |  | |  `--'  | |  |      
+ \______/  /__/     \__\     \__/     /__/     \__\    |_______/    |__|  |__|  \______/  | _|      
+ 
+ 
+                 +-----------------------------------------------------+
+                 |   Inserisci:                                        |
+                 | 0 -> Per uscire                                     |
+                 | 1 -> Per visualizzare il guadagno del negozio       |
+                 | 2 -> Per vedere il costo totale di tutti i laptop   |
+                 | 3 -> Per vedere il costo totale di tutti i pc       |
+                 | 4 -> Per sapere il prezzo del pc più costoso        |
+                 | 5 -> Per sapere il prezzo del pc meno costoso       |
+                 | 6 -> Ricerca PC per CPU                             |
+                 +-----------------------------------------------------+                                                

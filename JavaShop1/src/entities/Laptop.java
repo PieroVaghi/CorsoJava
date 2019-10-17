@@ -3,15 +3,16 @@ package entities;
 public class Laptop {
 	
 	public String modello, cpu, tipomma, tiporam;
-	public int mma, ram, orebatteria, peso, pollici;
+	public int mma, ram;
+	public double orebatteria, peso, pollici;
 	
 	public static boolean isValido(String[] riga) {
 		return 	isCpu(riga[2]) 								&&
 				isMMA(riga[3], Integer.parseInt(riga[4])) 	&&
 				isRAM(riga[5], Integer.parseInt(riga[6]))	&&
-				isBatteria(Integer.parseInt(riga[7]))		&&
-				isPeso(Integer.parseInt(riga[8]))			&&
-				isPollici(Integer.parseInt(riga[9]))		;
+				isBatteria(Double.parseDouble(riga[7]))		&&
+				isPeso(Double.parseDouble(riga[8]))			&&
+				isPollici(Double.parseDouble(riga[9]))		;
 	}
 	
 	public static boolean isCpu(String modello) {
@@ -39,15 +40,15 @@ public class Laptop {
 				&& (val >= 2 && val <= 128);
 	}
 	
-	public static boolean isBatteria(int val) {
+	public static boolean isBatteria(double val) {
 		return 	(val >= 0 && val <= 24);
 	}
 	
-	public static boolean isPollici(int val) {
+	public static boolean isPollici(double val) {
 		return 	(val >= 10 && val <= 31);
 	}
 	
-	public static boolean isPeso(int val) {
+	public static boolean isPeso(double val) {
 		return 	(val >= 900 && val <= 7000);
 	}
 	
