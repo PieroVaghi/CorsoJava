@@ -59,7 +59,7 @@ public class Laptop {
 	 */
 	public double costo() {
 		double costo = costocpu() + costoram() + costomma();
-		return (peso >= 5000) ? costo * 1.05 : costo;
+		return (peso >= 5000) ? costo * 0.95 : costo;
 	}
 	
 	/**
