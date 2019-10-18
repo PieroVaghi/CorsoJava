@@ -21,7 +21,7 @@ public class Pc {
 	public Pc(String modello, String cpu, String tipomma, int mma, String tiporam, int ram) {
 		this.modello = modello;
 		this.cpu = cpu;
-		this.tipomma = tipomma;
+		this.tipomma = tipomma;		//this.tipomma = tipomma.toUpperCase(); costringo già il costruttore a salvarmi il dato maiuscolo
 		this.mma = mma;
 		this.tiporam = tiporam;
 		this.ram = ram;
@@ -147,6 +147,7 @@ public class Pc {
 				"\nCosto finale: "			+ costo() 		+
 				(isGaming() ? "\nE' un computer da Gaming SUPER HIGHT-TECH MEGA WOW!!!" : isOffice() ? "\nE' un buon computer da ufficio!" : "\nNon è un computer con cui si può giocare o lavorare.. Regalalo a tua zia!");
 	}
+	
 	
 	
 
