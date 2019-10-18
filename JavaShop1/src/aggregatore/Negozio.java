@@ -28,9 +28,7 @@ public class Negozio {
 			String[] riga = dati.nextLine().split(",");
 			if(riga[0].equalsIgnoreCase("PC")) {
 				if(Pc.isValido(riga)) {
-					Pc p = new Pc(	riga[1],
-									riga[2],
-									riga[3],
+					Pc p = new Pc(	riga[1], riga[2], riga[3],
 									Integer.parseInt(riga[4]),
 									riga[5],
 									Integer.parseInt(riga[6]));
@@ -42,9 +40,7 @@ public class Negozio {
 				if(riga[0].equalsIgnoreCase("LAPTOP")) {
 
 						if(Laptop.isValido(riga)) {
-							Laptop l = new Laptop(	riga[1],
-													riga[2],
-													riga[3],
+							Laptop l = new Laptop(	riga[1], riga[2], riga[3],
 													Integer.parseInt(riga[4]),
 													riga[5],
 													Integer.parseInt(riga[6]),
@@ -58,6 +54,7 @@ public class Negozio {
 			}
 		}
 		
+		dati.close();
 		budget = 20000;
 	}
 	

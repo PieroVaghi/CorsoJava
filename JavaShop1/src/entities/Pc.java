@@ -3,9 +3,16 @@ package entities;
 public class Pc {
 	
 
-
 	public String modello, cpu, tipomma, tiporam;
 	public int mma, ram;
+	
+	public static String CPUValide = "i3,i5,i7,i9";
+	public static String RAMValide = "ddr3,ddr4,ddr5";
+	public static String MMAValide = "ssd,hdd";
+	public static int RAMMin = 2;
+	public static int RAMMax = 64;
+	public static int MMAMin = 32;
+	public static int MMAMax = 16000;
 	
 	public Pc() {
 		
@@ -21,34 +28,25 @@ public class Pc {
 	}
 	
 	public static boolean isValido(String[] riga) {
-		return 	isCpu(riga[2]) 								&&
-				isMMA(riga[3], Integer.parseInt(riga[4])) 	&&
-				isRAM(riga[5], Integer.parseInt(riga[6]));
+		return 	isCpu(riga[2]) 				&&
+				isMMA(riga[3], (riga[4])) 	&&
+				isRAM(riga[5], (riga[6]));
 	}
 	
-	public static boolean isCpu(String modello) {
-		switch (modello.toLowerCase()) {
-			case "i3":
-			case "i5":
-			case "i7":
-			case "i9":
-				return true;
-			default: 
-				return false;			
-		}
+	public static boolean isCpu(String modello) {		//Non ancora perfetto.. ",i5" considerato come valore valido
+		return CPUValide.indexOf(modello.toLowerCase()) >= 0;
 	}
 	
-	public static boolean isMMA(String modello, int val) {
-		return 	(modello.equalsIgnoreCase("hdd") ||
-				modello.equalsIgnoreCase("ssd")) 
-				&& (val >= 32 && val <= 16000);
+	public static boolean isMMA(String modello, String val) {
+		int mma = Integer.parseInt(val);
+		return 	MMAValide.indexOf(modello.toLowerCase()) >= 0  
+				&& (mma >= MMAMin && mma <= MMAMax);
 	}
 	
-	public static boolean isRAM(String modello, int val) {
-		return 	(modello.equalsIgnoreCase("ddr3") ||
-				modello.equalsIgnoreCase("ddr4") ||
-				modello.equalsIgnoreCase("ddr5")) 
-				&& (val >= 2 && val <= 128);
+	public static boolean isRAM(String modello, String val) {
+		int ram = Integer.parseInt(val);
+		return 	RAMValide.indexOf(modello.toLowerCase()) >= 0 
+				&& ram >= RAMMin && ram <= RAMMax;
 	}
 	
 	/**
