@@ -6,6 +6,23 @@ public class Laptop {
 	public int mma, ram;
 	public double orebatteria, peso, pollici;
 	
+	public Laptop() {
+		
+	}
+	
+	public Laptop(String modello, String cpu, String tipomma, int mma, String tiporam, int ram, double orebatteria,
+			double peso, double pollici) {
+		this.modello = modello;
+		this.cpu = cpu;
+		this.tipomma = tipomma;
+		this.mma = mma;
+		this.tiporam = tiporam;
+		this.ram = ram;
+		this.orebatteria = orebatteria;
+		this.peso = peso;
+		this.pollici = pollici;
+	}
+
 	public static boolean isValido(String[] riga) {
 		return 	isCpu(riga[2]) 								&&
 				isMMA(riga[3], Integer.parseInt(riga[4])) 	&&

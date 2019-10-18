@@ -28,13 +28,12 @@ public class Negozio {
 			String[] riga = dati.nextLine().split(",");
 			if(riga[0].equalsIgnoreCase("PC")) {
 				if(Pc.isValido(riga)) {
-					Pc p = new Pc();
-					p.modello = riga[1];
-					p.cpu = riga[2];
-					p.tipomma = riga[3];
-					p.mma = Integer.parseInt(riga[4]);
-					p.tiporam = riga[5];
-					p.ram = Integer.parseInt(riga[6]); 
+					Pc p = new Pc(	riga[1],
+									riga[2],
+									riga[3],
+									Integer.parseInt(riga[4]),
+									riga[5],
+									Integer.parseInt(riga[6]));
 					pcs[posizionePc] = p;
 				}
 				posizionePc++;
@@ -43,16 +42,15 @@ public class Negozio {
 				if(riga[0].equalsIgnoreCase("LAPTOP")) {
 
 						if(Laptop.isValido(riga)) {
-							Laptop l = new Laptop();
-							l.modello = riga[1];
-							l.cpu = riga[2];
-							l.tipomma = riga[3];
-							l.mma = Integer.parseInt(riga[4]);
-							l.tiporam = riga[5];
-							l.ram = Integer.parseInt(riga[6]); 
-							l.orebatteria = Double.parseDouble(riga[7]);
-							l.peso = Double.parseDouble(riga[8]);
-							l.pollici = Double.parseDouble(riga[9]);
+							Laptop l = new Laptop(	riga[1],
+													riga[2],
+													riga[3],
+													Integer.parseInt(riga[4]),
+													riga[5],
+													Integer.parseInt(riga[6]),
+													Double.parseDouble(riga[7]),
+													Double.parseDouble(riga[8]),
+													Double.parseDouble(riga[9]));
 							laptops[posizioneLa] = l;
 						}
 						posizioneLa++;

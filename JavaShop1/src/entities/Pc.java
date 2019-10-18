@@ -2,8 +2,23 @@ package entities;
 
 public class Pc {
 	
+
+
 	public String modello, cpu, tipomma, tiporam;
 	public int mma, ram;
+	
+	public Pc() {
+		
+	}
+	
+	public Pc(String modello, String cpu, String tipomma, int mma, String tiporam, int ram) {
+		this.modello = modello;
+		this.cpu = cpu;
+		this.tipomma = tipomma;
+		this.mma = mma;
+		this.tiporam = tiporam;
+		this.ram = ram;
+	}
 	
 	public static boolean isValido(String[] riga) {
 		return 	isCpu(riga[2]) 								&&
