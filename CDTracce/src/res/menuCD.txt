@@ -1,0 +1,22 @@
+                    ______  _______  
+                   /      ||       \ 
+                  |  ,----'|  .--.  |
+                  |  |     |  |  |  |
+                  |  `----.|  '--'  |
+                   \______||_______/ 
++---------------------------------------------------+ 
+|                                                   |
+|   Inserisci:                                      |
+| 0  per uscire                                     |
+| 1  per i titoli delle tracce                      |
+| 2  per il numero di artisti presenti in questo cd |
+| 3  per ricerca canzoni per artista                |
+| 4  per quanto canta un artista a scelta           |
+| 5  per la durata media delle canzoni              |
+| 6  per la durata totale del cd                    |
+| 7  per la durata più breve                        |
+| 8  per il titolo della canzone più breve          |
+| 9  trovo canzone per quando ho fretta             |
+| 10 Stampa tutto e scappa!!!!                      |
+|                                                   |
++---------------------------------------------------+

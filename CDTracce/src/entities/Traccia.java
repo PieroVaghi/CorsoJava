@@ -1,13 +1,12 @@
 package entities;
 
-import java.util.Arrays;
 
 public class Traccia {
 	// id, titolo, String[] artisti, minuti
 	public int id;
-	public String titolo;
-	public double minuti;
-	public String[] artisti;
+	String titolo;
+	double minuti;
+	String[] artisti;
 	
 	public Traccia() {}
 	
@@ -22,14 +21,29 @@ public class Traccia {
 		return artisti.length;
 	}
 	
+	public String stampaArtisti() {
+		String risposta = "";
+		for(String s : artisti)
+			risposta += s + " & ";
+		return risposta.substring(0,risposta.length()-3);
+	}
+	
 	public String[] getArtisti() {
 		return artisti;
+	}
+	
+	public String getTitolo() {
+		return titolo;
+	}
+	
+	public double getMinuti() {
+		return minuti;
 	}
 
 	@Override
 	public String toString() {
-		return "Traccia [id=" + id + ", titolo=" + titolo + ", minuti=" + minuti + ", artisti="
-				+ Arrays.toString(artisti) + "]";
+		return "Traccia:\nId=" + id + "\nTitolo=" + titolo + "\nMinuti=" + minuti + "\nArtisti=\n"
+				+ stampaArtisti();
 	}
 
 }
