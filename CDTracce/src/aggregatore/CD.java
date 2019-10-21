@@ -1,5 +1,9 @@
 package aggregatore;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import entities.Traccia;
 
 public class CD {
@@ -10,8 +14,33 @@ public class CD {
 	
 	public CD() {}
 	
-	public CD (String riga) {
-		//titolo,etichetta,datapubbyyyy-mm-gg,costo,4,1-"Elicrisio"-"Folkstone"-5;2-"JingleBels"-"Folkstone"-3;1-"Caramelle"-"TonyEffe,Wayne,Pyrex"-3.4;4-"You make me wanna"-"Blue,BackstreetBoys"-4.2
+	public CD (String percorso) throws Exception {
+		Scanner dati = new Scanner(new File(percorso));
+		String titolo = dati.nextLine();
+		String etichetta = dati.nextLine();
+		String data = dati.nextLine();
+		double costo = Double.parseDouble(dati.nextLine());
+		int ntracce = Integer.parseInt(dati.nextLine());
+		String tracces = dati.nextLine();
+		
+		this.titolo = titolo;
+		this.etichetta = etichetta;
+		this.datapublicazione = data;
+		this.costo = costo;
+		//id-titolo-artisti,separati,da,virgola-minuti;id-titolo-artisti,separati,da,virgola-minuti;id-titolo-artisti,separati,da,virgola-minuti;
+		String[] tracceSplittate = tracces.split(";");
+		tracce = new Traccia[ntracce];
+		for(int i = 0; i<tracceSplittate.length && i<tracce.length; i++) {
+			//id-titolo-artisti,separati,da,virgola-minuti
+			String[] traccia = tracceSplittate[i].split("-");
+			Traccia t = new Traccia(	Integer.parseInt(traccia[0]),
+										traccia[1], traccia[2], 
+										Double.parseDouble(traccia[3]));
+			tracce[i] = t;		
+		}
+		
+		dati.close();
+	
 	}
 	
 	public CD (String titolo, String etichetta, String datapubb, double costo, int ntracce, String traks) {

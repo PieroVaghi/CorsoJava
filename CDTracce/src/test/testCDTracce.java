@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.Scanner;
 
 import aggregatore.CD;
-import entities.Traccia;
 
 public class testCDTracce {
 
@@ -14,27 +13,32 @@ public class testCDTracce {
 //		Traccia t3 = new Traccia(1,"Caramelle","TonyEffe,Wayne,Pyrex",3.4);
 //		Traccia t4 = new Traccia(4,"You make me wanna","Blue,BackstreetBoys",4.2);
 		
+		Scanner tastiera = new Scanner(System.in);
+		System.out.println("inserisci il cd da analizzare (cd1, cd2:");
+		String percorso = "src/res/" + tastiera.nextLine() + ".txt";
+		CD c = new CD(percorso);
+		
 		Scanner datimenu = new Scanner(new File("src/res/menuCD.txt"));
 		String menu = "";
 		while(datimenu.hasNextLine()) {
 			menu += datimenu.nextLine() + "\n";
 		}
 		datimenu.close();
-		
-		Scanner dati = new Scanner(new File("src/res/CD.txt"));
-		
-		String titolo = dati.nextLine();
-		String etichetta = dati.nextLine();
-		String data = dati.nextLine();
-		double costo = Double.parseDouble(dati.nextLine());
-		int ntracce = Integer.parseInt(dati.nextLine());
-		String tracce = dati.nextLine();
-		
-		dati.close();
-		
-		CD c = new CD(titolo, etichetta, data, costo, ntracce, tracce);
-		
-		Scanner tastiera = new Scanner(System.in);
+//		
+//		Scanner dati = new Scanner(new File("src/res/CD.txt"));
+//		
+//		String titolo = dati.nextLine();
+//		String etichetta = dati.nextLine();
+//		String data = dati.nextLine();
+//		double costo = Double.parseDouble(dati.nextLine());
+//		int ntracce = Integer.parseInt(dati.nextLine());
+//		String tracce = dati.nextLine();
+//		
+//		dati.close();
+//		
+//		CD c = new CD(titolo, etichetta, data, costo, ntracce, tracce);
+//		
+//		Scanner tastiera = new Scanner(System.in);
 		int comando = 0;
 		
 		do {
