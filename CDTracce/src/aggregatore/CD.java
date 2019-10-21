@@ -8,6 +8,20 @@ public class CD {
 	public double costo;
 	public Traccia[] tracce;
 	
+	public CD (String percorso) {
+		
+	}
+	
+	public String titoli() {
+		String risposta = "Titoli:\n";
+//		for (int i = 0; i < tracce.length; i++) {
+//			risposta += tracce[i].titolo + "\n";
+//		}
+		for(Traccia t : tracce)
+			risposta += t.titolo + "\n";
+		return risposta;
+	}
+	
 	public int totaleNumeroArtisti(){
 		int cont = 0;
 		for (int i = 0; i < tracce.length; i++) {
@@ -73,6 +87,7 @@ public class CD {
 		return tracceArt;
 	}
 	
+//	public listaTracce() {};
 	
 	
 	
