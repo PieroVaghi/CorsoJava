@@ -73,5 +73,17 @@ public class Impiegato extends Persona {
 		double s = Double.parseDouble(stip);
 		return !(s<20||s>3000);
 	}
+
+	@Override
+	public String toString() {
+		String risposta = super.toString() + "\n";
+		return (tipo != null ? "Tipo: " + tipo + ",\n" : "") + risposta + "Stipendio: " + stipendio + ",\nAnni Esperienza: " + anniesp;
+	}
+	
+	public String toCSV() {
+		String csvPapa = super.toCSV();
+		return tipo+csvPapa+","+stipendio+","+anniesp;
+	}
+	
 	
 }
