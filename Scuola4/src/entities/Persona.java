@@ -52,8 +52,7 @@ public class Persona {
 		return  isNomeCognomeValido(parti[2]) 	&&
 				isNomeCognomeValido(parti[3]) 	&&
 				isDataValida(parti[4])			&&
-				isGenereValido(parti[5]);
-				
+				isGenereValido(parti[5]);			
 	}
 	
 	public static boolean isNomeCognomeValido (String n) {
@@ -135,6 +134,15 @@ public class Persona {
 			default:
 				return false;
 		}			
+	}
+
+	
+	@Override //annotazione
+	public String toString() {
+		return "id: " + id + ",\n" + (nome != null ? "nome: " + nome + ",\n" : "")
+				+ (cognome != null ? "cognome: " + cognome + ",\n" : "")
+				+ (datanascita != null ? "datanascita: " + datanascita + ",\n" : "")
+				+ (genere != null ? "genere: " + genere + ",\n" : "") + (cf != null ? "cf: " + cf : "");
 	}
 	
 
