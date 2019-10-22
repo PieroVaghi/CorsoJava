@@ -1,0 +1,11 @@
+10
+STUDENTE,1,Clara,Bianchini,2002-02-02,f,xxx,4c,7,8.5,9,4
+DOCENTE,2,Giovannino,Rossi,1990-04-12,m,xxx,1000,10,italiano-storia
+DOCENTE,3,Luigi,Verdi,1975-04-12,m,xxx,1200,10,matematica-scienze
+STUDENTE,4,Luca,Blu,2002-07-02,m,xxx,4b,7.5,8,9,5
+DOCENTE,5,Lorenzo,Rossi,1989-04-12,m,xxx,1000,10,italiano-storia
+STUDENTE,6,Greta,Lucchini,2005-02-02,f,xxx,1c,7,8.5,9,10
+STUDENTE,7,Marco,LoPresti,2005-02-02,m,xxx,1c,7,8.5,9,4
+STUDENTE,8,Clara,Bismatova,2002-02-02,f,xxx,4c,7,8.5,9,4
+PND,9,Mario,Rossi,1988-04-20,m,xxx,800,10,bidelleria
+PND,10Lucrezia,Bismantova,1968-07-23,1000,30,direzione
