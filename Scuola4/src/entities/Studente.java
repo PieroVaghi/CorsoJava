@@ -56,11 +56,16 @@ public class Studente extends Persona {
 	public String toString() {
 		String risposta = super.toString() + "\n";
 		risposta += "Sezione: " 	+ sezione 	+ ",\n" +
-					"Italiano: " 	+ mediaita 	+ ",\n" +
 					"Inglese: " 	+ mediaing 	+ ",\n" +
+					"Italiano: " 	+ mediaita 	+ ",\n" +
 					"Informatica: "	+ mediainf 	+ ",\n" +
 					"Matematica: " 	+ mediamate	;
 		return risposta;
+	}
+	
+	public String toCSV() {
+		String csvPapa = super.toCSV();
+		return csvPapa+sezione+","+mediaing+","+mediaita+","+mediainf+","+mediamate;
 	}
 	
 	
