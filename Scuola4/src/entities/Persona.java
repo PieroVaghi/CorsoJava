@@ -2,7 +2,7 @@ package entities;
 
 public class Persona {
 	
-	String nome, cognome, datanascita, genere;
+	String nome, cognome, datanascita, genere, cf;
 	int id;
 	
 	// METODI GET E COSTRUTTORI ---------------------------------------------------------------------------------------------
@@ -13,14 +13,15 @@ public class Persona {
 	 * @param cognome
 	 * @param datanascita
 	 * @param genere
+	 * @param cf
 	 */
-	public Persona(int id, String nome, String cognome, String datanascita, String genere) {
-		super();
+	public Persona(int id, String nome, String cognome, String datanascita, String genere, String cf) {
 		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.datanascita = datanascita;
 		this.genere = genere;
+		this.cf = cf;
 	}
 
 	public String getNome() {
