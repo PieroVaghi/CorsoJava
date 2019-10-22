@@ -1,7 +1,6 @@
 package aggregatore;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import entities.Traccia;
