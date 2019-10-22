@@ -145,6 +145,10 @@ public class Persona {
 				+ (genere != null ? "genere: " + genere + ",\n" : "") + (cf != null ? "cf: " + cf : "");
 	}
 	
+	public String toCSV() {
+		return id+","+nome+","+cognome+","+datanascita+","+genere+","+cf;
+	}
+	
 
 
 	
