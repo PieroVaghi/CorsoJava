@@ -62,6 +62,31 @@ public class Docente extends Impiegato {
 		return risposta;
 	}
 	
+	public String stampaMaterie() {
+		String risposta = "";
+		for(String s : materie)
+			risposta += s + ", ";
+		return risposta.substring(0,risposta.length()-2);
+	}
+	
+	public String csvMaterie() {
+		String risposta = "";
+		for(String s : materie)
+			risposta += s + ",";
+		return risposta.substring(0,risposta.length()-1);
+	}
+	
+	@Override
+	public String toString() {
+		String risposta = super.toString() + "\n";
+		return  risposta + "Stipendio Effettivo: " + stipendio() + ",\nMaterie: " + stampaMaterie();
+	}
+	
+	public String toCSV() {
+		String csvPapa = super.toCSV();
+		return csvPapa+","+stipendio()+","+csvMaterie();
+	}
+	
 	
 
 }
