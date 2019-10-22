@@ -77,7 +77,7 @@ public class Impiegato extends Persona {
 	@Override
 	public String toString() {
 		String risposta = super.toString() + "\n";
-		return (tipo != null ? "Tipo: " + tipo + ",\n" : "") + risposta + "Stipendio: " + stipendio + ",\nAnni Esperienza: " + anniesp;
+		return (tipo != null ? "Tipo: " + tipo + ",\n" : "") + risposta + "Stipendio base: " + stipendio + ",\nAnni Esperienza: " + anniesp;
 	}
 	
 	public String toCSV() {
