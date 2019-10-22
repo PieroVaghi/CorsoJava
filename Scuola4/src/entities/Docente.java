@@ -26,5 +26,42 @@ public class Docente extends Impiegato {
 	public String[] getMaterie() {
 		return materie;
 	}
+	
+	public static boolean isValido(String[] parti) {
+		boolean validazionePapa = Impiegato.isValido(parti);
+		return 	validazionePapa 				&& 
+				isMaterieValide(parti[9])		;
+				
+				
+	}
+	
+	private static boolean isMaterieValide(String materie) {
+		if(materie.isEmpty())
+			return false;
+		String[] vMaterie = materie.split("-");
+		for(int i=0; i<vMaterie.length; i++)
+			switch (vMaterie[i]) {
+				case "italiano":
+				case "inglese":
+				case "informatica":
+				case "matematica":
+				case "geografia":
+				case "storia":
+				case "francese":
+				case "architettura degli elaboratori 1":
+					break;
+				default: 
+					return false;
+			}
+		return true;
+	}
+	
+	public double stipendio() {
+		double risposta = super.stipendio();
+		risposta += (materie.length * 100);
+		return risposta;
+	}
+	
+	
 
 }
