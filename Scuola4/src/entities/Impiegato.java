@@ -36,6 +36,42 @@ public class Impiegato extends Persona {
 		return anniesp;
 	}
 	
+	public double stipendio() {
+		return stipendio;
+	}
 	
+	public static boolean isValido(String[] parti) {
+		boolean validazionePapa = Persona.isValido(parti);
+		return 	validazionePapa 				&& 
+				isTipoValid(parti[0])			&&
+				isStipValid(parti[7])			&&
+				isAnniEspValid(parti[8])		;
+				
+	}
+	
+	private static boolean isAnniEspValid(String anni) {
+		if(anni.isEmpty())
+			return false;
+		int a = Integer.parseInt(anni);
+		return !(a<0||a>50);
+	}
+
+	private static boolean isTipoValid(String tipo) {
+		switch (tipo.toUpperCase()) {
+			case "DOCENTE":
+			case "STUDENTE":
+			case "PND": 
+				return true;
+			default:
+				return false;
+		}
+	}
+
+	private static boolean isStipValid(String stip) {
+		if(stip.isEmpty())
+			return false;
+		double s = Double.parseDouble(stip);
+		return !(s<20||s>3000);
+	}
 	
 }
