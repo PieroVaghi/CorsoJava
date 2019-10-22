@@ -8,4 +8,4 @@ STUDENTE,6,Greta,Lucchini,2005-02-02,f,xxx,1c,7,8.5,9,10
 STUDENTE,7,Marco,LoPresti,2005-02-02,m,xxx,1c,7,8.5,9,4
 STUDENTE,8,Clara,Bismatova,2002-02-02,f,xxx,4c,7,8.5,9,4
 PND,9,Mario,Rossi,1988-04-20,m,xxx,800,10,bidelleria
-PND,10Lucrezia,Bismantova,1968-07-23,1000,30,direzione
+PND,10,Lucrezia,Bismantova,1968-07-23,f,xxx,1000,30,direzione
