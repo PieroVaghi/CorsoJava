@@ -1,4 +1,4 @@
-10
+5,3,2
 STUDENTE,1,Clara,Bianchini,2002-02-02,f,xxx,4c,7,8.5,9,4
 DOCENTE,2,Giovannino,Rossi,1990-04-12,m,xxx,1000,10,italiano-storia
 DOCENTE,3,Luigi,Verdi,1975-04-12,m,xxx,1200,10,matematica-scienze
