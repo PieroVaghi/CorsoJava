@@ -53,6 +53,17 @@ public class Studente extends Persona {
 			return false;
 	}
 	
+	/**
+	 * @return
+	 * Restituisce la media di tutte le materie
+	 */
+	public double media()
+	{
+		int nMaterie = 4;
+		double media = (mediaita + mediaing + mediainf + mediamate)/nMaterie;
+		return media;
+	}
+	
 	public String toString() {
 		String risposta = super.toString() + "\n";
 		risposta += "Sezione: " 	+ sezione 	+ ",\n" +
