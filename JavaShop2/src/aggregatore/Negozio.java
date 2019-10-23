@@ -69,10 +69,15 @@ public class Negozio {
 				cont ++;
 		return cont;
 	}
-//	
-//	public int nprodottipercpu(String cpu) {	//voglio sapere quanti sono i pc che hanno una cpu uguale a quella segnalata dall'esterno
-//	
-//	}
+	
+	public int nprodottipercpu(String cpu) {	//voglio sapere quanti sono i pc che hanno una cpu uguale a quella segnalata dall'esterno
+		int cont = 0;
+		for(Prodotto p : prodotti)
+			if(((Pc)p).getCpu().equalsIgnoreCase(cpu))
+				cont ++;
+		return cont;
+	}
+	
 //	public double totaleprezzi();
 //	public double media();
 //	public double minimo();	//prezzo più basso
