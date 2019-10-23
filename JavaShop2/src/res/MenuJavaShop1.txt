@@ -1,0 +1,26 @@
+       __       ___     ____    ____     ___              _______. __    __    ______   .______   
+      |  |     /   \    \   \  /   /    /   \            /       ||  |  |  |  /  __  \  |   _  \  
+      |  |    /  ^  \    \   \/   /    /  ^  \          |   (----`|  |__|  | |  |  |  | |  |_)  | 
+.--.  |  |   /  /_\  \    \      /    /  /_\  \          \   \    |   __   | |  |  |  | |   ___/  
+|  `--'  |  /  _____  \    \    /    /  _____  \     .----)   |   |  |  |  | |  `--'  | |  |      
+ \______/  /__/     \__\    \__/    /__/     \__\    |_______/    |__|  |__|  \______/  | _|      
+ 
+ 
+              +---------------------------------------------------------------+
+              |   Inserisci:                                                  |
+              | 0  -> Per uscire                                              |
+              | 1  -> Per visualizzare il numero dei prodotti del negozio     |
+              | 2  -> Per visualizzare il numero dei pc nel negozio           |
+              | 3  -> Per visualizzare il numero dei laptop nel negozio       |
+              | 4  -> Per il numero dei prodotti ceh contengono una data CPU  |
+              | 5  -> Per la somma dei prezzi del negozio                     |
+              | 6  -> Per la meddia dei prezzi del negozio                    |
+              | 7  -> Per visualizzare il prezzo più basso del negozio        |
+              | 8  -> Per visualizzare il prezzo più alto del negozio         |
+              | 9  -> Per visualizzare le schede dei computer più economici   |
+              | 10 -> Per visualizzare le schede dei computer più costosi     |
+              | 11 -> Per visualizzare le schede dei computer da Gaming       |
+              | 12 -> Per visualizzare le schede dei computer da ufficio      |
+              | 13 -> Ricerca computer per id                                 |
+              | 14 -> Ricerca computer dato un limite massimo di cpu          | 
+              +---------------------------------------------------------------+                                              
