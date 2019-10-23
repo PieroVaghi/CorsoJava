@@ -92,7 +92,14 @@ public class Negozio {
 		return media/nprodotti();
 	}
 	
-//	public double minimo();	//prezzo più basso
+	public double minimo() {	//prezzo più basso
+		double min = 1000;
+		for(Prodotto p : prodotti)
+			if(min < ((Pc)p).prezzo())
+				min= ((Pc)p).prezzo();
+		return min;
+	}
+	
 //	public double massimo(); //prezzo più alto
 //	public String schede(); //voglio tutte le schede dei pc
 //	public String schedepiueconomici(); //voglio le schede dei pc che costano quanto il minimo
