@@ -85,7 +85,13 @@ public class Negozio {
 		return tot;
 	}
 	
-//	public double media();
+	public double media() {
+		double media = 0;
+		for(Prodotto p : prodotti)
+			media += ((Pc)p).prezzo();
+		return media/nprodotti();
+	}
+	
 //	public double minimo();	//prezzo più basso
 //	public double massimo(); //prezzo più alto
 //	public String schede(); //voglio tutte le schede dei pc
