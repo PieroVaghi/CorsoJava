@@ -8,13 +8,13 @@ public class ScuolaCSV {
 
 	Persona[] persone;
 					//src/res/.../dati.txt
-	public ScuolaCSV(String percorso) throws Exception{
+	public ScuolaCSV(String percorso) throws Exception {
 		Scanner dati = new Scanner(new File(percorso));
 		
 		int npersone = Integer.parseInt(dati.nextLine());
 		persone = new Persona[npersone];
-		
 		int pos = 0;
+		
 		while(dati.hasNextLine()) {
 			String[] riga = dati.nextLine().split(",");
 			Persona p = null;									// Tipo formale, 
@@ -41,12 +41,22 @@ public class ScuolaCSV {
 					}				
 				break;
 			}
-			if(p!=null) {
+			if(p!=null) {					//Verifico che p sia stato istanziato e in quel caso prendo il vettore alla posizione disponibile e ci carico p
 				persone[pos] = p;
 				pos ++;
 			}
 		}
 		
 		dati.close();
+	}
+	
+	public double totstipendi() {
+		double risposta = 0;
+		for(Persona p : persone) {
+			if(p instanceof Impiegato)
+				risposta += ((Impiegato)p).stipendio();  //Alla riga 35 o 40 ho creato un oggetto di tipo docente o pnd, visto che ora sto considerando quello specifico oggetto esso avrà il metodo stipendio() di docente o pnd, non di Impiegato
+			((Docente) p).stipendio();
+		}
+		return risposta;
 	}
 }
