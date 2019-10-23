@@ -1,0 +1,6 @@
+5
+STUDENTE,1,Giuseppe,Garibaldi,1998-05-03,m,ccc,5a,6,7,8,8
+STUDENTE,2,Alessio,Rincari,2002-05-01,m,ccc,1a,5,3,6,7.5
+DOCENTE,3,Francesca,Garibaldi,1978-05-03,f,ccc,1090,3,italiano-storia
+PND,5,Luigi,D'Aloia,1949-05-03,m,ccc,
+STUDENTE,6,Giuseppe,Garibaldi,1998-05-03,m,ccc,5a,6,7,8,8
