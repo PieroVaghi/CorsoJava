@@ -48,6 +48,7 @@ public class PnD extends Impiegato {
 			}
 	}
 	
+	@Override
 	public double stipendio() {
 		switch(ruolo.toLowerCase()) {
 			case "segreteria":
@@ -68,6 +69,7 @@ public class PnD extends Impiegato {
 		return  risposta + ",\nRuolo: " + ruolo + "Stipendio Effettivo: " + stipendio() +" €";
 	}
 	
+	@Override
 	public String toCSV() {
 		String csvPapa = super.toCSV();
 		return csvPapa+","+ruolo+","+stipendio();

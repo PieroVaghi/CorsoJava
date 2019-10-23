@@ -56,6 +56,7 @@ public class Docente extends Impiegato {
 		return true;
 	}
 	
+	@Override
 	public double stipendio() {
 		double risposta = super.stipendio();
 		risposta += (materie.length * 100);
@@ -82,6 +83,7 @@ public class Docente extends Impiegato {
 		return  risposta + "Stipendio Effettivo: " + stipendio() + ",\nMaterie: " + stampaMaterie();
 	}
 	
+	@Override
 	public String toCSV() {
 		String csvPapa = super.toCSV();
 		return csvPapa+","+stipendio()+","+csvMaterie();

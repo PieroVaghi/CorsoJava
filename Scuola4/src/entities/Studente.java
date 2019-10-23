@@ -64,6 +64,7 @@ public class Studente extends Persona {
 		return media;
 	}
 	
+	@Override
 	public String toString() {
 		String risposta = super.toString() + "\n";
 		risposta += "Sezione: " 	+ sezione 	+ ",\n" +
@@ -74,6 +75,7 @@ public class Studente extends Persona {
 		return risposta;
 	}
 	
+	@Override
 	public String toCSV() {
 		String csvPapa = super.toCSV();
 		return csvPapa+sezione+","+mediaing+","+mediaita+","+mediainf+","+mediamate;
