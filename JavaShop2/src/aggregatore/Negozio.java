@@ -153,8 +153,32 @@ public class Negozio {
 		return risposta;
 	} 
 	
-//	public String ricerca(String cpumassima); //restituire le schede dei prodotti che hanno una cpu massima richiesta dall'esterno, ossia, io sto cercando un pc che abbia almeno un "i7", voglio vedere sia le schede degli i3, degli i5 e degli i7
-//	public String ricerca(double prezzomassimo); //restituire le schede dei prodotti che hanno al massimo il prezzo richiesto dall'esterno
+	public String ricerca(String cpumassima) {		//restituire le schede dei prodotti che hanno una cpu massima richiesta dall'esterno, ossia, io sto cercando un pc che abbia almeno un "i7", voglio vedere sia le schede degli i3, degli i5 e degli i7
+		String risposta = "";
+		int cpuVal = 0;
+		switch(cpumassima.toLowerCase()) {
+			case "i3":
+				cpuVal = 1;
+			break;
+			case "i5":
+				cpuVal = 2;
+			break;
+			case "i7":
+				cpuVal = 3;
+			break;
+			case "i9":
+				cpuVal = 4;
+			break;
+		}
+		for(Prodotto p : prodotti)
+			if(((Pc)p).benchCPU() <= cpuVal)
+				risposta += ((Pc)p).toString();
+		return risposta;
+	}
+	
+	public String ricerca(double prezzomassimo) {		//restituire le schede dei prodotti che hanno al massimo il prezzo richiesto dall'esterno
+
+	}
 //	
 //	
 //	
