@@ -57,10 +57,10 @@ public class Negozio {
 	public int nprodotti() {
 		return prodotti.length;
 	}
-//	
-//	public int npc() {
-//		return nprodotti()-nlaptop();
-//	}
+	
+	public int npc() {
+		return nprodotti()-nlaptop();
+	}
 //	
 //	public int nlaptop() {
 //		int cont = 0;
