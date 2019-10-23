@@ -123,7 +123,13 @@ public class Negozio {
 		return risposta;
 	}
 	
-//	public String schedepiucostosi(); //voglio le schede dei pc che costano quanto il massimo
+	public String schedepiucostosi() {	//voglio le schede dei pc che costano quanto il massimo
+		String risposta = "";
+		double max = massimo();
+		for(Prodotto p : prodotti)
+			risposta += (((Pc)p).prezzo() == max) ? ((Pc)p).toString() : "" + "\n------------------------------------------\n";
+		return risposta;
+	} 
 //	public String schedegaming(); //schede di tutti i pc da gaming
 //	public String schedeoffice(); //schede di tutti i pc da ufficio
 //	public String ricerca(int id); //restituire la scheda del prodotto che ha quel determinato id inserito dall'esterno
