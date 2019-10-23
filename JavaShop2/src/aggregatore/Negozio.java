@@ -145,7 +145,14 @@ public class Negozio {
 		return risposta;
 	}
 	
-//	public String ricerca(int id); //restituire la scheda del prodotto che ha quel determinato id inserito dall'esterno
+	public String ricerca(int id) { 	//restituire la scheda del prodotto che ha quel determinato id inserito dall'esterno
+		String risposta = "";
+		for(Prodotto p : prodotti)
+			if(p.getId()==id)
+				risposta += ((Pc)p).toString();
+		return risposta;
+	} 
+	
 //	public String ricerca(String cpumassima); //restituire le schede dei prodotti che hanno una cpu massima richiesta dall'esterno, ossia, io sto cercando un pc che abbia almeno un "i7", voglio vedere sia le schede degli i3, degli i5 e degli i7
 //	public String ricerca(double prezzomassimo); //restituire le schede dei prodotti che hanno al massimo il prezzo richiesto dall'esterno
 //	
