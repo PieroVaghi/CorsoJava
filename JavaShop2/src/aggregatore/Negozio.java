@@ -107,7 +107,14 @@ public class Negozio {
 				max = ((Pc)p).prezzo();
 		return max;
 	} 
-//	public String schede(); //voglio tutte le schede dei pc
+	
+	public String schede() {	//voglio tutte le schede dei pc
+		String risposta = "";
+		for(Prodotto p : prodotti)
+			risposta += ((Pc)p).toString();
+		return risposta;
+	}
+	
 //	public String schedepiueconomici(); //voglio le schede dei pc che costano quanto il minimo
 //	public String schedepiucostosi(); //voglio le schede dei pc che costano quanto il massimo
 //	public String schedegaming(); //schede di tutti i pc da gaming
