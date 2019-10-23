@@ -40,7 +40,7 @@ public class TestJavaShop1 {
 				break;
 				case 4:
 					System.out.println("Inserisci la CPU da ricercare: ");
-					risposta = shop.nprodottipercpu(tastiera.nextLine()) + "Prodotti del nostro negozio posseggono la CPU indicata\n";
+					risposta = shop.nprodottipercpu(tastiera.nextLine()) + " prodotti del nostro negozio posseggono la CPU indicata\n";
 				break;
 				case 5:
 					risposta = "Il costo totale di tutti i prodotti del mio negozio è: " + shop.totaleprezzi() + "\n";
@@ -55,16 +55,16 @@ public class TestJavaShop1 {
 					risposta = "Il prezzo più alto del negozio è: " + shop.massimo() + "\n";
 				break;
 				case 9:
-					risposta = "Ecco i computer più economici: " + shop.schedepiueconomici() + "\n";
+					risposta = "Ecco i computer più economici:\n" + shop.schedepiueconomici() + "\n";
 				break;
 				case 10:
-					risposta = "Ecco i computer più costosi: " + shop.schedepiucostosi() + "\n";
+					risposta = "Ecco i computer più costosi:\n" + shop.schedepiucostosi() + "\n";
 				break;
 				case 11:
-					risposta = "Ecco i computer da Gaming: " + shop.schedegaming() + "\n";
+					risposta = "Ecco i computer da Gaming:\n" + shop.schedegaming() + "\n";
 				break;
 				case 12:
-					risposta = "Ecco i computer da ufficio: " + shop.schedeoffice() + "\n";
+					risposta = "Ecco i computer da ufficio:\n" + shop.schedeoffice() + "\n";
 				break;
 				case 13:
 					System.out.println("Inserisci l'ID da ricercare: ");
@@ -72,7 +72,7 @@ public class TestJavaShop1 {
 					risposta = shop.ricerca(id) + "\n";
 				break;
 				case 14:
-					System.out.println("Inserisci l'ID da ricercare: ");
+					System.out.println("Inserisci una CPU tetto: ");
 					String cpu = tastiera.nextLine();
 					risposta = shop.ricerca(cpu) + "\n";
 				break;
@@ -80,6 +80,9 @@ public class TestJavaShop1 {
 					System.out.println("Inserisci un tetto di prezzo: ");
 					double prezzo = Double.parseDouble(tastiera.nextLine());
 					risposta = shop.ricerca(prezzo) + "\n";
+				break;
+				case 16:
+					risposta = "Ecco tutti i computer:\n" + shop.schede() + "\n";
 				break;
 				default:
 					risposta = "Hai inserito un comando non valido BALUBA!!!";

@@ -20,9 +20,9 @@ public class Negozio {
 		
 		prodotti = new Prodotto[npr];
 		int pos = 0;
-		Prodotto p = null;
 		
 		while(dati.hasNextLine()) {
+			Prodotto p = null;
 			String[] riga = dati.nextLine().split(",");
 			if(riga[0].equalsIgnoreCase("PC")) {
 				if(Pc.isValido(riga)) 
@@ -94,9 +94,9 @@ public class Negozio {
 	}
 	
 	public double minimo() {	//prezzo più basso
-		double min = 1000;
+		double min = massimo();
 		for(Prodotto p : prodotti)
-			if(min < p.prezzo())
+			if(min > p.prezzo())
 				min = p.prezzo();
 		return min;
 	}
@@ -104,7 +104,7 @@ public class Negozio {
 	public double massimo() {	//prezzo più alto
 		double max = 0;
 		for(Prodotto p : prodotti)
-			if(max > p.prezzo())
+			if(max < p.prezzo())
 				max = p.prezzo();
 		return max;
 	} 
@@ -112,7 +112,8 @@ public class Negozio {
 	public String schede() {	//voglio tutte le schede dei pc
 		String risposta = "";
 		for(Prodotto p : prodotti)
-			risposta += p.toString() + "\n------------------------------------------\n";
+			if (p!=null)
+				risposta += p.toString() + "\n------------------------------------------\n";
 		return risposta;
 	}
 	
@@ -120,7 +121,7 @@ public class Negozio {
 		String risposta = "";
 		double min = minimo();
 		for(Prodotto p : prodotti)
-			risposta += (p.prezzo() == min) ? p.toString() : "" + "\n------------------------------------------\n";
+			risposta += (p.prezzo() == min) ? p.toString() + "\n------------------------------------------\n": "" ;
 		return risposta;
 	}
 	
@@ -128,7 +129,7 @@ public class Negozio {
 		String risposta = "";
 		double max = massimo();
 		for(Prodotto p : prodotti)
-			risposta += (p.prezzo() == max) ? p.toString() : "" + "\n------------------------------------------\n";
+			risposta += (p.prezzo() == max) ? p.toString() + "\n------------------------------------------\n": "" ;
 		return risposta;
 	} 
 	
@@ -136,7 +137,7 @@ public class Negozio {
 		String risposta = "";
 		for(Prodotto p : prodotti)
 			if(p instanceof Pc)
-				risposta += (((Pc)p).isGaming()) ? p.toString() : "" + "\n------------------------------------------\n";
+				risposta += (((Pc)p).isGaming()) ? p.toString() + "\n------------------------------------------\n": "" ;
 		return risposta;
 	}
 	
@@ -144,7 +145,7 @@ public class Negozio {
 		String risposta = "";
 		for(Prodotto p : prodotti)
 			if(p instanceof Pc)
-				risposta += (((Pc)p).isOffice()) ? p.toString() : "" + "\n------------------------------------------\n";
+				risposta += (((Pc)p).isOffice()) ? p.toString() + "\n------------------------------------------\n": "";
 		return risposta;
 	}
 	
@@ -176,9 +177,33 @@ public class Negozio {
 		for(Prodotto p : prodotti)
 			if(p instanceof Pc)
 				if(((Pc)p).benchCPU() <= cpuVal)
-					risposta += p.toString();
-		return risposta;
+					risposta += p.toString() + "\n------------------------------------------\n" ;
+		return (!risposta.isEmpty()) ? risposta : "Nessun Pc risponde hai requisiti";
 	}
+	
+//	public Prodotto[] ricerca(String cpumassima , double prezzomax) {		//restituire le schede dei prodotti che hanno una cpu massima richiesta dall'esterno, ossia, io sto cercando un pc che abbia almeno un "i7", voglio vedere sia le schede degli i3, degli i5 e degli i7
+//		String risposta = "";
+//		int cpuVal = 0;
+//		switch(cpumassima.toLowerCase()) {
+//			case "i3":
+//				cpuVal = 1;
+//			break;
+//			case "i5":
+//				cpuVal = 2;
+//			break;
+//			case "i7":
+//				cpuVal = 3;
+//			break;
+//			case "i9":
+//				cpuVal = 4;
+//			break;
+//		}
+//		for(Prodotto p : prodotti)
+//			if(p instanceof Pc)
+//				if(((Pc)p).benchCPU() <= cpuVal && p.prezzo() <= prezzomax)
+//					risposta += p.toString();
+//		return risposta;
+//	}
 	
 	public String ricerca(double prezzomassimo) {		//restituire le schede dei prodotti che hanno al massimo il prezzo richiesto dall'esterno
 		String risposta = "";

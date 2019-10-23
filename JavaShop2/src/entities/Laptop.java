@@ -8,7 +8,7 @@ public class Laptop extends Pc{
 		
 	public Laptop(int id, String marca, String modello, double prezzobase,
 				String cpu, String tiporam, int ram, String tipomma, int mma, 
-				int orebatteria, double peso, double pollici) {
+				int orebatteria, double pollici, double peso) {
 		super(id, marca, modello, prezzobase, cpu, tiporam, ram, tipomma, mma);
 		this.orebatteria = orebatteria;
 		this.peso = peso;
@@ -37,9 +37,9 @@ public class Laptop extends Pc{
 
 	public static boolean isValido(String[] riga) {
 		return 	Pc.isValido(riga)							&&
-				isBatteria(Double.parseDouble(riga[7]))		&&
-				isPeso(Double.parseDouble(riga[8]))			&&
-				isPollici(Double.parseDouble(riga[9]))		;
+				isBatteria(Double.parseDouble(riga[10]))	&&
+				isPollici(Double.parseDouble(riga[11]))		&&
+				isPeso(Double.parseDouble(riga[12]));
 	}
 	
 	public static boolean isBatteria(double val) {

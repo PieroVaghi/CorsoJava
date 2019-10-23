@@ -12,7 +12,7 @@
               | 1  -> Per visualizzare il numero dei prodotti del negozio     |
               | 2  -> Per visualizzare il numero dei pc nel negozio           |
               | 3  -> Per visualizzare il numero dei laptop nel negozio       |
-              | 4  -> Per il numero dei prodotti ceh contengono una data CPU  |
+              | 4  -> Per il numero dei prodotti che contengono una data CPU  |
               | 5  -> Per la somma dei prezzi del negozio                     |
               | 6  -> Per la media dei prezzi del negozio                     |
               | 7  -> Per visualizzare il prezzo più basso del negozio        |
@@ -23,5 +23,6 @@
               | 12 -> Per visualizzare le schede dei computer da ufficio      |
               | 13 -> Ricerca computer per id                                 |
               | 14 -> Ricerca computer dato un limite massimo di cpu          |
-              | 15 -> Ricerca computer con prezzo inferiore ad uno dato       | 
+              | 15 -> Ricerca computer con prezzo inferiore ad uno dato       |
+              | 16 -> Stampa l'intero catalogo                                | 
               +---------------------------------------------------------------+                                              
