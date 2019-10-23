@@ -61,14 +61,14 @@ public class Negozio {
 	public int npc() {
 		return nprodotti()-nlaptop();
 	}
-//	
-//	public int nlaptop() {
-//		int cont = 0;
-//		for(Prodotto p : prodotti)
-//			if(p instanceof Laptop)
-//				cont ++;
-//		return cont;
-//	}
+	
+	public int nlaptop() {
+		int cont = 0;
+		for(Prodotto p : prodotti)
+			if(p instanceof Laptop)
+				cont ++;
+		return cont;
+	}
 //	
 //	public int nprodottipercpu(String cpu) {	//voglio sapere quanti sono i pc che hanno una cpu uguale a quella segnalata dall'esterno
 //	
