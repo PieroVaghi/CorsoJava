@@ -53,10 +53,10 @@ public class Negozio {
 	public double getBudget() {
 		return budget;
 	}
-//	
-//	public int nprodotti() {
-//		return prodotti.length;
-//	}
+	
+	public int nprodotti() {
+		return prodotti.length;
+	}
 //	
 //	public int npc() {
 //		return nprodotti()-nlaptop();
