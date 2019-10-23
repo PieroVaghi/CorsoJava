@@ -73,45 +73,46 @@ public class Negozio {
 	public int nprodottipercpu(String cpu) {	//voglio sapere quanti sono i pc che hanno una cpu uguale a quella segnalata dall'esterno
 		int cont = 0;
 		for(Prodotto p : prodotti)
-			if(((Pc)p).getCpu().equalsIgnoreCase(cpu))
-				cont ++;
+			if(p instanceof Pc)
+				if(((Pc)p).getCpu().equalsIgnoreCase(cpu))
+					cont ++;
 		return cont;
 	}
 	
 	public double totaleprezzi() {
 		double tot = 0;
 		for(Prodotto p : prodotti)
-			tot += ((Pc)p).prezzo();
+			tot += p.prezzo();
 		return tot;
 	}
 	
 	public double media() {
 		double media = 0;
 		for(Prodotto p : prodotti)
-			media += ((Pc)p).prezzo();
+			media += p.prezzo();
 		return media/nprodotti();
 	}
 	
 	public double minimo() {	//prezzo più basso
 		double min = 1000;
 		for(Prodotto p : prodotti)
-			if(min < ((Pc)p).prezzo())
-				min = ((Pc)p).prezzo();
+			if(min < p.prezzo())
+				min = p.prezzo();
 		return min;
 	}
 	
 	public double massimo() {	//prezzo più alto
 		double max = 0;
 		for(Prodotto p : prodotti)
-			if(max > ((Pc)p).prezzo())
-				max = ((Pc)p).prezzo();
+			if(max > p.prezzo())
+				max = p.prezzo();
 		return max;
 	} 
 	
 	public String schede() {	//voglio tutte le schede dei pc
 		String risposta = "";
 		for(Prodotto p : prodotti)
-			risposta += ((Pc)p).toString() + "\n------------------------------------------\n";
+			risposta += p.toString() + "\n------------------------------------------\n";
 		return risposta;
 	}
 	
@@ -119,7 +120,7 @@ public class Negozio {
 		String risposta = "";
 		double min = minimo();
 		for(Prodotto p : prodotti)
-			risposta += (((Pc)p).prezzo() == min) ? ((Pc)p).toString() : "" + "\n------------------------------------------\n";
+			risposta += (p.prezzo() == min) ? p.toString() : "" + "\n------------------------------------------\n";
 		return risposta;
 	}
 	
@@ -127,21 +128,23 @@ public class Negozio {
 		String risposta = "";
 		double max = massimo();
 		for(Prodotto p : prodotti)
-			risposta += (((Pc)p).prezzo() == max) ? ((Pc)p).toString() : "" + "\n------------------------------------------\n";
+			risposta += (p.prezzo() == max) ? p.toString() : "" + "\n------------------------------------------\n";
 		return risposta;
 	} 
 	
 	public String schedegaming() { //schede di tutti i pc da gaming
 		String risposta = "";
 		for(Prodotto p : prodotti)
-			risposta += (((Pc)p).isGaming()) ? ((Pc)p).toString() : "" + "\n------------------------------------------\n";
+			if(p instanceof Pc)
+				risposta += (((Pc)p).isGaming()) ? p.toString() : "" + "\n------------------------------------------\n";
 		return risposta;
 	}
 	
 	public String schedeoffice() {	//schede di tutti i pc da ufficio
 		String risposta = "";
 		for(Prodotto p : prodotti)
-			risposta += (((Pc)p).isOffice()) ? ((Pc)p).toString() : "" + "\n------------------------------------------\n";
+			if(p instanceof Pc)
+				risposta += (((Pc)p).isOffice()) ? p.toString() : "" + "\n------------------------------------------\n";
 		return risposta;
 	}
 	
@@ -149,7 +152,7 @@ public class Negozio {
 		String risposta = "";
 		for(Prodotto p : prodotti)
 			if(p.getId()==id)
-				risposta += ((Pc)p).toString();
+				risposta += p.toString();
 		return risposta;
 	} 
 	
@@ -171,16 +174,17 @@ public class Negozio {
 			break;
 		}
 		for(Prodotto p : prodotti)
-			if(((Pc)p).benchCPU() <= cpuVal)
-				risposta += ((Pc)p).toString();
+			if(p instanceof Pc)
+				if(((Pc)p).benchCPU() <= cpuVal)
+					risposta += p.toString();
 		return risposta;
 	}
 	
 	public String ricerca(double prezzomassimo) {		//restituire le schede dei prodotti che hanno al massimo il prezzo richiesto dall'esterno
 		String risposta = "";
 		for(Prodotto p : prodotti)
-			if(((Pc)p).prezzo() <= prezzomassimo)
-				risposta += ((Pc)p).toString() + "\n------------------------------------------\n";;
+			if(p.prezzo() <= prezzomassimo)
+				risposta += p.toString() + "\n------------------------------------------\n";;
 		return risposta;
 	}
 	
