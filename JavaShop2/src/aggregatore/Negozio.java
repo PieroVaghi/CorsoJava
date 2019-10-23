@@ -78,7 +78,13 @@ public class Negozio {
 		return cont;
 	}
 	
-//	public double totaleprezzi();
+	public double totaleprezzi() {
+		double tot = 0;
+		for(Prodotto p : prodotti)
+			tot += ((Pc)p).prezzo();
+		return tot;
+	}
+	
 //	public double media();
 //	public double minimo();	//prezzo più basso
 //	public double massimo(); //prezzo più alto
