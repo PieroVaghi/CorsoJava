@@ -96,11 +96,17 @@ public class Negozio {
 		double min = 1000;
 		for(Prodotto p : prodotti)
 			if(min < ((Pc)p).prezzo())
-				min= ((Pc)p).prezzo();
+				min = ((Pc)p).prezzo();
 		return min;
 	}
 	
-//	public double massimo(); //prezzo più alto
+	public double massimo() {	//prezzo più alto
+		double max = 0;
+		for(Prodotto p : prodotti)
+			if(max > ((Pc)p).prezzo())
+				max = ((Pc)p).prezzo();
+		return max;
+	} 
 //	public String schede(); //voglio tutte le schede dei pc
 //	public String schedepiueconomici(); //voglio le schede dei pc che costano quanto il minimo
 //	public String schedepiucostosi(); //voglio le schede dei pc che costano quanto il massimo
