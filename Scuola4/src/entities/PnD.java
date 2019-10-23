@@ -52,13 +52,13 @@ public class PnD extends Impiegato {
 	public double stipendio() {
 		switch(ruolo.toLowerCase()) {
 			case "segreteria":
-				return super.getStipendio() + super.getAnniesp()*20;
+				return super.stipendio() + super.getAnniesp()*20;
 			case "tecnicolab":
-				return super.getStipendio() + super.getAnniesp()*50;
+				return super.stipendio() + super.getAnniesp()*50;
 			case "bidelleria":
-				return super.getStipendio() + super.getAnniesp()*10;
+				return super.stipendio() + super.getAnniesp()*10;
 			case "direzione":
-				return super.getStipendio() + super.getAnniesp()*80;
+				return super.stipendio() + super.getAnniesp()*80;
 			default: return -1;
 		}
 	}
