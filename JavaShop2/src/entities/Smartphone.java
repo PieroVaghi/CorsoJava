@@ -9,6 +9,7 @@ public class Smartphone extends Laptop {
 	static double megamin = 0.2;
 	static double megamax = 105;
 	static String[] reti = {"E","H+","G","3G","4G","4G+","5G"};
+	static String[] costo5 = {"4G","4G+","5G"};
 	
 
 	public Smartphone(int id, String marca, String modello, double prezzobase, 
@@ -63,20 +64,37 @@ public class Smartphone extends Laptop {
 	}
 
 	public static boolean isRete(String string) {
-		boolean controllo = false;
 		for(String s : reti)
 			if(s.equalsIgnoreCase(string))
-				controllo = true;
-		return controllo;
+				return true;
+		return false;
 	}
 	
 	public static boolean isJack(String string) {
-		boolean controllo = false;
 		for(String s : valJack)
 			if(s.equalsIgnoreCase(string))
-				controllo = true;
-		return controllo;
+				return true;
+		return false;
 	}
+
+	@Override
+	public double prezzo() {
+		double costo = super.prezzo();
+		for(String s : costo5)
+			costo *= (getRete().equalsIgnoreCase(s)) ? 1.05 : 1;		
+		costo *= (getJack().equalsIgnoreCase("no")) ? 1.20 : 1;
+		return costo;
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		return super.toString() +"\n" + (rete != null ? "rete: " + rete + ",\n" : "") + "megapixel: " + megapixel + ",\n"
+				+ (jack != null ? "jack: " + jack : "");
+	}
+	
+	
 	
 	
 	
