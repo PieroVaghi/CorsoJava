@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Arrays;
+
 public class Lavatrice extends Prodotto {
 
 	private int capacitachili, girialminuto;
@@ -69,6 +71,13 @@ public class Lavatrice extends Prodotto {
 					controllo = true;
 		return controllo;
 	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "\n" + "Capacitachili: " + capacitachili + ",\nGirialminuto: " + girialminuto + ",\n"
+				+ (programmi != null ? "Programmi: " + Arrays.toString(programmi) : "");
+	}
+	
 	
 	
 	
