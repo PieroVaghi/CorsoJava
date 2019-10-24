@@ -4,8 +4,10 @@ import java.io.File;
 import java.util.Scanner;
 
 import entities.Laptop;
+import entities.Lavatrice;
 import entities.Pc;
 import entities.Prodotto;
+import entities.Smartphone;
 
 public class Negozio {
 	
@@ -24,19 +26,32 @@ public class Negozio {
 		while(dati.hasNextLine()) {
 			Prodotto p = null;
 			String[] riga = dati.nextLine().split(",");
-			if(riga[0].equalsIgnoreCase("PC")) {
-				if(Pc.isValido(riga)) 
-					p = new Pc(Integer.parseInt(riga[1]), riga[2], riga[3], Double.parseDouble(riga[4]),
+			switch(riga[0]) {
+				case "PC":
+					if(Pc.isValido(riga)) 
+						p = new Pc(Integer.parseInt(riga[1]), riga[2], riga[3], Double.parseDouble(riga[4]),
+											riga[5], riga[6], Integer.parseInt(riga[7]), 
+											riga[8], Integer.parseInt(riga[9]));
+				break;
+				case "LAPTOP":
+					if(Laptop.isValido(riga)) 
+						p = new Laptop(Integer.parseInt(riga[1]), riga[2], riga[3], Double.parseDouble(riga[4]),
 										riga[5], riga[6], Integer.parseInt(riga[7]), 
-										riga[8], Integer.parseInt(riga[9]));				
-			}
-			else
-			if(riga[0].equalsIgnoreCase("LAPTOP")) {
-				if(Laptop.isValido(riga)) 
-					p = new Laptop(Integer.parseInt(riga[1]), riga[2], riga[3], Double.parseDouble(riga[4]),
-									riga[5], riga[6], Integer.parseInt(riga[7]), 
-									riga[8], Integer.parseInt(riga[9]),
-									Integer.parseInt(riga[10]), Double.parseDouble(riga[11]), Double.parseDouble(riga[12]));
+										riga[8], Integer.parseInt(riga[9]),
+										Integer.parseInt(riga[10]), Double.parseDouble(riga[11]), Double.parseDouble(riga[12]));
+				break;
+				case "SMARTPHONE":
+					if(Smartphone.isValido(riga))
+						p = new Smartphone(Integer.parseInt(riga[1]), riga[2], riga[3], Double.parseDouble(riga[4]),
+										riga[5], riga[6], Integer.parseInt(riga[7]), 
+										riga[8], Integer.parseInt(riga[9]),
+										Integer.parseInt(riga[10]), Double.parseDouble(riga[11]), Double.parseDouble(riga[12]),
+										riga[13], Double.parseDouble(riga[14]), riga[15]);
+				break;
+				case "LAVATRICE":
+					if(Lavatrice.isValido(riga)) 
+						p = new Lavatrice(Integer.parseInt(riga[1]), riga[2], riga[3], Double.parseDouble(riga[4]),
+											Integer.parseInt(riga[5]), Integer.parseInt(riga[6]), riga[7]);
 			}
 			if(p!=null) {					//Verifico che p sia stato istanziato e in quel caso prendo il vettore alla posizione disponibile e ci carico p
 				prodotti[pos] = p;
@@ -62,14 +77,35 @@ public class Negozio {
 		return prodotti.length;
 	}
 	
-	public int npc() {
-		return nprodotti()-nlaptop();
+	public int nlavatrici() {
+		int cont = 0;
+		for(Prodotto p : prodotti)
+			if(p instanceof Lavatrice)
+				cont ++;
+		return cont;
 	}
+	
+	public int npc() {
+		int cont = 0;
+		for(Prodotto p : prodotti)
+			if(p instanceof Pc)
+				cont ++;
+		return cont - nlaptop() - nsmartphone();
+	}
+	
 	
 	public int nlaptop() {
 		int cont = 0;
 		for(Prodotto p : prodotti)
 			if(p instanceof Laptop)
+				cont ++;
+		return cont - nsmartphone();
+	}
+	
+	public int nsmartphone() {
+		int cont = 0;
+		for(Prodotto p : prodotti)
+			if(p instanceof Smartphone)
 				cont ++;
 		return cont;
 	}
