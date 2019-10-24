@@ -39,49 +39,55 @@ public class TestJavaShop1 {
 					risposta = "Il numero totale dei Laptop presenti in negozio è: " + shop.nlaptop() + "\n";
 				break;
 				case 4:
+					risposta = "Il numero totale dei Laptop presenti in negozio è: " + shop.nlaptop() + "\n";
+				break;
+				case 5:
+					risposta = "Il numero totale dei Laptop presenti in negozio è: " + shop.nlaptop() + "\n";
+				break;
+				case 6:
 					System.out.println("Inserisci la CPU da ricercare: ");
 					risposta = shop.nprodottipercpu(tastiera.nextLine()) + " prodotti del nostro negozio posseggono la CPU indicata\n";
 				break;
-				case 5:
+				case 7:
 					risposta = "Il costo totale di tutti i prodotti del mio negozio è: " + shop.totaleprezzi() + " €\n";
 				break;
-				case 6:
+				case 8:
 					risposta = "Il media di tutti i prodotti del mio negozio è: " + shop.media() + " €\n";
 				break;	
-				case 7:
+				case 9:
 					risposta = "Il prezzo più basso del negozio è: " + shop.minimo() + " €\n";
 				break;
-				case 8:
+				case 10:
 					risposta = "Il prezzo più alto del negozio è: " + shop.massimo() + " €\n";
 				break;
-				case 9:
+				case 11:
 					risposta = "Ecco i computer più economici:\n" + shop.schedepiueconomici() + "\n";
 				break;
-				case 10:
+				case 12:
 					risposta = "Ecco i computer più costosi:\n" + shop.schedepiucostosi() + "\n";
 				break;
-				case 11:
+				case 13:
 					risposta = "Ecco i computer da Gaming:\n" + shop.schedegaming() + "\n";
 				break;
-				case 12:
+				case 14:
 					risposta = "Ecco i computer da ufficio:\n" + shop.schedeoffice() + "\n";
 				break;
-				case 13:
+				case 15:
 					System.out.println("Inserisci l'ID da ricercare: ");
 					int id = Integer.parseInt(tastiera.nextLine());
 					risposta = shop.ricerca(id) + "\n";
 				break;
-				case 14:
+				case 16:
 					System.out.println("Inserisci una CPU tetto: ");
 					String cpu = tastiera.nextLine();
 					risposta = shop.ricerca(cpu) + "\n";
 				break;
-				case 15:
+				case 17:
 					System.out.println("Inserisci un tetto di prezzo: ");
 					double prezzo = Double.parseDouble(tastiera.nextLine());
 					risposta = shop.ricerca(prezzo) + "\n";
 				break;
-				case 16:
+				case 18:
 					risposta = "Ecco tutti i computer:\n" + shop.schede() + "\n";
 				break;
 				default:

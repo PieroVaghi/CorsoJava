@@ -12,17 +12,19 @@
               | 1  -> Per visualizzare il numero dei prodotti del negozio     |
               | 2  -> Per visualizzare il numero dei pc nel negozio           |
               | 3  -> Per visualizzare il numero dei laptop nel negozio       |
-              | 4  -> Per il numero dei prodotti che contengono una data CPU  |
-              | 5  -> Per la somma dei prezzi del negozio                     |
-              | 6  -> Per la media dei prezzi del negozio                     |
-              | 7  -> Per visualizzare il prezzo più basso del negozio        |
-              | 8  -> Per visualizzare il prezzo più alto del negozio         |
-              | 9  -> Per visualizzare le schede dei computer più economici   |
-              | 10 -> Per visualizzare le schede dei computer più costosi     |
-              | 11 -> Per visualizzare le schede dei computer da Gaming       |
-              | 12 -> Per visualizzare le schede dei computer da ufficio      |
-              | 13 -> Ricerca computer per id                                 |
-              | 14 -> Ricerca computer dato un limite massimo di cpu          |
-              | 15 -> Ricerca computer con prezzo inferiore ad uno dato       |
-              | 16 -> Stampa l'intero catalogo                                | 
+              | 4  -> Per visualizzare il numero degli smartphone             |
+              | 5  -> Per visualizzare il numero delle lavatrici nel negozio  |
+              | 6  -> Per il numero dei prodotti che contengono una data CPU  |
+              | 7  -> Per la somma dei prezzi del negozio                     |
+              | 8  -> Per la media dei prezzi del negozio                     |
+              | 9  -> Per visualizzare il prezzo più basso del negozio        |
+              | 10  -> Per visualizzare il prezzo più alto del negozio        |
+              | 11  -> Per visualizzare le schede dei computer più economici  |
+              | 12 -> Per visualizzare le schede dei computer più costosi     |
+              | 13 -> Per visualizzare le schede dei computer da Gaming       |
+              | 14 -> Per visualizzare le schede dei computer da ufficio      |
+              | 15 -> Ricerca computer per id                                 |
+              | 16 -> Ricerca computer dato un limite massimo di cpu          |
+              | 17 -> Ricerca computer con prezzo inferiore ad uno dato       |
+              | 18 -> Stampa l'intero catalogo                                | 
               +---------------------------------------------------------------+                                              
