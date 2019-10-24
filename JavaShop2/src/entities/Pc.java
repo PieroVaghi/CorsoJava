@@ -114,13 +114,12 @@ public class Pc extends Prodotto {
 	 */
 	@Override
 	public double prezzo() {
-		return (costocpu()>0 && costoram()>0 && costomma()>0) ? super.prezzo() + costocpu() + costoram() + costomma() : -1;
+		return  super.prezzo() + costocpu() + costoram() + costomma();
 	}
 	
 	/**
 	 * @return
 	 * il costo dell’i3 è 30, i5 190, i7 300, i9 500
-	 * return -1 se nin prevista
 	 */
 	public double costocpu() { 
 		switch (cpu.toLowerCase()) {
@@ -133,7 +132,7 @@ public class Pc extends Prodotto {
 			case "i9":
 				return 500;
 			default:
-				return -1;
+				return 0;
 		}	
 //		return cpu.equalsIgnoreCase("i3") ? 30 : (cpu.equalsIgnoreCase("i5")) ? 190 : (cpu.equalsIgnoreCase("i7")) ? 300 : 500;
 	}
@@ -154,7 +153,7 @@ public class Pc extends Prodotto {
 			case "ddr5":
 				return 60.0 * ram;
 			default:
-				return -1;
+				return 0;
 		}
 	}
 	
@@ -171,7 +170,7 @@ public class Pc extends Prodotto {
 			case "SSD":
 				return 1.0 * mma;
 			default:
-				return -1;
+				return 0;
 		}
 	}
 	
