@@ -48,6 +48,40 @@ public class Persona {
 		return id;
 	}
 	
+	public String getCf() {
+		return cf;
+	}
+	
+	public void setNome(String nome) {
+		if(isNomeCognomeValido(nome))
+			this.nome = nome;
+		else
+			this.nome = "Valore non valido: " + nome;
+	}
+
+	public void setCognome(String cognome) {
+		if(isNomeCognomeValido(cognome))
+			this.cognome = cognome;
+		else
+			this.cognome = "Valore non valido: " + cognome;
+	}
+
+	public void setDatanascita(String datanascita) {
+		this.datanascita = datanascita;
+	}
+
+	public void setGenere(String genere) {
+		this.genere = genere;
+	}
+
+	public void setCf(String cf) {
+		this.cf = cf;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public static boolean isValido(String[] parti) {
 		return  isNomeCognomeValido(parti[2]) 	&&
 				isNomeCognomeValido(parti[3]) 	&&
