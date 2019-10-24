@@ -4,6 +4,7 @@ public class Laptop extends Pc{
 	
 	int orebatteria; 
 	double peso, pollici;
+	private static int pesoMax = 7000;
 	
 		
 	public Laptop(int id, String marca, String modello, double prezzobase,
@@ -78,7 +79,7 @@ public class Laptop extends Pc{
 	}
 	
 	public static boolean isPeso(double val) {
-		return 	(val >= 900 && val <= 7000);
+		return 	(val >= 900 && val <= pesoMax);
 	}
 	
 	
