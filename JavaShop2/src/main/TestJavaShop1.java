@@ -43,16 +43,16 @@ public class TestJavaShop1 {
 					risposta = shop.nprodottipercpu(tastiera.nextLine()) + " prodotti del nostro negozio posseggono la CPU indicata\n";
 				break;
 				case 5:
-					risposta = "Il costo totale di tutti i prodotti del mio negozio è: " + shop.totaleprezzi() + "\n";
+					risposta = "Il costo totale di tutti i prodotti del mio negozio è: " + shop.totaleprezzi() + " €\n";
 				break;
 				case 6:
-					risposta = "Il media di tutti i prodotti del mio negozio è: " + shop.media() + "\n";
+					risposta = "Il media di tutti i prodotti del mio negozio è: " + shop.media() + " €\n";
 				break;	
 				case 7:
-					risposta = "Il prezzo più basso del negozio è: " + shop.minimo() + "\n";
+					risposta = "Il prezzo più basso del negozio è: " + shop.minimo() + " €\n";
 				break;
 				case 8:
-					risposta = "Il prezzo più alto del negozio è: " + shop.massimo() + "\n";
+					risposta = "Il prezzo più alto del negozio è: " + shop.massimo() + " €\n";
 				break;
 				case 9:
 					risposta = "Ecco i computer più economici:\n" + shop.schedepiueconomici() + "\n";
