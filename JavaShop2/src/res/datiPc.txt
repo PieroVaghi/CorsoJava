@@ -5,3 +5,6 @@ PC,3,SUAS,lu,0,i7,ddr3,32,ssd,128
 LAPTOP,4,PHPH,Blu,0,i3,ddr3,16,ssd,128,10,17.2,3000
 LAPTOP,5,ANANAS,Gialla,0,i5,ddr4,16,hdd,1024,12,15.7,2000
 LAPTOP,6,ANANAS,Blulu,10,i7,ddr3,12,ssd,128,15,21,4500
+SMARTPHONE,6,ANANAS,Gialla,0,i5,ddr4,16,hdd,1024,12,15.7,2000,4G+,40,si
+SMARTPHONE,7,APPLE,Buco,0,i7,ddr3,16,hdd,1024,12,15.7,2000,H+,40,no
+LAVATRICE,8,BOSCH,Bello,200,10,7776,stirofacile-scuri-colorati-delicati
