@@ -55,8 +55,8 @@ public class Smartphone extends Laptop {
 	public static boolean isValido(String[] riga) {
 		return 	Laptop.isValido(riga)	&&
 				isRete(riga[13])		&&
-				isJack(riga[14])		&&
-				isMegapixel(Double.parseDouble(riga[15]));
+				isJack(riga[15])		&&
+				isMegapixel(Double.parseDouble(riga[14]));
 	}
 
 	public static boolean isMegapixel(double mega) {
