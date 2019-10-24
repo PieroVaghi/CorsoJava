@@ -63,16 +63,16 @@ public class Smartphone extends Laptop {
 		return mega >= megamin && mega <= megamax;
 	}
 
-	public static boolean isRete(String string) {
+	public static boolean isRete(String rete) {
 		for(String s : reti)
-			if(s.equalsIgnoreCase(string))
+			if(s.equalsIgnoreCase(rete))
 				return true;
 		return false;
 	}
 	
-	public static boolean isJack(String string) {
+	public static boolean isJack(String jack) {
 		for(String s : valJack)
-			if(s.equalsIgnoreCase(string))
+			if(s.equalsIgnoreCase(jack))
 				return true;
 		return false;
 	}
