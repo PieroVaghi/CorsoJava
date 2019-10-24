@@ -1,7 +1,5 @@
 package entities;
 
-import java.util.Arrays;
-
 public class Lavatrice extends Prodotto {
 
 	private int capacitachili, girialminuto;
@@ -17,7 +15,8 @@ public class Lavatrice extends Prodotto {
 		super(id, marca, modello, prezzobase);
 		this.capacitachili = capacitachili;
 		this.girialminuto = girialminuto;
-		this.programmi = programmi.split("-");
+		String[] prog = programmi.split("-");
+		setProgrammi(prog);
 	}
 	
 	public int getGirialminuto() {
@@ -42,19 +41,37 @@ public class Lavatrice extends Prodotto {
 	}
 
 	public void setProgrammi(String[] programmi) {
+		int pos = 0;
+		for(String pdv : programmi)
+			for(String pv: programVal)
+				if(pdv.equals(pv))
+				{
+					pos++;
+					break;
+				}
+		this.programmi = new String[pos];
+		pos = 0;
+		for(String pdv : programmi)
+			for(String pv: programVal)
+				if(pdv.equals(pv))
+				{
+					this.programmi[pos] = pdv;
+					pos++;
+					break;
+				}
 		this.programmi = programmi;
 	}
 	
 	public static boolean isValido(String[] riga) {
 		return 	Prodotto.isValido(riga)	&&
 				isCapchili(riga[5]) 	&&
-				isGiriminuto(riga[6]) 	&&
-				isProgrammiVal(riga[7])	;
+				isGiriminuto(riga[6]) 	;
+//				isProgrammiVal(riga[7])	;
 	}
 
 	public static boolean isGiriminuto(String giro) {
 		int giri = Integer.parseInt(giro);
-		return giri <= mingiri && giri >= maxgiri;
+		return giri >= mingiri && giri <= maxgiri;
 	}
 
 	public static boolean isCapchili(String capchili) {
@@ -62,14 +79,21 @@ public class Lavatrice extends Prodotto {
 		return c >= mincap && c <= maxcap;
 	}
 	
-	public static boolean isProgrammiVal(String programmi) {
-		String[] programVet = programmi.split("-");
-		boolean controllo = false;
-		for(String s : programVet)
-			for(String z : programVal)
-				if(s.equalsIgnoreCase(z))
-					controllo = true;
-		return controllo;
+//	public static boolean isProgrammiVal(String programmi) {
+//		String[] programVet = programmi.split("-");
+//		boolean controllo = false;
+//		for(String s : programVet)
+//			for(String z : programVal)
+//				if(s.equalsIgnoreCase(z))
+//					controllo = true;
+//		return controllo;
+//	}
+	
+	public String stampaProgrammi() {
+		String risposta = "";
+		for(String s : programmi)
+			risposta = s + ", ";
+		return risposta.substring(0, risposta.length()-2);
 	}
 	
 	@Override
@@ -80,8 +104,9 @@ public class Lavatrice extends Prodotto {
 	@Override
 	public String toString() {
 		return super.toString() + "\n" + "Capacitachili: " + capacitachili + ",\nGirialminuto: " + girialminuto + ",\n"
-				+ (programmi != null ? "Programmi: " + Arrays.toString(programmi) : "");
+				+ (programmi != null ? "Programmi: " + stampaProgrammi() : "");
 	}
+
 	
 	
 	
