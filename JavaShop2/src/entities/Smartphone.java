@@ -54,9 +54,9 @@ public class Smartphone extends Laptop {
 
 	public static boolean isValido(String[] riga) {
 		return 	Laptop.isValido(riga)	&&
-				isRete(riga[10])		&&
-				isJack(riga[11])		&&
-				isMegapixel(Double.parseDouble(riga[12]));
+				isRete(riga[13])		&&
+				isJack(riga[14])		&&
+				isMegapixel(Double.parseDouble(riga[15]));
 	}
 
 	public static boolean isMegapixel(double mega) {
@@ -86,12 +86,10 @@ public class Smartphone extends Laptop {
 		return costo;
 	}
 	
-	
-	
 	@Override
 	public String toString() {
-		return super.toString() +"\n" + (rete != null ? "rete: " + rete + ",\n" : "") + "megapixel: " + megapixel + ",\n"
-				+ (jack != null ? "jack: " + jack : "");
+		return super.toString() +"\n" + (rete != null ? "Rete: " + rete + ",\n" : "") + "Megapixel: " + megapixel + ",\n"
+				+ (jack != null ? "Jack: " + jack : "");
 	}
 	
 	
