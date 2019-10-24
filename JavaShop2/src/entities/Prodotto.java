@@ -1,9 +1,9 @@
 package entities;
 
 public class Prodotto {
-	int id;
-	String modello, marca;
-	double prezzobase;
+	private int id;
+	private String modello, marca;
+	private double prezzobase;
 	
 	/**
 	 * @param id
@@ -34,6 +34,22 @@ public class Prodotto {
 		return prezzobase;
 	}
 
+	public void setId (int id) {
+		this.id = id;
+	}
+	
+	public void setMarca (String marca) {
+		this.marca = marca;
+	}
+	public void setModello (String modello) {
+		this.modello = modello;
+	}
+	public void setPrezzobase (double prezzo) {
+		if(isPrezzobaseValido(prezzo+""))
+			this.prezzobase = prezzo;
+		else
+			this.prezzobase = -1;
+	}
 	
 	public static boolean isValido(String[] riga) {
 		return 	isPrezzobaseValido(riga[4]);
@@ -41,7 +57,7 @@ public class Prodotto {
 	}
 
 	private static boolean isPrezzobaseValido(String val) {
-		return Integer.parseInt(val) >= 0 && Integer.parseInt(val) <= 1000;
+		return Double.parseDouble(val) >= 0 && Double.parseDouble(val) <= 1000;
 	}
 	
 	public double prezzo() {

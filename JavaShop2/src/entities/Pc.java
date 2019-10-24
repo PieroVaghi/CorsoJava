@@ -3,8 +3,8 @@ package entities;
 public class Pc extends Prodotto {
 	
 
-	String cpu, tipomma, tiporam;
-	int mma, ram;
+	private String cpu, tipomma, tiporam;
+	private int mma, ram;
 	
 	static String CPUValide = "i3,i5,i7,i9";
 	static String RAMValide = "ddr3,ddr4,ddr5";
@@ -45,6 +45,46 @@ public class Pc extends Prodotto {
 		return ram;
 	}
 	
+	public void setCpu(String cpu) {
+		if(isCpu(cpu))
+			this.cpu = cpu;
+		else
+			this.cpu = "valore non valido: " + cpu;
+	}
+
+
+	public void setTipomma(String tipomma) {
+		if(isMMA(tipomma,"50"))
+			this.tipomma = tipomma;
+		else
+			this.tipomma = "valore non valido: " + tipomma;
+	}
+
+
+	public void setTiporam(String tiporam) {
+		if(isRAM(tiporam,"50"))
+			this.tiporam = tiporam;
+		else
+			this.tiporam = "valore non valido: " + tiporam;
+	}
+
+
+	public void setMma(int mma) {
+		if(isMMA("ssd", mma+""))
+			this.mma = mma;
+		else
+			this.mma = -1;
+	}
+
+
+	public void setRam(int ram) {
+		if(isRAM("ddr3", ram+""))
+			this.ram = ram;
+		else
+			this.ram = -1;
+	}
+
+
 	public static boolean isValido(String[] riga) {
 		return 	Prodotto.isValido(riga)		&&
 				isCpu(riga[5]) 				&&

@@ -9,7 +9,7 @@ import entities.Prodotto;
 
 public class Negozio {
 	
-	double budget;
+	private double budget;
 	Prodotto[] prodotti;
 	
 	// COSTRUTTORE ----------------------------------------------------------------------------------------------
@@ -52,6 +52,10 @@ public class Negozio {
 	
 	public double getBudget() {
 		return budget;
+	}
+	
+	public void setBudget(double budget) {
+		this.budget = budget;
 	}
 	
 	public int nprodotti() {
@@ -149,6 +153,7 @@ public class Negozio {
 		return risposta;
 	}
 	
+
 	public String ricerca(int id) { 	//restituire la scheda del prodotto che ha quel determinato id inserito dall'esterno
 		String risposta = "";
 		for(Prodotto p : prodotti)

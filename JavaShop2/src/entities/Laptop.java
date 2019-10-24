@@ -35,6 +35,33 @@ public class Laptop extends Pc{
 
 
 
+	public void setOrebatteria(int orebatteria) {
+		if(isBatteria(orebatteria))
+			this.orebatteria = orebatteria;
+		else
+			this.orebatteria = -1;
+	}
+
+
+
+	public void setPeso(double peso) {
+		if(isPeso(peso))
+			this.peso = peso;
+		else
+			this.peso  = -1;
+	}
+
+
+
+	public void setPollici(double pollici) {
+		if(isPollici(pollici))
+			this.pollici = pollici;
+		else
+			this.pollici = -1;
+	}
+
+
+
 	public static boolean isValido(String[] riga) {
 		return 	Pc.isValido(riga)							&&
 				isBatteria(Double.parseDouble(riga[10]))	&&
