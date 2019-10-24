@@ -59,7 +59,6 @@ public class Lavatrice extends Prodotto {
 					pos++;
 					break;
 				}
-		this.programmi = programmi;
 	}
 	
 	public static boolean isValido(String[] riga) {
