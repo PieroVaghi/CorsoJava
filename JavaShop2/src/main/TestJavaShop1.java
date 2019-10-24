@@ -39,10 +39,10 @@ public class TestJavaShop1 {
 					risposta = "Il numero totale dei Laptop presenti in negozio è: " + shop.nlaptop() + "\n";
 				break;
 				case 4:
-					risposta = "Il numero totale dei Laptop presenti in negozio è: " + shop.nlaptop() + "\n";
+					risposta = "Il numero totale degli Smarphone presenti in negozio è: " + shop.nsmartphone() + "\n";
 				break;
 				case 5:
-					risposta = "Il numero totale dei Laptop presenti in negozio è: " + shop.nlaptop() + "\n";
+					risposta = "Il numero totale delle lavatrici presenti in negozio è: " + shop.nlavatrici() + "\n";
 				break;
 				case 6:
 					System.out.println("Inserisci la CPU da ricercare: ");
