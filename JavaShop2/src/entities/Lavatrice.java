@@ -92,7 +92,7 @@ public class Lavatrice extends Prodotto {
 	public String stampaProgrammi() {
 		String risposta = "";
 		for(String s : programmi)
-			risposta = s + ", ";
+			risposta += s + ", ";
 		return risposta.substring(0, risposta.length()-2);
 	}
 	
