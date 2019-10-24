@@ -71,6 +71,11 @@ public class Lavatrice extends Prodotto {
 					controllo = true;
 		return controllo;
 	}
+	
+	@Override
+	public double prezzo() {
+		return super.prezzo();
+	}
 
 	@Override
 	public String toString() {
