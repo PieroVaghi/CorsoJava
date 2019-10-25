@@ -2,6 +2,11 @@ package entities;
 
 public class Laptop extends Pc{
 	
+	private static int minPeso = 10;
+	private static int maxPollici = 31;
+	private static int minPollici = 3;
+	private static int maxBat = 100;
+	private static int minBat = 0;
 	int orebatteria; 
 	double peso, pollici;
 	private static int pesoMax = 7000;
@@ -71,15 +76,15 @@ public class Laptop extends Pc{
 	}
 	
 	public static boolean isBatteria(double val) {
-		return 	(val >= 0 && val <= 24);
+		return 	(val >= minBat && val <= maxBat);
 	}
 	
 	public static boolean isPollici(double val) {
-		return 	(val >= 10 && val <= 31);
+		return 	(val >= minPollici && val <= maxPollici);
 	}
 	
 	public static boolean isPeso(double val) {
-		return 	(val >= 900 && val <= pesoMax);
+		return 	(val >= minPeso && val <= pesoMax);
 	}
 	
 	
