@@ -1,0 +1,14 @@
+prezzominimoval:0
+prezzomassimoval:10000
+cpuvalide:i3,i5,i7,i9
+ramvalide:DDR3,DDR4,DDR5
+mmavalide:hdd,ssd
+ramminimavalida:1
+rammaxvalida:128
+mmaminvalida:4
+mmamaxvalida:16000
+girimin:0
+girimax:10000
+kgmin:2
+kgmax:17
+programVal:stirofacile,scuri,colorati,delicati,eco,rapido
