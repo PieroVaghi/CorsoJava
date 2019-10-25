@@ -1,4 +1,3 @@
-9
 PC,1,ANANAS,Gialla,0,i3,ddr3,16,hdd,2048
 PC,2,SUAS,Blu,10,i5,ddr4,32,ssd,256
 PC,3,SUAS,lu,0,i7,ddr3,32,ssd,128
