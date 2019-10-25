@@ -9,7 +9,6 @@ public class Lavatrice extends Prodotto {
 	
 	private int capacitachili, girialminuto;
 	private List<String> programmi = new ArrayList<String>();
-
 	
 	
 	private static int mingiri;
@@ -23,9 +22,7 @@ public class Lavatrice extends Prodotto {
 		super(id, marca, modello, prezzobase);
 		this.capacitachili = capacitachili;
 		this.girialminuto = girialminuto;
-		List<String> program = new ArrayList<String>();
-		program = Arrays.asList(programmi.split("-"));
-		setProgrammi(program);
+		setProgrammi(Arrays.asList(programmi.split("-")));
 	}
 	
 	public int getGirialminuto() {
