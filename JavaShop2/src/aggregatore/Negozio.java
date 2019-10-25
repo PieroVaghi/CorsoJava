@@ -32,7 +32,7 @@ public class Negozio {
 		while(dati.hasNextLine()) {
 			Prodotto p = null;
 			String[] riga = dati.nextLine().split(",");
-			switch(riga[0]) {
+			switch(riga[0].toUpperCase()) {
 				case "PC":
 					if(Pc.isValido(riga)) 
 						p = new Pc(Integer.parseInt(riga[1]), riga[2], riga[3], Double.parseDouble(riga[4]),

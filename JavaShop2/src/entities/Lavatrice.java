@@ -22,7 +22,7 @@ public class Lavatrice extends Prodotto {
 		super(id, marca, modello, prezzobase);
 		this.capacitachili = capacitachili;
 		this.girialminuto = girialminuto;
-		setProgrammi(Arrays.asList(programmi.split("-")));
+		setProgrammi(programmi);
 	}
 	
 	public int getGirialminuto() {
@@ -37,7 +37,8 @@ public class Lavatrice extends Prodotto {
 		return programmi;
 	}
 
-	public void setProgrammi(List<String> programmi) {
+	public void setProgrammi(String program) {
+		List<String> programmi = Arrays.asList(program);
 		for(String s : programmi)
 			for(String z: programVal)
 				if(s.equalsIgnoreCase(z))
