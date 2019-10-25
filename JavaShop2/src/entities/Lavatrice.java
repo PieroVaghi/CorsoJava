@@ -4,15 +4,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Lavatrice extends Prodotto {
 
+public class Lavatrice extends Prodotto {
+	
 	private int capacitachili, girialminuto;
 	private List<String> programmi = new ArrayList<String>();
-	private static int mingiri = 0;
-	private static int maxgiri = 10000;
-	private static String[] programVal = {"stirofacile","scuri","colorati","delicati","eco","rapido"};
-	private static int mincap = 2;
-	private static int maxcap = 15;
+
+	
+	
+	private static int mingiri;
+	private static int maxgiri;
+	private static int mincap;
+	private static int maxcap;
+	private static String[] programVal;
 	
 	public Lavatrice(int id, String marca, String modello, double prezzobase, 
 					int capacitachili, int girialminuto, String programmi) {
@@ -74,6 +78,7 @@ public class Lavatrice extends Prodotto {
 //	}
 	
 	public static boolean isValido(String[] riga) {
+		config(limiti);
 		return 	Prodotto.isValido(riga)	&&
 				isCapchili(riga[5]) 	&&
 				isGiriminuto(riga[6]) 	;
@@ -105,6 +110,27 @@ public class Lavatrice extends Prodotto {
 		for(String s : programmi)
 			risposta += s + ", ";
 		return risposta.substring(0, risposta.length()-2);
+	}
+	
+	public static void config (List<String> l) {
+		for(String s : l)
+			switch (s.substring(0,s.indexOf(":"))) {
+				case "girimin":
+					mingiri  = Integer.parseInt(s.split(":")[1]);
+				break;
+				case "girimax":
+					maxgiri  = Integer.parseInt(s.split(":")[1]);
+				break;
+				case "kgmin":
+					mincap  = Integer.parseInt(s.split(":")[1]);
+				break;
+				case "kgmax":
+					maxcap  = Integer.parseInt(s.split(":")[1]);
+				break;
+				case "programVal":
+					programVal  = (s.split(":")[1]).split(",");
+				break;
+			}
 	}
 	
 	@Override

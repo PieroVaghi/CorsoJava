@@ -13,12 +13,18 @@ import entities.Smartphone;
 
 public class Negozio {
 	
-	private double budget;
 	List<Prodotto> prodotti = new ArrayList<Prodotto>();
+	public static List<String> limiti = new ArrayList<String>();
 	
 	// COSTRUTTORE ----------------------------------------------------------------------------------------------
 	public Negozio() throws Exception {
 		Scanner dati = new Scanner(new File("src/res/datiPc.txt"));	
+		Scanner conf = new Scanner(new File("src/res/config.txt"));	
+		
+		while(conf.hasNextLine()) {
+			limiti.add(conf.nextLine());
+		}
+		conf.close();
 		
 //		prodotti = new Prodotto[npr];
 //		int pos = 0;
@@ -59,17 +65,13 @@ public class Negozio {
 		}
 		
 		dati.close();
-		budget = 20000;
 	}
 	
 	// METODI ---------------------------------------------------------------------------------------------------
 	
-	public double getBudget() {
-		return budget;
-	}
 	
-	public void setBudget(double budget) {
-		this.budget = budget;
+	public List<String> getLimiti() {
+		return limiti;
 	}
 	
 	public int nprodotti() {
@@ -204,7 +206,7 @@ public class Negozio {
 			if(p instanceof Pc)
 				if(((Pc)p).benchCPU() <= cpuVal)
 					risposta += p + "\n------------------------------------------\n" ;
-		return (!risposta.isEmpty()) ? risposta : "Nessun Pc risponde hai requisiti";
+		return (!risposta.isEmpty()) ? risposta : "Nessun Pc risponde ai requisiti";
 	}
 
 	private int cpuVal(String cpumassima) {

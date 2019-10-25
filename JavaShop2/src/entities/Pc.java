@@ -1,18 +1,20 @@
 package entities;
 
+import java.util.List;
+
 public class Pc extends Prodotto {
 	
 
 	private String cpu, tipomma, tiporam;
 	private int mma, ram;
 	
-	static String CPUValide = "i3,i5,i7,i9";
-	static String RAMValide = "ddr3,ddr4,ddr5";
-	static String MMAValide = "ssd,hdd";
-	static int RAMMin = 2;
-	static int RAMMax = 64;
-	static int MMAMin = 32;
-	static int MMAMax = 16000;
+	static String CPUValide;
+	static String RAMValide;
+	static String MMAValide;
+	static int RAMMin;
+	static int RAMMax;
+	static int MMAMin ;
+	static int MMAMax;
 	
 	public Pc(int id, String marca, String modello, double prezzobase,
 				String cpu, String tiporam, int ram, String tipomma, int mma) {
@@ -22,6 +24,7 @@ public class Pc extends Prodotto {
 		this.ram = ram;
 		this.tipomma = tipomma;		//this.tipomma = tipomma.toUpperCase(); costringo già il costruttore a salvarmi il dato maiuscolo
 		this.mma = mma;
+		
 	}
 	
 	
@@ -86,6 +89,7 @@ public class Pc extends Prodotto {
 
 
 	public static boolean isValido(String[] riga) {
+		config(limiti);
 		return 	Prodotto.isValido(riga)		&&
 				isCpu(riga[5]) 				&&
 				isRAM(riga[6], (riga[7])) 	&&
@@ -104,7 +108,7 @@ public class Pc extends Prodotto {
 	
 	public static boolean isRAM(String modello, String val) {
 		int ram = Integer.parseInt(val);
-		return 	RAMValide.indexOf(modello.toLowerCase()) >= 0 
+		return 	RAMValide.indexOf(modello.toUpperCase()) >= 0 
 				&& ram >= RAMMin && ram <= RAMMax;
 	}
 	
@@ -206,6 +210,41 @@ public class Pc extends Prodotto {
 		}
 	}
 	
+	public static void config (List<String> l) {
+		for(String s : l)
+			switch (s.substring(0,s.indexOf(":"))) {
+				case "cpuvalide":
+					CPUValide  = (s.split(":")[1]);
+				break;
+				case "ramvalide":
+					RAMValide  = (s.split(":")[1]);
+				break;
+				case "mmavalide":
+					MMAValide  = (s.split(":")[1]);
+				break;
+				case "remminimavalida":
+					RAMMin  = Integer.parseInt(s.split(":")[1]);
+				break;
+				case "rammaxvalida":
+					RAMMax  = Integer.parseInt(s.split(":")[1]);
+				break;
+				case "mmaminvalida":
+					MMAMin  = Integer.parseInt(s.split(":")[1]);
+				break;
+				case "mmamaxvalida":
+					MMAMax  = Integer.parseInt(s.split(":")[1]);
+				break;
+			}
+	}
+	
+//	static String CPUValide = "i3,i5,i7,i9";
+//	static String RAMValide = "ddr3,ddr4,ddr5";
+//	static String MMAValide = "ssd,hdd";
+//	static int RAMMin = 2;
+//	static int RAMMax = 64;
+//	static int MMAMin = 32;
+//	static int MMAMax = 16000;
+	
 	/**
 	 * @return
 	 * voglio vedere tutte le caratteristiche definite dalle proprietà
@@ -221,7 +260,7 @@ public class Pc extends Prodotto {
 				"\nMMA: "					+ mma			+
 				" GB di tipo: "				+ tipomma 		+
 				"\nCosto finale: "			+ prezzo() 		+
-				(isGaming() ? "\nE' un computer da Gaming SUPER HIGHT-TECH MEGA WOW!!!" : isOffice() ? "\nE' un buon computer da ufficio!" : "\nNon è un computer con cui si può giocare o lavorare.. Regalalo a tua zia!");
+				(isGaming() && (!this.getClass().getSimpleName().equals("Smartphone")) ? "\nE' un computer da Gaming SUPER HIGHT-TECH MEGA WOW!!!" : isOffice() && (!this.getClass().getSimpleName().equals("Smartphone")) ? "\nE' un buon computer da ufficio!" : (!this.getClass().getSimpleName().equals("Smartphone")) ? "\nNon è un computer con cui si può giocare o lavorare.. Regalalo a tua zia!" : "\nFiga quanto mi ha rotto i colioni qvesto smartphaune!");
 	}
 	
 	public String toCSV() {
