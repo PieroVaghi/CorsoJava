@@ -1,9 +1,13 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Lavatrice extends Prodotto {
 
 	private int capacitachili, girialminuto;
-	private String[] programmi;
+	private List<String> programmi = new ArrayList<String>();
 	private static int mingiri = 0;
 	private static int maxgiri = 10000;
 	private static String[] programVal = {"stirofacile","scuri","colorati","delicati","eco","rapido"};
@@ -15,22 +19,30 @@ public class Lavatrice extends Prodotto {
 		super(id, marca, modello, prezzobase);
 		this.capacitachili = capacitachili;
 		this.girialminuto = girialminuto;
-		String[] prog = programmi.split("-");
-		setProgrammi(prog);
+		List<String> program = new ArrayList<String>();
+		program = Arrays.asList(programmi.split("-"));
+		setProgrammi(program);
 	}
 	
 	public int getGirialminuto() {
 		return girialminuto;
 	}
 
-	public String[] getProgrammi() {
-		return programmi;
-	}
-
 	public int getCapacitachili() {
 		return capacitachili;
 	}
 	
+	public List<String> getProgrammi() {
+		return programmi;
+	}
+
+	public void setProgrammi(List<String> programmi) {
+		for(String s : programmi)
+			for(String z: programVal)
+				if(s.equalsIgnoreCase(z))
+					this.programmi.add(s);
+	}
+
 	void setCapacitachili(int capacitachili) {
 		if(isCapchili(capacitachili+""))
 			this.capacitachili = capacitachili;		
@@ -40,26 +52,26 @@ public class Lavatrice extends Prodotto {
 		this.girialminuto = girialminuto;
 	}
 
-	public void setProgrammi(String[] programmi) {
-		int pos = 0;
-		for(String pdv : programmi)
-			for(String pv: programVal)
-				if(pdv.equals(pv))
-				{
-					pos++;
-					break;
-				}
-		this.programmi = new String[pos];
-		pos = 0;
-		for(String pdv : programmi)
-			for(String pv: programVal)
-				if(pdv.equals(pv))
-				{
-					this.programmi[pos] = pdv;
-					pos++;
-					break;
-				}
-	}
+//	public void setProgrammi(String[] programmi) {
+//		int pos = 0;
+//		for(String pdv : programmi)
+//			for(String pv: programVal)
+//				if(pdv.equals(pv))
+//				{
+//					pos++;
+//					break;
+//				}
+//		this.programmi = new String[pos];
+//		pos = 0;
+//		for(String pdv : programmi)
+//			for(String pv: programVal)
+//				if(pdv.equals(pv))
+//				{
+//					this.programmi[pos] = pdv;
+//					pos++;
+//					break;
+//				}
+//	}
 	
 	public static boolean isValido(String[] riga) {
 		return 	Prodotto.isValido(riga)	&&

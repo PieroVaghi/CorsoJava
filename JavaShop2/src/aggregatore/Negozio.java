@@ -1,6 +1,8 @@
 package aggregatore;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import entities.Laptop;
@@ -12,16 +14,14 @@ import entities.Smartphone;
 public class Negozio {
 	
 	private double budget;
-	Prodotto[] prodotti;
+	List<Prodotto> prodotti = new ArrayList<Prodotto>();
 	
 	// COSTRUTTORE ----------------------------------------------------------------------------------------------
 	public Negozio() throws Exception {
-		Scanner dati = new Scanner(new File("src/res/datiPc.txt"));
-		int npr = Integer.parseInt(dati.nextLine());
-	
+		Scanner dati = new Scanner(new File("src/res/datiPc.txt"));	
 		
-		prodotti = new Prodotto[npr];
-		int pos = 0;
+//		prodotti = new Prodotto[npr];
+//		int pos = 0;
 		
 		while(dati.hasNextLine()) {
 			Prodotto p = null;
@@ -54,8 +54,7 @@ public class Negozio {
 											Integer.parseInt(riga[5]), Integer.parseInt(riga[6]), riga[7]);
 			}
 			if(p!=null) {					//Verifico che p sia stato istanziato e in quel caso prendo il vettore alla posizione disponibile e ci carico p
-				prodotti[pos] = p;
-				pos ++;
+				prodotti.add(p);
 			}
 		}
 		
@@ -74,7 +73,7 @@ public class Negozio {
 	}
 	
 	public int nprodotti() {
-		return prodotti.length;
+		return prodotti.size();
 	}
 	
 	public int nlavatrici() {
@@ -153,7 +152,7 @@ public class Negozio {
 		String risposta = "";
 		for(Prodotto p : prodotti)
 			if (p!=null)
-				risposta += p.toString() + "\n------------------------------------------\n";
+				risposta += p + "\n------------------------------------------\n";
 		return risposta;
 	}
 	
@@ -161,7 +160,7 @@ public class Negozio {
 		String risposta = "";
 		double min = minimo();
 		for(Prodotto p : prodotti)
-			risposta += (p.prezzo() == min) ? p.toString() + "\n------------------------------------------\n": "" ;
+			risposta += (p.prezzo() == min) ? p + "\n------------------------------------------\n": "" ;
 		return risposta;
 	}
 	
@@ -169,7 +168,7 @@ public class Negozio {
 		String risposta = "";
 		double max = massimo();
 		for(Prodotto p : prodotti)
-			risposta += (p.prezzo() == max) ? p.toString() + "\n------------------------------------------\n": "" ;
+			risposta += (p.prezzo() == max) ? p + "\n------------------------------------------\n": "" ;
 		return risposta;
 	} 
 	
@@ -177,7 +176,7 @@ public class Negozio {
 		String risposta = "";
 		for(Prodotto p : prodotti)
 			if(p instanceof Pc)
-				risposta += (((Pc)p).isGaming()) ? p.toString() + "\n------------------------------------------\n": "" ;
+				risposta += (((Pc)p).isGaming()) ? p + "\n------------------------------------------\n": "" ;
 		return risposta;
 	}
 	
@@ -185,7 +184,7 @@ public class Negozio {
 		String risposta = "";
 		for(Prodotto p : prodotti)
 			if(p instanceof Pc)
-				risposta += (((Pc)p).isOffice()) ? p.toString() + "\n------------------------------------------\n": "";
+				risposta += (((Pc)p).isOffice()) ? p + "\n------------------------------------------\n": "";
 		return risposta;
 	}
 	
@@ -194,7 +193,7 @@ public class Negozio {
 		String risposta = "";
 		for(Prodotto p : prodotti)
 			if(p.getId()==id)
-				risposta += p.toString();
+				risposta += p;
 		return risposta;
 	} 
 	
@@ -204,7 +203,7 @@ public class Negozio {
 		for(Prodotto p : prodotti)
 			if(p instanceof Pc)
 				if(((Pc)p).benchCPU() <= cpuVal)
-					risposta += p.toString() + "\n------------------------------------------\n" ;
+					risposta += p + "\n------------------------------------------\n" ;
 		return (!risposta.isEmpty()) ? risposta : "Nessun Pc risponde hai requisiti";
 	}
 
@@ -255,7 +254,7 @@ public class Negozio {
 		String risposta = "";
 		for(Prodotto p : prodotti)
 			if(p.prezzo() <= prezzomassimo)
-				risposta += p.toString() + "\n------------------------------------------\n";;
+				risposta += p + "\n------------------------------------------\n";;
 		return risposta;
 	}
 	
