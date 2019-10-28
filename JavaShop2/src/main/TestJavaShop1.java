@@ -3,6 +3,7 @@ package main;
 import java.io.File;
 import java.util.Scanner;
 
+import aggregatore.INegozio;
 import aggregatore.Negozio;
 
 public class TestJavaShop1 {
