@@ -16,9 +16,9 @@ public class Pc extends Prodotto {
 	static int MMAMin ;
 	static int MMAMax;
 	
-	public Pc(int id, String marca, String modello, double prezzobase,
+	public Pc(int id, int iddip, String marca, String modello, double prezzobase,
 				String cpu, String tiporam, int ram, String tipomma, int mma) {
-		super(id, marca, modello, prezzobase);
+		super(id,iddip, marca, modello, prezzobase);
 		this.cpu = cpu;
 		this.tiporam = tiporam;
 		this.ram = ram;
@@ -91,9 +91,9 @@ public class Pc extends Prodotto {
 	public static boolean isValido(String[] riga) {
 		config(limiti);
 		return 	Prodotto.isValido(riga)		&&
-				isCpu(riga[5]) 				&&
-				isRAM(riga[6], (riga[7])) 	&&
-				isMMA(riga[8], (riga[9]))	;
+				isCpu(riga[6]) 				&&
+				isRAM(riga[7], (riga[8])) 	&&
+				isMMA(riga[9], (riga[10]))	;
 	}
 
 	public static boolean isCpu(String modello) {		//Non ancora perfetto.. ",i5" considerato come valore valido

@@ -12,12 +12,12 @@ public class Smartphone extends Laptop {
 	static String[] costo5 = {"4G","4G+","5G"};
 	
 
-	public Smartphone(int id, String marca, String modello, double prezzobase, 
+	public Smartphone(int id, int iddip, String marca, String modello, double prezzobase, 
 							String cpu, String tiporam, int ram, String tipomma, int mma,
 							int orebatteria, double pollici, double peso,
 							String rete, double megapixel, String jack) {
 		
-		super(id, marca, modello, prezzobase, cpu, tiporam, ram, tipomma, mma, orebatteria, pollici, peso);
+		super(id, iddip, marca, modello, prezzobase, cpu, tiporam, ram, tipomma, mma, orebatteria, pollici, peso);
 		this.rete = rete;
 		this.megapixel = megapixel;
 		this.jack = jack;
@@ -54,9 +54,9 @@ public class Smartphone extends Laptop {
 
 	public static boolean isValido(String[] riga) {
 		return 	Laptop.isValido(riga)	&&
-				isRete(riga[13])		&&
-				isJack(riga[15])		&&
-				isMegapixel(Double.parseDouble(riga[14]));
+				isRete(riga[14])		&&
+				isJack(riga[16])		&&
+				isMegapixel(Double.parseDouble(riga[15]));
 	}
 
 	public static boolean isMegapixel(double mega) {

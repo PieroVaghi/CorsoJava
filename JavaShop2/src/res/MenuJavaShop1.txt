@@ -7,24 +7,41 @@
  
  
               +---------------------------------------------------------------+
+              |                                                               |
               |   Inserisci:                                                  |
+              |                                                               |
               | 0  -> Per uscire                                              |
+              |                                                               |
+              |   COMANDI CLIENTI:                                            |
+              |                                                               |
               | 1  -> Per visualizzare il numero dei prodotti del negozio     |
               | 2  -> Per visualizzare il numero dei pc nel negozio           |
               | 3  -> Per visualizzare il numero dei laptop nel negozio       |
               | 4  -> Per visualizzare il numero degli smartphone             |
               | 5  -> Per visualizzare il numero delle lavatrici nel negozio  |
               | 6  -> Per il numero dei prodotti che contengono una data CPU  |
-              | 7  -> Per la somma dei prezzi del negozio                     |
-              | 8  -> Per la media dei prezzi del negozio                     |
-              | 9  -> Per visualizzare il prezzo più basso del negozio        |
-              | 10  -> Per visualizzare il prezzo più alto del negozio        |
-              | 11  -> Per visualizzare le schede dei computer più economici  |
-              | 12 -> Per visualizzare le schede dei computer più costosi     |
-              | 13 -> Per visualizzare le schede dei computer da Gaming       |
-              | 14 -> Per visualizzare le schede dei computer da ufficio      |
-              | 15 -> Ricerca computer per id                                 |
-              | 16 -> Ricerca computer dato un limite massimo di cpu          |
-              | 17 -> Ricerca computer con prezzo inferiore ad uno dato       |
-              | 18 -> Stampa l'intero catalogo                                | 
-              +---------------------------------------------------------------+                                              
+              | 7  -> Per visualizzare le schede dei computer più economici   |
+              | 8  -> Per visualizzare le schede dei computer più costosi     |
+              | 9  -> Per visualizzare le schede dei computer da Gaming       |
+              | 10 -> Per visualizzare le schede dei computer da ufficio      |
+              | 11 -> Ricerca prodotto per CPU, RAM e PREZZOMAX               |
+              |                                                               |
+              |   COMANDI AMMINISTRAZIONE:                                    |
+              |                                                               |
+              | 12 -> Per la somma dei prezzi del negozio                     |
+              | 13 -> Totale prezzo dei PC                                    |
+              | 14 -> Per la media dei prezzi del negozio                     |
+              | 15 -> Per visualizzare il prezzo più basso del negozio        |
+              | 16 -> Per visualizzare il prezzo più alto del negozio         |                          
+              | 17 -> Per visualizzare il guadagno del negozio                |
+              | 18 -> Per visualizzare la somma degli stipendi                |
+              | 19 -> Per visualizzare lo stipendio minimo                    |
+              | 20 -> Per visualizzare lo stipendio massimo                   |
+              | 21 -> Stampa il numero di dipendenti                          |
+              | 22 -> Stampa il numero di CapiReparto                         |
+              | 23 -> Ricerca dipendente per id                               |
+              | 25 -> Ricerca dipendenti per ruolo                            |
+              | 26 -> Ricerca dipendenti peer ruolo e stipendio massimo       |
+              | 27 -> stampa tutti i prodotti gestiti da id personale         |
+              | 28 -> stampa chi gestisce id prodotto                         |
+              +---------------------------------------------------------------+           

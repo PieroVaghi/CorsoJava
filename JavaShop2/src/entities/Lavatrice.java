@@ -17,9 +17,9 @@ public class Lavatrice extends Prodotto {
 	private static int maxcap;
 	private static String[] programVal;
 	
-	public Lavatrice(int id, String marca, String modello, double prezzobase, 
+	public Lavatrice(int id, int iddip, String marca, String modello, double prezzobase, 
 					int capacitachili, int girialminuto, String programmi) {
-		super(id, marca, modello, prezzobase);
+		super(id, iddip, marca, modello, prezzobase);
 		this.capacitachili = capacitachili;
 		this.girialminuto = girialminuto;
 		setProgrammi(programmi);
@@ -78,8 +78,8 @@ public class Lavatrice extends Prodotto {
 	public static boolean isValido(String[] riga) {
 		config(limiti);
 		return 	Prodotto.isValido(riga)	&&
-				isCapchili(riga[5]) 	&&
-				isGiriminuto(riga[6]) 	;
+				isCapchili(riga[6]) 	&&
+				isGiriminuto(riga[7]) 	;
 //				isProgrammiVal(riga[7])	;
 	}
 

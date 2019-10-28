@@ -7,7 +7,7 @@ import aggregatore.Negozio;
 public class Prodotto {
 	private static int maxPrez;
 	private static int minPrez;
-	private int id;
+	private int id, iddip;
 	private String modello, marca;
 	private double prezzobase;
 	static List<String> limiti = Negozio.limiti;
@@ -17,11 +17,22 @@ public class Prodotto {
 	 * @param marca
 	 * @param prezzobase
 	 */
-	public Prodotto(int id, String marca, String modello, double prezzobase) {
+	public Prodotto(int id, int iddip, String marca, String modello, double prezzobase) {
 		this.id = id;
+		this.iddip = iddip;
 		this.marca = marca;
 		this.modello = modello;
 		this.prezzobase = prezzobase;
+	}
+
+	
+	
+	public int getIddip() {
+		return iddip;
+	}
+
+	public void setIddip(int iddip) {
+		this.iddip = iddip;
 	}
 
 	public int getId() {
@@ -59,7 +70,7 @@ public class Prodotto {
 	
 	public static boolean isValido(String[] riga) {
 		config(limiti);
-		return 	isPrezzobaseValido(riga[4]);
+		return 	isPrezzobaseValido(riga[5]);
 				
 	}
 
@@ -83,13 +94,14 @@ public class Prodotto {
 	}
 	
 	public String toCSV() {
-		return id+","+marca+","+modello+","+prezzobase;
+		return id+","+iddip+","+marca+","+modello+","+prezzobase;
 	}
 	
 	@Override
 	public String toString() {
-		return "id: " + id + ",\n" + (marca != null ? "marca: " + marca + ",\n" : "") 
+		return "id: " + id + ",\n" + "iddip: " + id + ",\n" + (marca != null ? "marca: " + marca + ",\n" : "") 
 				+ (modello != null ? "modello: " + modello + ",\n" : "") + "prezzobase: " + prezzobase;
 	}
+
 	
 }

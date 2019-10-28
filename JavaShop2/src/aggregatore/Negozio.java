@@ -1,10 +1,12 @@
 package aggregatore;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import entities.Dipendente;
 import entities.Laptop;
 import entities.Lavatrice;
 import entities.Pc;
@@ -14,12 +16,33 @@ import entities.Smartphone;
 public class Negozio implements INegozio, IAmministrazione {
 	
 	List<Prodotto> prodotti = new ArrayList<Prodotto>();
+	List<Dipendente> dipendenti = new ArrayList<Dipendente>();
 	public static List<String> limiti = new ArrayList<String>();
 	private double budget;
 	
 	// COSTRUTTORE ----------------------------------------------------------------------------------------------
-	public Negozio(String percorso, double budget) throws Exception {
-		Scanner dati = new Scanner(new File(percorso));	
+	public Negozio(String percorsoProd, String percorsoDip, double budget) throws Exception {
+		caricaDipendenti(percorsoDip);
+		caricaProdotti(percorsoProd);
+		caricaProdottiIddip();
+		this.budget = budget;
+	}
+
+	private void caricaDipendenti(String percorsoDip) throws Exception {
+		Scanner dati = new Scanner(new File(percorsoDip));	
+		
+		while(dati.hasNextLine()) {
+			Dipendente d = null;
+			String[] riga = dati.nextLine().split(",");
+					if(Dipendente.isValido(riga)) 
+						dipendenti.add(d = new Dipendente(Integer.parseInt(riga[0]), riga[1], riga[2], riga[3], riga[4], Double.parseDouble(riga[5]), Integer.parseInt(riga[6]), riga[7]));
+		}
+		dati.close();
+		
+	}
+
+	private void caricaProdotti(String percorsoProd) throws Exception {
+		Scanner dati = new Scanner(new File(percorsoProd));	
 		Scanner conf = new Scanner(new File("src/res/config.txt"));	
 		
 		while(conf.hasNextLine()) {
@@ -36,36 +59,34 @@ public class Negozio implements INegozio, IAmministrazione {
 			switch(riga[0].toUpperCase()) {
 				case "PC":
 					if(Pc.isValido(riga)) 
-						p = new Pc(Integer.parseInt(riga[1]), riga[2], riga[3], Double.parseDouble(riga[4]),
-											riga[5], riga[6], Integer.parseInt(riga[7]), 
-											riga[8], Integer.parseInt(riga[9]));
+						p = new Pc(Integer.parseInt(riga[1]), Integer.parseInt(riga[2]), riga[3], riga[4], Double.parseDouble(riga[5]),
+											riga[6], riga[7], Integer.parseInt(riga[8]), 
+											riga[9], Integer.parseInt(riga[10]));
 				break;
 				case "LAPTOP":
 					if(Laptop.isValido(riga)) 
-						p = new Laptop(Integer.parseInt(riga[1]), riga[2], riga[3], Double.parseDouble(riga[4]),
-										riga[5], riga[6], Integer.parseInt(riga[7]), 
-										riga[8], Integer.parseInt(riga[9]),
-										Integer.parseInt(riga[10]), Double.parseDouble(riga[11]), Double.parseDouble(riga[12]));
+						p = new Laptop(Integer.parseInt(riga[1]), Integer.parseInt(riga[2]), riga[3], riga[4], Double.parseDouble(riga[5]),
+										riga[6], riga[7], Integer.parseInt(riga[8]), 
+										riga[9], Integer.parseInt(riga[10]),
+										Integer.parseInt(riga[11]), Double.parseDouble(riga[12]), Double.parseDouble(riga[13]));
 				break;
 				case "SMARTPHONE":
 					if(Smartphone.isValido(riga))
-						p = new Smartphone(Integer.parseInt(riga[1]), riga[2], riga[3], Double.parseDouble(riga[4]),
-										riga[5], riga[6], Integer.parseInt(riga[7]), 
-										riga[8], Integer.parseInt(riga[9]),
-										Integer.parseInt(riga[10]), Double.parseDouble(riga[11]), Double.parseDouble(riga[12]),
-										riga[13], Double.parseDouble(riga[14]), riga[15]);
+						p = new Smartphone(Integer.parseInt(riga[1]), Integer.parseInt(riga[2]),riga[3], riga[4], Double.parseDouble(riga[5]),
+										riga[6], riga[7], Integer.parseInt(riga[8]), 
+										riga[9], Integer.parseInt(riga[10]),
+										Integer.parseInt(riga[11]), Double.parseDouble(riga[12]), Double.parseDouble(riga[13]),
+										riga[14], Double.parseDouble(riga[15]), riga[16]);
 				break;
 				case "LAVATRICE":
 					if(Lavatrice.isValido(riga)) 
-						p = new Lavatrice(Integer.parseInt(riga[1]), riga[2], riga[3], Double.parseDouble(riga[4]),
-											Integer.parseInt(riga[5]), Integer.parseInt(riga[6]), riga[7]);
+						p = new Lavatrice(Integer.parseInt(riga[1]), Integer.parseInt(riga[2]),riga[3], riga[4], Double.parseDouble(riga[5]),
+											Integer.parseInt(riga[6]), Integer.parseInt(riga[7]), riga[8]);
 			}
 			if(p!=null) {					//Verifico che p sia stato istanziato e in quel caso prendo il vettore alla posizione disponibile e ci carico p
 				prodotti.add(p);
 			}
 		}
-		
-		this.budget = budget;
 		dati.close();
 	}
 	
@@ -136,7 +157,7 @@ public class Negozio implements INegozio, IAmministrazione {
 		return tot;
 	}
 	
-	public double totaleprezzipc() {
+	public double totalePrezziPc() {
 		double tot = 0;
 		for(Prodotto p : prodotti)
 			tot += (p instanceof Pc) ? p.prezzo() : 0;
@@ -208,9 +229,9 @@ public class Negozio implements INegozio, IAmministrazione {
 		return risposta;
 	} 
 	
-	public String ricerca(String cpumassima) {		//restituire le schede dei prodotti che hanno una cpu massima richiesta dall'esterno, ossia, io sto cercando un pc che abbia almeno un "i7", voglio vedere sia le schede degli i3, degli i5 e degli i7
+	public String ricerca(String cpu) {		//restituire le schede dei prodotti che hanno una cpu massima richiesta dall'esterno, ossia, io sto cercando un pc che abbia almeno un "i7", voglio vedere sia le schede degli i3, degli i5 e degli i7
 		String risposta = "";
-		int cpuVal = cpuVal(cpumassima);
+		int cpuVal = cpuVal(cpu);
 		for(Prodotto p : prodotti)
 			if(p instanceof Pc)
 				if(((Pc)p).benchCPU() <= cpuVal)
@@ -268,20 +289,14 @@ public class Negozio implements INegozio, IAmministrazione {
 		Prodotto p = null;
 		switch(tipo.toUpperCase()) {
 			case "PC":
-				p = new Pc(id, marca, modello, prezzo, null, null, 0, null, 0);
-			break;
+				return prodotti.add(p = new Pc(id, 0, marca, modello, prezzo, null, null, 0, null, 0));
 			case "LAPTOP":
-				p = new Laptop(id, marca, modello, prezzo, null, null, 0, null, 0, 0, 0, 0);
-			break;
+				return prodotti.add(p = new Laptop(id, 0, marca, modello, prezzo, null, null, 0, null, 0, 0, 0, 0));
 			case "SMARTPHONE":
-				p = new Smartphone(id, marca, modello, prezzo, null, null, 0, null, 0, 0, 0, 0, null, 0, null);
-			break;
+				return prodotti.add(p = new Smartphone(id, 0, marca, modello, prezzo, null, null, 0, null, 0, 0, 0, 0, null, 0, null));
 			case "LAVATRICE":
-				p = new Lavatrice(id, marca, modello, prezzo, 0, 0, null);
-			break;				
+				return prodotti.add(p = new Lavatrice(id, 0, marca, modello, prezzo, 0, 0, null));			
 		}
-		if( p!=null)
-			return prodotti.add(p);
 		return false;
 	}
 
@@ -294,6 +309,105 @@ public class Negozio implements INegozio, IAmministrazione {
 	}
 	
 	public double guadagno() {
-		return budget + totaleprezzi();
+		return budget + totaleprezzi() - stipendi();
 	}
+
+
+
+	@Override
+	public double stipendi() {
+		double tot = 0;
+		for(Dipendente d : dipendenti)
+			tot += d.stipendio();
+		return tot;
+	}
+
+
+	@Override
+	public double stipendiominino() {
+		double min = Double.MAX_VALUE;
+		for(Dipendente d : dipendenti)
+			min = (min > d.stipendio()) ? d.stipendio() : min;
+		return min;
+	}
+	
+
+	@Override
+	public double stipoendiomassimo() {
+		double max = 800;
+		for(Dipendente d : dipendenti)
+			max = (max < d.stipendio()) ? d.stipendio() : max;
+		return max;
+	}
+
+	
+	@Override
+	public int ndipendenti() {
+		return dipendenti.size();
+	}
+	
+
+	@Override
+	public int nCapireparti() {
+		int cont = 0;
+		for(Dipendente d : dipendenti)
+			cont += (d.getRuolo().equalsIgnoreCase("caporeparto")) ? 1 : 0;
+		return cont;
+	}
+	
+
+	@Override
+	public Dipendente ricercadip(int id) {
+		for(Dipendente d : dipendenti)
+			if(d.getId() == id)
+				return d;
+		return null;
+	}
+	
+
+	@Override
+	public List<Dipendente> ricercadip(String ruolo) {
+		List<Dipendente> ris = new ArrayList<Dipendente>();
+		for(Dipendente d : dipendenti)
+			if(d.getRuolo().equalsIgnoreCase(ruolo))
+				ris.add(d);
+		return ris;
+	}
+	
+
+	@Override
+	public List<Dipendente> ricercadip(String ruolo, double stipendiomassimo) {
+		List<Dipendente> ris = ricercadip(ruolo);
+		for(int i = 0; i<ris.size(); i++)
+			if(ris.get(i).stipendio() > stipendiomassimo) {
+				ris.remove(i);
+				i --;
+			}
+		return ris;
+	}
+
+	public void caricaProdottiIddip() {
+		for(Dipendente d : dipendenti)
+				for(Prodotto p : prodotti)
+					if(p.getIddip() == d.getId())
+						d.aggiungiProdottoGestito(p.getId());
+	}
+	
+	public String stampaProdottiDip(int iddip) {
+		String ris = "";
+		Dipendente d = ricercadip(iddip);
+			if(d.getId() == iddip)
+				for(int i : d.getProdottiGestiti())
+					ris += ricerca(i);
+		return ris;
+	}
+	
+	public String stampaGestoreProd(int id) {
+		String ris = "";
+		for(Dipendente d : dipendenti)
+			for(int i : d.getProdottiGestiti())
+				ris += (i == id) ? d : "";
+		return ris;
+	}
+
 }

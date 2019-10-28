@@ -1,0 +1,5 @@
+11,Giuseppe,Garibaldi,caporeparto,pc,1500,20,0
+12,Alessio,Rincari,caporeparto,Lavatrici,1500,15,0
+13,Francesca,Garibaldi,vicecaporeparto,pc,1300,10,0
+15,Luigi,D'Aloia,sottoposto,pc,1000,5,0
+16,Giuseppe,Garibaldi,sottoposto,Lavatrici,1000,3,0

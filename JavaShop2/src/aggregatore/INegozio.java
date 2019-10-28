@@ -1,5 +1,9 @@
 package aggregatore;
 
+import java.util.List;
+
+import entities.Prodotto;
+
 public interface INegozio {
 	
 	//Interfeccia java 7:
@@ -8,23 +12,18 @@ public interface INegozio {
 	 *  che la utilizzeranno, a implementare la firma di questi metodi
 	 */
 	
+	
 	public int nprodottipercpu(String cpu); //voglio sapere quanti sono i pc che hanno una cpu uguale a quella segnalata dall'esterno
-	public double totaleprezzi();
-	public double media();
-	public double minimo();	//prezzo più basso
-	public double massimo(); //prezzo più alto
+	public int nprodotti();
+	public int nlaptop();
+	public int npc();
+	public int nlavatrici();
+	public int nsmartphone();
 	public String schede(); //voglio tutte le schede dei pc
 	public String schedepiueconomici(); //voglio le schede dei pc che costano quanto il minimo
 	public String schedepiucostosi(); //voglio le schede dei pc che costano quanto il massimo
 	public String schedegaming(); //schede di tutti i pc da gaming
 	public String schedeoffice(); //schede di tutti i pc da ufficio
-	public String ricerca(int id); //restituire la scheda del prodotto che ha quel determinato id inserito dall'esterno
-	public int nprodotti();
-	public int npc();
-	public int nlaptop();
-	public int nsmartphone();
-	public int nlavatrici();
-	public String ricerca(String cpu);
-	public String ricerca(double prezzo);
+	public List<Prodotto> ricerca(String cpu, int ram, double prezzo);
 
 }
