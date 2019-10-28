@@ -17,8 +17,8 @@ public class Negozio implements INegozio{
 	public static List<String> limiti = new ArrayList<String>();
 	
 	// COSTRUTTORE ----------------------------------------------------------------------------------------------
-	public Negozio() throws Exception {
-		Scanner dati = new Scanner(new File("src/res/datiPc.txt"));	
+	public Negozio(String percorso) throws Exception {
+		Scanner dati = new Scanner(new File(percorso));	
 		Scanner conf = new Scanner(new File("src/res/config.txt"));	
 		
 		while(conf.hasNextLine()) {
@@ -127,11 +127,15 @@ public class Negozio implements INegozio{
 		return tot;
 	}
 	
-	public double media() {
-		double media = 0;
+	public double totaleprezzipc() {
+		double tot = 0;
 		for(Prodotto p : prodotti)
-			media += p.prezzo();
-		return media/nprodotti();
+			tot += (p instanceof Pc) ? p.prezzo() : 0;
+		return tot;
+	}
+	
+	public double media() {
+		return totaleprezzi()/nprodotti();
 	}
 	
 	public double minimo() {	//prezzo più basso
@@ -153,24 +157,21 @@ public class Negozio implements INegozio{
 	public String schede() {	//voglio tutte le schede dei pc
 		String risposta = "";
 		for(Prodotto p : prodotti)
-			if (p!=null)
-				risposta += p + "\n------------------------------------------\n";
+				risposta += (p!=null) ? p + "\n------------------------------------------\n" : "";
 		return risposta;
 	}
 	
 	public String schedepiueconomici() {	//voglio le schede dei pc che costano quanto il minimo
 		String risposta = "";
-		double min = minimo();
 		for(Prodotto p : prodotti)
-			risposta += (p.prezzo() == min) ? p + "\n------------------------------------------\n": "" ;
+			risposta += (p.prezzo() == minimo()) ? p + "\n------------------------------------------\n": "" ;
 		return risposta;
 	}
 	
 	public String schedepiucostosi() {	//voglio le schede dei pc che costano quanto il massimo
 		String risposta = "";
-		double max = massimo();
 		for(Prodotto p : prodotti)
-			risposta += (p.prezzo() == max) ? p + "\n------------------------------------------\n": "" ;
+			risposta += (p.prezzo() == massimo()) ? p + "\n------------------------------------------\n": "" ;
 		return risposta;
 	} 
 	
@@ -260,5 +261,44 @@ public class Negozio implements INegozio{
 		return risposta;
 	}
 	
+	public List<Prodotto> ricerca (String cpu, int ram, double prezzo){
+		List<Prodotto> res = new ArrayList<Prodotto>();
+		for(Prodotto p : prodotti)
+			if(p instanceof Pc && ((Pc)p).getCpu().equalsIgnoreCase(cpu) && ((Pc)p).getRam() == ram && p.prezzo() == prezzo) 
+				res.add(p);
+		return res;		
+	}
+	
+	public Prodotto acquista(int id) {
+		for(Prodotto p : prodotti)
+			if(p.getId() == id) 
+				return p;
+		return null; 
+	}
+	
+	public boolean vendi (Prodotto p) {
+		return prodotti.remove(p);
+	}
+	
+	public boolean aggiungiProdotto (String tipo, int id, String marca, String modello, double prezzo) {
+		Prodotto p = null;
+		switch(tipo.toUpperCase()) {
+			case "PC":
+				p = new Pc(id, marca, modello, prezzo, null, null, 0, null, 0);
+			break;
+			case "LAPTOP":
+				p = new Laptop(id, marca, modello, prezzo, null, null, 0, null, 0, 0, 0, 0);
+			break;
+			case "SMARTPHONE":
+				p = new Smartphone(id, marca, modello, prezzo, null, null, 0, null, 0, 0, 0, 0, null, 0, null);
+			break;
+			case "LAVATRICE":
+				p = new Lavatrice(id, marca, modello, prezzo, 0, 0, null);
+			break;				
+		}
+		if( p!=null)
+			return prodotti.add(p);
+		return false;
+	}
 	
 }

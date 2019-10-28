@@ -19,5 +19,12 @@ public interface INegozio {
 	public String schedegaming(); //schede di tutti i pc da gaming
 	public String schedeoffice(); //schede di tutti i pc da ufficio
 	public String ricerca(int id); //restituire la scheda del prodotto che ha quel determinato id inserito dall'esterno
+	public int nprodotti();
+	public int npc();
+	public int nlaptop();
+	public int nsmartphone();
+	public int nlavatrici();
+	public String ricerca(String cpu);
+	public String ricerca(double prezzo);
 
 }

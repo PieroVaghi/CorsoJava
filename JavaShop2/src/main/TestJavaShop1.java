@@ -10,7 +10,11 @@ public class TestJavaShop1 {
 
 	public static void main(String[] args) throws Exception{
 		
-		Negozio shop = new Negozio();
+		Scanner tastiera = new Scanner(System.in);
+		System.out.println("Scegli il negozio che ti interessa tra javaronics o javaworld");
+		String percorso = "src/res/" + tastiera.nextLine()+"/dati.txt";
+		
+		INegozio shop = new Negozio(percorso);
 		
 		Scanner datimenu = new Scanner(new File("src/res/MenuJavaShop1.txt"));
 		String menu = "";
@@ -19,7 +23,6 @@ public class TestJavaShop1 {
 		}
 		datimenu.close();
 		
-		Scanner tastiera = new Scanner(System.in);
 		int comando = 0;
 		
 		do {

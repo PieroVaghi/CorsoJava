@@ -38,7 +38,7 @@ public class Lavatrice extends Prodotto {
 	}
 
 	public void setProgrammi(String program) {
-		List<String> programmi = Arrays.asList(program);
+		List<String> programmi = Arrays.asList(program.split("-"));
 		for(String s : programmi)
 			for(String z: programVal)
 				if(s.equalsIgnoreCase(z))
