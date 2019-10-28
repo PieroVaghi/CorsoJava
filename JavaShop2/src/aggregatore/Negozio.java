@@ -11,13 +11,14 @@ import entities.Pc;
 import entities.Prodotto;
 import entities.Smartphone;
 
-public class Negozio implements INegozio{
+public class Negozio implements INegozio, IAmministrazione {
 	
 	List<Prodotto> prodotti = new ArrayList<Prodotto>();
 	public static List<String> limiti = new ArrayList<String>();
+	private double budget;
 	
 	// COSTRUTTORE ----------------------------------------------------------------------------------------------
-	public Negozio(String percorso) throws Exception {
+	public Negozio(String percorso, double budget) throws Exception {
 		Scanner dati = new Scanner(new File(percorso));	
 		Scanner conf = new Scanner(new File("src/res/config.txt"));	
 		
@@ -64,6 +65,7 @@ public class Negozio implements INegozio{
 			}
 		}
 		
+		this.budget = budget;
 		dati.close();
 	}
 	
@@ -73,7 +75,15 @@ public class Negozio implements INegozio{
 	public List<String> getLimiti() {
 		return limiti;
 	}
-	
+		
+	public double getBudget() {
+		return budget;
+	}
+
+	public void setBudget(double budget) {
+		this.budget = budget;
+	}
+
 	public int nprodotti() {
 		return prodotti.size();
 	}
@@ -93,8 +103,7 @@ public class Negozio implements INegozio{
 				cont ++;
 		return cont - nlaptop() - nsmartphone();
 	}
-	
-	
+		
 	public int nlaptop() {
 		int cont = 0;
 		for(Prodotto p : prodotti)
@@ -191,7 +200,6 @@ public class Negozio implements INegozio{
 		return risposta;
 	}
 	
-
 	public String ricerca(int id) { 	//restituire la scheda del prodotto che ha quel determinato id inserito dall'esterno
 		String risposta = "";
 		for(Prodotto p : prodotti)
@@ -228,30 +236,6 @@ public class Negozio implements INegozio{
 		}
 		return cpuVal;
 	}
-	
-//	public Prodotto[] ricerca(String cpumassima , double prezzomax) {		//restituire le schede dei prodotti che hanno una cpu massima richiesta dall'esterno, ossia, io sto cercando un pc che abbia almeno un "i7", voglio vedere sia le schede degli i3, degli i5 e degli i7
-//		String risposta = "";
-//		int cpuVal = 0;
-//		switch(cpumassima.toLowerCase()) {
-//			case "i3":
-//				cpuVal = 1;
-//			break;
-//			case "i5":
-//				cpuVal = 2;
-//			break;
-//			case "i7":
-//				cpuVal = 3;
-//			break;
-//			case "i9":
-//				cpuVal = 4;
-//			break;
-//		}
-//		for(Prodotto p : prodotti)
-//			if(p instanceof Pc)
-//				if(((Pc)p).benchCPU() <= cpuVal && p.prezzo() <= prezzomax)
-//					risposta += p.toString();
-//		return risposta;
-//	}
 	
 	public String ricerca(double prezzomassimo) {		//restituire le schede dei prodotti che hanno al massimo il prezzo richiesto dall'esterno
 		String risposta = "";
@@ -300,5 +284,16 @@ public class Negozio implements INegozio{
 			return prodotti.add(p);
 		return false;
 	}
+
+	@Override
+	public double mediaPrezziPc() {
+		double totp = 0;
+		for(Prodotto p : prodotti)
+			totp += (p instanceof Pc && !(p instanceof Laptop)) ? p.prezzo() : 0;
+		return totp/npc();
+	}
 	
+	public double guadagno() {
+		return budget + totaleprezzi();
+	}
 }

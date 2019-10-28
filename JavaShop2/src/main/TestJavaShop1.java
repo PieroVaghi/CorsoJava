@@ -14,7 +14,10 @@ public class TestJavaShop1 {
 		System.out.println("Scegli il negozio che ti interessa tra javaronics o javaworld");
 		String percorso = "src/res/" + tastiera.nextLine()+"/dati.txt";
 		
-		INegozio shop = new Negozio(percorso);
+		System.out.println("Quale tipologia di funzioni devi effettuare? amministrazione o clientela?");
+		INegozio shop = new Negozio(percorso, 10000);
+		
+		
 		
 		Scanner datimenu = new Scanner(new File("src/res/MenuJavaShop1.txt"));
 		String menu = "";
