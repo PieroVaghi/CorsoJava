@@ -11,7 +11,7 @@ import entities.Pc;
 import entities.Prodotto;
 import entities.Smartphone;
 
-public class Negozio {
+public class Negozio implements INegozio{
 	
 	List<Prodotto> prodotti = new ArrayList<Prodotto>();
 	public static List<String> limiti = new ArrayList<String>();
