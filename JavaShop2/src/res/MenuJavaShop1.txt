@@ -40,8 +40,8 @@
               | 21 -> Stampa il numero di dipendenti                          |
               | 22 -> Stampa il numero di CapiReparto                         |
               | 23 -> Ricerca dipendente per id                               |
-              | 25 -> Ricerca dipendenti per ruolo                            |
-              | 26 -> Ricerca dipendenti peer ruolo e stipendio massimo       |
-              | 27 -> stampa tutti i prodotti gestiti da id personale         |
-              | 28 -> stampa chi gestisce id prodotto                         |
+              | 24 -> Ricerca dipendenti per ruolo                            |
+              | 25 -> Ricerca dipendenti peer ruolo e stipendio massimo       |
+              | 26 -> stampa tutti i prodotti gestiti da id personale         |
+              | 27 -> stampa chi gestisce id prodotto                         |
               +---------------------------------------------------------------+           

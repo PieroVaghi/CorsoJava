@@ -396,17 +396,20 @@ public class Negozio implements INegozio, IAmministrazione {
 	public String stampaProdottiDip(int iddip) {
 		String ris = "";
 		Dipendente d = ricercadip(iddip);
-			if(d.getId() == iddip)
+//			if(d.getId() == iddip)
+			if(d!=null)
 				for(int i : d.getProdottiGestiti())
-					ris += ricerca(i);
-		return ris;
+					ris += ricerca(i) + "\n-------------------------------\n";
+			else
+				ris += "Id non trovato";
+		return (ris.isEmpty()) ? "Non gestisce nessun prodotto" : ris;
 	}
 	
 	public String stampaGestoreProd(int id) {
 		String ris = "";
 		for(Dipendente d : dipendenti)
 			for(int i : d.getProdottiGestiti())
-				ris += (i == id) ? d : "";
+				ris += (i == id) ? d + "\n-------------------------------\n" :"";
 		return ris;
 	}
 

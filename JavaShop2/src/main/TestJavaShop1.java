@@ -111,34 +111,31 @@ public class TestJavaShop1 {
 					risposta = "Lo stipendio massimo è: " + shopA.stipoendiomassimo() + " €\n";
 				break;
 				case 21:
-					risposta = "Il numero dei dipendenti del negozio è: " + shopA.ndipendenti() + " €\n";
+					risposta = "Il numero dei dipendenti del negozio è: " + shopA.ndipendenti() + "\n";
 				break;
 				case 22:
-					risposta = "Il numero dei capireparto è: " + shopA.nCapireparti() + " €\n";
+					risposta = "Il numero dei capireparto è: " + shopA.nCapireparti() + "\n";
 				break;
 				case 23:
-					risposta = "Il numero dei dipendenti del negozio è: " + shopA.ndipendenti() + " €\n";
-				break;
-				case 24:
 					System.out.println("Inserisci ID da ricercare: ");
 					risposta = shopA.ricercadip(Integer.parseInt(tastiera.nextLine())) + "\n";
 				break;
-				case 25:
+				case 24:
 					System.out.println("Inserisci Ruolo da ricercare: ");
 					risposta = shopA.ricercadip(tastiera.nextLine()) + "\n";
 				break;
-				case 26:
+				case 25:
 					System.out.println("Inserisci ruolo da ricercare: ");
 					String ruolo = tastiera.nextLine();
 					System.out.println("Inserisci stipendio max da ricercare: ");
 					double sMax = Double.parseDouble(tastiera.nextLine());
 					risposta = shopA.ricercadip(ruolo, sMax) + "\n";
 				break;
-				case 27:
+				case 26:
 					System.out.println("Inserisci ID personale da ricercare: ");
 					risposta = shopA.stampaProdottiDip(Integer.parseInt(tastiera.nextLine())) + "\n";
 				break;
-				case 28:
+				case 27:
 					System.out.println("Inserisci ID prodotto da ricercare: ");
 					risposta = shopA.stampaGestoreProd(Integer.parseInt(tastiera.nextLine())) + "\n";
 				break;
