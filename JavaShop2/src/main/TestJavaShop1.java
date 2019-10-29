@@ -3,9 +3,9 @@ package main;
 import java.io.File;
 import java.util.Scanner;
 
-import aggregatore.IAmministrazione;
-import aggregatore.INegozio;
-import aggregatore.Negozio;
+import shop.IAmministrazione;
+import shop.INegozio;
+import shop.Negozio;
 
 public class TestJavaShop1 {
 

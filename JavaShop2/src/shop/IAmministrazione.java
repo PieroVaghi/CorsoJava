@@ -1,4 +1,4 @@
-package aggregatore;
+package shop;
 
 import java.util.List;
 

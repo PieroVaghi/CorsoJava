@@ -2,7 +2,7 @@ package entities;
 
 import java.util.List;
 
-import aggregatore.Negozio;
+import shop.Negozio;
 
 public class Prodotto {
 	private static int maxPrez;

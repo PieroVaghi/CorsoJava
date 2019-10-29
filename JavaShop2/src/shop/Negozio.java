@@ -1,4 +1,4 @@
-package aggregatore;
+package shop;
 
 import java.io.File;
 import java.io.FileNotFoundException;
