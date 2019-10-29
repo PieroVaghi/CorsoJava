@@ -35,7 +35,7 @@ public class Negozio implements INegozio, IAmministrazione {
 			Dipendente d = null;
 			String[] riga = dati.nextLine().split(",");
 					if(Dipendente.isValido(riga)) 
-						dipendenti.add(d = new Dipendente(Integer.parseInt(riga[0]), riga[1], riga[2], riga[3], riga[4], Double.parseDouble(riga[5]), Integer.parseInt(riga[6]), riga[7]));
+						dipendenti.add(d = new Dipendente(Integer.parseInt(riga[0]), riga[1], riga[2], riga[3], riga[4], Double.parseDouble(riga[5]), Integer.parseInt(riga[6])));
 		}
 		dati.close();
 		

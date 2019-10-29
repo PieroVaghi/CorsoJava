@@ -34,8 +34,7 @@ public class Dipendente {
 	 * @param anniesperienza
 	 * @param prodottiGestiti
 	 */
-	public Dipendente(int id, String nome, String cognome, String ruolo, String reparto, double stipendiobase, int anniesperienza,
-			String prodottiGestiti) {
+	public Dipendente(int id, String nome, String cognome, String ruolo, String reparto, double stipendiobase, int anniesperienza) {
 		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;
