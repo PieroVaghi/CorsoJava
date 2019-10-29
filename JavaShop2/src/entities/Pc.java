@@ -2,19 +2,13 @@ package entities;
 
 import java.util.List;
 
-public class Pc extends Prodotto {
+public class Pc extends Prodotto implements IUtilities{
 	
 
 	private String cpu, tipomma, tiporam;
 	private int mma, ram;
 	
-	static String CPUValide;
-	static String RAMValide;
-	static String MMAValide;
-	static int RAMMin;
-	static int RAMMax;
-	static int MMAMin ;
-	static int MMAMax;
+
 	
 	public Pc(int id, int iddip, String marca, String modello, double prezzobase,
 				String cpu, String tiporam, int ram, String tipomma, int mma) {
@@ -49,7 +43,7 @@ public class Pc extends Prodotto {
 	}
 	
 	public void setCpu(String cpu) {
-		if(isCpu(cpu))
+		if(IUtilities.isCpu(cpu))
 			this.cpu = cpu;
 		else
 			this.cpu = "valore non valido: " + cpu;
@@ -57,7 +51,7 @@ public class Pc extends Prodotto {
 
 
 	public void setTipomma(String tipomma) {
-		if(isMMA(tipomma,"50"))
+		if(IUtilities.isMMA(tipomma,"50"))
 			this.tipomma = tipomma;
 		else
 			this.tipomma = "valore non valido: " + tipomma;
@@ -65,7 +59,7 @@ public class Pc extends Prodotto {
 
 
 	public void setTiporam(String tiporam) {
-		if(isRAM(tiporam,"50"))
+		if(IUtilities.isRAM(tiporam,"50"))
 			this.tiporam = tiporam;
 		else
 			this.tiporam = "valore non valido: " + tiporam;
@@ -73,7 +67,7 @@ public class Pc extends Prodotto {
 
 
 	public void setMma(int mma) {
-		if(isMMA("ssd", mma+""))
+		if(IUtilities.isMMA("ssd", mma+""))
 			this.mma = mma;
 		else
 			this.mma = -1;
@@ -81,7 +75,7 @@ public class Pc extends Prodotto {
 
 
 	public void setRam(int ram) {
-		if(isRAM("ddr3", ram+""))
+		if(IUtilities.isRAM("ddr3", ram+""))
 			this.ram = ram;
 		else
 			this.ram = -1;
@@ -89,28 +83,13 @@ public class Pc extends Prodotto {
 
 
 	public static boolean isValido(String[] riga) {
-		config(limiti);
 		return 	Prodotto.isValido(riga)		&&
-				isCpu(riga[6]) 				&&
-				isRAM(riga[7], (riga[8])) 	&&
-				isMMA(riga[9], (riga[10]))	;
+				IUtilities.isCpu(riga[6]) 				&&
+				IUtilities.isRAM(riga[7], (riga[8])) 	&&
+				IUtilities.isMMA(riga[9], (riga[10]))	;
 	}
 
-	public static boolean isCpu(String modello) {		//Non ancora perfetto.. ",i5" considerato come valore valido
-		return CPUValide.indexOf(modello.toLowerCase()) >= 0 && !modello.contains(",");
-	}
 	
-	public static boolean isMMA(String modello, String val) {
-		int mma = Integer.parseInt(val);
-		return 	MMAValide.indexOf(modello.toLowerCase()) >= 0 && modello.length() == 3 
-				&& (mma >= MMAMin && mma <= MMAMax);
-	}
-	
-	public static boolean isRAM(String modello, String val) {
-		int ram = Integer.parseInt(val);
-		return 	RAMValide.indexOf(modello.toUpperCase()) >= 0 
-				&& ram >= RAMMin && ram <= RAMMax;
-	}
 	
 	/**
 	 * @return
@@ -210,32 +189,7 @@ public class Pc extends Prodotto {
 		}
 	}
 	
-	public static void config (List<String> l) {
-		for(String s : l)
-			switch (s.substring(0,s.indexOf(":"))) {
-				case "cpuvalide":
-					CPUValide  = (s.split(":")[1]);
-				break;
-				case "ramvalide":
-					RAMValide  = (s.split(":")[1]);
-				break;
-				case "mmavalide":
-					MMAValide  = (s.split(":")[1]);
-				break;
-				case "remminimavalida":
-					RAMMin  = Integer.parseInt(s.split(":")[1]);
-				break;
-				case "rammaxvalida":
-					RAMMax  = Integer.parseInt(s.split(":")[1]);
-				break;
-				case "mmaminvalida":
-					MMAMin  = Integer.parseInt(s.split(":")[1]);
-				break;
-				case "mmamaxvalida":
-					MMAMax  = Integer.parseInt(s.split(":")[1]);
-				break;
-			}
-	}
+	
 	
 //	static String CPUValide = "i3,i5,i7,i9";
 //	static String RAMValide = "ddr3,ddr4,ddr5";

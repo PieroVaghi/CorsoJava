@@ -4,9 +4,8 @@ import java.util.List;
 
 import shop.Negozio;
 
-public class Prodotto {
-	private static int maxPrez;
-	private static int minPrez;
+public class Prodotto implements IUtilities {
+
 	private int id, iddip;
 	private String modello, marca;
 	private double prezzobase;
@@ -62,36 +61,23 @@ public class Prodotto {
 		this.modello = modello;
 	}
 	public void setPrezzobase (double prezzo) {
-		if(isPrezzobaseValido(prezzo+""))
+		if(IUtilities.isPrezzobaseValido(prezzo+""))
 			this.prezzobase = prezzo;
 		else
 			this.prezzobase = -1;
 	}
 	
 	public static boolean isValido(String[] riga) {
-		config(limiti);
-		return 	isPrezzobaseValido(riga[5]);
+		return 	IUtilities.isPrezzobaseValido(riga[5]);
 				
 	}
 
-	private static boolean isPrezzobaseValido(String val) {
-		return Double.parseDouble(val) >= minPrez && Double.parseDouble(val) <= maxPrez;
-	}
+	
 	
 	public double prezzo() {
 		return prezzobase;
 	}
 	
-	public static void config (List<String> l) {
-		for(String s : l)
-			switch (s.substring(0,s.indexOf(":"))) {
-				case "prezzominimoval":
-					minPrez  = Integer.parseInt(s.split(":")[1]);
-				break;
-				case "prezzomassimoval":
-					maxPrez  = Integer.parseInt(s.split(":")[1]);
-			}
-	}
 	
 	public String toCSV() {
 		return id+","+iddip+","+marca+","+modello+","+prezzobase;

@@ -1,19 +1,19 @@
 package shop;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import entities.Dipendente;
+import entities.IUtilities;
 import entities.Laptop;
 import entities.Lavatrice;
 import entities.Pc;
 import entities.Prodotto;
 import entities.Smartphone;
 
-public class Negozio implements INegozio, IAmministrazione {
+public class Negozio implements INegozio, IAmministrazione, IUtilities {
 	
 	List<Prodotto> prodotti = new ArrayList<Prodotto>();
 	List<Dipendente> dipendenti = new ArrayList<Dipendente>();
@@ -21,6 +21,7 @@ public class Negozio implements INegozio, IAmministrazione {
 	private double budget;
 	
 	// COSTRUTTORE ----------------------------------------------------------------------------------------------
+	
 	public Negozio(String percorsoProd, String percorsoDip, double budget) throws Exception {
 		caricaDipendenti(percorsoDip);
 		caricaProdotti(percorsoProd);
@@ -48,6 +49,7 @@ public class Negozio implements INegozio, IAmministrazione {
 		while(conf.hasNextLine()) {
 			limiti.add(conf.nextLine());
 		}
+		IUtilities.config(limiti);
 		conf.close();
 		
 //		prodotti = new Prodotto[npr];
@@ -312,25 +314,13 @@ public class Negozio implements INegozio, IAmministrazione {
 		return budget + totaleprezzi() - stipendi();
 	}
 
-
-
 	@Override
-	public double stipendi() {
-		double tot = 0;
-		for(Dipendente d : dipendenti)
-			tot += d.stipendio();
-		return tot;
-	}
-
-
-	@Override
-	public double stipendiominino() {
+ 	public double stipendiominino() {
 		double min = Double.MAX_VALUE;
 		for(Dipendente d : dipendenti)
 			min = (min > d.stipendio()) ? d.stipendio() : min;
 		return min;
 	}
-	
 
 	@Override
 	public double stipoendiomassimo() {
@@ -339,13 +329,11 @@ public class Negozio implements INegozio, IAmministrazione {
 			max = (max < d.stipendio()) ? d.stipendio() : max;
 		return max;
 	}
-
 	
 	@Override
 	public int ndipendenti() {
 		return dipendenti.size();
 	}
-	
 
 	@Override
 	public int nCapireparti() {
@@ -354,7 +342,6 @@ public class Negozio implements INegozio, IAmministrazione {
 			cont += (d.getRuolo().equalsIgnoreCase("caporeparto")) ? 1 : 0;
 		return cont;
 	}
-	
 
 	@Override
 	public Dipendente ricercadip(int id) {
@@ -363,7 +350,6 @@ public class Negozio implements INegozio, IAmministrazione {
 				return d;
 		return null;
 	}
-	
 
 	@Override
 	public List<Dipendente> ricercadip(String ruolo) {
@@ -373,7 +359,6 @@ public class Negozio implements INegozio, IAmministrazione {
 				ris.add(d);
 		return ris;
 	}
-	
 
 	@Override
 	public List<Dipendente> ricercadip(String ruolo, double stipendiomassimo) {
@@ -411,6 +396,12 @@ public class Negozio implements INegozio, IAmministrazione {
 			for(int i : d.getProdottiGestiti())
 				ris += (i == id) ? d + "\n-------------------------------\n" :"";
 		return ris;
+	}
+
+	
+	@Override	
+	public List<Dipendente> getDipendenti() {
+		return dipendenti;
 	}
 
 }

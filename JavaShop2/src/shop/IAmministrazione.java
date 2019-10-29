@@ -6,6 +6,8 @@ import entities.Dipendente;
 
 public interface IAmministrazione {
 	
+	public List<Dipendente> getDipendenti();
+	
 	public double totaleprezzi();
 	public double totalePrezziPc();
 	public double media();
@@ -13,7 +15,16 @@ public interface IAmministrazione {
 	public double massimo();
 	public double mediaPrezziPc();
 	public double guadagno();
-	public double stipendi();
+	
+	default public double stipendi() {
+		double tot = 0;
+		for(Dipendente d : getDipendenti())
+			tot += d.stipendio();
+		return tot;
+	}
+	
+	
+	
 	public double stipendiominino();
 	public double stipoendiomassimo();
 	public int ndipendenti();

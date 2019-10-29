@@ -5,11 +5,7 @@ public class Smartphone extends Laptop {
 	private String rete, jack;
 	private double megapixel;
 	
-	static String[] valJack = {"si", "no"};
-	static double megamin = 0.2;
-	static double megamax = 105;
-	static String[] reti = {"E","H+","G","3G","4G","4G+","5G"};
-	static String[] costo5 = {"4G","4G+","5G"};
+
 	
 
 	public Smartphone(int id, int iddip, String marca, String modello, double prezzobase, 
@@ -54,28 +50,12 @@ public class Smartphone extends Laptop {
 
 	public static boolean isValido(String[] riga) {
 		return 	Laptop.isValido(riga)	&&
-				isRete(riga[14])		&&
-				isJack(riga[16])		&&
-				isMegapixel(Double.parseDouble(riga[15]));
+				IUtilities.isRete(riga[14])		&&
+				IUtilities.isJack(riga[16])		&&
+				IUtilities.isMegapixel(Double.parseDouble(riga[15]));
 	}
 
-	public static boolean isMegapixel(double mega) {
-		return mega >= megamin && mega <= megamax;
-	}
-
-	public static boolean isRete(String rete) {
-		for(String s : reti)
-			if(s.equalsIgnoreCase(rete))
-				return true;
-		return false;
-	}
 	
-	public static boolean isJack(String jack) {
-		for(String s : valJack)
-			if(s.equalsIgnoreCase(jack))
-				return true;
-		return false;
-	}
 
 	@Override
 	public double prezzo() {

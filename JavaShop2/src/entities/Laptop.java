@@ -2,14 +2,10 @@ package entities;
 
 public class Laptop extends Pc{
 	
-	private static int minPeso = 10;
-	private static int maxPollici = 31;
-	private static int minPollici = 3;
-	private static int maxBat = 100;
-	private static int minBat = 0;
+
 	int orebatteria; 
 	double peso, pollici;
-	private static int pesoMax = 7000;
+	
 	
 		
 	public Laptop(int id, int iddip, String marca, String modello, double prezzobase,
@@ -42,7 +38,7 @@ public class Laptop extends Pc{
 
 
 	public void setOrebatteria(int orebatteria) {
-		if(isBatteria(orebatteria))
+		if(IUtilities.isBatteria(orebatteria))
 			this.orebatteria = orebatteria;
 		else
 			this.orebatteria = -1;
@@ -51,7 +47,7 @@ public class Laptop extends Pc{
 
 
 	public void setPeso(double peso) {
-		if(isPeso(peso))
+		if(IUtilities.isPeso(peso))
 			this.peso = peso;
 		else
 			this.peso  = -1;
@@ -60,7 +56,7 @@ public class Laptop extends Pc{
 
 
 	public void setPollici(double pollici) {
-		if(isPollici(pollici))
+		if(IUtilities.isPollici(pollici))
 			this.pollici = pollici;
 		else
 			this.pollici = -1;
@@ -70,21 +66,9 @@ public class Laptop extends Pc{
 
 	public static boolean isValido(String[] riga) {
 		return 	Pc.isValido(riga)							&&
-				isBatteria(Double.parseDouble(riga[11]))	&&
-				isPollici(Double.parseDouble(riga[12]))		&&
-				isPeso(Double.parseDouble(riga[13]));
-	}
-	
-	public static boolean isBatteria(double val) {
-		return 	(val >= minBat && val <= maxBat);
-	}
-	
-	public static boolean isPollici(double val) {
-		return 	(val >= minPollici && val <= maxPollici);
-	}
-	
-	public static boolean isPeso(double val) {
-		return 	(val >= minPeso && val <= pesoMax);
+				IUtilities.isBatteria(Double.parseDouble(riga[11]))	&&
+				IUtilities.isPollici(Double.parseDouble(riga[12]))		&&
+				IUtilities.isPeso(Double.parseDouble(riga[13]));
 	}
 	
 	

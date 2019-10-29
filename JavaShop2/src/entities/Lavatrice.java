@@ -11,11 +11,7 @@ public class Lavatrice extends Prodotto {
 	private List<String> programmi = new ArrayList<String>();
 	
 	
-	private static int mingiri;
-	private static int maxgiri;
-	private static int mincap;
-	private static int maxcap;
-	private static String[] programVal;
+
 	
 	public Lavatrice(int id, int iddip, String marca, String modello, double prezzobase, 
 					int capacitachili, int girialminuto, String programmi) {
@@ -46,7 +42,7 @@ public class Lavatrice extends Prodotto {
 	}
 
 	void setCapacitachili(int capacitachili) {
-		if(isCapchili(capacitachili+""))
+		if(IUtilities.isCapchili(capacitachili+""))
 			this.capacitachili = capacitachili;		
 	}
 	
@@ -76,22 +72,13 @@ public class Lavatrice extends Prodotto {
 //	}
 	
 	public static boolean isValido(String[] riga) {
-		config(limiti);
 		return 	Prodotto.isValido(riga)	&&
-				isCapchili(riga[6]) 	&&
-				isGiriminuto(riga[7]) 	;
+				IUtilities.isCapchili(riga[6]) 	&&
+				IUtilities.isGiriminuto(riga[7]) 	;
 //				isProgrammiVal(riga[7])	;
 	}
 
-	public static boolean isGiriminuto(String giro) {
-		int giri = Integer.parseInt(giro);
-		return giri >= mingiri && giri <= maxgiri;
-	}
-
-	public static boolean isCapchili(String capchili) {
-		int c = Integer.parseInt(capchili);
-		return c >= mincap && c <= maxcap;
-	}
+	
 	
 //	public static boolean isProgrammiVal(String programmi) {
 //		String[] programVet = programmi.split("-");
@@ -110,26 +97,7 @@ public class Lavatrice extends Prodotto {
 		return risposta.substring(0, risposta.length()-2);
 	}
 	
-	public static void config (List<String> l) {
-		for(String s : l)
-			switch (s.substring(0,s.indexOf(":"))) {
-				case "girimin":
-					mingiri  = Integer.parseInt(s.split(":")[1]);
-				break;
-				case "girimax":
-					maxgiri  = Integer.parseInt(s.split(":")[1]);
-				break;
-				case "kgmin":
-					mincap  = Integer.parseInt(s.split(":")[1]);
-				break;
-				case "kgmax":
-					maxcap  = Integer.parseInt(s.split(":")[1]);
-				break;
-				case "programVal":
-					programVal  = (s.split(":")[1]).split(",");
-				break;
-			}
-	}
+	
 	
 	@Override
 	public double prezzo() {
