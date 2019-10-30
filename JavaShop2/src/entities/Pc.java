@@ -90,6 +90,7 @@ public class Pc extends Prodotto implements IUtilities{
 
 
 	public static boolean isValido(String[] riga) {
+		config(Prodotto.limiti);
 		try {
 			return 	Prodotto.isValido(riga)		&&
 					IUtilities.isStringaInVett(riga[6], CPUValide) 				&&

@@ -73,6 +73,7 @@ public class Prodotto implements IUtilities {
 	}
 	
 	public static boolean isValido(String[] riga) {
+		config(Prodotto.limiti);
 		try {
 			return 	IUtilities.isValoreCompresoDouble(riga[5], minPrez, maxPrez);
 		} catch (ArrayIndexOutOfBoundsException f) {

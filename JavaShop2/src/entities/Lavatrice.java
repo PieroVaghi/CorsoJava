@@ -76,6 +76,7 @@ public class Lavatrice extends Prodotto {
 //	}
 	
 	public static boolean isValido(String[] riga) {
+		config(Prodotto.limiti);
 		try {
 			return 	Prodotto.isValido(riga)	&&
 					IUtilities.isValoreCompresoInt(riga[6], mincap, maxcap)		&&

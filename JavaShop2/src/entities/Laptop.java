@@ -73,6 +73,7 @@ public class Laptop extends Pc{
 
 
 	public static boolean isValido(String[] riga) {
+		config(Prodotto.limiti);
 		try {
 			return 	Pc.isValido(riga)													&&
 					IUtilities.isValoreCompresoDouble(riga[11], minBat, maxBat)			&&

@@ -56,6 +56,7 @@ public class Smartphone extends Laptop {
 	}
 
 	public static boolean isValido(String[] riga) {
+		config(Prodotto.limiti);
 		try {
 			return 	Laptop.isValido(riga)	&&
 					IUtilities.isStringaInVett(riga[14], reti)	&&
