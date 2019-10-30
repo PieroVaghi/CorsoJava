@@ -11,6 +11,10 @@ public class Prodotto implements IUtilities {
 	private String modello, marca;
 	private double prezzobase;
 	static List<String> limiti = Negozio.limiti;
+	
+	static double maxPrez;
+	static double minPrez;
+	
 	/**
 	 * @param id
 	 * @param modello
@@ -62,7 +66,7 @@ public class Prodotto implements IUtilities {
 		this.modello = modello;
 	}
 	public void setPrezzobase (double prezzo) {
-		if(IUtilities.isPrezzobaseValido(prezzo+""))
+		if(IUtilities.isValoreCompresoDouble(prezzo+"", minPrez, maxPrez))
 			this.prezzobase = prezzo;
 		else
 			this.prezzobase = -1;
@@ -70,11 +74,23 @@ public class Prodotto implements IUtilities {
 	
 	public static boolean isValido(String[] riga) {
 		try {
-			return 	IUtilities.isPrezzobaseValido(riga[5]);
+			return 	IUtilities.isValoreCompresoDouble(riga[5], minPrez, maxPrez);
 		} catch (ArrayIndexOutOfBoundsException f) {
 			System.out.println("problemi con la riga: " + Arrays.toString(riga));
 			return false;
 		}		
+	}
+	
+	public static void config (List<String> l) {
+		for(String s : l)
+			switch (s.substring(0,s.indexOf(":"))) {
+				case "prezzominimoval":
+					minPrez = Integer.parseInt(s.split(":")[1]);
+				break;
+				case "prezzomassimoval":
+					maxPrez = Integer.parseInt(s.split(":")[1]);
+				break;
+			}
 	}
 
 	
