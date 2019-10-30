@@ -35,11 +35,10 @@ public class Negozio implements INegozio, IAmministrazione, IUtilities {
 		try {
 			dati = new Scanner(new File(percorsoDip));
 			while(dati.hasNextLine()) {
-				Dipendente d = null;
 				String[] riga = dati.nextLine().split(",");	//codice caldo
 				try {
 						if(Dipendente.isValido(riga)) 
-							dipendenti.add(d = new Dipendente(Integer.parseInt(riga[0]), riga[1], riga[2], riga[3], riga[4], Double.parseDouble(riga[5]), Integer.parseInt(riga[6])));
+							dipendenti.add(new Dipendente(Integer.parseInt(riga[0]), riga[1], riga[2], riga[3], riga[4], Double.parseDouble(riga[5]), Integer.parseInt(riga[6])));
 				} catch (ArrayIndexOutOfBoundsException f) {
 					System.out.println(riga + "non ha la lunghezza attesa" + f.getMessage());
 				} catch (NumberFormatException n) {
@@ -332,16 +331,15 @@ public class Negozio implements INegozio, IAmministrazione, IUtilities {
 	}
 	
 	public boolean aggiungiProdotto (String tipo, int id, String marca, String modello, double prezzo) {
-		Prodotto p = null;
 		switch(tipo.toUpperCase()) {
 			case "PC":
-				return prodotti.add(p = new Pc(id, 0, marca, modello, prezzo, null, null, 0, null, 0));
+				return prodotti.add(new Pc(id, 0, marca, modello, prezzo, null, null, 0, null, 0));
 			case "LAPTOP":
-				return prodotti.add(p = new Laptop(id, 0, marca, modello, prezzo, null, null, 0, null, 0, 0, 0, 0));
+				return prodotti.add(new Laptop(id, 0, marca, modello, prezzo, null, null, 0, null, 0, 0, 0, 0));
 			case "SMARTPHONE":
-				return prodotti.add(p = new Smartphone(id, 0, marca, modello, prezzo, null, null, 0, null, 0, 0, 0, 0, null, 0, null));
+				return prodotti.add(new Smartphone(id, 0, marca, modello, prezzo, null, null, 0, null, 0, 0, 0, 0, null, 0, null));
 			case "LAVATRICE":
-				return prodotti.add(p = new Lavatrice(id, 0, marca, modello, prezzo, 0, 0, null));			
+				return prodotti.add(new Lavatrice(id, 0, marca, modello, prezzo, 0, 0, null));			
 		}
 		return false;
 	}
