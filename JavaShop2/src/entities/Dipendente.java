@@ -147,9 +147,6 @@ public class Dipendente {
 			System.out.println(anni + " non è un numero");
 			return false;
 		}
-		finally {
-			System.out.println("Finalmente ciao");
-		}
 		return risposta;
 	}
 	

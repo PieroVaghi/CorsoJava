@@ -53,7 +53,7 @@ public class TestJavaShop1 {
 		do {
 			System.out.println(menu);
 			comando = Integer.parseInt(tastiera.nextLine());
-			String risposta = "";
+			String risposta = "mmm.. qualcosa è andato storto..";
 			switch (comando) {
 				case 0:
 					risposta = "Ciao Bello!";
@@ -92,10 +92,21 @@ public class TestJavaShop1 {
 				case 11:
 					System.out.println("Inserisci la CPU da ricercare: ");
 					String cpu = tastiera.nextLine();
-					System.out.println("Inserisci la RAM da ricercare: ");
-					int ram = Integer.parseInt(tastiera.nextLine());
-					System.out.println("Inserisci il prezzo massimo: ");
-					double prez = Double.parseDouble(tastiera.nextLine());
+					Boolean controllo; 
+					int ram = 0;
+					double prez = 0;
+					do {
+						try {		
+							controllo = false;
+							System.out.println("Inserisci la RAM da ricercare: ");
+							ram = Integer.parseInt(tastiera.nextLine());
+							System.out.println("Inserisci il prezzo massimo: ");
+							prez = Double.parseDouble(tastiera.nextLine());
+						} catch(NumberFormatException n) {
+							System.out.println("Hai inserito un valore scorretto! Riprova");
+							controllo = true;
+						}
+					} while (controllo);
 					risposta = shopC.ricerca(cpu, ram, prez) + " nel nostro negozio posseggono la CPU indicata\n";
 				break;	
 				case 12:
@@ -133,7 +144,11 @@ public class TestJavaShop1 {
 				break;
 				case 23:
 					System.out.println("Inserisci ID da ricercare: ");
+					try {
 					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? shopC.ricercadip(Integer.parseInt(tastiera.nextLine())) + "\n" : "Non possiedi i privilegi per visualizzare questi risultati";
+					} catch(NumberFormatException n) {
+						System.out.println("Il valore inserito non è valido");
+					}
 				break;
 				case 24:
 					System.out.println("Inserisci Ruolo da ricercare: ");
@@ -142,17 +157,29 @@ public class TestJavaShop1 {
 				case 25:
 					System.out.println("Inserisci ruolo da ricercare: ");
 					String ruolop = tastiera.nextLine();
-					System.out.println("Inserisci stipendio max da ricercare: ");
-					double sMax = Double.parseDouble(tastiera.nextLine());
-					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? shopC.ricercadip(ruolop, sMax) + "\n" : "Non possiedi i privilegi per visualizzare questi risultati";
+					try {
+						System.out.println("Inserisci stipendio max da ricercare: ");
+						double sMax = Double.parseDouble(tastiera.nextLine());
+						risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? shopC.ricercadip(ruolop, sMax) + "\n" : "Non possiedi i privilegi per visualizzare questi risultati";
+					} catch(NumberFormatException n) {
+						System.out.println("Il valore inserito non è valido");
+					}
 				break;
 				case 26:
 					System.out.println("Inserisci ID personale da ricercare: ");
-					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? shopC.stampaProdottiDip(Integer.parseInt(tastiera.nextLine())) + "\n" : "Non possiedi i privilegi per visualizzare questi risultati";
+					try {
+						risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? shopC.stampaProdottiDip(Integer.parseInt(tastiera.nextLine())) + "\n" : "Non possiedi i privilegi per visualizzare questi risultati";
+					} catch(NumberFormatException n) {
+						System.out.println("Il valore inserito non è valido");
+					}
 				break;
 				case 27:
 					System.out.println("Inserisci ID prodotto da ricercare: ");
-					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? shopC.stampaGestoreProd(Integer.parseInt(tastiera.nextLine())) + "\n" : "Non possiedi i privilegi per visualizzare questi risultati";
+					try {
+						risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? shopC.stampaGestoreProd(Integer.parseInt(tastiera.nextLine())) + "\n" : "Non possiedi i privilegi per visualizzare questi risultati";
+					} catch(NumberFormatException n) {
+						System.out.println("Il valore inserito non è valido");
+					}
 				break;
 				default:
 					risposta = "Hai inserito un comando non valido BALUBA!!!";
