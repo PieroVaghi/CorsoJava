@@ -13,6 +13,7 @@ public class TestJavaShop1 {
 	public static void main(String[] args) {
 		
 		Scanner tastiera = new Scanner(System.in);
+		
 		System.out.println("Scegli il negozio che ti interessa tra javaronics o javaworld");
 		String nomeShop = tastiera.nextLine();
 		String percorsoProd = "src/res/" + nomeShop+"/datiPc.txt";
@@ -22,10 +23,10 @@ public class TestJavaShop1 {
 		double budget = Integer.parseInt(tastiera.nextLine());
 		
 		System.out.println("Quale tipologia di funzioni devi effettuare? amministrazione o clientela?");
+		String ruolo = tastiera.nextLine();
 		INegozio shopC = new Negozio(percorsoProd, percorsoDip, budget);
-
-		IAmministrazione shopA = new Negozio(percorsoProd, percorsoDip, budget);
-		
+//		IAmministrazione shopC = new Negozio(percorsoProd, percorsoDip, budget);
+//		
 		
 		
 		String menu = "";
@@ -78,10 +79,10 @@ public class TestJavaShop1 {
 					risposta = shopC.nprodottipercpu(tastiera.nextLine()) + " prodotti del nostro negozio posseggono la CPU indicata\n";
 				break;
 				case 7:
-					risposta = "Ecco i computer più economici:\n" + shopC.schedepiueconomici() + "\n";
+					risposta = "Ecco i prodotti più economici:\n" + shopC.schedepiueconomici() + "\n";
 					break;
 				case 8:
-					risposta = "Ecco i computer più costosi:\n" + shopC.schedepiucostosi() + "\n";
+					risposta = "Ecco i prodotti più costosi:\n" + shopC.schedepiucostosi() + "\n";
 					break;
 				case 9:
 					risposta = "Ecco i computer da Gaming:\n" + shopC.schedegaming() + "\n";
@@ -99,60 +100,60 @@ public class TestJavaShop1 {
 					risposta = shopC.ricerca(cpu, ram, prez) + " nel nostro negozio posseggono la CPU indicata\n";
 				break;	
 				case 12:
-					risposta = "Il costo totale di tutti i prodotti del mio negozio è: " + shopA.totaleprezzi() + " €\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? "Il costo totale di tutti i prodotti del mio negozio è: " + shopC.totaleprezzi() + " €\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				case 13:
-					risposta = "Il costo totale di tutti i pc del mio negozio è: " + shopA.totalePrezziPc() + " €\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? "Il costo totale di tutti i pc del mio negozio è: " + shopC.totalePrezziPc() + " €\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				case 14:
-					risposta = "Il media di tutti i prodotti del mio negozio è: " + shopA.media() + " €\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? "Il media di tutti i prodotti del mio negozio è: " + shopC.media() + " €\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;	
 				case 15:
-					risposta = "Il prezzo più basso del negozio è: " + shopA.minimo() + " €\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? "Il prezzo più basso del negozio è: " + shopC.minimo() + " €\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				case 16:
-					risposta = "Il prezzo più alto del negozio è: " + shopA.massimo() + " €\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? "Il prezzo più alto del negozio è: " + shopC.massimo() + " €\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				case 17:
-					risposta = "Il guadagno del negozio è: " + shopA.guadagno() + " €\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? "Il guadagno del negozio è: " + shopC.guadagno() + " €\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				case 18:
-					risposta = "La somma degli stipendi del negozio è: " + shopA.stipendi() + " €\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? "La somma degli stipendi del negozio è: " + shopC.stipendi() + " €\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				case 19:
-					risposta = "Lo stipendio minimo è: " + shopA.stipendiominino() + " €\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? "Lo stipendio minimo è: " + shopC.stipendiominino() + " €\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				case 20:
-					risposta = "Lo stipendio massimo è: " + shopA.stipoendiomassimo() + " €\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? "Lo stipendio massimo è: " + shopC.stipoendiomassimo() + " €\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				case 21:
-					risposta = "Il numero dei dipendenti del negozio è: " + shopA.ndipendenti() + "\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? "Il numero dei dipendenti del negozio è: " + shopC.ndipendenti() + "\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				case 22:
-					risposta = "Il numero dei capireparto è: " + shopA.nCapireparti() + "\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? "Il numero dei capireparto è: " + shopC.nCapireparti() + "\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				case 23:
 					System.out.println("Inserisci ID da ricercare: ");
-					risposta = shopA.ricercadip(Integer.parseInt(tastiera.nextLine())) + "\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? shopC.ricercadip(Integer.parseInt(tastiera.nextLine())) + "\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				case 24:
 					System.out.println("Inserisci Ruolo da ricercare: ");
-					risposta = shopA.ricercadip(tastiera.nextLine()) + "\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? shopC.ricercadip(tastiera.nextLine()) + "\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				case 25:
 					System.out.println("Inserisci ruolo da ricercare: ");
-					String ruolo = tastiera.nextLine();
+					String ruolop = tastiera.nextLine();
 					System.out.println("Inserisci stipendio max da ricercare: ");
 					double sMax = Double.parseDouble(tastiera.nextLine());
-					risposta = shopA.ricercadip(ruolo, sMax) + "\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? shopC.ricercadip(ruolop, sMax) + "\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				case 26:
 					System.out.println("Inserisci ID personale da ricercare: ");
-					risposta = shopA.stampaProdottiDip(Integer.parseInt(tastiera.nextLine())) + "\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? shopC.stampaProdottiDip(Integer.parseInt(tastiera.nextLine())) + "\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				case 27:
 					System.out.println("Inserisci ID prodotto da ricercare: ");
-					risposta = shopA.stampaGestoreProd(Integer.parseInt(tastiera.nextLine())) + "\n";
+					risposta = (ruolo.equalsIgnoreCase("amministrazione")) ? shopC.stampaGestoreProd(Integer.parseInt(tastiera.nextLine())) + "\n" : "Non possiedi i privilegi per visualizzare questi risultati";
 				break;
 				default:
 					risposta = "Hai inserito un comando non valido BALUBA!!!";
