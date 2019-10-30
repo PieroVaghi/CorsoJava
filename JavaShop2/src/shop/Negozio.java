@@ -1,6 +1,7 @@
 package shop;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -22,74 +23,118 @@ public class Negozio implements INegozio, IAmministrazione, IUtilities {
 	
 	// COSTRUTTORE ----------------------------------------------------------------------------------------------
 	
-	public Negozio(String percorsoProd, String percorsoDip, double budget) throws Exception {
+	public Negozio(String percorsoProd, String percorsoDip, double budget) {
 		caricaDipendenti(percorsoDip);
 		caricaProdotti(percorsoProd);
 		caricaProdottiIddip();
 		this.budget = budget;
 	}
 
-	private void caricaDipendenti(String percorsoDip) throws Exception {
-		Scanner dati = new Scanner(new File(percorsoDip));	
-		
-		while(dati.hasNextLine()) {
-			Dipendente d = null;
-			String[] riga = dati.nextLine().split(",");
-					if(Dipendente.isValido(riga)) 
-						dipendenti.add(d = new Dipendente(Integer.parseInt(riga[0]), riga[1], riga[2], riga[3], riga[4], Double.parseDouble(riga[5]), Integer.parseInt(riga[6])));
-		}
-		dati.close();
-		
+	private void caricaDipendenti(String percorsoDip) {
+		Scanner dati = null;
+		try {
+			dati = new Scanner(new File(percorsoDip));
+			while(dati.hasNextLine()) {
+				Dipendente d = null;
+				String[] riga = dati.nextLine().split(",");	//codice caldo
+				try {
+						if(Dipendente.isValido(riga)) 
+							dipendenti.add(d = new Dipendente(Integer.parseInt(riga[0]), riga[1], riga[2], riga[3], riga[4], Double.parseDouble(riga[5]), Integer.parseInt(riga[6])));
+				} catch (ArrayIndexOutOfBoundsException f) {
+					System.out.println(riga + "non ha la lunghezza attesa" + f.getMessage());
+				} catch (NumberFormatException n) {
+					System.out.println(n.getMessage() + " problemi con un numero per file alla riga " + riga);
+				} catch (Exception e) {
+					System.out.println(e.getMessage() + " qualcosa non va alla riga: " + riga);
+				}
+			}
+		} catch (FileNotFoundException | NullPointerException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				dati.close();
+			} catch (Exception e) {
+				e.getStackTrace();
+			}
+		}		
 	}
 
-	private void caricaProdotti(String percorsoProd) throws Exception {
-		Scanner dati = new Scanner(new File(percorsoProd));	
-		Scanner conf = new Scanner(new File("src/res/config.txt"));	
+	private void caricaProdotti(String percorsoProd) {
 		
-		while(conf.hasNextLine()) {
-			limiti.add(conf.nextLine());
-		}
-		IUtilities.config(limiti);
-		conf.close();
-		
-//		prodotti = new Prodotto[npr];
-//		int pos = 0;
-		
-		while(dati.hasNextLine()) {
-			Prodotto p = null;
-			String[] riga = dati.nextLine().split(",");
-			switch(riga[0].toUpperCase()) {
-				case "PC":
-					if(Pc.isValido(riga)) 
-						p = new Pc(Integer.parseInt(riga[1]), Integer.parseInt(riga[2]), riga[3], riga[4], Double.parseDouble(riga[5]),
-											riga[6], riga[7], Integer.parseInt(riga[8]), 
-											riga[9], Integer.parseInt(riga[10]));
-				break;
-				case "LAPTOP":
-					if(Laptop.isValido(riga)) 
-						p = new Laptop(Integer.parseInt(riga[1]), Integer.parseInt(riga[2]), riga[3], riga[4], Double.parseDouble(riga[5]),
-										riga[6], riga[7], Integer.parseInt(riga[8]), 
-										riga[9], Integer.parseInt(riga[10]),
-										Integer.parseInt(riga[11]), Double.parseDouble(riga[12]), Double.parseDouble(riga[13]));
-				break;
-				case "SMARTPHONE":
-					if(Smartphone.isValido(riga))
-						p = new Smartphone(Integer.parseInt(riga[1]), Integer.parseInt(riga[2]),riga[3], riga[4], Double.parseDouble(riga[5]),
-										riga[6], riga[7], Integer.parseInt(riga[8]), 
-										riga[9], Integer.parseInt(riga[10]),
-										Integer.parseInt(riga[11]), Double.parseDouble(riga[12]), Double.parseDouble(riga[13]),
-										riga[14], Double.parseDouble(riga[15]), riga[16]);
-				break;
-				case "LAVATRICE":
-					if(Lavatrice.isValido(riga)) 
-						p = new Lavatrice(Integer.parseInt(riga[1]), Integer.parseInt(riga[2]),riga[3], riga[4], Double.parseDouble(riga[5]),
-											Integer.parseInt(riga[6]), Integer.parseInt(riga[7]), riga[8]);
+		Scanner conf = null;
+		try {
+			conf = new Scanner(new File("src/res/config.txt"));
+			while(conf.hasNextLine()) {
+				limiti.add(conf.nextLine());
 			}
-			if(p!=null) {					//Verifico che p sia stato istanziato e in quel caso prendo il vettore alla posizione disponibile e ci carico p
-				prodotti.add(p);
+			IUtilities.config(limiti);
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				conf.close();
+			} catch(Exception e) {
+				e.getStackTrace();
 			}
 		}
-		dati.close();
+		
+		Scanner dati = null; 
+		try {
+			dati = new Scanner(new File(percorsoProd));	
+			while(dati.hasNextLine()) {
+				Prodotto p = null;
+				String[] riga = dati.nextLine().split(",");
+				try {
+					switch(riga[0].toUpperCase()) {
+						case "PC":
+							if(Pc.isValido(riga)) 
+								p = new Pc(Integer.parseInt(riga[1]), Integer.parseInt(riga[2]), riga[3], riga[4], Double.parseDouble(riga[5]),
+													riga[6], riga[7], Integer.parseInt(riga[8]), 
+													riga[9], Integer.parseInt(riga[10]));
+						break;
+						case "LAPTOP":
+							if(Laptop.isValido(riga)) 
+								p = new Laptop(Integer.parseInt(riga[1]), Integer.parseInt(riga[2]), riga[3], riga[4], Double.parseDouble(riga[5]),
+												riga[6], riga[7], Integer.parseInt(riga[8]), 
+												riga[9], Integer.parseInt(riga[10]),
+												Integer.parseInt(riga[11]), Double.parseDouble(riga[12]), Double.parseDouble(riga[13]));
+						break;
+						case "SMARTPHONE":
+							if(Smartphone.isValido(riga))
+								p = new Smartphone(Integer.parseInt(riga[1]), Integer.parseInt(riga[2]),riga[3], riga[4], Double.parseDouble(riga[5]),
+												riga[6], riga[7], Integer.parseInt(riga[8]), 
+												riga[9], Integer.parseInt(riga[10]),
+												Integer.parseInt(riga[11]), Double.parseDouble(riga[12]), Double.parseDouble(riga[13]),
+												riga[14], Double.parseDouble(riga[15]), riga[16]);
+						break;
+						case "LAVATRICE":
+							if(Lavatrice.isValido(riga)) 
+								p = new Lavatrice(Integer.parseInt(riga[1]), Integer.parseInt(riga[2]),riga[3], riga[4], Double.parseDouble(riga[5]),
+													Integer.parseInt(riga[6]), Integer.parseInt(riga[7]), riga[8]);
+					}
+				} catch (ArrayIndexOutOfBoundsException f) {
+					System.out.println(riga + "non ha la lunghezza attesa" + f.getMessage());
+				} catch (NumberFormatException n) {
+					System.out.println(n.getMessage() + " problemi con un numero per file alla riga " + riga);
+				} catch (Exception e) {
+					System.out.println(e.getMessage() + " qualcosa non va alla riga: " + riga);
+				}
+				if(p!=null) {					//Verifico che p sia stato istanziato e in quel caso prendo il vettore alla posizione disponibile e ci carico p
+					prodotti.add(p);
+				}
+			}
+		} catch(FileNotFoundException f) {
+			System.out.println(f.getMessage());
+		} catch(Exception e){
+			System.out.println(e.getMessage() + " Eccezione generica leggendo i dati dei prodotti");
+		} finally {
+			try {
+				dati.close();
+			} catch (Exception e) {
+				e.getStackTrace();
+			}
+		}
+		
 	}
 	
 	// METODI ---------------------------------------------------------------------------------------------------
