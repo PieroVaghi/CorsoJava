@@ -1,13 +1,18 @@
 package entities;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Smartphone extends Laptop {
 	
 	private String rete, jack;
 	private double megapixel;
 	
-
+	static String[] valJack;
+	static double megamin;
+	static double megamax;
+	static String[] reti;
+	static String[] costo5;
 	
 
 	public Smartphone(int id, int iddip, String marca, String modello, double prezzobase, 
@@ -53,16 +58,39 @@ public class Smartphone extends Laptop {
 	public static boolean isValido(String[] riga) {
 		try {
 			return 	Laptop.isValido(riga)	&&
-					IUtilities.isRete(riga[14])		&&
-					IUtilities.isJack(riga[16])		&&
-					IUtilities.isMegapixel(Double.parseDouble(riga[15]));
+					IUtilities.isStringaInVett(riga[14], reti)	&&
+					IUtilities.isStringaInVett(riga[16], valJack)		&&
+					IUtilities.isValoreCompresoDouble(riga[15], megamin, megamax);
 		} catch (ArrayIndexOutOfBoundsException f) {
 			System.out.println("problemi con la riga: " + Arrays.toString(riga));
 			return false;
 		}
 	}
 
-	
+	public static void config (List<String> l) {
+		for(String s : l)
+			try {
+				switch (s.substring(0,s.indexOf(":"))) {
+					case "valJack":
+						valJack = (s.split(":")[1]).split(",");
+					break;
+					case "megamin":
+						megamin = Double.parseDouble(s.split(":")[1]);
+					break;
+					case "megamax":
+						megamax = Double.parseDouble(s.split(":")[1]);
+					break;
+					case "reti":
+						reti = (s.split(":")[1]).split(",");
+					break;
+					case "costo5":
+						costo5 = (s.split(":")[1]).split(",");
+					break;
+				}
+			} catch(NumberFormatException n) {
+				System.out.println(s.split(":")[1] + "non è un valore parsabile in Double");
+			}
+	}
 
 	@Override
 	public double prezzo() {
