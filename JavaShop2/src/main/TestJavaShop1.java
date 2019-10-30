@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import shop.IAmministrazione;
 import shop.INegozio;
 import shop.Negozio;
 
