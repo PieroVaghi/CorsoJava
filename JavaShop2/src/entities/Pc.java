@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Pc extends Prodotto implements IUtilities{
 	
@@ -8,7 +9,13 @@ public class Pc extends Prodotto implements IUtilities{
 	private String cpu, tipomma, tiporam;
 	private int mma, ram;
 	
-
+	static String[] CPUValide;
+	static String[] RAMValide;
+	static String[] MMAValide;
+	static int RAMMin;
+	static int RAMMax;
+	static int MMAMin ;
+	static int MMAMax;
 	
 	public Pc(int id, int iddip, String marca, String modello, double prezzobase,
 				String cpu, String tiporam, int ram, String tipomma, int mma) {
@@ -43,7 +50,7 @@ public class Pc extends Prodotto implements IUtilities{
 	}
 	
 	public void setCpu(String cpu) {
-		if(IUtilities.isCpu(cpu))
+		if(IUtilities.isStringaInVett(cpu, CPUValide))
 			this.cpu = cpu;
 		else
 			this.cpu = "valore non valido: " + cpu;
@@ -51,7 +58,7 @@ public class Pc extends Prodotto implements IUtilities{
 
 
 	public void setTipomma(String tipomma) {
-		if(IUtilities.isMMA(tipomma,"50"))
+		if(IUtilities.isStringaInVett(tipomma, MMAValide))
 			this.tipomma = tipomma;
 		else
 			this.tipomma = "valore non valido: " + tipomma;
@@ -59,7 +66,7 @@ public class Pc extends Prodotto implements IUtilities{
 
 
 	public void setTiporam(String tiporam) {
-		if(IUtilities.isRAM(tiporam,"50"))
+		if(IUtilities.isStringaInVett(tiporam, RAMValide))
 			this.tiporam = tiporam;
 		else
 			this.tiporam = "valore non valido: " + tiporam;
@@ -67,7 +74,7 @@ public class Pc extends Prodotto implements IUtilities{
 
 
 	public void setMma(int mma) {
-		if(IUtilities.isMMA("ssd", mma+""))
+		if(IUtilities.isValoreCompresoInt(mma+"", MMAMin, MMAMax))
 			this.mma = mma;
 		else
 			this.mma = -1;
@@ -75,7 +82,7 @@ public class Pc extends Prodotto implements IUtilities{
 
 
 	public void setRam(int ram) {
-		if(IUtilities.isRAM("ddr3", ram+""))
+		if(IUtilities.isValoreCompresoInt(ram+"", RAMMin, RAMMax))
 			this.ram = ram;
 		else
 			this.ram = -1;
@@ -85,16 +92,47 @@ public class Pc extends Prodotto implements IUtilities{
 	public static boolean isValido(String[] riga) {
 		try {
 			return 	Prodotto.isValido(riga)		&&
-					IUtilities.isCpu(riga[6]) 				&&
-					IUtilities.isRAM(riga[7], (riga[8])) 	&&
-					IUtilities.isMMA(riga[9], (riga[10]))	;
+					IUtilities.isStringaInVett(riga[6], CPUValide) 				&&
+					IUtilities.isStringaInVett(riga[7], RAMValide) 				&&
+					IUtilities.isValoreCompresoInt(riga[8], RAMMin, RAMMax)		&&
+					IUtilities.isStringaInVett(riga[9], MMAValide) 				&&
+					IUtilities.isValoreCompresoInt(riga[10], MMAMin, MMAMax);
 		} catch (ArrayIndexOutOfBoundsException f) {
 			System.out.println("problemi con la riga: " + Arrays.toString(riga));
 			return false;
 		}
 	}
 
-	
+	public static void config (List<String> l) {
+		for(String s : l)
+			try {
+				switch (s.substring(0,s.indexOf(":"))) {
+					case "cpuvalide":
+						CPUValide = (s.split(":")[1]).split(",");
+					break;
+					case "ramvalide":
+						RAMValide = (s.split(":")[1]).split(",");
+					break;
+					case "mmavalide":
+						MMAValide = (s.split(":")[1]).split(",");
+					break;
+					case "remminimavalida":
+						RAMMin = Integer.parseInt(s.split(":")[1]);
+					break;
+					case "rammaxvalida":
+						RAMMax = Integer.parseInt(s.split(":")[1]);
+					break;
+					case "mmaminvalida":
+						MMAMin = Integer.parseInt(s.split(":")[1]);
+					break;
+					case "mmamaxvalida":
+						MMAMax = Integer.parseInt(s.split(":")[1]);
+					break;
+				}
+			} catch(NumberFormatException n) {
+				System.out.println(s.split(":")[1] + "non è un valore parsabile in Integer");
+			}
+	}
 	
 	/**
 	 * @return
