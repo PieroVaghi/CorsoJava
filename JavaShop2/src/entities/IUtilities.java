@@ -32,7 +32,12 @@ public interface IUtilities {
 	static String[] costo5 = {"4G","4G+","5G"};
 	
 	static boolean isPrezzobaseValido(String val) {
-		return Double.parseDouble(val) >= minPrez && Double.parseDouble(val) <= maxPrez;
+		try {
+			return Double.parseDouble(val) >= minPrez && Double.parseDouble(val) <= maxPrez;
+		} catch(NumberFormatException n) {
+			System.out.println(val + "non è un valore parsabile in double");
+			return false;
+		}
 	}
 
 	public static boolean isCpu(String modello) {		//Non ancora perfetto.. ",i5" considerato come valore valido
@@ -40,15 +45,25 @@ public interface IUtilities {
 	}
 	
 	public static boolean isMMA(String modello, String val) {
-		int mma = Integer.parseInt(val);
-		return 	MMAValide.indexOf(modello.toLowerCase()) >= 0 && modello.length() == 3 
-				&& (mma >= MMAMin && mma <= MMAMax);
+		try {
+			int mma = Integer.parseInt(val);
+			return 	MMAValide.indexOf(modello.toLowerCase()) >= 0 && modello.length() == 3 
+					&& (mma >= MMAMin && mma <= MMAMax);
+		} catch(NumberFormatException n) {
+			System.out.println(val + "non è un valore parsabile in integer");
+			return false;
+		}
 	}
 	
 	public static boolean isRAM(String modello, String val) {
-		int ram = Integer.parseInt(val);
-		return 	RAMValide.indexOf(modello.toUpperCase()) >= 0 
-				&& ram >= RAMMin && ram <= RAMMax;
+		try {
+			int ram = Integer.parseInt(val);
+			return 	RAMValide.indexOf(modello.toUpperCase()) >= 0 
+					&& ram >= RAMMin && ram <= RAMMax;
+		} catch(NumberFormatException n) {
+			System.out.println(val + "non è un valore parsabile in integer");
+			return false;
+		}
 	}
 	
 	public static boolean isBatteria(double val) {
@@ -81,14 +96,24 @@ public interface IUtilities {
 		return false;
 	}
 	
-	public static boolean isGiriminuto(String giro) {
-		int giri = Integer.parseInt(giro);
-		return giri >= mingiri && giri <= maxgiri;
+	public static boolean isGiriminuto(String val) {
+		try {
+			int giri = Integer.parseInt(val);
+			return giri >= mingiri && giri <= maxgiri;
+		} catch(NumberFormatException n) {
+			System.out.println(val + "non è un valore parsabile in ineger");
+			return false;
+		}
 	}
 
-	public static boolean isCapchili(String capchili) {
-		int c = Integer.parseInt(capchili);
-		return c >= mincap && c <= maxcap;
+	public static boolean isCapchili(String val) {
+		try {
+			int c = Integer.parseInt(val);
+			return c >= mincap && c <= maxcap;
+		} catch(NumberFormatException n) {
+			System.out.println(val + "non è un valore parsabile in integer");
+			return false;
+		}
 	}
 	
 	

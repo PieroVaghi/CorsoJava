@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Arrays;
+
 public class Smartphone extends Laptop {
 	
 	private String rete, jack;
@@ -49,10 +51,15 @@ public class Smartphone extends Laptop {
 	}
 
 	public static boolean isValido(String[] riga) {
-		return 	Laptop.isValido(riga)	&&
-				IUtilities.isRete(riga[14])		&&
-				IUtilities.isJack(riga[16])		&&
-				IUtilities.isMegapixel(Double.parseDouble(riga[15]));
+		try {
+			return 	Laptop.isValido(riga)	&&
+					IUtilities.isRete(riga[14])		&&
+					IUtilities.isJack(riga[16])		&&
+					IUtilities.isMegapixel(Double.parseDouble(riga[15]));
+		} catch (ArrayIndexOutOfBoundsException f) {
+			System.out.println("problemi con la riga: " + Arrays.toString(riga));
+			return false;
+		}
 	}
 
 	

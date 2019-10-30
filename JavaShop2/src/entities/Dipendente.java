@@ -120,10 +120,7 @@ public class Dipendente {
 		} catch (ArrayIndexOutOfBoundsException f) {
 			System.out.println("problemi con la riga: " + Arrays.toString(parti));
 			return false;
-		} catch (NumberFormatException n) {
-			System.out.println("qualche parametro non è del tipo giusto: " + Arrays.toString(parti));
-			return false;
-		}
+		} 
 	}
 	
 	public static boolean isNomeCognomeValido (String n) {

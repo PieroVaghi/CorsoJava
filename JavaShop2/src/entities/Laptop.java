@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Arrays;
+
 public class Laptop extends Pc{
 	
 
@@ -65,10 +67,15 @@ public class Laptop extends Pc{
 
 
 	public static boolean isValido(String[] riga) {
-		return 	Pc.isValido(riga)							&&
-				IUtilities.isBatteria(Double.parseDouble(riga[11]))	&&
-				IUtilities.isPollici(Double.parseDouble(riga[12]))		&&
-				IUtilities.isPeso(Double.parseDouble(riga[13]));
+		try {
+			return 	Pc.isValido(riga)							&&
+					IUtilities.isBatteria(Double.parseDouble(riga[11]))	&&
+					IUtilities.isPollici(Double.parseDouble(riga[12]))		&&
+					IUtilities.isPeso(Double.parseDouble(riga[13]));
+		} catch (ArrayIndexOutOfBoundsException f) {
+			System.out.println("problemi con la riga: " + Arrays.toString(riga));
+			return false;
+		}
 	}
 	
 	

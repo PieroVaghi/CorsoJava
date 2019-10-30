@@ -72,10 +72,14 @@ public class Lavatrice extends Prodotto {
 //	}
 	
 	public static boolean isValido(String[] riga) {
-		return 	Prodotto.isValido(riga)	&&
-				IUtilities.isCapchili(riga[6]) 	&&
-				IUtilities.isGiriminuto(riga[7]) 	;
-//				isProgrammiVal(riga[7])	;
+		try {
+			return 	Prodotto.isValido(riga)	&&
+					IUtilities.isCapchili(riga[6]) 	&&
+					IUtilities.isGiriminuto(riga[7]);
+		} catch (ArrayIndexOutOfBoundsException f) {
+			System.out.println("problemi con la riga: " + Arrays.toString(riga));
+			return false;
+		}
 	}
 
 	

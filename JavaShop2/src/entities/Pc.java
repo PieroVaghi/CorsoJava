@@ -1,6 +1,6 @@
 package entities;
 
-import java.util.List;
+import java.util.Arrays;
 
 public class Pc extends Prodotto implements IUtilities{
 	
@@ -83,10 +83,15 @@ public class Pc extends Prodotto implements IUtilities{
 
 
 	public static boolean isValido(String[] riga) {
-		return 	Prodotto.isValido(riga)		&&
-				IUtilities.isCpu(riga[6]) 				&&
-				IUtilities.isRAM(riga[7], (riga[8])) 	&&
-				IUtilities.isMMA(riga[9], (riga[10]))	;
+		try {
+			return 	Prodotto.isValido(riga)		&&
+					IUtilities.isCpu(riga[6]) 				&&
+					IUtilities.isRAM(riga[7], (riga[8])) 	&&
+					IUtilities.isMMA(riga[9], (riga[10]))	;
+		} catch (ArrayIndexOutOfBoundsException f) {
+			System.out.println("problemi con la riga: " + Arrays.toString(riga));
+			return false;
+		}
 	}
 
 	

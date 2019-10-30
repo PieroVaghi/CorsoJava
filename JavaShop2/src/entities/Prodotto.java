@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.Arrays;
 import java.util.List;
 
 import shop.Negozio;
@@ -68,8 +69,12 @@ public class Prodotto implements IUtilities {
 	}
 	
 	public static boolean isValido(String[] riga) {
-		return 	IUtilities.isPrezzobaseValido(riga[5]);
-				
+		try {
+			return 	IUtilities.isPrezzobaseValido(riga[5]);
+		} catch (ArrayIndexOutOfBoundsException f) {
+			System.out.println("problemi con la riga: " + Arrays.toString(riga));
+			return false;
+		}		
 	}
 
 	
