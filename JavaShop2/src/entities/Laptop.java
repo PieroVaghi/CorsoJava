@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Laptop extends Pc{
 	
@@ -8,7 +9,12 @@ public class Laptop extends Pc{
 	int orebatteria; 
 	double peso, pollici;
 	
-	
+	static int minPeso;
+	static int maxPeso;
+	static int maxPollici;
+	static int minPollici;
+	static int maxBat;
+	static int minBat;
 		
 	public Laptop(int id, int iddip, String marca, String modello, double prezzobase,
 				String cpu, String tiporam, int ram, String tipomma, int mma, 
@@ -68,16 +74,44 @@ public class Laptop extends Pc{
 
 	public static boolean isValido(String[] riga) {
 		try {
-			return 	Pc.isValido(riga)							&&
-					IUtilities.isBatteria(Double.parseDouble(riga[11]))	&&
-					IUtilities.isPollici(Double.parseDouble(riga[12]))		&&
-					IUtilities.isPeso(Double.parseDouble(riga[13]));
+			return 	Pc.isValido(riga)													&&
+					IUtilities.isValoreCompresoDouble(riga[11], minBat, maxBat)			&&
+					IUtilities.isValoreCompresoDouble(riga[12], minPollici, maxPollici)	&&
+					IUtilities.isValoreCompresoDouble(riga[13], minPeso, maxPeso)		;
 		} catch (ArrayIndexOutOfBoundsException f) {
 			System.out.println("problemi con la riga: " + Arrays.toString(riga));
 			return false;
 		}
 	}
 	
+	
+	public static void config (List<String> l) {
+		for(String s : l)
+			try {
+				switch (s.substring(0,s.indexOf(":"))) {
+					case "minPeso":
+						minPeso = Integer.parseInt(s.split(":")[1]);
+					break;
+					case "maxPeso":
+						maxPeso = Integer.parseInt(s.split(":")[1]);
+					break;
+					case "maxPollici":
+						maxPollici = Integer.parseInt(s.split(":")[1]);
+					break;
+					case "minPollici":
+						minPollici = Integer.parseInt(s.split(":")[1]);
+					break;
+					case "maxBat":
+						maxBat = Integer.parseInt(s.split(":")[1]);
+					break;
+					case "minBat":
+						minBat = Integer.parseInt(s.split(":")[1]);
+					break;
+				}
+			} catch(NumberFormatException n) {
+				System.out.println(s.split(":")[1] + "non è un valore parsabile in Integer");
+			}
+	}
 	
 	/**
 	 * @return
