@@ -46,7 +46,7 @@ public class Laptop extends Pc{
 
 
 	public void setOrebatteria(int orebatteria) {
-		if(IUtilities.isBatteria(orebatteria))
+		if(IUtilities.isValoreCompresoDouble(orebatteria+"", minBat, maxBat))
 			this.orebatteria = orebatteria;
 		else
 			this.orebatteria = -1;
@@ -55,7 +55,7 @@ public class Laptop extends Pc{
 
 
 	public void setPeso(double peso) {
-		if(IUtilities.isPeso(peso))
+		if(IUtilities.isValoreCompresoDouble(peso+"", minPeso, maxPeso))
 			this.peso = peso;
 		else
 			this.peso  = -1;
@@ -64,7 +64,7 @@ public class Laptop extends Pc{
 
 
 	public void setPollici(double pollici) {
-		if(IUtilities.isPollici(pollici))
+		if(IUtilities.isValoreCompresoDouble(pollici+"", minPollici, maxPollici))
 			this.pollici = pollici;
 		else
 			this.pollici = -1;
