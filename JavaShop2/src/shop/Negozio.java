@@ -37,8 +37,8 @@ public class Negozio implements INegozio, IAmministrazione, IUtilities {
 			while(dati.hasNextLine()) {
 				String[] riga = dati.nextLine().split(",");	//codice caldo
 				try {
-						if(Dipendente.isValido(riga)) 
-							dipendenti.add(new Dipendente(Integer.parseInt(riga[0]), riga[1], riga[2], riga[3], riga[4], Double.parseDouble(riga[5]), Integer.parseInt(riga[6])));
+					if(Dipendente.isValido(riga)) 
+						dipendenti.add(new Dipendente(Integer.parseInt(riga[0]), riga[1], riga[2], riga[3], riga[4], Double.parseDouble(riga[5]), Integer.parseInt(riga[6])));
 				} catch (ArrayIndexOutOfBoundsException f) {
 					System.out.println(riga + "non ha la lunghezza attesa" + f.getMessage());
 				} catch (NumberFormatException n) {
@@ -62,7 +62,7 @@ public class Negozio implements INegozio, IAmministrazione, IUtilities {
 		
 		Scanner conf = null;
 		try {
-			conf = new Scanner(new File("src/res/config.txt"));
+			conf = new Scanner(new File("src/res/configProdotti.txt"));
 			while(conf.hasNextLine()) {
 				limiti.add(conf.nextLine());
 			}
