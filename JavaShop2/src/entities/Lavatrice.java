@@ -10,7 +10,11 @@ public class Lavatrice extends Prodotto {
 	private int capacitachili, girialminuto;
 	private List<String> programmi = new ArrayList<String>();
 	
-	
+	static int mingiri;
+	static int maxgiri;
+	static int mincap;
+	static int maxcap;
+	static String[] programVal;
 
 	
 	public Lavatrice(int id, int iddip, String marca, String modello, double prezzobase, 
@@ -42,7 +46,7 @@ public class Lavatrice extends Prodotto {
 	}
 
 	void setCapacitachili(int capacitachili) {
-		if(IUtilities.isCapchili(capacitachili+""))
+		if(IUtilities.isValoreCompresoInt(capacitachili+"", mincap, maxcap))
 			this.capacitachili = capacitachili;		
 	}
 	
@@ -74,8 +78,8 @@ public class Lavatrice extends Prodotto {
 	public static boolean isValido(String[] riga) {
 		try {
 			return 	Prodotto.isValido(riga)	&&
-					IUtilities.isCapchili(riga[6]) 	&&
-					IUtilities.isGiriminuto(riga[7]);
+					IUtilities.isValoreCompresoInt(riga[6], mincap, maxcap)		&&
+					IUtilities.isValoreCompresoInt(riga[7], mingiri, maxgiri);
 		} catch (ArrayIndexOutOfBoundsException f) {
 			System.out.println("problemi con la riga: " + Arrays.toString(riga));
 			return false;
@@ -93,6 +97,27 @@ public class Lavatrice extends Prodotto {
 //					controllo = true;
 //		return controllo;
 //	}
+	
+	public static void config (List<String> l) {
+		for(String s : l)
+			switch (s.substring(0,s.indexOf(":"))) {
+				case "girimin":
+					mingiri = Integer.parseInt(s.split(":")[1]);
+				break;
+				case "girimax":
+					maxgiri = Integer.parseInt(s.split(":")[1]);
+				break;
+				case "kgmin":
+					mincap = Integer.parseInt(s.split(":")[1]);
+				break;
+				case "kgmax":
+					maxcap = Integer.parseInt(s.split(":")[1]);
+				break;
+				case "programVal":
+					programVal = (s.split(":")[1]).split(",");
+				break;
+			}
+	}
 	
 	public String stampaProgrammi() {
 		String risposta = "";
