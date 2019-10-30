@@ -12,3 +12,14 @@ girimax:10000
 kgmin:2
 kgmax:17
 programVal:stirofacile,scuri,colorati,delicati,eco,rapido
+minPeso:10
+maxPeso:7000
+maxPollici:31
+minPollici:3
+maxBat:100
+minBat:0
+valJack:si,no
+megamin:0.2
+megamax:105
+reti:E,H+,G,3G,4G,4G+,5G
+costo5:4G,4G+,5G
