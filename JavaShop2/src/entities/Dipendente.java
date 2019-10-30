@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Dipendente {
@@ -109,12 +110,20 @@ public class Dipendente {
 	// VALIDAZIONE ----------------------------------------------------------------------------
 	
 	public static boolean isValido(String[] parti) {
-		return 	isNomeCognomeValido(parti[1]) 	&&
-				isNomeCognomeValido(parti[2])	&&
-				isRuoloVal(parti[3])			&&
-				isRepVal(parti[4])				&&
-				isStipValid(parti[5])			&&
-				isAnniEspValid(parti[6]);
+		try {			
+			return isNomeCognomeValido(parti[1]) 	&&
+			isNomeCognomeValido(parti[2])			&&
+			isRuoloVal(parti[3])					&&
+			isRepVal(parti[4])						&&
+			isStipValid(parti[5])					&&
+			isAnniEspValid(parti[6]);
+		} catch (ArrayIndexOutOfBoundsException f) {
+			System.out.println("problemi con la riga: " + Arrays.toString(parti));
+			return false;
+		} catch (NumberFormatException n) {
+			System.out.println("qualche parametro non è del tipo giusto: " + Arrays.toString(parti));
+			return false;
+		}
 	}
 	
 	public static boolean isNomeCognomeValido (String n) {
@@ -131,10 +140,20 @@ public class Dipendente {
 	}
 	
 	private static boolean isAnniEspValid(String anni) {
+		boolean risposta = false;
 		if(anni.isEmpty())
 			return false;
-		int a = Integer.parseInt(anni);
-		return !(a<0||a>50);
+		try {
+			int a = Integer.parseInt(anni);
+			risposta = !(a<0||a>50);
+		} catch(NumberFormatException n) {
+			System.out.println(anni + " non è un numero");
+			return false;
+		}
+		finally {
+			System.out.println("Finalmente ciao");
+		}
+		return risposta;
 	}
 	
 	private static boolean isRuoloVal(String tipo) {
@@ -152,10 +171,20 @@ public class Dipendente {
 	}
 	
 	private static boolean isStipValid(String stip) {
+		boolean risposta = false;
 		if(stip.isEmpty())
 			return false;
-		double s = Double.parseDouble(stip);
-		return !(s<stipMin||s>stipMax);
+		try {
+			double s = Double.parseDouble(stip);
+			risposta = !(s<stipMin||s>stipMax);
+		} catch(NumberFormatException n) {
+			System.out.println(stip + " non è un numero");
+			return false;
+		}
+		finally {
+			System.out.println("Finalmente ciao");
+		}
+		return risposta;
 	}
 	
 	// METODI -----------------------------------------------------------------------------------
