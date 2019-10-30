@@ -100,22 +100,26 @@ public class Lavatrice extends Prodotto {
 	
 	public static void config (List<String> l) {
 		for(String s : l)
-			switch (s.substring(0,s.indexOf(":"))) {
-				case "girimin":
-					mingiri = Integer.parseInt(s.split(":")[1]);
-				break;
-				case "girimax":
-					maxgiri = Integer.parseInt(s.split(":")[1]);
-				break;
-				case "kgmin":
-					mincap = Integer.parseInt(s.split(":")[1]);
-				break;
-				case "kgmax":
-					maxcap = Integer.parseInt(s.split(":")[1]);
-				break;
-				case "programVal":
-					programVal = (s.split(":")[1]).split(",");
-				break;
+			try {
+				switch (s.substring(0,s.indexOf(":"))) {
+					case "girimin":
+						mingiri = Integer.parseInt(s.split(":")[1]);
+					break;
+					case "girimax":
+						maxgiri = Integer.parseInt(s.split(":")[1]);
+					break;
+					case "kgmin":
+						mincap = Integer.parseInt(s.split(":")[1]);
+					break;
+					case "kgmax":
+						maxcap = Integer.parseInt(s.split(":")[1]);
+					break;
+					case "programVal":
+						programVal = (s.split(":")[1]).split(",");
+					break;
+				}
+			} catch(NumberFormatException n) {
+				System.out.println(s.split(":")[1] + "non è un valore parsabile in Integer");
 			}
 	}
 	

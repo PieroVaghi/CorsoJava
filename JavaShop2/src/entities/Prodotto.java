@@ -83,13 +83,17 @@ public class Prodotto implements IUtilities {
 	
 	public static void config (List<String> l) {
 		for(String s : l)
-			switch (s.substring(0,s.indexOf(":"))) {
-				case "prezzominimoval":
-					minPrez = Integer.parseInt(s.split(":")[1]);
-				break;
-				case "prezzomassimoval":
-					maxPrez = Integer.parseInt(s.split(":")[1]);
-				break;
+			try {
+				switch (s.substring(0,s.indexOf(":"))) {
+					case "prezzominimoval":
+						minPrez = Integer.parseInt(s.split(":")[1]);
+					break;
+					case "prezzomassimoval":
+						maxPrez = Integer.parseInt(s.split(":")[1]);
+					break;
+				}
+			} catch(NumberFormatException n) {
+				System.out.println(s.split(":")[1] + "non è un valore parsabile in Integer");
 			}
 	}
 
