@@ -2,9 +2,11 @@ package shop;
 
 import java.util.List;
 
+import entities.IUtilities;
 import entities.Prodotto;
 
-public interface INegozio {
+public interface INegozio extends IAmministrazione,IUtilities
+{
 	
 	//Interfeccia java 7:
 	/*

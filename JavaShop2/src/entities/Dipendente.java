@@ -178,9 +178,6 @@ public class Dipendente {
 			System.out.println(stip + " non è un numero");
 			return false;
 		}
-		finally {
-			System.out.println("Finalmente ciao");
-		}
 		return risposta;
 	}
 	
