@@ -67,7 +67,6 @@ public class Negozio implements INegozio, IAmministrazione, IUtilities {
 			while(conf.hasNextLine()) {
 				limiti.add(conf.nextLine());
 			}
-			IUtilities.config(limiti);
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 		} finally {
