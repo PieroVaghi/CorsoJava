@@ -54,7 +54,7 @@ public class Negozio implements INegozio, IAmministrazione, IUtilities {
 			try {
 				dati.close();
 			} catch (Exception e) {
-				e.getStackTrace();
+				e.printStackTrace();
 			}
 		}		
 	}
@@ -73,7 +73,7 @@ public class Negozio implements INegozio, IAmministrazione, IUtilities {
 			try {
 				conf.close();
 			} catch(Exception e) {
-				e.getStackTrace();
+				e.printStackTrace();
 			}
 		}
 		
@@ -130,7 +130,7 @@ public class Negozio implements INegozio, IAmministrazione, IUtilities {
 			try {
 				dati.close();
 			} catch (Exception e) {
-				e.getStackTrace();
+				e.printStackTrace();
 			}
 		}
 		
