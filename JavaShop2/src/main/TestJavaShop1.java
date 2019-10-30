@@ -1,6 +1,7 @@
 package main;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import shop.IAmministrazione;
@@ -9,7 +10,7 @@ import shop.Negozio;
 
 public class TestJavaShop1 {
 
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) {
 		
 		Scanner tastiera = new Scanner(System.in);
 		System.out.println("Scegli il negozio che ti interessa tra javaronics o javaworld");
@@ -22,16 +23,30 @@ public class TestJavaShop1 {
 		
 		System.out.println("Quale tipologia di funzioni devi effettuare? amministrazione o clientela?");
 		INegozio shopC = new Negozio(percorsoProd, percorsoDip, budget);
+
 		IAmministrazione shopA = new Negozio(percorsoProd, percorsoDip, budget);
 		
 		
 		
-		Scanner datimenu = new Scanner(new File("src/res/MenuJavaShop1.txt"));
 		String menu = "";
-		while(datimenu.hasNextLine()) {
-			menu += datimenu.nextLine() + "\n";
+		Scanner datimenu = null;
+		try {
+			datimenu = new Scanner(new File("src/res/MenuJavaShop1.txt"));
+			while(datimenu.hasNextLine()) 
+				menu += datimenu.nextLine() + "\n";
+		} 
+		catch(FileNotFoundException f) {
+			System.out.println(f.getMessage());
 		}
-		datimenu.close();
+		finally {
+			try {
+				datimenu.close();
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 		
 		int comando = 0;
 		
