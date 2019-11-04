@@ -71,4 +71,39 @@ select concat(nome, ' ', cognome) nomimativo, cittaresidenza
 from dipendenti
 where id = 3;
 
+-- ESERCIZI --------------------------------------------------------
 
+-- voglio visualizzare il nome, cognome, ruolo e stipendio dei dipendenti che prendono uno stipendio > di 2000€
+select nome, cognome, ruolo, stipendio
+from dipendenti
+where stipendio > 2000;
+
+-- visualizza nome, cognome, genere, cittaresidenza delle persone che vivono a milano, varese, verona e sono maschie
+select nome, cognome, genere, cittaresidenza
+from dipendenti
+where (cittaresidenza = 'milano' or cittaresidenza = 'varese' or cittaresidenza = 'verona') and genere = 'M';
+
+-- visualizza nome, cognome, genere, cittaresidenza delle persone che vivono a milano, varese, verona e sono maschie
+select nome, cognome, genere, cittaresidenza
+from dipendenti
+where cittaresidenza in('milano','varese','verona') and genere = 'm';
+
+-- voglio visualizzare le persone che hanno il ruolo che inizia per addetto
+select nome, cognome, ruolo, stipendio
+from dipendenti
+where ruolo like 'addet%';
+
+-- voglio visualizzare il nome, cognome, stipendio delle persone di genere femminile residenti a milano
+select nome, cognome, stipendio
+from dipendenti
+where genere = 'f' and cittaresidenza = 'milano';
+
+-- voglio visualizzare il nome, ruolo e stipendioannuo dei programmatori voglio che la tabella abbia l'alias D.
+select d.nome, d.ruolo, concat(d.stipendio*d.mensilita,' €') stipendioannuo
+from dipendenti d
+where d.ruolo = 'programmatore';
+
+-- voglio visualizzare le persone che hanno l'iniziale nome compreso tra la lettera L e la lettera P
+select nome, cognome
+from dipendenti
+where nome between 'l' and 'p';
