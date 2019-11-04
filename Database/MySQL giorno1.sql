@@ -178,3 +178,12 @@ from dipendenti;
 -- MODO 2 - SBAGLIATO!!!!
 select nome, concat(round(max(stipendio)),' €') StipendioMax 
 from dipendenti; -- SBAGLIATO!! ci restituisce il primo nome! non quello dello stipendio più alto! 
+
+-- voglio visualizzare lo stipendio più basso
+-- FURBO
+select stipendio
+from dipendenti
+order by stipendio limit 1; -- OCCHIO!! la seconda persona, nel caso di identico stipendio, non verrà visualizzata
+-- SAGGIO
+select concat(round(min(stipendio)),' €') stipendioMin
+from dipendenti;
