@@ -22,7 +22,7 @@ public interface IUtilities {
 		}
 	}
 
-	public static boolean isStringaInVett(String val, String[] vett) {	
+	static boolean isStringaInVett(String val, String[] vett) {	
 		boolean ris = false;
 		for(String s : vett)
 			if(s.equalsIgnoreCase(val))
