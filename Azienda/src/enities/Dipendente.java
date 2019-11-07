@@ -113,7 +113,8 @@ public class Dipendente {
 		this.stipendio = stipendio;
 	}
 
-
+	
+	
 	@Override
 	public String toString() {
 		return "id: " + id + ",\nmensilita: " + mensilita + ",\nidDipartimento: " + idDipartimento

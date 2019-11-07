@@ -74,12 +74,9 @@ public class Dipartimento {
 		this.dipendenti = dipendenti;
 	}
 	
-	
-
-
 	public boolean aggiungiDipendente(Dipendente d)
 	{
-		if(!dipendenti.contains(d)) {
+		if(!dipendenti.contains(d) && id == d.getIdDipartimento()) {
 			for(Dipendente dip : dipendenti)
 				if(dip.getId() == d.getId())
 					return false;
