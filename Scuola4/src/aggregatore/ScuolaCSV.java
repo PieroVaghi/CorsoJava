@@ -17,7 +17,7 @@ public class ScuolaCSV {
 		
 		while(dati.hasNextLine()) {
 			String[] riga = dati.nextLine().split(",");
-			Persona p = null;									// Tipo formale, 
+			Persona p = null;								// Tipo formale, 
 			switch(riga[0].toUpperCase()) {
 				case "STUDENTE":
 					if(Studente.isValido(riga)) {
