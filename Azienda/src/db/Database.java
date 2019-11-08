@@ -18,7 +18,7 @@ public class Database {
 	
 	public void apriConnessione() {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 			c = DriverManager.getConnection(percorso, username, pw);
 		} catch (Exception e) {
 			System.out.println("CARICA IN BUILD PATH IL DRIVER DI JDBC, POI SE NON FUNZIONA VAI DA GLORIA");
