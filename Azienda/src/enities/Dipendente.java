@@ -1,10 +1,14 @@
 package enities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Dipendente {
 	
 	private int id, mensilita, idDipartimento, idResponsabile;
 	private String nome, cognome, genere, dataNascita, ruolo, citta, dataassunzione;
 	private double stipendio;
+	private List<Lingua> lingue = new ArrayList<Lingua>();
 	
 	
 	/**
@@ -76,6 +80,15 @@ public class Dipendente {
 	public double getStipendio() {
 		return stipendio;
 	}
+	public double Stipendio() {
+		double ris = stipendio;
+		for(Lingua l : lingue)
+			ris += l.getBonus();
+		return ris;
+	}	
+	public List<Lingua> getLingue() {
+		return lingue;
+	}
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -112,9 +125,19 @@ public class Dipendente {
 	public void setStipendio(double stipendio) {
 		this.stipendio = stipendio;
 	}
+	
+	public boolean aggiungiLingua(Lingua l)
+	{
+		if(!lingue.contains(l) && id == l.getIddipendente()) {
+			for(Lingua lin : lingue)
+				if(lin.getId() == l.getId())
+					return false;
+//			System.out.println("Aggiungo Lingua" + id + l.getNome());
+			return lingue.add(l);
+		} return false;
+	}
 
-	
-	
+
 	@Override
 	public String toString() {
 		return "id: " + id + ",\nmensilita: " + mensilita + ",\nidDipartimento: " + idDipartimento
@@ -124,8 +147,14 @@ public class Dipendente {
 				+ (dataNascita != null ? "dataNascita: " + dataNascita + ",\n" : "")
 				+ (ruolo != null ? "ruolo: " + ruolo + ",\n" : "") + (citta != null ? "citta: " + citta + ",\n" : "")
 				+ (dataassunzione != null ? "dataassunzione: " + dataassunzione + ",\n" : "") + "stipendio: "
-				+ stipendio;
+				+ stipendio + ",\n" + (lingue != null ? "lingue: " + lingue : "");
 	}
+
+
+
+
+
+	
 	
 	
 	
