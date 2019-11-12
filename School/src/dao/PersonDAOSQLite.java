@@ -27,7 +27,7 @@ public class PersonDAOSQLite implements PersonDAO {
 	         connection = DriverManager.getConnection("jdbc:sqlite:"+dbfile);
 	      } catch ( Exception e ) {
 	         e.printStackTrace();
-	         System.exit(0);
+	         System.exit(0); //Chiudi tutto ci stanno tracciando
 	      }
 	}
 
@@ -38,10 +38,10 @@ public class PersonDAOSQLite implements PersonDAO {
 	 */
 	private Person _personFromRow (ResultSet row) throws Exception {	//row può contenere più righe ma ne inquadra sempre una sola 
 		Person res = new Person();
+		res.setId(row.getInt("id")); // Prendo il valore della riga in colonna ID e lo metto in res al suo posto
 		res.setName(row.getString("name"));
 		res.setSurname(row.getString("surname"));
 		res.setDateofbirth(row.getString("dateofbirth"));
-		res.setId(row.getInt("id"));
 		return res;
 	}
 	
@@ -75,18 +75,18 @@ public class PersonDAOSQLite implements PersonDAO {
 	}
 	
 	@Override
-	public boolean save(Person product) {
+	public boolean save(Person person) {
 		// Primo: devo capire se il prodotto esiste o non esiste già
 		// provo a caricarlo e vedo se esiste
 		// devo inviare un updare
 			try {
 				Statement command = connection.createStatement();
-				command.execute
+				command.execute	//esegue la query compilata
 				(
-						_prepareQuery
+						_prepareQuery	//query compilata coi dati corretti
 						(
-								product,
-								(_exist(product.getId()))	?	UPDATE_QUERY	: INSERT_QUERY
+								person,	//origine dei dati
+								(_exist(person.getId()))	?	UPDATE_QUERY	: INSERT_QUERY // Stringa modello
 						)
 				);
 				return true;				

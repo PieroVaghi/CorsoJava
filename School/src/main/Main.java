@@ -22,6 +22,7 @@ public class Main {
 		System.out.println("LISTONE!!!!");
 		for(Person j : dao.list())
 			System.out.println(j.toString());
+		System.out.println(dao.list());
 		Person b = new Person();
 		b.setId(4);
 		b.setName("Mario");
