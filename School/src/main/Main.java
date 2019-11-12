@@ -19,8 +19,10 @@ public class Main {
 		p.setDateofbirth("16/03/1999");
 		dao.save(p);
 		System.out.println("modificato");
+		System.out.println("LISTONE!!!!");
+		for(Person j : dao.list())
+			System.out.println(j.toString());
 		Person b = new Person();
-		
 		b.setId(4);
 		b.setName("Mario");
 		b.setSurname("Mariotti");
@@ -29,7 +31,6 @@ public class Main {
 		System.out.println("salvato");
 		dao.delete(4);
 		System.out.println("cancellato");
-
 	}
 
 }

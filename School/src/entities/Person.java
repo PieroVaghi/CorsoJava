@@ -29,6 +29,12 @@ public class Person {
 	public void setDateofbirth(String dateofbirth) {
 		this.dateofbirth = dateofbirth;
 	}
+	@Override
+	public String toString() {
+		return "id: " + id + ",\n" + (name != null ? "name: " + name + ",\n" : "")
+				+ (surname != null ? "surname: " + surname + ",\n" : "")
+				+ (dateofbirth != null ? "dateofbirth: " + dateofbirth : "");
+	}
 	
 	
 
