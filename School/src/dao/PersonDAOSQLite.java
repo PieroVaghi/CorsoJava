@@ -12,6 +12,7 @@ import entities.Person;
 
 public class PersonDAOSQLite implements PersonDAO {
 	
+	private static final String SELECT_FROM_PERSON = "select * from person";
 	private static final String DELETE_QUERY = "delete from person where id=";
 	private static final String SELECT_QUERY = "select * from person where id=";
 	private static final String INSERT_QUERY = "insert into person values([id],'[name]','[surname]','[dateofbirth]');";
@@ -102,8 +103,7 @@ public class PersonDAOSQLite implements PersonDAO {
 		} else {
 			try {
 				Statement command = connection.createStatement();
-				String sql = DELETE_QUERY + id;
-				command.execute(sql);
+				command.execute(DELETE_QUERY + id);
 				return true;
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -117,8 +117,7 @@ public class PersonDAOSQLite implements PersonDAO {
 		List<Person> persons = new ArrayList<Person>();
 		try {
 			Statement command = connection.createStatement();
-			String sql = "select * from person";
-			ResultSet rows = command.executeQuery(sql);
+			ResultSet rows = command.executeQuery(SELECT_FROM_PERSON);
 			while(rows.next()) {
 				persons.add(_personFromRow(rows));
 			}
