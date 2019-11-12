@@ -18,13 +18,17 @@ public class Main {
 		p.setSurname("Rossi");
 		p.setDateofbirth("16/03/1999");
 		dao.save(p);
-		
+		System.out.println("modificato");
 		Person b = new Person();
 		
-		p.setId(4);
-		p.setName("Vlad");
-		p.setSurname("Rossi");
-		p.setDateofbirth("16/03/1999");
+		b.setId(4);
+		b.setName("Mario");
+		b.setSurname("Mariotti");
+		b.setDateofbirth("16/03/1954");
+		dao.save(b);
+		System.out.println("salvato");
+		dao.delete(4);
+		System.out.println("cancellato");
 
 	}
 

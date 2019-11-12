@@ -3,15 +3,17 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import entities.Person;
 
 public class PersonDAOSQLite implements PersonDAO {
 	
+	private static final String DELETE_QUERY = "delete from person where id=";
 	private static final String SELECT_QUERY = "select * from person where id=";
-	private static final String INSERTQUERY = "insert into person values([id],'[name]','[surname]','[dateofbirth]');";
-	private static final String UPDATEQUERY = "update person set name='[name]', surname='[surname]', dateofbirth='[dateofbirth]' where id = [id];";
+	private static final String INSERT_QUERY = "insert into person values([id],'[name]','[surname]','[dateofbirth]');";
+	private static final String UPDATE_QUERY = "update person set name='[name]', surname='[surname]', dateofbirth='[dateofbirth]' where id = [id];";
 	
 	
 	Connection connection;
@@ -81,7 +83,7 @@ public class PersonDAOSQLite implements PersonDAO {
 						_prepareQuery
 						(
 								product,
-								(_exist(product.getId()))	?	UPDATEQUERY	: INSERTQUERY
+								(_exist(product.getId()))	?	UPDATE_QUERY	: INSERT_QUERY
 						)
 				);
 				return true;				
@@ -89,6 +91,23 @@ public class PersonDAOSQLite implements PersonDAO {
 				e.printStackTrace();
 				return false;
 			}
+	}
+
+	@Override
+	public boolean delete(int id) {
+		if (load(id) == null) {
+			return false;
+		} else {
+			try {
+				Statement command = connection.createStatement();
+				String sql = DELETE_QUERY + id;
+				command.execute(sql);
+				return true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
 	}
 	
 	

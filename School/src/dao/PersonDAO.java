@@ -1,6 +1,9 @@
 package dao;
 
+import java.util.List;
+
 import entities.Person;
+import entities.Product;
 
 /**
  * Contratto per i Person DAO
@@ -25,5 +28,17 @@ public interface PersonDAO {
 	 */
 	boolean save (Person product);
 	
+	/**
+	 * Cancella la persona corrispondente all'id inserito
+	 * @param id
+	 * @return
+	 */
+	boolean delete (int id);
+	
+	/**
+	 * Restituisce una lista di oggetti
+	 * @return
+	 */
+//	List<Product> list();
 
 }
