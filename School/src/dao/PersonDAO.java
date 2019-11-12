@@ -3,7 +3,6 @@ package dao;
 import java.util.List;
 
 import entities.Person;
-import entities.Product;
 
 /**
  * Contratto per i Person DAO
@@ -39,6 +38,6 @@ public interface PersonDAO {
 	 * Restituisce una lista di oggetti
 	 * @return
 	 */
-//	List<Product> list();
+	List<Person> list();
 
 }

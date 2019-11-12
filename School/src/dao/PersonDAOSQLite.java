@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import entities.Person;
 
@@ -33,7 +35,7 @@ public class PersonDAOSQLite implements PersonDAO {
 	 * @param row
 	 * @return una person
 	 */
-	private Person _programFromRow (ResultSet row) throws Exception {	//row può contenere più righe ma ne inquadra sempre una sola 
+	private Person _personFromRow (ResultSet row) throws Exception {	//row può contenere più righe ma ne inquadra sempre una sola 
 		Person res = new Person();
 		res.setName(row.getString("name"));
 		res.setSurname(row.getString("surname"));
@@ -52,7 +54,7 @@ public class PersonDAOSQLite implements PersonDAO {
 			//sto inviando un comando (query) lungo il "tubo"
 			ResultSet row = command.executeQuery(SELECT_QUERY+id);
 			//se c'ho robbba
-			return (row.next()) ? _programFromRow(row) : null;
+			return (row.next()) ? _personFromRow(row) : null;
 		} catch (Exception e){
 			e.printStackTrace();
 			return null;
@@ -107,6 +109,24 @@ public class PersonDAOSQLite implements PersonDAO {
 				e.printStackTrace();
 				return false;
 			}
+		}
+	}
+
+	@Override
+	public List<Person> list() {
+		List<Person> persons = new ArrayList<Person>();
+		try {
+			Statement command = connection.createStatement();
+			String sql = "select * from person";
+			ResultSet rows = command.executeQuery(sql);
+			while(rows.next()) {
+				persons.add(_personFromRow(rows));
+			}
+			rows.close();
+			return persons;					
+		} catch (Exception e) {
+			e.printStackTrace();
+			return persons;
 		}
 	}
 	
