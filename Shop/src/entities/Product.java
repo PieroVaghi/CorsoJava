@@ -6,10 +6,10 @@ package entities;
  * @lastupdated 12/11/2019
  *
  */
-public class Product {
+public abstract class Product {
 
 	private int id, price, quantity;
-	String name, description;
+	private String name, description;
 	
 	
 	public int getId() {

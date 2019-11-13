@@ -8,11 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import entities.Book;
+import entities.CD;
 import entities.Product;
 
 public class ProductDAOSQLite implements ProductDAO {
 	
-	private static final String SELECTPRODUCT = "select * from Product where id=";
+	private static final String SELECTPRODUCT = "select product.*, cd.artist, cd.length, cd.genere, book,author, book.category, book.pages from Product left join cd where id=";
 	private static final String INSERTQUERY = "insert into product values([id],'[name]','[description]',[price],[quantity]);";
 	private static final String UPDATEQUERY = "update Product set name='[name], description='[description]', price=[price], quantity=[quantity] where id = [id];";
 	Connection connection;
@@ -33,12 +35,32 @@ public class ProductDAOSQLite implements ProductDAO {
 	 * @return
 	 */
 	private Product _programFromRow (ResultSet row) throws Exception {	//row può contenere più righe ma ne inquadra sempre una sola 
-		Product res = new Product();
+		// La row contiene una riga di product, una riga di cd e una riga di book
+		String type = row.getString("artist") == null ? "Book" : "CD";
+		Product res;
+		if(type.contentEquals("Book"))
+			res = new Book();
+		else 
+			res = new CD();
+		
 		res.setName(row.getString("name"));
 		res.setDescription(row.getString("description"));
 		res.setPrice(row.getInt("price"));
 		res.setQuantity(row.getInt("quantity"));
 		res.setId(row.getInt("id"));
+		
+		if(type.contentEquals("Book")) {
+			Book b = (Book) res;							// b non è un oggetto nuovo, è solo un nuovo modo di vedere res!
+			b.setAuthor(row.getString("author"));			// modificando b noi in verità modifichiamo res
+			b.setPages(row.getInt("pages"));
+			b.setCategory(row.getString("category"));
+		} else {
+			CD c = (CD) res;
+			c.setArtist(row.getString("author"));
+			c.setLength(row.getInt("pages"));
+			c.setGenere(row.getString("category"));
+		}
+		
 		return res;
 	}
 	
