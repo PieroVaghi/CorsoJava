@@ -29,13 +29,7 @@ public class Client extends Person {
 	public boolean valid()
 	{
 		return 
-				getId()>0						&&
-				getName()!=null					&&
-				getSurname()!=null				&&
-				!getName().contentEquals("")	&&
-				!getSurname().contentEquals("")	&&
-				getDob()!=null					&&
-				!getDob().contentEquals("")		&&
+				super.valid()					&&
 				mail!=null						&&
 				!mail.contains("")				&&
 				interest!=null					&&

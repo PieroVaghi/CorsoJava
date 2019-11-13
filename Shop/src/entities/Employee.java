@@ -25,15 +25,9 @@ public class Employee extends Person {
 	public boolean valid()
 	{
 		return 
-				getId()>0						&&
-				getName()!=null					&&
-				getSurname()!=null				&&
-				!getName().contentEquals("")	&&
-				!getSurname().contentEquals("")	&&
-				getDob()!=null					&&
-				!getDob().contentEquals("")		&&
-				mansion!=null						&&
-				!mansion.contains("")				&&
+				super.valid()			&&
+				mansion!=null			&&
+				!mansion.contains("")	&&
 				salary>0;
 
 	}
