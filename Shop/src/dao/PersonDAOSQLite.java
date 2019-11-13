@@ -34,7 +34,7 @@ public class PersonDAOSQLite implements PersonDAO {
 	public PersonDAOSQLite (String dbfile) {
 	      try {
 	         Class.forName("org.sqlite.JDBC");
-	         connection = DriverManager.getConnection("jdbc:sqlite:"+dbfile);
+	         connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/azienda?useSSL=false","root","root");
 	      } catch ( Exception e ) {
 	         e.printStackTrace();
 	         System.exit(0); //Chiudi tutto ci stanno tracciando
