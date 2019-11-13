@@ -1,43 +1,48 @@
 package entities;
 
-public class CD extends Product {
-
-	private String artist, genere;
+public class CD extends Product
+{
+	private String artist, genre;
 	private int length;
-	public CD() {}
-	/**
-	 * @param artist
-	 * @param genere
-	 * @param length
-	 */
-	public CD(String artist, String genere, int length) {
-		super();
-		this.artist = artist;
-		this.genere = genere;
-		this.length = length;
-	}
+	
 	public String getArtist() {
 		return artist;
-	}
-	public String getGenere() {
-		return genere;
-	}
-	public int getLength() {
-		return length;
 	}
 	public void setArtist(String artist) {
 		this.artist = artist;
 	}
-	public void setGenere(String genere) {
-		this.genere = genere;
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	public int getLength() {
+		return length;
 	}
 	public void setLength(int length) {
 		this.length = length;
 	}
 	@Override
 	public String toString() {
-		return super.toString() + (artist != null ? "artist: " + artist + ",\n" : "") + (genere != null ? "genere: " + genere + ",\n" : "")
-				+ "length: " + length;
+		return "CD [artist=" + artist + ", genre=" + genre + ", length=" + length + ", getArtist()=" + getArtist()
+				+ ", getGenre()=" + getGenre() + ", getLength()=" + getLength() + ", getId()=" + getId()
+				+ ", getPrice()=" + getPrice() + ", getQuantity()=" + getQuantity() + ", getName()=" + getName()
+				+ ", getDescription()=" + getDescription() + ", isAvailable()=" + isAvailable() + ", toString()="
+				+ super.toString() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
 	}
+	
+	@Override
+	public boolean valid()
+	{
+		return 
+				super.valid()			&&
+				length>10				&&
+				genre!=null				&&
+				artist!=null			;
+		
+	}
+	
+	
 	
 }
