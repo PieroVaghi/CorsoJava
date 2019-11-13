@@ -1,5 +1,7 @@
 package main;
 
+import dao.PersonDAO;
+import dao.PersonDAOSQLite;
 import dao.ProductDAO;
 import dao.ProductDAOSQLite;
 import entities.*;
@@ -26,6 +28,23 @@ public class Main {
 		Product p = dao.load(3);
 		
 		System.out.println(p);
+		
+		PersonDAO daoP = new PersonDAOSQLite("shop.db");
+		System.out.println(dao.list());
+
+		Employee d = new Employee();
+		d.setId(1);
+		d.setName("Piero");
+		d.setSurname("Vaghi");
+		d.setDob("01/12/1994");
+		d.setMansion("Super capo");
+		d.setSalary(1200);
+		
+		daoP.save(d);
+		
+		Person f = daoP.load(3);
+		
+		System.out.println(f);
 		
 	}
 
