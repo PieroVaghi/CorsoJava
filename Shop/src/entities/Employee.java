@@ -2,6 +2,9 @@ package entities;
 
 public class Employee extends Person {
 	
+	private static final double MINSALARY = 0;
+	private static final double MAXSALARY = 10000;
+	private static final String[] MANSIONLIST = null;
 	private String mansion;
 	private int salary;
 	public String getMansion() {
@@ -25,10 +28,9 @@ public class Employee extends Person {
 	public boolean valid()
 	{
 		return 
-				super.valid()			&&
-				mansion!=null			&&
-				!mansion.contains("")	&&
-				salary>0;
+				super.valid()							&&
+				between(salary, MINSALARY, MAXSALARY)	&&
+				beLongs(mansion, MANSIONLIST)			;
 
 	}
 	

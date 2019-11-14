@@ -19,6 +19,32 @@ public abstract class Entity
 	 */
 	public abstract boolean valid();
 
+	public static boolean notVoid(String value) {
+		return value!=null && !value.trim().contentEquals("");			
+	}
+	
+	public static boolean between (double value, double min, double max) {
+		return value>=min && value<=max;
+	}
+	
+	public static boolean validEmail(String email) {
+		return false;
+		
+	}
+	
+	/**
+	 * verifica se value appartiene all'insieme set
+	 * @param value
+	 * @param set
+	 * @return true se contenuto
+	 */
+	public static boolean beLongs (String value, String[] set) {
+		for(String v : set)
+			if(v.contentEquals(value))
+				return true;
+			return false;
+	}
+	
 	@Override
 	public String toString() {
 		return "id: " + id + "\n";
