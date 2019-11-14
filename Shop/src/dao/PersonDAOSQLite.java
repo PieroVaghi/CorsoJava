@@ -15,6 +15,9 @@ import entities.Person;
 public class PersonDAOSQLite implements PersonDAO {
 	
 	
+	private static final String DELETE_FROM_CLIENT_WHERE_ID = "delete from Client where id=";
+	private static final String DELETE_FROM_EMPLOYEE_WHERE_ID = "delete from Employee where id=";
+	private static final String DELETE_FROM_PERSON_WHERE_ID = "delete from Person where id=";
 	private static final String UPDATEPERSON = "update person set name='[name]', surname='[surname]', dob='[dob]' where id = [id];";
 	private static final String INSERTPERSON = "insert into person values([id],'[name]','[surname]','[dob]');"	;
 	private static final String UPDATEEMPLOYEE = "update Employee set mansion='[mansion]', salary=[salary] where id=[id]";
@@ -142,11 +145,11 @@ public class PersonDAOSQLite implements PersonDAO {
 		} else {
 			try {
 				Statement command = connection.createStatement();
-				String sql = "delete from Person where id="+id;
+				String sql = DELETE_FROM_PERSON_WHERE_ID+id;
 				command.execute(sql);
-				sql = "delete from Employee where id="+id;
+				sql = DELETE_FROM_EMPLOYEE_WHERE_ID+id;
 				command.execute(sql);
-				sql = "delete from Client where id="+id;
+				sql = DELETE_FROM_CLIENT_WHERE_ID+id;
 				command.execute(sql);
 				return true;
 			} catch (SQLException e) {

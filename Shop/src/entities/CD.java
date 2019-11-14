@@ -23,15 +23,13 @@ public class CD extends Product
 	public void setLength(int length) {
 		this.length = length;
 	}
+	
+	
 	@Override
 	public String toString() {
-		return "CD [artist=" + artist + ", genre=" + genre + ", length=" + length + ", getArtist()=" + getArtist()
-				+ ", getGenre()=" + getGenre() + ", getLength()=" + getLength() + ", getId()=" + getId()
-				+ ", getPrice()=" + getPrice() + ", getQuantity()=" + getQuantity() + ", getName()=" + getName()
-				+ ", getDescription()=" + getDescription() + ", isAvailable()=" + isAvailable() + ", toString()="
-				+ super.toString() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
+		return super.toString() + (artist != null ? "artist: " + artist + ",\n" : "") + (genre != null ? "genre: " + genre + ",\n" : "")
+				+ "length: " + length+ "\n--------------------------------\n";
 	}
-	
 	@Override
 	public boolean valid()
 	{

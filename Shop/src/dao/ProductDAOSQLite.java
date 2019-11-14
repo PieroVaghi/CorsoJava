@@ -9,6 +9,9 @@ import java.util.List;
 
 public class ProductDAOSQLite implements ProductDAO
 {
+	private static final String DELETE_FROM_BOOK_WHERE_ID = "delete from Book where id=";
+	private static final String DELETE_FROM_CD_WHERE_ID = "delete from Cd where id=";
+	private static final String DELETE_FROM_PRODUCT_WHERE_ID = "delete from Product where id=";
 	//i modelli delle query li creo sotto forma di COSTANTI
 	private static final String UPDATEPRODUCT = "update Product set name='[name]', description='[description]', price=[price], quantity=[quantity] where id=[id]";
 	private static final String INSERTPRODUCT = "insert into product values([id],'[name]',[price],[quantity],'[description]')"	;
@@ -120,7 +123,7 @@ public class ProductDAOSQLite implements ProductDAO
 		sql = sql.replace("[quantity]", product.getQuantity()+"");
 		sql = sql.replace("[name]", product.getName());
 		sql = sql.replace("[description]", product.getDescription());
-		System.out.println(sql);
+//		System.out.println(sql);
 		if(product instanceof CD)
 		{
 			CD c = (CD) product;
@@ -183,11 +186,11 @@ public class ProductDAOSQLite implements ProductDAO
 			try 
 			{
 				Statement command = connection.createStatement();
-				String sql = "delete from Product where id="+id;
+				String sql = DELETE_FROM_PRODUCT_WHERE_ID+id;
 				command.execute(sql);
-				sql = "delete from Cd where id="+id;
+				sql = DELETE_FROM_CD_WHERE_ID+id;
 				command.execute(sql);
-				sql = "delete from Book where id="+id;
+				sql = DELETE_FROM_BOOK_WHERE_ID+id;
 				command.execute(sql);
 				return true;
 			} 

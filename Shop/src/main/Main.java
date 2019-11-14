@@ -11,7 +11,9 @@ public class Main {
 	public static void main(String[] args) {
 
 		ProductDAO dao = new ProductDAOSQLite();
+		System.out.println("---- STAMPO LISTA PRODOTTI----------------");
 		System.out.println(dao.list());
+		System.out.println("---- FINE SUTAMPA PRODOTTI ---------------");
 
 		Book b = new Book();
 		b.setId(3);
@@ -26,11 +28,14 @@ public class Main {
 		dao.save(b);
 		
 		Product p = dao.load(3);
-		
+		System.out.println("---- STAMPO P ----------------------------");
 		System.out.println(p);
+		System.out.println("---- FINE STAMPA P -----------------------");
 		
 		PersonDAO daoP = new PersonDAOSQLite();
-		System.out.println(dao.list());
+		System.out.println("---- STAMPO LISTA PERSONE ----------------");
+		System.out.println(daoP.list());
+		System.out.println("---- FINE SUTAMPA PERSONE  ---------------");
 
 		Employee d = new Employee();
 		d.setId(3);
@@ -45,8 +50,9 @@ public class Main {
 		
 		Person f = daoP.load(3);
 		
+		System.out.println("---- STAMPO F ----------------------------");
 		System.out.println(f);
-		
+		System.out.println("---- FINE STAMPA F -----------------------");
 	}
 
 }

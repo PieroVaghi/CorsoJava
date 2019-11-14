@@ -46,10 +46,9 @@ public abstract class Product extends Entity
 	
 	@Override
 	public String toString() {
-		return "\nProduct [id=" + getId() + ", price=" + price + ", quantity=" + quantity + ", name=" + name + ", description="
-				+ description + "]\n";
+		return super.toString() + "price: " + price + ",\nquantity: " + quantity + ",\n" + (name != null ? "name: " + name + ",\n" : "")
+				+ (description != null ? "description: " + description : "")+ "\n";
 	}
-	
 	@Override
 	public boolean valid()
 	{

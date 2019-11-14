@@ -18,6 +18,13 @@ public abstract class Entity
 	 * @return
 	 */
 	public abstract boolean valid();
+
+	@Override
+	public String toString() {
+		return "id: " + id + "\n";
+	}
+	
+	
 	
 	
 }

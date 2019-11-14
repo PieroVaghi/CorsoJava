@@ -22,7 +22,7 @@ public class Client extends Person {
 
 	@Override
 	public String toString() {
-		return super.toString() + (mail != null ? "mail: " + mail + ",\n" : "") + (interest != null ? "interest: " + interest : "");
+		return super.toString() + (mail != null ? "mail: " + mail + ",\n" : "") + (interest != null ? "interest: " + interest : "")+ "\n--------------------------------\n";
 	}
 	
 	@Override
