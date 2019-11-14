@@ -12,7 +12,7 @@ import entities.Client;
 import entities.Employee;
 import entities.Person;
 
-public class PersonDAOSQLite implements PersonDAO {
+public class PersonDAOSQLite implements EntityDAO<Person>{
 	
 	
 	private static final String DELETE_FROM_CLIENT_WHERE_ID = "delete from Client where id=";

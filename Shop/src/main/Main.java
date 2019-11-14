@@ -1,5 +1,6 @@
 package main;
 
+import dao.EntityDAO;
 import dao.PersonDAO;
 import dao.PersonDAOSQLite;
 import dao.ProductDAO;
@@ -10,7 +11,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		ProductDAO dao = new ProductDAOSQLite();
+		EntityDAO<Product> dao = new ProductDAOSQLite();
 		System.out.println("---- STAMPO LISTA PRODOTTI ----------------");
 		System.out.println(dao.list());
 		System.out.println("---- FINE STAMPA PRODOTTI -----------------");
@@ -32,7 +33,7 @@ public class Main {
 		System.out.println(p);
 		System.out.println("---- FINE STAMPA P -----------------------");
 		
-		PersonDAO daoP = new PersonDAOSQLite();
+		EntityDAO<Person> daoP = new PersonDAOSQLite();
 		System.out.println("---- STAMPO LISTA PERSONE ----------------");
 		System.out.println(daoP.list());
 		System.out.println("---- FINE SUTAMPA PERSONE  ---------------");
