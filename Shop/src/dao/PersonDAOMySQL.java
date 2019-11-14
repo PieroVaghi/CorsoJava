@@ -12,7 +12,7 @@ import entities.Client;
 import entities.Employee;
 import entities.Person;
 
-public class PersonDAOSQLite implements EntityDAO<Person>{
+public class PersonDAOMySQL implements EntityDAO<Person>{
 	
 	
 	private static final String DELETE_FROM_CLIENT_WHERE_ID = "delete from Client where id=";
@@ -34,7 +34,7 @@ public class PersonDAOSQLite implements EntityDAO<Person>{
 	
 	Connection connection;
 	
-	public PersonDAOSQLite () {
+	public PersonDAOMySQL () {
 	      try {
 	         Class.forName("com.mysql.jdbc.Driver");
 	         connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/shop?useSSL=false","root","root");

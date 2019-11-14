@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductDAOSQLite implements EntityDAO<Product>
+public class ProductDAOMySQL implements EntityDAO<Product>
 {
 	//i modelli delle query li creo sotto forma di COSTANTI
 	private static final String DELETE_FROM_BOOK_WHERE_ID = "delete from Book where id=";
@@ -29,7 +29,7 @@ public class ProductDAOSQLite implements EntityDAO<Product>
 	
 	Connection connection;
 	
-	public ProductDAOSQLite()
+	public ProductDAOMySQL()
 	{
 		try 
 		{

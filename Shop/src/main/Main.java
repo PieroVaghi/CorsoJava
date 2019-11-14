@@ -2,16 +2,16 @@ package main;
 
 import dao.EntityDAO;
 import dao.PersonDAO;
-import dao.PersonDAOSQLite;
+import dao.PersonDAOMySQL;
 import dao.ProductDAO;
-import dao.ProductDAOSQLite;
+import dao.ProductDAOMySQL;
 import entities.*;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		EntityDAO<Product> dao = new ProductDAOSQLite();
+		EntityDAO<Product> dao = new ProductDAOMySQL();
 		System.out.println("---- STAMPO LISTA PRODOTTI ----------------");
 		System.out.println(dao.list());
 		System.out.println("---- FINE STAMPA PRODOTTI -----------------");
@@ -33,7 +33,7 @@ public class Main {
 		System.out.println(p);
 		System.out.println("---- FINE STAMPA P -----------------------");
 		
-		EntityDAO<Person> daoP = new PersonDAOSQLite();
+		EntityDAO<Person> daoP = new PersonDAOMySQL();
 		System.out.println("---- STAMPO LISTA PERSONE ----------------");
 		System.out.println(daoP.list());
 		System.out.println("---- FINE SUTAMPA PERSONE  ---------------");
