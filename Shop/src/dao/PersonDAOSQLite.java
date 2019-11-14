@@ -15,26 +15,26 @@ import entities.Person;
 public class PersonDAOSQLite implements PersonDAO {
 	
 	
-	private static final String UPDATEPERSON = "update person set name='[name]', surname='[surname]', dateofbirth='[dateofbirth]' where id = [id];";
+	private static final String UPDATEPERSON = "update person set name='[name]', surname='[surname]', dob='[dob]' where id = [id];";
 	private static final String INSERTPERSON = "insert into person values([id],'[name]','[surname]','[dob]');"	;
 	private static final String UPDATEEMPLOYEE = "update Employee set mansion='[mansion]', salary=[salary] where id=[id]";
 	private static final String INSERTEMPLOYEE = "insert into Employee values([id],'[mansion]',[salary])"	;
-	private static final String UPDATECLIENT = "update client set mail='[mail]', interest='[interest]' where id=[id]";
-	private static final String INSERTCLIENT = "insert into client values([id],'[mail]','[interest]')"	;
+	private static final String UPDATECLIENT = "update client set email='[email]', interest='[interest]' where id=[id]";
+	private static final String INSERTCLIENT = "insert into client values([id],'[email]','[interest]')"	;
 	
 	
 	private static final String SELECTPERSON = 
-			"select person.*, employee.mansion, employee.salary, client.mail, client.interest from person left join employee on person.id = employee.id left join client on person.id = client.id where person.id=";
+			"select person.*, employee.mansion, employee.salary, client.email, client.interest from person left join employee on person.id = employee.id left join client on person.id = client.id where person.id=";
 	private static final String SELECTALL = 
-			"select person.*, employee.mansion, employee.salary, client.mail, client.interest from person left join employee on person.id = employee.id left join client on person.id = client.id";
+			"select person.*, employee.mansion, employee.salary, client.email, client.interest from person left join employee on person.id = employee.id left join client on person.id = client.id";
 
 	
 	Connection connection;
 	
-	public PersonDAOSQLite (String dbfile) {
+	public PersonDAOSQLite () {
 	      try {
-	         Class.forName("org.sqlite.JDBC");
-	         connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/azienda?useSSL=false","root","root");
+	         Class.forName("com.mysql.jdbc.Driver");
+	         connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/shop?useSSL=false","root","root");
 	      } catch ( Exception e ) {
 	         e.printStackTrace();
 	         System.exit(0); //Chiudi tutto ci stanno tracciando
@@ -47,7 +47,7 @@ public class PersonDAOSQLite implements PersonDAO {
 	 * @return una person
 	 */
 	private Person _personFromRow (ResultSet row) throws Exception {	//row può contenere più righe ma ne inquadra sempre una sola 
-		String type = row.getString("mail")==null ? "Employee" : "Client"; 
+		String type = row.getString("email")==null ? "Employee" : "Client"; 
 		Person res;
 		res = (type.contentEquals("Employee")) ? new Employee() : new Client();
 
@@ -64,7 +64,7 @@ public class PersonDAOSQLite implements PersonDAO {
 		else
 		{
 			Client c = (Client) res;
-			c.setMail(row.getString("mail"));
+			c.setMail(row.getString("email"));
 			c.setInterest(row.getString("interest"));
 		}
 		
@@ -92,7 +92,7 @@ public class PersonDAOSQLite implements PersonDAO {
 		sql = sql.replace("[id]",  person.getId()+"");		// replace sostituisce il valore [id] con l'id el prodotto e così via
 		sql = sql.replace("[name]",  person.getName()+"");
 		sql = sql.replace("[surname]",  person.getSurname()+"");
-		sql = sql.replace("[dateofbirth]",  person.getDob()+"");
+		sql = sql.replace("[dob]",  person.getDob()+"");
 		if(person instanceof Employee)
 		{
 			Employee e = (Employee)person;
@@ -102,7 +102,7 @@ public class PersonDAOSQLite implements PersonDAO {
 		if(person instanceof Client)
 		{
 			Client c = (Client) person;
-			sql = sql.replace("[mail]", c.getMail());
+			sql = sql.replace("[email]", c.getMail());
 			sql = sql.replace("[interest]", c.getInterest());
 		}
 		return sql;
@@ -120,11 +120,11 @@ public class PersonDAOSQLite implements PersonDAO {
 			try {
 				Statement command = connection.createStatement();
 				boolean present = _exist(person.getId());
-				command.execute(_prepareQuery(person,present ? UPDATEPERSON : INSERTPERSON));
+				command.execute(_prepareQuery(person, present ? UPDATEPERSON : INSERTPERSON));
 				if(person instanceof Employee)
-					command.execute(_prepareQuery(person,present ? UPDATEEMPLOYEE : INSERTEMPLOYEE));
+					command.execute(_prepareQuery(person, present ? UPDATEEMPLOYEE : INSERTEMPLOYEE));
 				if(person instanceof Client)
-					command.execute(_prepareQuery(person,present ? UPDATECLIENT : INSERTCLIENT));
+					command.execute(_prepareQuery(person, present ? UPDATECLIENT : INSERTCLIENT));
 				
 				
 				command.close();

@@ -11,7 +11,7 @@ public class ProductDAOSQLite implements ProductDAO
 {
 	//i modelli delle query li creo sotto forma di COSTANTI
 	private static final String UPDATEPRODUCT = "update Product set name='[name]', description='[description]', price=[price], quantity=[quantity] where id=[id]";
-	private static final String INSERTPRODUCT = "insert into product values([id],'[name]','[description]',[price],[quantity])"	;
+	private static final String INSERTPRODUCT = "insert into product values([id],'[name]',[price],[quantity],'[description]')"	;
 	private static final String UPDATEBOOK = "update Book set author='[author]', category='[category]', pages=[pages] where id=[id]";
 	private static final String INSERTBOOK = "insert into Book values([id],'[author]','[category]',[pages])"	;
 	private static final String UPDATECD = "update CD set artist='[artist]', genre='[genre]', length=[length] where id=[id]";
@@ -26,12 +26,12 @@ public class ProductDAOSQLite implements ProductDAO
 	
 	Connection connection;
 	
-	public ProductDAOSQLite(String dbfile)
+	public ProductDAOSQLite()
 	{
 		try 
 		{
-	         Class.forName("org.sqlite.JDBC");
-	         connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/azienda?useSSL=false","root","root");
+	         Class.forName("com.mysql.jdbc.Driver");
+	         connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/shop?useSSL=false","root","root");
 	    } 
 		catch 
 		(Exception e ) 
@@ -120,6 +120,7 @@ public class ProductDAOSQLite implements ProductDAO
 		sql = sql.replace("[quantity]", product.getQuantity()+"");
 		sql = sql.replace("[name]", product.getName());
 		sql = sql.replace("[description]", product.getDescription());
+		System.out.println(sql);
 		if(product instanceof CD)
 		{
 			CD c = (CD) product;

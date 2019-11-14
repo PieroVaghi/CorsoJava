@@ -10,18 +10,18 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		ProductDAO dao = new ProductDAOSQLite("shop.db");
+		ProductDAO dao = new ProductDAOSQLite();
 		System.out.println(dao.list());
 
 		Book b = new Book();
 		b.setId(3);
-		b.setName("Il signore degli anelli");
-		b.setCategory("Fantasy");
+		b.setName("Il signore dei signori");
+		b.setCategory("Commedia");
 		b.setPages(1200);
 		b.setPrice(12);
-		b.setAuthor("Tolkien");
+		b.setAuthor("Leonardo");
 		b.setQuantity(15);
-		b.setDescription("Un gran bel libro!");
+		b.setDescription("Un gran libro!");
 		
 		dao.save(b);
 		
@@ -29,18 +29,19 @@ public class Main {
 		
 		System.out.println(p);
 		
-		PersonDAO daoP = new PersonDAOSQLite("shop.db");
+		PersonDAO daoP = new PersonDAOSQLite();
 		System.out.println(dao.list());
 
 		Employee d = new Employee();
-		d.setId(1);
-		d.setName("Piero");
+		d.setId(3);
+		d.setName("Carlo");
 		d.setSurname("Vaghi");
-		d.setDob("01/12/1994");
-		d.setMansion("Super capo");
+		d.setDob("01/12/1997");
+		d.setMansion("SuperMegaSottoposto");
 		d.setSalary(1200);
 		
 		daoP.save(d);
+//		daoP.delete(3);
 		
 		Person f = daoP.load(3);
 		
