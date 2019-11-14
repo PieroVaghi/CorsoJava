@@ -9,10 +9,10 @@ import java.util.List;
 
 public class ProductDAOSQLite implements ProductDAO
 {
+	//i modelli delle query li creo sotto forma di COSTANTI
 	private static final String DELETE_FROM_BOOK_WHERE_ID = "delete from Book where id=";
 	private static final String DELETE_FROM_CD_WHERE_ID = "delete from Cd where id=";
 	private static final String DELETE_FROM_PRODUCT_WHERE_ID = "delete from Product where id=";
-	//i modelli delle query li creo sotto forma di COSTANTI
 	private static final String UPDATEPRODUCT = "update Product set name='[name]', description='[description]', price=[price], quantity=[quantity] where id=[id]";
 	private static final String INSERTPRODUCT = "insert into product values([id],'[name]',[price],[quantity],'[description]')"	;
 	private static final String UPDATEBOOK = "update Book set author='[author]', category='[category]', pages=[pages] where id=[id]";
