@@ -49,7 +49,7 @@ public class PersonDAOMySQL implements EntityDAO<Person>{
 	 * @param row
 	 * @return una person
 	 */
-	private Person _personFromRow (ResultSet row) throws Exception {	//row può contenere più righe ma ne inquadra sempre una sola 
+	private Person _personFromRow (ResultSet row) throws SQLException {	//row può contenere più righe ma ne inquadra sempre una sola 
 		String type = row.getString("email")==null ? "Employee" : "Client"; 
 		Person res;
 		res = (type.contentEquals("Employee")) ? new Employee() : new Client();
@@ -75,20 +75,21 @@ public class PersonDAOMySQL implements EntityDAO<Person>{
 	}
 	
 	@Override
-	public Person load(int id) {
+	public Person load(int id) {		//Person è solo un tipo formale/un tipo astratto.. L'oggetto che uscirà non sarà un person
+		Person res = null;
+		String sql = SELECTPERSON+id;
 		try {
-			// Ho una connessione. Preparo comando SQL
 			Statement command = connection.createStatement();
-			//Leggo una riga
-			//row contiene la riga
-			//sto inviando un comando (query) lungo il "tubo"
-			ResultSet row = command.executeQuery(SELECTPERSON+id);
-			//se c'ho robbba
-			return (row.next()) ? _personFromRow(row) : null;
-		} catch (Exception e){
+			ResultSet row = command.executeQuery(sql);
+			res = (row.next()) ? _personFromRow(row) : null;
+			row.close();
+			command.close();
+		} catch (SQLException e){
+			System.out.println("Problem with "+sql);
 			e.printStackTrace();
 			return null;
 		}
+		return res;
 	}
 
 	private String _prepareQuery (Person person, String sql) {

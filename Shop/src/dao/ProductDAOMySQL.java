@@ -29,8 +29,9 @@ public class ProductDAOMySQL implements EntityDAO<Product>
 	
 	Connection connection;
 	
-	public ProductDAOMySQL()
+	public ProductDAOMySQL(Connection connection)
 	{
+		this.connection = connection;
 		try 
 		{
 	         Class.forName("com.mysql.jdbc.Driver");

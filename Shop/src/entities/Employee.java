@@ -30,7 +30,7 @@ public class Employee extends Person {
 		return 
 				super.valid()							&&
 				between(salary, MINSALARY, MAXSALARY)	&&
-				beLongs(mansion, MANSIONLIST)			;
+				belongs(mansion, MANSIONLIST)			;
 
 	}
 	

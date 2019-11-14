@@ -2,15 +2,13 @@ package dao;
 
 import java.util.List;
 
-import entities.Person;
-
 public interface EntityDAO <E extends entities.Entity>{
 	/**
 	 * Carica dal db il person con id specificato
 	 * @param id
 	 * @return il prodotto selezionato, null altrimenti
 	 */
-	E load(int id);
+	E load(int id) throws Exception;
 	
 	/**
 	 * salva un person sul db.
@@ -19,20 +17,21 @@ public interface EntityDAO <E extends entities.Entity>{
 	 * @param product
 	 * @return
 	 */
-	boolean save(E person);
+	boolean save(E e) throws Exception;
 	
 	/**
 	 * cancello la person con l'id relativo
 	 * @param id
 	 * @return
 	 */
-	boolean delete(int id);
+	boolean delete(int id) throws Exception;
 	
 	/**
 	 * restituisce una lista di person
 	 * @return
 	 */
-	List<E> list();
+	List<E> list() throws Exception;
 	
 }
+
 
