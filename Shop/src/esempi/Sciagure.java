@@ -59,7 +59,7 @@ public class Sciagure
 					for(String data:sciagure.keySet()) {
 						boolean flag = true;
 						for(String sciagura:sciagure.get(data))
-							if(sciagura.toUpperCase().contains(keyword.toUpperCase()) && flag) {
+							if((" "+sciagura.toUpperCase()+" ").contains(keyword.toUpperCase()) && flag) {
 								ris += data+"\n";
 								flag = false;
 							}
@@ -69,18 +69,34 @@ public class Sciagure
 				}
 				break;
 				case "eliminaricordo":
+				{
 					System.out.println("Non ce la faccio a ricordare, ti prego cancellami, inserire data e numero del ricordo da cancellare");
-					System.out.println("Inserisci data");
-					String data = tastiera.nextLine();
+					boolean flag = false;
+					String data = "";
+					while(!flag) {
+						System.out.println("Inserisci data");
+						data = tastiera.nextLine();
+						if(sciagure.keySet().contains(data))
+							flag = true;
+					}
 					System.out.println("Inserisci numero del ricordo");
 					int index = Integer.parseInt(tastiera.nextLine());
 					sciagure.get(data).remove(index-1);
+				}
 				break;
 				case "eliminadata":
+				{
 					System.out.println("Eliminare la chiave dalla mappa... usare remove, cercatevelo");
-					System.out.println("Inserisci data:");
-					String date = tastiera.nextLine();
-					sciagure.remove(date);
+					boolean flag = false;
+					String data = "";
+					while(!flag) {
+						System.out.println("Inserisci data");
+						data = tastiera.nextLine();
+						if(sciagure.keySet().contains(data))
+							flag = true;
+					}
+					sciagure.remove(data);
+				}
 				break;
 				case "giornopeggiore":
 					int max = 0;
