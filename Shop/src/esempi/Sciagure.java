@@ -2,7 +2,9 @@ package esempi;
 
 import java.util.Map;
 import java.util.List;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Sciagure
@@ -116,18 +118,15 @@ public class Sciagure
 					System.out.println("Il tuo comando non è stato riconosciuto..\nVuoi aggiungere questa esperienza al tuo personale elenco di sciagure? Si/No");
 					String choose = tastiera.nextLine();
 					if(choose.equalsIgnoreCase("si")) {
-						sciagure.put("15/11/2019", new ArrayList<String>());
-						sciagure.get("15/11/2019").add("Hai inserito un comando sbagliato testando questo programma..");
+						String date = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+						sciagure.put(date, new ArrayList<String>());
+						sciagure.get(date).add("Hai inserito un comando sbagliato testando questo programma..");
 					}
 						
 			}
 		
 		}
-		
-		
-		
-		
-		
+							
 	}
 
 }
