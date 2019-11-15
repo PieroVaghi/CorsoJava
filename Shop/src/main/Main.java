@@ -57,10 +57,11 @@ public class Main {
         e.setMansion("scientist");
         e.setSalary(10000);
         e.setId(2);
-        System.out.println("Cancello da main");
-        dao.delete(2);
         System.out.println("non mi sono ancora bloccato");
         dao.save(e);
+//        System.out.println("Cancello da main");
+//        dao.delete(2);
+        
         
 	
 		
