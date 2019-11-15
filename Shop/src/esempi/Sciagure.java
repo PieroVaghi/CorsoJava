@@ -81,8 +81,13 @@ public class Sciagure
 						if(sciagure.keySet().contains(data))
 							flag = true;
 					}
-					System.out.println("Inserisci numero del ricordo");
-					int index = Integer.parseInt(tastiera.nextLine());
+					
+					int index = sciagure.get(data).size()+1;
+					while(sciagure.get(data).size() <= index-1) {
+						
+						System.out.println("Inserisci numero del ricordo");
+						index = Integer.parseInt(tastiera.nextLine());
+					}
 					sciagure.get(data).remove(index-1);
 				}
 				break;
@@ -120,7 +125,7 @@ public class Sciagure
 					if(choose.equalsIgnoreCase("si")) {
 						String date = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 						sciagure.put(date, new ArrayList<String>());
-						sciagure.get(date).add("Hai inserito un comando sbagliato testando questo programma..");
+						sciagure.get(date).add("Hai inserito un comando sbagliato testando questo programma..\tComando = " + cmd);
 					}
 						
 			}
