@@ -9,11 +9,13 @@ import entities.Person;
 public class Main 
 {
 
+	private static final String PWD = "piefragio1";
+
 	public static void main(String[] args) throws Exception
 	{
-		 String url = "jdbc:sqlite:shop.db";
+		 String url = "jdbc:mysql://127.0.0.1:3306/shop?useSSL=false";
          // create a connection to the database
-         Connection conn = DriverManager.getConnection(url);
+         Connection conn = DriverManager.getConnection(url, "root", PWD);
 	
          //come chiave, il nome della classe
          //come valore la query di salvataggio
