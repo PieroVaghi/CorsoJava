@@ -57,6 +57,12 @@ public class Person extends Entity
 	
 	
 	@Override
+	public String toString() {
+		return super.toString() + (name != null ? "name: " + name + ", \n" : "") + (surname != null ? "surname: " + surname + ", \n" : "")
+				+ (dob != null ? "dob: " + dob : "");
+	}
+
+	@Override
 	public boolean valid() {
 		// TODO Auto-generated method stub
 		return 

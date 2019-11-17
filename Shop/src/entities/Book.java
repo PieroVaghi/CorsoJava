@@ -28,11 +28,15 @@ public class Book extends Product
 	}
 
 
+
+	
 	@Override
 	public String toString() {
-		return super.toString()+ "\nBook [author=" + author + ", category=" + category + ", pages=" + pages + "]";
+		return super.toString() +  (author != null ? "author: " + author + ", \n" : "")
+				+ (category != null ? "category: " + category + ", \n" : "") + "pages: " + pages;
 	}
-	
+
+
 	@Override
 	public boolean valid()
 	{

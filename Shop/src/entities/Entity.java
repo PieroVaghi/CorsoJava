@@ -182,6 +182,12 @@ public abstract class Entity
 				return res;
 		
 	}
+
+	@Override
+	public String toString() {
+		return "id: " + id;
+	}
+	
 	
 	
 	
