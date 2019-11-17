@@ -32,7 +32,7 @@ public class Client extends Person
 
 	@Override
 	public String toString() {
-		return super.toString() + (email != null ? "email: " + email + ", \n" : "") + (interests != null ? "interests: " + interests : "");
+		return super.toString() + "\n" +(email != null ? "email: " + email + ", \n" : "") + (interests != null ? "interests: " + interests : "");
 	}
 
 

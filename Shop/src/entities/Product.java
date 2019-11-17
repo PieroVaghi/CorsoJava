@@ -48,7 +48,7 @@ public abstract class Product extends Entity
 	
 	@Override
 	public String toString() {
-		return super.toString() + "price: " + price + ", \nquantity: " + quantity + ", \n" + (name != null ? "name: " + name + ", \n" : "")
+		return super.toString() + "\n" + "price: " + price + ", \nquantity: " + quantity + ", \n" + (name != null ? "name: " + name + ", \n" : "")
 				+ (description != null ? "description: " + description : "");
 	}
 	@Override

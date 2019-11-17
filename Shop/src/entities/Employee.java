@@ -31,7 +31,7 @@ public class Employee extends Person
 	}
 	@Override
 	public String toString() {
-		return super.toString() + (mansion != null ? "mansion: " + mansion + ", \n" : "") + "salary: " + salary;
+		return super.toString() + "\n" +(mansion != null ? "mansion: " + mansion + ", \n" : "") + "salary: " + salary;
 	}
 
 	

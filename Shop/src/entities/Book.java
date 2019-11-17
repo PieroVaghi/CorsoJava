@@ -32,7 +32,7 @@ public class Book extends Product
 	
 	@Override
 	public String toString() {
-		return super.toString() +  (author != null ? "author: " + author + ", \n" : "")
+		return super.toString() + "\n" + (author != null ? "author: " + author + ", \n" : "")
 				+ (category != null ? "category: " + category + ", \n" : "") + "pages: " + pages;
 	}
 

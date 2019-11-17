@@ -28,7 +28,7 @@ public class CD extends Product
 	
 	@Override
 	public String toString() {
-		return super.toString() + (artist != null ? "artist: " + artist + ", \n" : "") + (genre != null ? "genre: " + genre + ", \n" : "")
+		return super.toString() + "\n" +(artist != null ? "artist: " + artist + ", \n" : "") + (genre != null ? "genre: " + genre + ", \n" : "")
 				+ "length: " + length;
 	}
 	@Override
