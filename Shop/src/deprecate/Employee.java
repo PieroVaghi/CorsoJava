@@ -1,4 +1,4 @@
-package entities;
+package deprecate;
 
 public class Employee extends Person {
 	

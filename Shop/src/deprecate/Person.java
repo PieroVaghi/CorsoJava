@@ -2,7 +2,7 @@
  * di un insegnante stipendio e materie
  * di uno studente voglio sapere la sezione, l'anno(1,2,3,4,5) e average(media)
  */
-package entities;
+package deprecate;
 
 public abstract class Person extends Entity {
 	

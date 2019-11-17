@@ -1,4 +1,4 @@
-package dao;
+package deprecate;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,10 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import entities.Client;
-import entities.Employee;
-import entities.Person;
 
 public class PersonDAOMySQL implements EntityDAO<Person>{
 	

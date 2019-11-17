@@ -1,8 +1,5 @@
-package dao;
+package deprecate;
 
-import entities.Book;
-import entities.CD;
-import entities.Product;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

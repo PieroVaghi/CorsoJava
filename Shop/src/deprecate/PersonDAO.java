@@ -1,14 +1,21 @@
-package dao;
-
+package deprecate;
 import java.util.List;
 
-public interface EntityDAO <E extends entities.Entity>{
+/**
+ * Contratto per i Product DAO
+ * vale a dire per TUTTI i componenti che leggeranno
+ * e scriveranno prodotti
+ * @author Piero
+ *
+ */
+public interface PersonDAO 
+{
 	/**
 	 * Carica dal db il person con id specificato
 	 * @param id
 	 * @return il prodotto selezionato, null altrimenti
 	 */
-	E load(int id) throws Exception;
+	Person load(int id);
 	
 	/**
 	 * salva un person sul db.
@@ -17,21 +24,19 @@ public interface EntityDAO <E extends entities.Entity>{
 	 * @param product
 	 * @return
 	 */
-	boolean save(E e) throws Exception;
+	boolean save(Person person);
 	
 	/**
 	 * cancello la person con l'id relativo
 	 * @param id
 	 * @return
 	 */
-	boolean delete(int id) throws Exception;
+	boolean delete(int id);
 	
 	/**
 	 * restituisce una lista di person
 	 * @return
 	 */
-	List<E> list() throws Exception;
+	List<Person> list();
 	
 }
-
-

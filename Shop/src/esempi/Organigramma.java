@@ -1,6 +1,9 @@
 package esempi;
 import entities.*;
 import java.util.Map;
+
+import deprecate.Employee;
+
 import java.util.HashMap;
 
 public class Organigramma 

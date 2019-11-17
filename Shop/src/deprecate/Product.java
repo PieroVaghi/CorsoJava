@@ -1,4 +1,4 @@
-package entities;
+package deprecate;
 
 /**
  * Classe Product, entity che fa da padre

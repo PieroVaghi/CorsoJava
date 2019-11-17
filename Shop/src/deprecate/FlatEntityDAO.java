@@ -1,12 +1,9 @@
-package dao;
+package deprecate;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import entities.Employee;
-import entities.Entity;
 
 public class FlatEntityDAO<E extends Entity> implements EntityDAO<E>
 {

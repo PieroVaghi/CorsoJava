@@ -1,4 +1,4 @@
-package entities;
+package deprecate;
 
 public class Book extends Product
 {

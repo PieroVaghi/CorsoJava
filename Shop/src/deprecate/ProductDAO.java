@@ -1,7 +1,5 @@
-package dao;
+package deprecate;
 import java.util.List;
-
-import entities.Product;
 
 /**
  * Contratto per i Product DAO

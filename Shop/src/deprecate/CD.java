@@ -1,4 +1,4 @@
-package entities;
+package deprecate;
 
 public class CD extends Product
 {
