@@ -6,12 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import dao.*;
-import entities.Book;
-import entities.Client;
-import entities.Employee;
-import entities.Entity;
-import entities.Person;
-import entities.Product;
+import entities.*;
 
 public class Main 
 {
