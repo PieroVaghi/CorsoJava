@@ -10,27 +10,28 @@ import entities.*;
 
 public class Main 
 {
-
+	private static final String PWD = "piefragio1";
+	
 	public static void main(String[] args) throws Exception 
 	{
-		 String url = "jdbc:sqlite:shop.db";
+		 String url = "jdbc:mysql://127.0.0.1:3306/shop?useSSL=false";
          // create a connection to the database
-         Connection conn = DriverManager.getConnection(url);
+         Connection conn = DriverManager.getConnection(url,"root",PWD);
 		
         java.util.Scanner keyboard = new java.util.Scanner(System.in);
          
 		Map<String, String> saveQueries = new HashMap<String,String>();
-		saveQueries.put("Employee", "insert into Person values([id],'[name]','[surname]','[dob]');insert into Employee values([id],[salary],'[mansion]');");
+		saveQueries.put("Employee", "insert into Person values([id],'[name]','[surname]','[dob]');insert into Employee values([id],'[mansion]',[salary]);");
         saveQueries.put("Client", "insert into Person values([id],'[name]','[surname]','[dob]');insert into Client values([id],'[email]','[interests]');");
-        saveQueries.put("Book", "insert into Product values([id],'[name]','[description]',[price],[quantity]);insert into Book values([id],'[author]','[category]',[pages])");
-        saveQueries.put("CD", "insert into Product values([id],'[name]','[description]',[price],[quantity]);insert into CD values([id],'[artist]','[genre]',[length])");
+        saveQueries.put("Book", "insert into Product values([id],'[name]',[price],[quantity],'[description]');insert into Book values([id],'[author]','[category]',[pages])");
+        saveQueries.put("CD", "insert into Product values([id],'[name]',[price],[quantity],'[description]');insert into CD values([id],'[artist]','[genre]',[length])");
    
 		EntityDAO<Person> persondao = new FlatEntityDAO<Person>
         (
         	conn,
         	"select * from viewperson",
         	"select * from viewperson where id=",
-        	"delete from person where id=[id];delete from employee where id=[id];delete from client where id=[id];",
+        	"delete from person where id=[id]",
         	saveQueries
        );
 	
@@ -39,7 +40,7 @@ public class Main
 	       	conn,
 	       	"select * from viewproduct;",
 	       	"select * from viewproduct where id=",
-	       	"delete from product where id=[id]; delete from Book where id=[id]; delete from CD where id=[id];",
+	       	"delete from product where id=[id]",
 	        saveQueries
        );
 		
