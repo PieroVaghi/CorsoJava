@@ -47,22 +47,34 @@ public class Main
 		String cmd = "";
 		do
 		{
-			System.out.println("Insert command");
+			System.out.println("Insert command:");
 			cmd = keyboard.nextLine();
 			switch(cmd)
 			{
 				case "personal":
 					for(Person person:persondao.list())
-						System.out.println(person);
+						System.out.println(person + "\n");
 				break;
 				case "employees":
 					for(Person person:persondao.list())
 						if(person instanceof Employee)
-							System.out.println(person);
+							System.out.println(person+ "\n");
 				break;
 				case "products":
 					for(Product product:productdao.list())
-						System.out.println(product);
+						System.out.println(product+ "\n");
+				break;
+				case "printperson": {
+					System.out.println("Insert ID:");
+					int id = Integer.parseInt(keyboard.nextLine());
+					System.out.println(persondao.load(id)+ "\n");
+				}
+				break;
+				case "printproduct": {
+					System.out.println("Insert ID:");
+					int id = Integer.parseInt(keyboard.nextLine());
+					System.out.println(productdao.load(id)+ "\n");
+				}
 				break;
 			}
 		}while(!cmd.contentEquals("quit"));
