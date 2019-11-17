@@ -67,13 +67,25 @@ public class Main
 				case "printperson": {
 					System.out.println("Insert ID:");
 					int id = Integer.parseInt(keyboard.nextLine());
-					System.out.println(persondao.load(id)+ "\n");
+					System.out.println(persondao.load(id) + "\n");
 				}
 				break;
 				case "printproduct": {
 					System.out.println("Insert ID:");
 					int id = Integer.parseInt(keyboard.nextLine());
-					System.out.println(productdao.load(id)+ "\n");
+					System.out.println(productdao.load(id) + "\n");
+				}
+				break;
+				case "deleteperson": {
+					System.out.println("Insert ID:");
+					int id = Integer.parseInt(keyboard.nextLine());
+					System.out.println(persondao.delete(id) + "\n");
+				}
+				break;
+				case "deleteproduct": {
+					System.out.println("Insert ID:");
+					int id = Integer.parseInt(keyboard.nextLine());
+					System.out.println(productdao.delete(id) + "\n");
 				}
 				break;
 			}
