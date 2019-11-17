@@ -57,7 +57,7 @@ public class Main
          c.setSurname("Rotondi");
          c.setDob("27/12/1992");
          c.setEmail("frarotonfi@gmail.com");
-         c.setInterests("Vespa, Pompieti, Margherita");
+         c.setInterests("Vespa, Pompieri, Margherita");
          c.setId(4);
          
          dao.save(c);
