@@ -7,16 +7,19 @@ import java.util.Map;
 
 import entities.Employee;
 import entities.Entity;
+import entities.Factory;
 
 public class FlatEntityDAO<E extends Entity> implements EntityDAO<E>
 {
+	//DIPENDENZE
 	Connection connection;
 	String dataquery;
 	String datasinglequery;
 	String deletequery;
 	Map<String,String> saveQueries = new HashMap<String,String>();
+	Factory factory;
 	
-	public FlatEntityDAO(Connection connection, String dataquery, String datasinglequery, String deletequery, Map<String,String> saveQueries)
+	public FlatEntityDAO(Connection connection, String dataquery, String datasinglequery, String deletequery, Map<String,String> saveQueries, Factory factory)
 	{
 		//la query da cui prendere i dati
 		this.connection = connection;
@@ -24,6 +27,7 @@ public class FlatEntityDAO<E extends Entity> implements EntityDAO<E>
 		this.datasinglequery = datasinglequery;
 		this.deletequery = deletequery;
 		this.saveQueries = saveQueries;
+		this.factory = factory;
 	}
 	
 	
@@ -36,12 +40,8 @@ public class FlatEntityDAO<E extends Entity> implements EntityDAO<E>
 		ResultSet row = command.executeQuery(sql);
 
 		if(row.next())
-		{
-			String classToCreate = row.getString("type");
-					
-			res = (E) Class.forName("entities."+classToCreate).newInstance();
-			res.fromMap(_rowToMap(row));
-		}
+			res = (E) factory.make(_rowToMap(row));
+		
 		row.close();
 		command.close();
 		
@@ -71,12 +71,7 @@ public class FlatEntityDAO<E extends Entity> implements EntityDAO<E>
 		Statement command = connection.createStatement();
 		ResultSet rows = command.executeQuery(dataquery);
 		while(rows.next())
-		{
-			String classToCreate = rows.getString("type");
-			E single = (E) Class.forName("entities."+classToCreate).newInstance();
-			single.fromMap(_rowToMap(rows));
-			res.add(single);		
-		}
+			res.add((E) factory.make(_rowToMap(rows)));		
 			
 		rows.close();
 		command.close();
