@@ -1,4 +1,6 @@
-package entities;
+package generation.wh40k.entities;
+
+import generation.common.entities.Entity;;
 
 public abstract class Unit extends Entity 
 {

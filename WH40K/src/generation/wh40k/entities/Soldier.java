@@ -1,20 +1,16 @@
-package entities;
+package generation.wh40k.entities;
 
 public class Soldier extends Unit
 {
-	private final String[] NOTPENSIONABLE = {"ork", "necron", "tyrannids"};
+	private final static String[] RACES  = "ork,eldar,tyrannid,human,necron".split(",");
+	private final static String[] RETIRINGRACES  = "human,eldar".split(",");
+	private static final int SERVICELENGTH = 12;
+	private static final double MAXSALARY = 10000;
+	private static final double MINSALARY = 0;
 	private String name, surname, dob;
 	private int service; // mesi in servizio
 	private String race; // ork, eldar, tyrannid, human, necron
-	private int salary;
-	
-	//ragionare in base all'anzianità
-	public boolean retires()
-	{
-		return (belongs(race, NOTPENSIONABLE )) ? false : (service >= 12) ? true : false;
-	}
-	
-	
+	private int salary;	
 	
 	public String getName() {
 		return name;
@@ -88,6 +84,25 @@ public class Soldier extends Unit
 
 
 
+
+
+	@Override
+	public boolean valid() {
+		return 
+				super.valid()									&&
+				between(salary,MINSALARY,MAXSALARY)				&&
+				belongs(race, RACES)							&&
+				notVoid(name)									&&
+				notVoid(surname)								&&
+				notVoid(dob)									;
+	}
+	
+	
+	public boolean retires()
+	{
+		return belongs(race, RETIRINGRACES) && service>=SERVICELENGTH ;
+	}
+	
 	@Override
 	public String toString() {
 		return super.toString() +"\n" + (name != null ? "name: " + name + ",\n" : "") + (surname != null ? "surname: " + surname + ",\n" : "")
@@ -95,17 +110,5 @@ public class Soldier extends Unit
 				+ (race != null ? "race: " + race + ",\n" : "") + "salary: " + salary;
 	}
 
-
-
-	@Override
-	public boolean valid() {
-		return 	super.valid()			&&
-				notVoid(name)			&&
-				notVoid(surname)		&&
-				notVoid(dob)			&&
-				between(service,0,100)	&&
-				notVoid(race)			&&
-				between(salary,0,10000)	;
-	}
 	
 }

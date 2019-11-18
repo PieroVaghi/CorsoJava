@@ -1,4 +1,4 @@
-package entities;
+package generation.wh40k.entities;
 
 public class Vehicle extends Unit
 {

@@ -1,22 +1,18 @@
-package main;
-
+package generation.wh40k.main;
 import java.sql.Connection;
-import java.sql.SQLException;
+import java.util.Scanner;
+import generation.wh40k.entities.*;
+import generation.common.dao.EntityDAO;
+import generation.wh40k.businessintelligence.Statistics;
+import generation.wh40k.context.*;
 
-import context.Context;
-import dao.EntityDAO;
-import entities.Unit;
-import entities.Vehicle;
-import entities.Soldier;
-
-public class Main
+public class Main 
 {
-
-	
-	// DIPENDENZE DEL MAIN 
-	private static java.util.Scanner keyboard = new java.util.Scanner(System.in);
-	private static Connection connection = (Connection) Context.getInstance().get("connection");
-	private static EntityDAO<Unit> unitdao = (EntityDAO<Unit>) Context.getInstance().get("unitdao");
+	// DEPENDENCIES
+	private static Connection _connection 	= (Connection) Context.getInstance().get("connection");
+	private static Scanner keyboard 		= new Scanner(System.in); 	
+	private static EntityDAO<Unit> _unitdao	= (EntityDAO<Unit>) Context.getInstance().get("unitdao");
+	private static Statistics _statistics = (Statistics) Context.getInstance().get("statistics");
 	
 	public static void main(String[] args) 
 	{
@@ -65,9 +61,9 @@ public class Main
 		keyboard.close();
 		try 
 		{
-			connection.close();
+			_connection.close();
 		} 
-		catch (SQLException e) 
+		catch (Exception e) 
 		{
 			e.printStackTrace();
 		}
@@ -79,7 +75,7 @@ public class Main
 		String res = "";
 		try 
 		{
-			for(Unit p:unitdao.list())
+			for(Unit p:_unitdao.list())
 				if(p instanceof Vehicle)
 					res+=p.toString() + "\n-------------------------\n";
 		} 
@@ -96,7 +92,7 @@ public class Main
 		String res = "";
 		try 
 		{
-			for(Unit p:unitdao.list())
+			for(Unit p:_unitdao.list())
 				if(p instanceof Soldier)
 					res+=p.toString()+ "\n-------------------------\n";
 		} 
@@ -115,7 +111,7 @@ public class Main
 		String res = "";
 		try 
 		{
-			for(Unit p:unitdao.list())
+			for(Unit p:_unitdao.list())
 				if(p.getDeployment().equalsIgnoreCase(dep))
 					res+=p.toString()+ "\n-------------------------\n";
 		} 
@@ -134,7 +130,7 @@ public class Main
 		int res = 0;
 		try 
 		{
-			for(Unit p:unitdao.list())
+			for(Unit p:_unitdao.list())
 				if(p.getDeployment().equalsIgnoreCase(dep))
 					res+=p.getCost();
 		} 
@@ -152,7 +148,7 @@ public class Main
 		String res = "";
 		try 
 		{
-			for(Unit p:unitdao.list())
+			for(Unit p:_unitdao.list())
 				if(p instanceof Soldier)
 					res+= ((Soldier)p).retires() ? p.toString() + "\n-------------------------\n" : "";
 		} 
