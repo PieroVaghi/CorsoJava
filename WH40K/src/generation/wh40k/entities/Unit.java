@@ -28,7 +28,7 @@ public abstract class Unit extends Entity
 	}
 	@Override
 	public String toString() {
-		return super.toString() +"\n"+ "cost: " + cost + ",\n" + (deployment != null ? "deployment: " + deployment + ",\n" : "")
+		return "Id : " + super.getId() +"\n"+ "cost: " + cost + ",\n" + (deployment != null ? "deployment: " + deployment + ",\n" : "")
 				+ (notes != null ? "notes: " + notes : "");
 	}
 	@Override

@@ -45,11 +45,12 @@ public class Main
 				case "deploymentunit":
 					res = _deploymentunit();
 				break;
-				case "deploymentcost":
-					res = _deploymentcost()+"";
+				case "bytheater":
+					System.out.println("Insert theater");
+					res = _statistics.costByTheater(keyboard.nextLine())+"";
 				break;
-				case "pensionable":
-					res = _pensionable();
+				case "retriring":
+					res = _retiring();
 				break;
 				default : 
 					res = "BAD COMMAND";
@@ -143,21 +144,21 @@ public class Main
 	
 	}
 	
-	private static String _pensionable()
+	private static String _retiring() 
 	{
 		String res = "";
 		try 
 		{
-			for(Unit p:_unitdao.list())
-				if(p instanceof Soldier)
-					res+= ((Soldier)p).retires() ? p.toString() + "\n-------------------------\n" : "";
+			for(Unit u:_unitdao.list(" service>=12 and race not in ('ork', 'necro') "))
+				if(u instanceof Soldier)
+					res+=u.toString()+ "\n-------------------------\n";
 		} 
 		catch (Exception e) 
 		{
-			res = "Problem with your request:"+e.getMessage();
+			res = "";
+			e.printStackTrace();
 		}
 		return res;
-	
 	}
 
 	
