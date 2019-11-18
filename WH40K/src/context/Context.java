@@ -33,53 +33,35 @@ public class Context
 	{
 		//le queries di salvataggio
 		Map<String, String> saveQueries = new HashMap<String,String>();
-		saveQueries.put("Employee", "insert into Person values([id],'[name]','[surname]','[dob]');insert into Employee values([id],[salary],'[mansion]');");
-        saveQueries.put("Client", "insert into Person values([id],'[name]','[surname]','[dob]');insert into Client values([id],'[email]','[interests]');");
-        saveQueries.put("Book", "insert into Product values([id],'[name]','[description]',[price],[quantity]);insert into Book values([id],'[author]','[category]',[pages])");
-        saveQueries.put("CD", "insert into Product values([id],'[name]','[description]',[price],[quantity]);insert into CD values([id],'[artist]','[genre]',[length])");
+		saveQueries.put("Soldier", "insert into unit values([id],[cost],'[deployment]','[notes]');insert into soldier values([id],'[name]','[surname]','[dob]',[service],'[race]',[salary]);");
+        saveQueries.put("vehicle", "insert into unit values([id],[cost],'[deployment]','[notes]');insert into vehicle values([id],'[category]','[fueltype]','[license]',[years]);");
 		dependencies.put("savequeries", saveQueries);
 	
 		try
 		{
-			dependencies.put("connection", DriverManager.getConnection("jdbc:sqlite:shop.db"));
+			dependencies.put("connection", DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/wh40k?useSSL=false","root","root"));
 		} 
 		catch (SQLException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		dependencies.put("entityfactory", new SimpleFactory("entities"));
 		
 		dependencies.put
 		(
-			"persondao", 
-			new FlatEntityDAO<Person>
+			"unitdao", 
+			new FlatEntityDAO<Unit>
 			(
 				(Connection) dependencies.get("connection"),
-				"select * from viewperson",
-		        "select * from viewperson where id=",
-		        "delete from person where id=[id];delete from employee where id=[id];delete from client where id=[id];",
+				"select * from viewunit",
+		        "select * from viewunit where id=",
+		        "delete from unit where id=[id]",
 		        saveQueries,
 				(Factory) dependencies.get("entityfactory")
 			)
 		);
 		
-		dependencies.put
-		(
-			"productdao",
-			new FlatEntityDAO<Product>
-	        (
-				(Connection) dependencies.get("connection"),
-		       	"select * from viewproduct;",
-		       	"select * from viewproduct where id=",
-		       	"delete from product where id=[id]; delete from Book where id=[id]; delete from CD where id=[id];",
-		        saveQueries,
-				(Factory) dependencies.get("entityfactory")
-	       )
-	   );
-		
-		
-		
+				
 	}
 	
 	

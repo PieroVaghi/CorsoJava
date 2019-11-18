@@ -32,7 +32,7 @@ public class Vehicle extends Unit
 	}
 	@Override
 	public String toString() {
-		return (category != null ? "category: " + category + ",\n" : "")
+		return super.toString() +"\n" + (category != null ? "category: " + category + ",\n" : "")
 				+ (fueltype != null ? "fueltype: " + fueltype + ",\n" : "")
 				+ (license != null ? "license: " + license + ",\n" : "") + "years: " + years;
 	}
