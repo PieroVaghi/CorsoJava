@@ -34,7 +34,7 @@ public class Context
 		//le queries di salvataggio
 		Map<String, String> saveQueries = new HashMap<String,String>();
 		saveQueries.put("Soldier", "insert into unit values([id],[cost],'[deployment]','[notes]');insert into soldier values([id],'[name]','[surname]','[dob]',[service],'[race]',[salary]);");
-        saveQueries.put("vehicle", "insert into unit values([id],[cost],'[deployment]','[notes]');insert into vehicle values([id],'[category]','[fueltype]','[license]',[years]);");
+        saveQueries.put("Vehicle", "insert into unit values([id],[cost],'[deployment]','[notes]');insert into vehicle values([id],'[category]','[fueltype]','[license]',[years]);");
 		dependencies.put("savequeries", saveQueries);
 	
 		try
@@ -43,7 +43,9 @@ public class Context
 		} 
 		catch (SQLException e) 
 		{
+			System.out.println("Can't estabilish connection. Program aborting");
 			e.printStackTrace();
+			System.exit(-1);
 		}
 		dependencies.put("entityfactory", new SimpleFactory("entities"));
 		

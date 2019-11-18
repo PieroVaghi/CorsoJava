@@ -66,15 +66,7 @@ public class FlatEntityDAO<E extends Entity> implements EntityDAO<E>
 	@Override
 	public List<E> list() throws Exception
 	{
-		List<E> res = new ArrayList<E>();
-		Statement command = connection.createStatement();
-		ResultSet rows = command.executeQuery(dataquery);
-		while(rows.next())
-			res.add((E) factory.make(_rowToMap(rows)));		
-			
-		rows.close();
-		command.close();
-		return res;
+		return list(" 1=1 ");
 	}
 
 
@@ -120,6 +112,19 @@ public class FlatEntityDAO<E extends Entity> implements EntityDAO<E>
 		return s==null ? "" : s;
 	}
 	
+	@Override
+	public List<E> list(String condition) throws Exception
+	{
+		List<E> res = new ArrayList<E>();
+		Statement command = connection.createStatement();
+		ResultSet rows = command.executeQuery(dataquery + " where "+ condition);
+		while(rows.next())
+			res.add((E) factory.make(_rowToMap(rows)));		
+			
+		rows.close();
+		command.close();
+		return res;
+	}
 	
 	
 }

@@ -12,11 +12,11 @@ import entities.Soldier;
 public class Main
 {
 
-	static java.util.Scanner keyboard = new java.util.Scanner(System.in);
 	
 	// DIPENDENZE DEL MAIN 
-	static Connection connection = (Connection) Context.getInstance().get("connection");
-	static EntityDAO<Unit> unitdao = (EntityDAO<Unit>) Context.getInstance().get("unitdao");
+	private static java.util.Scanner keyboard = new java.util.Scanner(System.in);
+	private static Connection connection = (Connection) Context.getInstance().get("connection");
+	private static EntityDAO<Unit> unitdao = (EntityDAO<Unit>) Context.getInstance().get("unitdao");
 	
 	public static void main(String[] args) 
 	{
@@ -55,6 +55,9 @@ public class Main
 				case "pensionable":
 					res = _pensionable();
 				break;
+				default : 
+					res = "BAD COMMAND";
+				break;
 			}
 			System.out.println(res);
 		}while(!cmd.contentEquals("quit"));
@@ -66,7 +69,6 @@ public class Main
 		} 
 		catch (SQLException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 			

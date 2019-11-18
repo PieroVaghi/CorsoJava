@@ -11,4 +11,6 @@ public interface EntityDAO<E extends entities.Entity>
 	
 	boolean save(E e) throws Exception;
 	
+	public List<E> list(String condition) throws Exception;
+	
 }
