@@ -1,15 +1,17 @@
-package dao;
+package deprecate;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import dao.EntityDAO;
+import dao.FlatEntityDAO;
 import entities.Client;
 import entities.Employee;
 import entities.Person;
 
 
 
-public class Main 
+public class Main3 
 {
 
 	private static final String PWD = "root";

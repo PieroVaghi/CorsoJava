@@ -1,8 +1,10 @@
-package dao;
+package deprecate;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import dao.EntityDAO;
+import dao.FlatEntityDAO;
 import entities.Book;
 import entities.Employee;
 import entities.Person;
