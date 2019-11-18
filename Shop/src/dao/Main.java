@@ -12,7 +12,7 @@ import entities.Person;
 public class Main 
 {
 
-	private static final String PWD = "piefragio1";
+	private static final String PWD = "root";
 
 	public static void main(String[] args) throws Exception
 	{
