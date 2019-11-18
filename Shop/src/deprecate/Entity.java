@@ -178,6 +178,4 @@ public abstract class Entity
 		
 	}
 	
-	
-	
 }
