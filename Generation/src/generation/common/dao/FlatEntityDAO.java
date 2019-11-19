@@ -117,6 +117,7 @@ public class FlatEntityDAO<E extends generation.common.entities.Entity> implemen
 	{
 		List<E> res = new ArrayList<E>();
 		Statement command = connection.createStatement();
+//		System.out.println(dataquery + " where "+ condition);
 		ResultSet rows = command.executeQuery(dataquery + " where "+ condition);
 		while(rows.next())
 			res.add((E) factory.make(_rowToMap(rows)));		
