@@ -2,6 +2,8 @@ package generation.agenziailgriso.main;
 import java.sql.Connection;
 import java.util.Scanner;
 import generation.agenziailgriso.entities.*;
+import generation.agenziailgriso.insert.CasualInsert;
+import generation.agenziailgriso.insert.CasualInsertImplement;
 import generation.common.dao.EntityDAO;
 import generation.agenziailgriso.businessintelligence.Statistics;
 //import generation.agenziailgriso.businessintelligence.Statistics;
@@ -14,6 +16,7 @@ public class Main
 	private static Scanner keyboard 		= new Scanner(System.in); 	
 	private static EntityDAO<Property> _propertydao	= (EntityDAO<Property>) Context.getInstance().get("propertydao");
 	private static Statistics _statistics = (Statistics) Context.getInstance().get("statistics");
+	
 	
 	public static void main(String[] args) 
 	{
@@ -57,6 +60,13 @@ public class Main
 					System.out.println("Insert shop value");
 					res = _statistics.avgTrafficByShop(keyboard.nextLine())+"";
 				break;
+				case "generacasual":
+					System.out.println("Insert Start id");
+					int i = Integer.parseInt(keyboard.nextLine());
+					System.out.println("Insert final id");
+					int f = Integer.parseInt(keyboard.nextLine());
+					res = _generaCasuali(i,f)+"";
+				break;
 				default : 
 					res = "BAD COMMAND";
 				break;
@@ -76,6 +86,23 @@ public class Main
 
 }
 
+	
+	private static String _all() 
+	{
+		String res = "";
+		try 
+		{
+			for(Property p:_propertydao.list())
+				res+=p.toString() + "\n-------------------------\n";
+		} 
+		catch (Exception e) 
+		{
+			res = "Problem with your request:"+e.getMessage();
+		}
+		return res;
+	
+	}
+	
 	private static String _apartment() 
 	{
 		String res = "";
@@ -134,6 +161,19 @@ public class Main
 			res = "Problem with your request:"+e.getMessage();
 		}
 		return res;
+	}
+	
+	private static boolean _generaCasuali(int i, int f) {
+		CasualInsert ci = new CasualInsertImplement();
+			try {
+				for(Property p : ci.random(i, f))
+					_propertydao.save(p);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+				return false;
+			}
+		return true;
 	}
 
 	

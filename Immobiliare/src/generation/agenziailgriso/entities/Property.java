@@ -36,6 +36,10 @@ public abstract class Property extends Entity{
 	public void setSqm(int sqm) {
 		this.sqm = sqm;
 	}
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		return (address != null ? "address: " + address + ",\n" : "") + (notes != null ? "notes: " + notes + ",\n" : "")

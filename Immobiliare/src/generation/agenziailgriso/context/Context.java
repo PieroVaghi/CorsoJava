@@ -51,7 +51,7 @@ public class Context
 		saveQueries.put
 		(		
 				"Apartment", 
-				"insert into property(id,address,value,sqm,notes,owner)values([id],'[address]',[value],[sqm],'[notes]','[owner]');insert into apartment (id, floor, rooms, balconis, bathrooms) values ([id], [floor], [rooms], [balconis], [bathroomsr])"
+				"insert into property(id,address,value,sqm,notes,owner)values([id],'[address]',[value],[sqm],'[notes]','[owner]');insert into apartment (id, floor, rooms, balconis, bathrooms) values ([id], [floor], [rooms], [balconis], [bathrooms])"
 		);
 		saveQueries.put
 		(		
@@ -61,7 +61,7 @@ public class Context
 		saveQueries.put
 		(		
 				"Ground", 
-				"insert into property(id,address,value,sqm,notes,owner)values([id],'[address]',[value],[sqm],'[notes]','[owner]');insert into ground (id, permits, state) values ([id], [permits], [state])"
+				"insert into property(id,address,value,sqm,notes,owner)values([id],'[address]',[value],[sqm],'[notes]','[owner]');insert into ground (id, permits, state) values ([id], '[permits]', '[state]')"
 		);
 		
 		dependencies.put("entityfactory", new FlatEntityFactory("generation.agenziailgriso.entities"));
@@ -74,7 +74,7 @@ public class Context
 				(Connection) dependencies.get("connection"),
 				"select * from viewproperty",
 				"select * from viewproperty where id=",
-				"delete from property where id=",
+				"delete from property where id=[id]",
 				saveQueries,
 				(Factory) dependencies.get("entityfactory")
 			)
