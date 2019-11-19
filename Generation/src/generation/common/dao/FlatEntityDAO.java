@@ -74,8 +74,8 @@ public class FlatEntityDAO<E extends generation.common.entities.Entity> implemen
 	{
 		Statement command = connection.createStatement();
 		
-		String sql = deletequery.replace("[id]",id+"");
-		
+		String sql = deletequery.replace("[id]",(id+""));
+//		System.out.println(sql);
 		command.execute(sql);
 		
 		command.close();
@@ -94,12 +94,12 @@ public class FlatEntityDAO<E extends generation.common.entities.Entity> implemen
 		String sql = saveQueries.get(e.getClass().getSimpleName());	
 		for(String key:e.toMap().keySet())
 			sql = sql.replace("["+key+"]", _notNull(e.toMap().get(key)));
-
 		delete(e.getId());
 		
 		for(String cmd:sql.split(";"))
 		{
 			Statement command = connection.createStatement();
+//			System.out.println(cmd);
 			command.execute(cmd);
 			command.close();
 		}
