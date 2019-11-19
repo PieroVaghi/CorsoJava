@@ -124,26 +124,6 @@ public class Main
 	
 	}
 	
-	private static int _deploymentcost()
-	{
-		System.out.println("Insert Deployment:");
-		String dep = keyboard.nextLine();
-		int res = 0;
-		try 
-		{
-			for(Unit p:_unitdao.list())
-				if(p.getDeployment().equalsIgnoreCase(dep))
-					res+=p.getCost();
-		} 
-		catch (Exception e) 
-		{
-			res = -1;
-			System.out.println("Problem with your request:"+e.getMessage());
-		}
-		return res;
-	
-	}
-	
 	private static String _retiring() 
 	{
 		String res = "";
