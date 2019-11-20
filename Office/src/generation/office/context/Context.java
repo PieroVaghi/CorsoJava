@@ -58,15 +58,17 @@ public class Context extends generation.common.context.Context
 		
 		dependencies.put
 		(
-			"employeedao",	
-			new FlatEntityDAO<Employee>
-			(
-				(Connection) dependencies.get("connection"),
-				"select * from viewemployee",
-				"select * from viewemployee where id=",
-				"delete from employee where id=[id]",
-				saveQueries,
-				(Factory) dependencies.get("entityfactory")
+			"employeedao",
+			new FlatEntityDAOCached<Employee>(
+				new FlatEntityDAO<Employee>
+				(
+					(Connection) dependencies.get("connection"),
+					"select * from viewemployee",
+					"select * from viewemployee where id=",
+					"delete from employee where id=[id]",
+					saveQueries,
+					(Factory) dependencies.get("entityfactory")
+				)
 			)
 		);
 		

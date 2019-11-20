@@ -10,7 +10,7 @@ import generation.office.importer.EmployeeImporterFactory;
 import generation.office.statistics.Statistics;
 import generation.office.insert.CasualInsert;
 import generation.office.insert.CasualInsertImplement;
-import generation.common.dao.EntityDAO;
+import generation.common.dao.*;
 import generation.common.entities.Factory;
 import generation.common.importer.ImportResult;
 import generation.common.importer.Importer;
