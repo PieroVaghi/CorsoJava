@@ -14,7 +14,7 @@ import generation.common.entities.FlatEntityFactory;
 // un cestone in cui metterò tutte le informazioni di configurazione del progetto
 // SINGLETON
 
-public class Context 
+public class Context extends generation.common.context.Context
 {
 	Map<String, Object> dependencies = new HashMap<String,Object>();
 	
@@ -34,7 +34,6 @@ public class Context
 	
 	private Context()
 	{
-		Map<String,String> savequery= new HashMap<String,String>();
 		try
 		{
 		
