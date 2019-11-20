@@ -1,14 +1,19 @@
 package main;
 
+import java.io.FileNotFoundException;
 import java.net.SocketTimeoutException;
 import java.util.List;
 
 import generation.office.context.Context;
 import generation.office.entities.Employee;
+import generation.office.importer.EmployeeImporterFactory;
 import generation.office.statistics.Statistics;
 import generation.office.insert.CasualInsert;
 import generation.office.insert.CasualInsertImplement;
 import generation.common.dao.EntityDAO;
+import generation.common.entities.Factory;
+import generation.common.importer.ImportResult;
+import generation.common.importer.Importer;
 
 public class Main 
 {
@@ -68,6 +73,66 @@ public class Main
 					int f = Integer.parseInt(keyboard.nextLine());
 					res = (_generaCasuali(i,f))?"Completato!":"Caricamento non riuscito";
 				break;
+				case "nuovopersonale":
+					System.out.println("In quale file sono contenuti i dati delle nuove reclute?");
+					String filename = keyboard.nextLine();
+					try
+					{
+						Importer<Employee> importer = 
+								EmployeeImporterFactory.getInstance().make(filename, (Factory) Context.getInstance().get("entityfactory"));
+						
+						ImportResult<Employee> imported = importer.absorb();
+
+						System.out.println("Importazione completata");
+						
+						if(imported.getErrors().size()>0)
+						{
+							System.out.println("Capo supremo! Ci sono stati degli errori!");
+							for(String error:imported.getErrors())
+								System.out.println(error);
+						}
+						
+						if(imported.getInvalid().size()>0)
+						{
+							System.out.println("Alle risorse umane hanno sbagliato a prendere i dati:");
+							for(Employee bad:imported.getInvalid())
+								System.out.println(bad);
+						}
+						
+						int successfull = 0;
+						
+						for(Employee s:imported.getValid())
+						{
+							try 
+							{
+								if(_dao.load(s.getId())==null)
+								{
+									_dao.save(s);
+									successfull++;
+								}
+								else
+									System.out.println("Questo individuo è già stato assunto da noi: "+s);
+							} catch (Exception e) 
+							{
+								System.out.println("Stavo cercando di inserire "+s+" ma è successo qualcosa di brutto");
+								e.printStackTrace();
+							}
+						}
+						System.out.println("Abbiamo appena assunto "+successfull+" dipendenti alla faccia della crisi!");
+					}
+					catch(NullPointerException e)
+					{
+						res = "Probabilmente ci hanno inviato l'allegato sbagliato! Qui abbiamo il .jpg della foto della zia di qualcuno dell'alto ufficio..";
+					}
+					catch(FileNotFoundException e)
+					{
+						res = "Hanno di nuovo mandato la mail senza allegato.. Non abbiamo il file su cui lavorare";
+						e.printStackTrace();
+					}			
+					
+					
+					
+					break;
 				default:
 					res = "Hai provato a spegnere e riaccendere?\n";
 			}
@@ -93,10 +158,10 @@ public class Main
 			try {
 				System.out.print("<");
 				for(int j = i; j<=f; j++)
-					System.out.print("-");
+					System.out.print("|");
 				System.out.print(">\n<");
 				for(Employee p : ci.random(i, f)) {
-					System.out.print("-");
+					System.out.print("|");
 					_dao.save(p);
 				}
 				System.out.println(">");
