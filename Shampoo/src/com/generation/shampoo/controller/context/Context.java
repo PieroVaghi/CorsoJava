@@ -78,7 +78,7 @@ public class Context extends generation.common.context.Context
 		dependencies.put
 		(
 			"statistics",
-			new StatisticsImpl((Connection) dependencies.get("connection"))	
+			new StatisticsImpl((Database) dependencies.get("database"))	
 		);
 		
 		dependencies.put

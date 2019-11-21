@@ -7,6 +7,6 @@ public interface Statistics
 
 	Map<String,Double> avgPriceByProducer();
 	
-	Map<String,Double> deltaBio();
+	double deltaBio();
 	
 }

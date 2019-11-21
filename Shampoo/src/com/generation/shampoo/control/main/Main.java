@@ -133,7 +133,7 @@ public class Main
 		System.out.print("Insert Producer: ");
 		String producer = keyboard.nextLine();
 		try {
-			return _dao.list("producer = " + producer);
+			return _dao.list("producer = '" + producer+"'");
 		} catch (Exception e) {
 			System.out.println("La marca: "+producer+ "non ha trovato riscontri");
 			e.printStackTrace();
