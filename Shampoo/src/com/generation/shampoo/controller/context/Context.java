@@ -9,6 +9,8 @@ import com.generation.shampoo.model.entities.Shampoo;
 import com.generation.shampoo.model.statistics.StatisticsImpl;
 
 import generation.common.dao.*;
+import generation.common.database.Database;
+import generation.common.database.DatabaseImpl;
 import generation.common.entities.Factory;
 import generation.common.entities.FlatEntityFactory;
 import generation.common.view.BasicView;
@@ -54,6 +56,8 @@ public class Context extends generation.common.context.Context
 		
 		dependencies.put("entityfactory", new FlatEntityFactory("com.generation.shampoo.model.entities"));
 		
+		dependencies.put("database", new DatabaseImpl((Connection) dependencies.get("connection")));
+		
 		dependencies.put
 		(
 			"shampoodao",
@@ -61,7 +65,7 @@ public class Context extends generation.common.context.Context
 											(
 												new FlatEntityDAO<Shampoo>
 																		(
-																			(Connection) dependencies.get("connection"),
+																			(Database) dependencies.get("database"),
 																			"select * from shampooview",
 																			"select * from shampooview where id=",
 																			"delete from shampoo where id=[id]",

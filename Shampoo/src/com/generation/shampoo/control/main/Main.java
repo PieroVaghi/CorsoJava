@@ -185,7 +185,7 @@ public class Main
 		try 
 		{
 			for(Shampoo p:_dao.list())
-				res+=p.toString();
+				res+=p.toString()+"\n";
 		} 
 		catch (Exception e) 
 		{

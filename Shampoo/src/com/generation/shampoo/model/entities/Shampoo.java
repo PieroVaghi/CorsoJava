@@ -75,7 +75,7 @@ public class Shampoo extends Entity{
 
 	@Override
 	public String toString() {
-		return super.toString() + "\n" + (producer != null ? "producer: " + producer + ",\n" : "") + (name != null ? "name: " + name + ",\n" : "")
+		return (producer != null ? "producer: " + producer + ",\n" : "") + (name != null ? "name: " + name + ",\n" : "")
 				+ (bio != null ? "bio: " + bio + ",\n" : "") + "price: " + price + ",\nsize: " + size;
 	}
 
