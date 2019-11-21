@@ -12,22 +12,24 @@ import java.util.Map;
 public class DatabaseImpl implements Database{
 	
 	Connection connection;
+	Statement command;
 
-	/**
-	 * @param connection
-	 */
-	public DatabaseImpl(Connection connection) {
-		super();
+	public DatabaseImpl(Connection connection) 
+	{
 		this.connection = connection;
 	}
 
+	
+	/**
+	 * Metodo che trasforma il ResultSet della nostra query in una lista di mappe
+	 */
 	@Override
-	public List<Map<String, String>> rows(String sql) throws SQLException {
+	public List<Map<String, String>> rows(String sql) throws SQLException 
+	{
 		
 		List<Map<String, String>> listres  = new ArrayList<Map<String, String>>();
 		Map<String,String> res = new HashMap<String,String>();
 		
-		Statement command;
 		try 
 		{
 			command = connection.createStatement();
@@ -37,7 +39,6 @@ public class DatabaseImpl implements Database{
 				try {
 					res = (_rowToMap(rows));
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}	
 				listres.add(res);
@@ -47,10 +48,16 @@ public class DatabaseImpl implements Database{
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+		command.close();
 		return listres;
 	}
 	
+	/**
+	 * Metodo per ottenere una mappa da una singola riga di un ResultSet
+	 * @param row
+	 * @return
+	 * @throws Exception
+	 */
 	private Map<String, String> _rowToMap(ResultSet row) throws Exception
 	{
 		Map<String,String> res = new HashMap<String,String>();
@@ -65,4 +72,17 @@ public class DatabaseImpl implements Database{
 		return res;		
 	}
 
+
+	@Override
+	public boolean executeOnDb(String sql) throws Exception {
+		command = connection.createStatement();
+		try {
+			command.execute(sql);
+		} catch (SQLException e) {
+			System.out.println("Error query: "+sql);
+			e.printStackTrace();
+		}
+		command.close();
+		return true;
+	}
 }

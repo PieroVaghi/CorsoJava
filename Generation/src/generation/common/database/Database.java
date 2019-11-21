@@ -35,9 +35,6 @@ public interface Database
 		//Arriva una sql che restituisce una sola riga al massimo
 		//come per load
 		List<Map<String,String>> rows = rows(sql);
-//		System.out.println(rows.size());
-//		System.out.println(rows);
-//		System.out.println(rows.get(0));
 		return rows.size()==1 ? rows.get(0) : null;
 	}
 	
@@ -51,4 +48,6 @@ public interface Database
 			return Integer.parseInt(row.get(key));
 		return 0;
 	}
+	
+	boolean executeOnDb(String sql) throws Exception;
 }
