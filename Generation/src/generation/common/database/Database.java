@@ -2,6 +2,8 @@ package generation.common.database;
 
 import java.sql.SQLException;
 
+import java.util.List;
+import java.util.Map;
 //Io trovo noioso lavorare con JDBC
 //JDBC mi costringe a usare diverse interfacce per fare 
 //cavolate... compiti semplici.
@@ -15,8 +17,6 @@ import java.sql.SQLException;
 // uso TRE interfacce (o classi astratte) per fare roba banale.
 
 // sarebbe bello se avessi un qualcosa di questo tipo:
-import java.util.List;
-import java.util.Map;
 
 public interface Database 
 {
@@ -46,6 +46,14 @@ public interface Database
 		Map<String,String> row = row(sql);
 		for(String key:row.keySet())
 			return Integer.parseInt(row.get(key));
+		return 0;
+	}
+	
+	default double singleDouble(String sql) throws SQLException
+	{
+		Map<String,String> row = row(sql);
+		for(String key:row.keySet())
+			return Double.parseDouble(row.get(key));
 		return 0;
 	}
 	

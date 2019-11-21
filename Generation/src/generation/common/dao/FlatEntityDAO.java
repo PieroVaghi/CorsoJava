@@ -33,10 +33,8 @@ public class FlatEntityDAO<E extends generation.common.entities.Entity> implemen
 	@Override
 	public E load(int id) throws Exception
 	{
-		E res = null;
 		String sql = datasinglequery+id;
-		database.row(sql);
-		return res = (E) factory.make(database.row(sql));
+		return (E) factory.make(database.row(sql));
 	}
 
 
@@ -66,8 +64,7 @@ public class FlatEntityDAO<E extends generation.common.entities.Entity> implemen
 	public boolean delete(int id) throws Exception
 	{
 		String sql = deletequery.replace("[id]",(id+""));
-		database.executeOnDb(sql);
-		return true;
+		return database.executeOnDb(sql);
 	
 	}
 
@@ -85,8 +82,7 @@ public class FlatEntityDAO<E extends generation.common.entities.Entity> implemen
 		
 		for(String cmd:sql.split(";"))
 		{
-			database.executeOnDb(cmd);
-			return true;
+			return database.executeOnDb(cmd);
 		}
 		return true;
 	}
