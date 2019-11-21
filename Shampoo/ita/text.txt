@@ -1,0 +1,8 @@
+ASKCOMMAND:Uno shampoo? No! un.. 
+ERRORMSG:Problem with your request
+INTRO:Una triste giornata.. Chiuso in casa a pensare.. Ho la testa ovattata.. Non c'è niente da fare.. Non c'è via di scampo.. Quasi quasi mi faccio uno shampoo!
+COMPLETED:Completato!
+ASKFILE:In quale file sono contenuti i dati dei nuovi prodotti?
+NOTCOMPLETED:Caricamento non riuscito
+ERRORIMPORT:Ci sono stati degli errori!
+INVALIDIMPORT:Questi dati inoltre risultano errati:

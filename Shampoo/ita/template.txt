@@ -1,0 +1,2 @@
+Book:Book [id] - [name], author [author] ,[category], [pages] pages
+CD:CD [id] - [name], artist [artist]
