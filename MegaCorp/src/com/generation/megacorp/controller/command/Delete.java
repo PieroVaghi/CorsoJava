@@ -11,7 +11,7 @@ public class Delete extends MegacorpCommand
 		
 		try
 		{
-			System.out.println("inserisci l'ID della persona da cancellare!");
+			print("DELETE");
 			String id = keyboard.nextLine();
 			return dao.delete(Integer.parseInt(id))+"";
 			

@@ -11,3 +11,4 @@ SEARCHMAIN:Vuoi cercare per cognome o per ruolo?
 SEARCHSURNAME:Inserisci il cognome ->
 SEARCHROLE:Inserisci il ruolo ->
 SEARCHERROR:Ricerca non valida
+DELETE:inserisci l'ID della persona da cancellare!
