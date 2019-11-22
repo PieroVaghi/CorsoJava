@@ -1,0 +1,9 @@
+ASKCOMMAND:Inserisci un comando
+ERRORMSG:C'è un problema con la tua richiesta!
+INTRO:Benvenuto nel settore ufficio e certificazioni!
+COMPLETED:Completato!
+ASKFILE:In quale file sono contenuti i dati dei nuovi impiegati?
+NOTCOMPLETED:Caricamento non riuscito
+ERRORIMPORT:Ci sono stati degli errori!
+INVALIDIMPORT:Questi dati inoltre risultano errati:
+CERTIFICATE:Certificato

@@ -98,6 +98,7 @@ public class FlatEntityDAO<E extends generation.common.entities.Entity> implemen
 	{
 		List<E> res = new ArrayList<E>();
 		String sql = dataquery + " where "+ condition;
+//		System.out.println(sql);
 		for(Map<String,String> m : database.rows(sql))
 			res.add((E) factory.make(m));		
 		return res;	

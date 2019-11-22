@@ -1,0 +1,2 @@
+Employee:Impiegato [id] - [name] [surname], ruolo = [role], stipendio = [salary], data di nascita = [dob]
+Certificate:Certificazione [id] - [title], conseguita il [earnedon] - scade il [expireson], costo [cost]
