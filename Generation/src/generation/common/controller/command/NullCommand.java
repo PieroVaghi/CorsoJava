@@ -9,4 +9,10 @@ public class NullCommand extends Command
 		return "BAD COMMAND";
 	}
 
+	@Override
+	protected void init() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
