@@ -1,15 +1,15 @@
-package generation.common.language;
+package generation.common.view.language;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class FileLanguage implements Language
+public class BasicLanguage implements Language
 {
 	Map<String,String> translations = new HashMap<String,String>();
 	
-	public FileLanguage(String filename)
+	public BasicLanguage(String filename)
 	{
 		try
 		{
@@ -29,7 +29,7 @@ public class FileLanguage implements Language
 		}
 		
 	}
-
+	
 	@Override
 	public String translate(String key) 
 	{

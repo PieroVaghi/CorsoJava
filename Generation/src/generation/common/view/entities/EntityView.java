@@ -1,18 +1,12 @@
-package generation.common.view;
+package generation.common.view.entities;
 
 import java.util.List;
 import java.util.Map;
 
 import generation.common.entities.Entity;
 
-public interface View<E extends Entity> 
+public interface EntityView<E extends Entity> 
 {
-	/**
-	 * traduce una stringa in una lingua
-	 * @param key
-	 * @return
-	 */
-	String translate(String key);	
 	
 	/**
 	 * TUTTA la classe, tranne translate, dipende da questo metodo

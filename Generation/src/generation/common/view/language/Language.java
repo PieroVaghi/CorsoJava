@@ -1,4 +1,4 @@
-package generation.common.language;
+package generation.common.view.language;
 
 public interface Language 
 {
