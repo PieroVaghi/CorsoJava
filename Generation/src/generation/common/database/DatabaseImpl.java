@@ -33,7 +33,7 @@ public class DatabaseImpl implements Database{
 		try 
 		{
 			command = connection.createStatement();
-			System.out.println(sql);
+//			System.out.println(sql);
 			ResultSet rows = command.executeQuery(sql);
 			while(rows.next()) 
 			{
