@@ -12,19 +12,19 @@ public class Search extends MegacorpCommand
 		
 		try
 		{
-			System.out.println("Vuoi cercare per cognome o per ruolo?");
+			print("SEARCHMAIN");
 			String search = keyboard.nextLine();
 			if(search.equalsIgnoreCase("cognome")) {
-				System.out.println("Inserisci il cognome:");
+				print("SEARCHSURNAME");
 				String nome = keyboard.nextLine();
 				return view.render(dao.list("surname='"+nome+"'"));
 			}
 			if(search.equalsIgnoreCase("ruolo")) {
-				System.out.println("Inserisci il ruolo:");
+				print("SEARCHROLE");
 				String role = keyboard.nextLine();
 				return view.render(dao.list("role='"+role+"'"));
 			}
-			return "Ricerca non valida";
+			return lan.translate("SEQRCHERROR");
 			
 		}
 		catch(Exception e)

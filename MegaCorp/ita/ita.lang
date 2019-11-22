@@ -7,3 +7,7 @@ NOTCOMPLETED:Caricamento non riuscito
 ERRORIMPORT:Ci sono stati degli errori!
 INVALIDIMPORT:Questi dati inoltre risultano errati:
 CERTIFICATE:Certificato
+SEARCHMAIN:Vuoi cercare per cognome o per ruolo?
+SEARCHSURNAME:Inserisci il cognome ->
+SEARCHROLE:Inserisci il ruolo ->
+SEARCHERROR:Ricerca non valida

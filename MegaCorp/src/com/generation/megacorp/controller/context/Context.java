@@ -51,8 +51,8 @@ public class Context extends generation.common.context.Context {
 		Behaviour behaviour = 
 				new Behaviour
 				(
-					"list,quit,search".split(","),
-					new Command[] {new List(), new QuitCommand(), new Search()}
+					"list,quit,search,delete".split(","),
+					new Command[] {new List(), new QuitCommand(), new Search(), new Delete()}
 				);
 		
 		put("behaviour", behaviour);
