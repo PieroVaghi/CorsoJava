@@ -24,7 +24,7 @@ public interface EntityView<E extends Entity>
 	{
 		String name = e.getClass().getSimpleName();
 		return 	getTemplates().containsKey(name)		?
-				fill(e,getTemplates().get(name))+"\n"	:
+				fill(e,getTemplates().get(name))		:
 				e.toString()+"\n"						;
 	}
 	

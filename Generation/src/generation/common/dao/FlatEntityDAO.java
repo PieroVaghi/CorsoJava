@@ -97,7 +97,8 @@ public class FlatEntityDAO<E extends generation.common.entities.Entity> implemen
 		List<E> res = new ArrayList<E>();
 //		System.out.println(dataquery + " where "+ condition);
 		for(Map<String,String> m : database.rows(dataquery + " where "+ condition))
-			res.add((E) factory.make(m));		
+			res.add((E) factory.make(m));	
+//		System.out.println(res);
 		return res;	
 	}
 	
