@@ -1,0 +1,2 @@
+Person:Persona [id] - [name] [surname], anni = [age]
+Drama:Sfiga [id] - [info], succedeva il [date]

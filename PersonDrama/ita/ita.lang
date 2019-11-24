@@ -1,0 +1,19 @@
+ASKCOMMAND:Inserisci un comando
+ERRORMSG:C'è un problema con la tua richiesta!
+INTRO:Benvenuto sfigato!
+COMPLETED:Completato!
+ASKFILE:In quale file sono contenuti i dati delle nuove persone?
+NOTCOMPLETED:Caricamento non riuscito
+ERRORIMPORT:Ci sono stati degli errori!
+INVALIDIMPORT:Questi dati inoltre risultano errati:
+DRAMA:Sfighe
+NODRAMA:Nessuna
+SEARCHMAIN:Vuoi cercare per cognome o per età?
+SEARCHSURNAME:Inserisci il cognome ->
+SEARCHAGE:Inserisci gli anni ->
+SEARCHERROR:Ricerca non valida
+NORESULTS:La tua ricerca non ha dato risultati
+DELETE:inserisci l'ID della persona da cancellare!
+BIAVGDRAMA:La media delle sfighe di ogni persona è..
+BIAVGAGE:LA media delle età del nostro database è..
+BYE:Bella! Ci si vede alla prossima!!!
