@@ -1,4 +1,4 @@
-package generation.common.controller.keyboard;
+package com.generation.common.controller.keyboard;
 
 import generation.common.view.language.Language;
 

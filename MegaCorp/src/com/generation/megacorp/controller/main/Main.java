@@ -1,10 +1,11 @@
 package com.generation.megacorp.controller.main;
 
 import java.util.Scanner;
+
+import com.generation.common.controller.command.Behaviour;
 import com.generation.megacorp.controller.context.Context;
 import com.generation.megacorp.model.view.EmployeeView;
 
-import generation.common.controller.command.Behaviour;
 import generation.common.view.language.BasicLanguage;
 import generation.common.view.language.Language;
 

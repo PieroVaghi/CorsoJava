@@ -1,4 +1,4 @@
-package generation.common.controller.command;
+package com.generation.common.controller.command;
 
 public class NullCommand extends Command
 {

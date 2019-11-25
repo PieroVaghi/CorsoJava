@@ -1,4 +1,4 @@
-package generation.common.dao;
+package com.generation.common.model.dao.deprecated;
 import java.util.List;
 
 public interface EntityDAO<E extends generation.common.entities.Entity>

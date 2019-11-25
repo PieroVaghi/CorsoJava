@@ -1,4 +1,4 @@
-package generation.common.controller.keyboard;
+package com.generation.common.controller.keyboard;
 
 import java.util.Scanner;
 

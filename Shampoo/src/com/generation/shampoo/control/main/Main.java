@@ -5,12 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.generation.common.model.dao.deprecated.*;
 import com.generation.shampoo.controller.context.Context;
 import com.generation.shampoo.model.entities.Shampoo;
 import com.generation.shampoo.model.importer.ShampooImporterFactory;
 import com.generation.shampoo.model.statistics.Statistics;
 
-import generation.common.dao.*;
 import generation.common.entities.Factory;
 import generation.common.importer.ImportResult;
 import generation.common.importer.Importer;

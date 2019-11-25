@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.generation.common.model.dao.deprecated.*;
 import com.generation.shampoo.model.entities.Shampoo;
 import com.generation.shampoo.model.statistics.StatisticsImpl;
 
-import generation.common.dao.*;
 import generation.common.database.Database;
 import generation.common.database.DatabaseImpl;
 import generation.common.entities.Factory;
@@ -18,7 +18,7 @@ import generation.common.view.BasicView;
 // un cestone in cui metterò tutte le informazioni di configurazione del progetto
 // SINGLETON
 
-public class Context extends generation.common.context.Context
+public class Context extends com.generation.common.comtroller.context.Context
 {
 
 	

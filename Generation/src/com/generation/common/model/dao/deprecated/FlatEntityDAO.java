@@ -1,4 +1,4 @@
-package generation.common.dao;
+package com.generation.common.model.dao.deprecated;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -4,13 +4,14 @@ import java.io.FileNotFoundException;
 import java.net.SocketTimeoutException;
 import java.util.List;
 
+import com.generation.common.model.dao.deprecated.*;
+
 import generation.office.context.Context;
 import generation.office.entities.Employee;
 import generation.office.importer.EmployeeImporterFactory;
 import generation.office.statistics.Statistics;
 import generation.office.insert.CasualInsert;
 import generation.office.insert.CasualInsertImplement;
-import generation.common.dao.*;
 import generation.common.entities.Factory;
 import generation.common.importer.ImportResult;
 import generation.common.importer.Importer;

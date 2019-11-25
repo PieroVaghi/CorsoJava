@@ -1,10 +1,12 @@
 package generation.agenziailgriso.main;
 import java.sql.Connection;
 import java.util.Scanner;
+
+import com.generation.common.model.dao.deprecated.EntityDAO;
+
 import generation.agenziailgriso.entities.*;
 import generation.agenziailgriso.insert.CasualInsert;
 import generation.agenziailgriso.insert.CasualInsertImplement;
-import generation.common.dao.EntityDAO;
 import generation.agenziailgriso.businessintelligence.Statistics;
 //import generation.agenziailgriso.businessintelligence.Statistics;
 import generation.agenziailgriso.context.*;

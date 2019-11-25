@@ -57,5 +57,7 @@ public interface Database
 		return 0;
 	}
 	
+	
+	
 	boolean executeOnDb(String sql) throws Exception;
 }

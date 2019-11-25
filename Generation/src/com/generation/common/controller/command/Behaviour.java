@@ -1,4 +1,4 @@
-package generation.common.controller.command;
+package com.generation.common.controller.command;
 
 import java.util.HashMap;
 import java.util.Map;

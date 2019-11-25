@@ -1,8 +1,7 @@
 package com.generation.persondrama.controller.command;
 
+import com.generation.common.model.dao.deprecated.EntityDAO;
 import com.generation.persondrama.controller.context.Context;
-
-import generation.common.dao.EntityDAO;
 
 public class List extends PersonDramaCommand
 {
