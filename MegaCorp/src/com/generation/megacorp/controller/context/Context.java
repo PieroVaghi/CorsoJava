@@ -7,15 +7,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import com.generation.common.controller.command.Behaviour;
+import com.generation.common.controller.command.Command;
+import com.generation.common.model.dao.deprecated.FlatEntityDAO;
 import com.generation.megacorp.controller.command.*;
 import com.generation.megacorp.model.dao.EmployeeDAO;
 import com.generation.megacorp.model.entities.Certificate;
 import com.generation.megacorp.model.entities.Employee;
 import com.generation.megacorp.model.view.EmployeeView;
 
-import generation.common.controller.command.Behaviour;
-import generation.common.controller.command.Command;
-import generation.common.dao.FlatEntityDAO;
 import generation.common.database.Database;
 import generation.common.database.DatabaseImpl;
 import generation.common.entities.Factory;
@@ -24,7 +24,7 @@ import generation.common.view.entities.BasicView;
 import generation.common.view.language.BasicLanguage;
 import generation.common.view.language.Language;
 
-public class Context extends generation.common.context.Context {
+public class Context extends com.generation.common.comtroller.context.Context {
 	
 	//L'unico oggetto appartiene alla classe
 	private static Context instance = new Context();

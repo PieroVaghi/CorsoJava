@@ -2,11 +2,11 @@ package com.generation.megacorp.controller.command;
 
 import java.util.Scanner;
 
+import com.generation.common.controller.command.Command;
+import com.generation.common.model.dao.deprecated.EntityDAO;
 import com.generation.megacorp.controller.context.Context;
 import com.generation.megacorp.model.entities.Employee;
 
-import generation.common.controller.command.Command;
-import generation.common.dao.EntityDAO;
 import generation.common.view.entities.EntityView;
 import generation.common.view.language.Language;
 
