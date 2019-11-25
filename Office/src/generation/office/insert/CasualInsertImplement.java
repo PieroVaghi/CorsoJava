@@ -23,7 +23,7 @@ n += 1;
 public class CasualInsertImplement implements CasualInsert {
 
 //	private final String[] genders = {"F","M"};
-	private final String[] name = {"Giggino il Truce", "Pierpiero", "Paolo", "Pietro", "Ughwak", "DArtagnan", "Ursula", "Armin", "Arminio", "Armenio", "Almeno", "Arlecchino", "Kong il Conquistatore", "King di Kong", "Beatrice", "Elena", "Piero", "Simone", "Mauro", "Giada", "Tommaso", "Ferdinando", "Andrea", "Dennis", "Hertz", "Marco", "Simone", "Fabio", "Alessio", "Alessio 2 la vendetta", "Luca", "Antonietta"};
+	private final String[] name = {"Giggino il Truce", "Pierpiero", "Paolo", "Pietro", "Ughwak", "DArtagnan", "Ursula", "Armin", "Arminio", "Armenio", "Almeno", "Arlecchino", "Kong il Conquistatore", "King di Kong", "Beatrice", "Elena", "Piero", "Simone", "Mauro", "Giada", "Tommaso", "Ferdinando", "Andrea", "Dennis", "Hertz", "Giovanni", "Francesco", "Matteo","Lancia", "Villa", "Rotondi", "Clerici", "Marta", "Marco", "Simone", "Fabio", "Alessio", "Alessio 2 la vendetta", "Luca", "Antonietta"};
 	private final String[] roles = {"HR", "Programmatore Junior", "CEO", "Project Manager", "Inserviente", "Food&Beverage", "Vendite", "Marketing"};
 		
 	public int randomBetween(int i, int f) {
