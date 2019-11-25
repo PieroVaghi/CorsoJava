@@ -2,8 +2,9 @@ package generation.office.dao;
 
 import java.util.List;
 
-import generation.common.dao.EntityDAO;
-import generation.common.dao.FlatEntityDAO;
+import com.generation.common.model.dao.deprecated.EntityDAO;
+import com.generation.common.model.dao.deprecated.FlatEntityDAO;
+
 import generation.office.entities.*;
 
 public class EmployeeDAO implements EntityDAO<Employee>

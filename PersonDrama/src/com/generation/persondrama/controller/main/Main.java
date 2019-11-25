@@ -3,9 +3,9 @@ package com.generation.persondrama.controller.main;
 
 import java.util.Scanner;
 
+import com.generation.common.controller.command.Behaviour;
 import com.generation.persondrama.controller.context.Context;
 
-import generation.common.controller.command.Behaviour;
 import generation.common.view.language.BasicLanguage;
 
 public class Main {

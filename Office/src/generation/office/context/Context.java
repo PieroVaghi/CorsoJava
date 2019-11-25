@@ -5,16 +5,17 @@ import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.generation.common.model.dao.deprecated.*;
+
 import generation.office.entities.Employee;
 import generation.office.statistics.StatisticsImpl;
-import generation.common.dao.*;
 import generation.common.entities.Factory;
 import generation.common.entities.FlatEntityFactory;
 
 // un cestone in cui metterò tutte le informazioni di configurazione del progetto
 // SINGLETON
 
-public class Context extends generation.common.context.Context
+public class Context extends com.generation.common.comtroller.context.Context
 {
 	Map<String, Object> dependencies = new HashMap<String,Object>();
 	

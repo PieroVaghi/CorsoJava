@@ -2,10 +2,9 @@ package com.generation.persondrama.model.dao;
 
 import java.util.List;
 
+import com.generation.common.model.dao.deprecated.EntityDAO;
+import com.generation.common.model.dao.deprecated.FlatEntityDAO;
 import com.generation.persondrama.model.entities.*;
-
-import generation.common.dao.EntityDAO;
-import generation.common.dao.FlatEntityDAO;
 
 
 /**
