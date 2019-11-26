@@ -1,5 +1,8 @@
 package com.generation.common.controller.command;
 
+import com.generation.common.model.log.Event;
+import com.generation.common.model.log.Log;
+
 public abstract class Command 
 {
 	//init prenderà le dipendenze da Context... ma non le prenderà in fase di creazione
@@ -15,7 +18,9 @@ public abstract class Command
 	public String run()
 	{
 		init();
-		return execute();
+		String res = execute();
+		Log.getInstance().addEvent(new Event(System.nanoTime(),"Executed "+this.getClass().getName()+":"+res));
+		return res;
 	}
 	
 }
