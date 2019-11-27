@@ -8,7 +8,7 @@ import java.util.Map;
 
 import com.generation.common.model.entities.*;
 
-public class FlatEntityDAO<E extends com.generation.common.model.entities.Entity> implements EntityDAO<E>
+public class FlatEntityDAO<E extends IEntity> implements EntityDAO<E>
 {
 	//DIPENDENZE
 	Connection connection;

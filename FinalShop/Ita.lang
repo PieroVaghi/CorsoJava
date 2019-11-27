@@ -1,0 +1,12 @@
+ASKCOMMAND:Dimmi cosa posso fare per te
+QUITCOMMAND:A presto 
+ASKPAGE:Inserire una pagina fra 1 e qualunque numero venga in mente 
+BADPAGE:La prego di inserire un numero
+NAME:Nome =
+SURNAME:Cognome =
+NATIONALITY:Nazionalità =
+IDSEARCH:Inserisci id =
+IDERROR:id non valido
+INSERTNAME:Inserisci nome (vuoto per tutti) =
+INSERTNATIONALITY:Inserisci nazionalità (vuoto per tutti) = 
+TOTALCOST:Prezzo totale dei prodotti del negozio = 

@@ -12,7 +12,7 @@ public class FlatEntityFactory implements Factory
 	}
 
 	@Override
-	public Entity make(Map<String, String> status) throws FactoryException
+	public IEntity make(Map<String, String> status) throws FactoryException
 	{
 		if(status==null)
 			throw new FactoryException("Invalid map, null passed. Expected not null map");
@@ -20,11 +20,11 @@ public class FlatEntityFactory implements Factory
 		if(!status.containsKey("type") || status.get("type")==null)
 			throw new FactoryException("Required field type in map. Aborting");
 		
-		Entity res = null;
+		IEntity res = null;
 		
 		try 
 		{
-			res = (Entity) Class.forName(entityPackage+"."+status.get("type")).newInstance();
+			res = (IEntity) Class.forName(entityPackage+"."+status.get("type")).newInstance();
 			res.fromMap(status);
 		} 
 		catch (InstantiationException e) 
