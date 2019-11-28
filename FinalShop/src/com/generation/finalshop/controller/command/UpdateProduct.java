@@ -1,6 +1,4 @@
 package com.generation.finalshop.controller.command;
-import java.util.HashMap;
-import java.util.Map;
 
 import com.generation.finalshop.model.entities.Product;
 
