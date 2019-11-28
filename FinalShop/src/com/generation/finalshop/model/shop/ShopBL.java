@@ -11,11 +11,17 @@ public interface ShopBL
 	List<Customer> customers();
 	
 	Customer loadCustomer(int id);
+	Review loadReview(int id);
 	
 	Product loadProduct(int id);
 	
 	Object save(Object object);
 	
 	void reOrder();
+	
+	Boolean deleteProduct(int id);
+	Boolean deleteCustomer(int id);
+	Boolean deleteJob(int id);
+	Boolean deleteReview(int id);
 	
 }

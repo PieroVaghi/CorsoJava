@@ -6,7 +6,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import com.generation.finalshop.model.entities.Customer;
+import com.generation.finalshop.model.entities.Job;
 import com.generation.finalshop.model.entities.Product;
+import com.generation.finalshop.model.entities.Review;
 
 public class ShopJPA implements ShopBL
 {
@@ -67,6 +69,52 @@ public class ShopJPA implements ShopBL
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	public Boolean deleteProduct(int id) {
+		try {
+			em.getTransaction().begin();
+			em.remove(em.find(Product.class, id));
+			em.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	@Override
+	public Boolean deleteJob(int id) {
+		try {
+			em.getTransaction().begin();
+			em.remove(em.find(Job.class, id));
+			em.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	@Override
+	public Boolean deleteReview(int id) {
+		try {
+			em.getTransaction().begin();
+			em.remove(em.find(Review.class, id));
+			em.getTransaction().commit();
+			
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	@Override
+	public Boolean deleteCustomer(int id) {
+		try {
+			em.getTransaction().begin();
+			em.remove(em.find(Customer.class, id));
+			em.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 
 	@Override
 	public Object save(Object object) 
@@ -75,6 +123,11 @@ public class ShopJPA implements ShopBL
 		em.persist(object);
 		em.getTransaction().commit();
 		return object;
+	}
+
+	@Override
+	public Review loadReview(int id) {
+		return em.find(Review.class, id);
 	}
 	
 

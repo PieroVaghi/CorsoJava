@@ -14,7 +14,7 @@ public abstract class DomainCommand extends com.generation.common.controller.com
 {
 	//Dipendenze che prendo con Init e che passerò ai miei figli
 	protected ShopBL bl;
-	protected ShopBI librarybi;
+	protected ShopBI shopbi;
 	protected Connection connection;
 	protected Keyboard keyboard;
 	protected Language language;
@@ -25,7 +25,7 @@ public abstract class DomainCommand extends com.generation.common.controller.com
 	public void init()
 	{
 		bl = (ShopBL) Context.getInstance().get("bl");
-		librarybi = (ShopBI) Context.getInstance().get("shopbi");
+		shopbi = (ShopBI) Context.getInstance().get("shopbi");
 		connection = (Connection) Context.getInstance().get("connection");
 		keyboard = (Keyboard) Context.getInstance().get("keyboard");
 		language = (Language) Context.getInstance().get("language");

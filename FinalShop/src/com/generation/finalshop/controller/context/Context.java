@@ -14,13 +14,16 @@ import com.generation.common.controller.keyboard.KeyboardImpl;
 import com.generation.common.model.bi.BIFacadeFactory;
 import com.generation.common.view.language.Language;
 import com.generation.common.view.language.LanguageFactory;
+import com.generation.finalshop.controller.command.AVGCategory;
 import com.generation.finalshop.controller.command.AddCustomer;
 import com.generation.finalshop.controller.command.AddCustomerJob;
 import com.generation.finalshop.controller.command.AddProduct;
 import com.generation.finalshop.controller.command.AddProductReview;
 import com.generation.finalshop.controller.command.AskCommand;
 import com.generation.finalshop.controller.command.DomainCommand;
+import com.generation.finalshop.controller.command.QuantityForCategory;
 import com.generation.finalshop.controller.command.QuitCommand;
+import com.generation.finalshop.controller.command.RemoveReview;
 import com.generation.finalshop.model.bi.FactoryShopBI;
 import com.generation.finalshop.model.bi.ShopBI;
 import com.generation.finalshop.model.entities.FactoryShop;
@@ -63,11 +66,12 @@ public class Context extends com.generation.common.controller.context.Context {
 		    (
 		    	new String[] 	{
 		    			"quit","askcommand","addcustomer", "addcustomerjob", "addproduct",	
-		    			"addproductreview"
+		    			"addproductreview","removereview","avgcategory","quantityforcategory"
 		    					},	
 		    	new DomainCommand[] {	
 		    							new QuitCommand(), new AskCommand(), new AddCustomer(),
-		    							new AddCustomerJob(), new AddProduct(), new AddProductReview()
+		    							new AddCustomerJob(), new AddProduct(), new AddProductReview(),
+		    							new RemoveReview(), new AVGCategory(), new QuantityForCategory()
 		    						}	
 		    );
 		    put("behaviour", behaviour);
