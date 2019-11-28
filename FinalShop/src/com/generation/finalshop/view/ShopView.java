@@ -20,9 +20,4 @@ public interface ShopView {
 
 	String render(List<IEntity> list);
 	
-
-	
-	
-	
-
 }

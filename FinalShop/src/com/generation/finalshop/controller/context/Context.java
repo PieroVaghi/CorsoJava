@@ -18,6 +18,8 @@ import com.generation.finalshop.model.bi.FactoryShopBI;
 import com.generation.finalshop.model.bi.ShopBI;
 import com.generation.finalshop.model.shop.FactoryShopBL;
 import com.generation.finalshop.model.shop.ShopBL;
+import com.generation.finalshop.view.FactoryShopView;
+import com.generation.finalshop.view.ShopView;
 
 
 // Riempire
@@ -41,13 +43,13 @@ public class Context extends com.generation.common.controller.context.Context {
 			put("connection", connection);
 			//Business intelligence di dominio, ottenuta adattando quella generica
 			ShopBI shopbi = FactoryShopBI.make(BIFacadeFactory.make(connection));
-			put("librarybi", shopbi);
+			put("shopbi", shopbi);
 			//Entity Manager JPA per fare DAO, ma io sono un CRIMINALE
 			EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("FinalShop");
 		    EntityManager em = emfactory.createEntityManager();
-		    // Io HO un DAO...
-		    ShopBL dao = FactoryShopBL.make(em);
-		    put("dao", dao);
+		    // Io Non ho più un DAO ma una BL...
+		    ShopBL bl = FactoryShopBL.make(em);
+		    put("bl", bl);
 		    //Il comportamento
 //		    Behaviour behaviour = BehaviourFactory.make
 //		    (
@@ -68,9 +70,9 @@ public class Context extends com.generation.common.controller.context.Context {
 		    put("keyboard", keyboard);
 		    
 		    
-//		    //La view
-//		    AuthorView authorview = FactoryAuthorView.make(language);
-//		    put("view", authorview);
+		    //La view
+		    ShopView shopview = FactoryShopView.make(language);
+		    put("view", shopview);
 		    
 		    
 		} 

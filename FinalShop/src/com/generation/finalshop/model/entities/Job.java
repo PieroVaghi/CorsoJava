@@ -62,4 +62,10 @@ public class Job implements Serializable, IEntity {
 		this.customer = customer;
 	}
 
+	@Override
+	public boolean valid() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
 }

@@ -52,8 +52,23 @@ public class StandardShopView implements ShopView
 
 	@Override
 	public String render(Job job) {
-		// TODO Auto-generated method stub
-		return null;
+		String res ="";
+		res+=language.translate("JOBROLE")+job.getRole()+"\n";
+		res+=language.translate("JOBCATEGORY")+job.getRole()+"\n";
+		res+="============================================================\n";
+		return res;
+	}
+	
+	@Override
+	public String render(Review review) {
+		String res ="";
+		res+=language.translate("REVIEWTITLE")+review.getTitle()+"\n";
+		res+=language.translate("REVIEWCONTENT")+review.getContent()+"\n";
+		res+=language.translate("REVIEWSTARS")+review.getStars()+"\n";
+		res+=language.translate("REVIEWCOSTUMER")+ render(review.getCustomer())+"\n";
+		res+=language.translate("REVIEWPRODUCT")+render(review.getProduct())+"\n";
+		res+="============================================================\n";
+		return res;
 	}
 
 	@Override
@@ -71,6 +86,7 @@ public class StandardShopView implements ShopView
 		}
 		return res;
 	}
+
 	
 	
 }

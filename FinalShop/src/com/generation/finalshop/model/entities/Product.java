@@ -109,4 +109,10 @@ public class Product implements Serializable, IEntity {
 		return review;
 	}
 
+	@Override
+	public boolean valid() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
 }

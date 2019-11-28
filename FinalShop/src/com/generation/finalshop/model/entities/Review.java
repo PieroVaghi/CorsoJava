@@ -86,4 +86,10 @@ public class Review implements Serializable, IEntity {
 		this.product = product;
 	}
 
+	@Override
+	public boolean valid() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
 }
