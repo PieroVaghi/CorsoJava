@@ -14,8 +14,16 @@ import com.generation.common.controller.keyboard.KeyboardImpl;
 import com.generation.common.model.bi.BIFacadeFactory;
 import com.generation.common.view.language.Language;
 import com.generation.common.view.language.LanguageFactory;
+import com.generation.finalshop.controller.command.AddCustomer;
+import com.generation.finalshop.controller.command.AddCustomerJob;
+import com.generation.finalshop.controller.command.AddProduct;
+import com.generation.finalshop.controller.command.AddProductReview;
+import com.generation.finalshop.controller.command.AskCommand;
+import com.generation.finalshop.controller.command.DomainCommand;
+import com.generation.finalshop.controller.command.QuitCommand;
 import com.generation.finalshop.model.bi.FactoryShopBI;
 import com.generation.finalshop.model.bi.ShopBI;
+import com.generation.finalshop.model.entities.FactoryShop;
 import com.generation.finalshop.model.shop.FactoryShopBL;
 import com.generation.finalshop.model.shop.ShopBL;
 import com.generation.finalshop.view.FactoryShopView;
@@ -51,12 +59,18 @@ public class Context extends com.generation.common.controller.context.Context {
 		    ShopBL bl = FactoryShopBL.make(em);
 		    put("bl", bl);
 		    //Il comportamento
-//		    Behaviour behaviour = BehaviourFactory.make
-//		    (
-//		    	new String[] {"list","quit","askcommand","search", "searchId","totalcost"},	
-//		    	new DomainCommand[] {new ListCommand(), new QuitCommand(), new AskCommand(), new Search(), new SearchId(), new TotalCost()}	
-//		    );
-//		    put("behaviour", behaviour);
+		    Behaviour behaviour = BehaviourFactory.make
+		    (
+		    	new String[] 	{
+		    			"quit","askcommand","addcustomer", "addcustomerjob", "addproduct",	
+		    			"addproductreview"
+		    					},	
+		    	new DomainCommand[] {	
+		    							new QuitCommand(), new AskCommand(), new AddCustomer(),
+		    							new AddCustomerJob(), new AddProduct(), new AddProductReview()
+		    						}	
+		    );
+		    put("behaviour", behaviour);
 		    
 		    
 		    //La lingua
@@ -69,6 +83,8 @@ public class Context extends com.generation.common.controller.context.Context {
 		    keyboard.setLanguage(language);
 		    put("keyboard", keyboard);
 		    
+		    FactoryShop fs = FactoryShop.getInstance();
+		    put("factoryshop", fs);
 		    
 		    //La view
 		    ShopView shopview = FactoryShopView.make(language);

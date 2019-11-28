@@ -4,6 +4,7 @@ import java.util.Map;
 import com.generation.common.model.importer.*;
 import com.generation.common.xml.XMLDocument;
 import com.generation.common.xml.XMLElement;
+import com.generation.finalshop.controller.context.Context;
 import com.generation.finalshop.model.entities.*;
 
 public class ProductXMLImporter implements Importer<Product> 
@@ -27,7 +28,7 @@ public class ProductXMLImporter implements Importer<Product>
 				//Prendo gli attributi
 				Map<String,String> map = element.getAttributes();
 				map.put("description", element.getContent());
-				res.getValid().add(ProductFactory.getInstance().makeProduct(map));
+				res.getValid().add((Product)((FactoryShop)Context.getInstance().get("factoryshop")).make("Product",map));
 			}	
 			
 			return res;

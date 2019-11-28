@@ -6,6 +6,7 @@ import com.generation.common.controller.keyboard.Keyboard;
 import com.generation.common.view.language.Language;
 import com.generation.finalshop.controller.context.Context;
 import com.generation.finalshop.model.bi.ShopBI;
+import com.generation.finalshop.model.entities.FactoryShop;
 import com.generation.finalshop.model.shop.ShopBL;
 import com.generation.finalshop.view.ShopView;
 
@@ -18,6 +19,7 @@ public abstract class DomainCommand extends com.generation.common.controller.com
 	protected Keyboard keyboard;
 	protected Language language;
 	protected ShopView view;
+	protected FactoryShop fs;
 		
 	@Override
 	public void init()
@@ -28,6 +30,7 @@ public abstract class DomainCommand extends com.generation.common.controller.com
 		keyboard = (Keyboard) Context.getInstance().get("keyboard");
 		language = (Language) Context.getInstance().get("language");
 		view = (ShopView) Context.getInstance().get("view");
+		fs = (FactoryShop) Context.getInstance().get("factoryshop");
 	}
 	
 	
