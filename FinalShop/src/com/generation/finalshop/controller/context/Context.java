@@ -21,9 +21,11 @@ import com.generation.finalshop.controller.command.AddProduct;
 import com.generation.finalshop.controller.command.AddProductReview;
 import com.generation.finalshop.controller.command.AskCommand;
 import com.generation.finalshop.controller.command.DomainCommand;
+import com.generation.finalshop.controller.command.List;
 import com.generation.finalshop.controller.command.QuantityForCategory;
 import com.generation.finalshop.controller.command.QuitCommand;
 import com.generation.finalshop.controller.command.RemoveReview;
+import com.generation.finalshop.controller.command.SearchProduct;
 import com.generation.finalshop.controller.command.UpdateProduct;
 import com.generation.finalshop.controller.command.XMLAbsorb;
 import com.generation.finalshop.model.bi.FactoryShopBI;
@@ -61,6 +63,7 @@ public class Context extends com.generation.common.controller.context.Context {
 			EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("FinalShop");
 		    EntityManager em = emfactory.createEntityManager();
 		    // Io Non ho più un DAO ma una BL...
+		    put("em", em);
 		    ShopBL bl = FactoryShopBL.make(em);
 		    put("bl", bl);
 		    //Il comportamento
@@ -69,13 +72,13 @@ public class Context extends com.generation.common.controller.context.Context {
 		    	new String[] 	{
 		    			"quit","askcommand","addcustomer", "addcustomerjob", "addproduct",	
 		    			"addproductreview","removereview","avgcategory","quantityforcategory",
-		    			"updateproduct","xmlabsorb"
+		    			"updateproduct","xmlabsorb","inventory","searchproduct"
 		    					},	
 		    	new DomainCommand[] {	
 		    							new QuitCommand(), new AskCommand(), new AddCustomer(),
 		    							new AddCustomerJob(), new AddProduct(), new AddProductReview(),
 		    							new RemoveReview(), new AVGCategory(), new QuantityForCategory(),
-		    							new UpdateProduct(), new XMLAbsorb()
+		    							new UpdateProduct(), new XMLAbsorb(), new List(), new SearchProduct()
 		    						}	
 		    );
 		    put("behaviour", behaviour);
@@ -97,6 +100,7 @@ public class Context extends com.generation.common.controller.context.Context {
 		    //La view
 		    ShopView shopview = FactoryShopView.make(language);
 		    put("view", shopview);
+		    
 		    
 		    
 		} 

@@ -2,6 +2,8 @@ package com.generation.finalshop.controller.command;
 
 import java.sql.Connection;
 
+import javax.persistence.EntityManager;
+
 import com.generation.common.controller.keyboard.Keyboard;
 import com.generation.common.view.language.Language;
 import com.generation.finalshop.controller.context.Context;
@@ -20,10 +22,15 @@ public abstract class DomainCommand extends com.generation.common.controller.com
 	protected Language language;
 	protected ShopView view;
 	protected FactoryShop fs;
+	protected EntityManager em;
+	
+	
+	
 		
 	@Override
 	public void init()
 	{
+		em = (E)
 		bl = (ShopBL) Context.getInstance().get("bl");
 		shopbi = (ShopBI) Context.getInstance().get("shopbi");
 		connection = (Connection) Context.getInstance().get("connection");

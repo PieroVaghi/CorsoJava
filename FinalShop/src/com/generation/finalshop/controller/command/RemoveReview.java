@@ -10,7 +10,7 @@ public class RemoveReview extends DomainCommand {
 	protected String execute() {
 		int id = keyboard.readInt("ASKREVIEWID", 1, Integer.MAX_VALUE, "ID ERRATO!!!");
 		System.out.println(id + "id");
-		for(Product p : bl.list())
+		for(Product p : bl.products())
 			for(Review r : p.getReviews())
 				if(r.getId()==id) {
 					p.removeReview(r);

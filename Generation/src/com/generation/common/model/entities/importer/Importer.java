@@ -1,6 +1,6 @@
 package com.generation.common.model.entities.importer;
 
-import com.generation.common.model.entities.Entity;
+import com.generation.common.model.entities.IEntity;
 
 /**
  * Un importer è una classe che genera oggetti 
@@ -9,7 +9,7 @@ import com.generation.common.model.entities.Entity;
  *
  * @param <E>
  */
-public interface Importer<E extends Entity> 
+public interface Importer<E extends IEntity> 
 {
 	ImportResult<E> absorb();
 	

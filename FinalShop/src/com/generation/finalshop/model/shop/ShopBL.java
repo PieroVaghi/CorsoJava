@@ -4,11 +4,12 @@ import com.generation.finalshop.model.entities.*;
 
 public interface ShopBL 
 {
-	List<Product> list();
 	//cond sarà in JPQL
 	List<Product> list(String cond);
 	
 	List<Customer> customers();
+	
+	List<Product> products();
 	
 	Customer loadCustomer(int id);
 	Review loadReview(int id);

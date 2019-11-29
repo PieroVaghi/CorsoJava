@@ -31,12 +31,6 @@ public class ShopJPA implements ShopBL
 		this.em = em;
 	}
 
-	@Override
-	public List<Product> list() {
-		String jpql = "SELECT c FROM Product AS c";
-		TypedQuery<Product> query = em.createQuery(jpql, Product.class);    
-		return query.getResultList();
-	}
 
 	@Override
 	public List<Product> list(String cond) {
@@ -49,6 +43,13 @@ public class ShopJPA implements ShopBL
 	public List<Customer> customers() {
 		String jpql = "SELECT c FROM Customer AS c";
 		TypedQuery<Customer> query = em.createQuery(jpql, Customer.class);    
+		return query.getResultList();
+	}
+	
+	@Override
+	public List<Product> products() {
+		String jpql = "SELECT p FROM Product AS p";
+		TypedQuery<Product> query = em.createQuery(jpql, Product.class);    
 		return query.getResultList();
 	}
 
@@ -129,6 +130,8 @@ public class ShopJPA implements ShopBL
 	public Review loadReview(int id) {
 		return em.find(Review.class, id);
 	}
+
+	
 	
 
 }

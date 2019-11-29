@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.generation.common.model.entities.Entity;
+import com.generation.common.model.entities.IEntity;
 
 /**
  * Questa classe è il tipo di ritorno di una operazione di importazione
@@ -15,7 +16,7 @@ import com.generation.common.model.entities.Entity;
  *
  * @param <E>
  */
-public class ImportResult<E extends Entity> 
+public class ImportResult<E extends IEntity> 
 {
 		
 	List<E> valid = new ArrayList<E>();
