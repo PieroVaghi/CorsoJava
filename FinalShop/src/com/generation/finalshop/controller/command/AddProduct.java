@@ -18,9 +18,8 @@ public class AddProduct extends DomainCommand{
 			map.put("price", keyboard.readLine("ASKPRODUCTPRICE"));
 			map.put("category", keyboard.readLine("ASKPRODUCTCATEGORY"));
 
-			Product c = (Product) fs.make("Product", map);
 
-			return bl.save(c)+"";
+			return bl.save((Product) fs.make("Product", map))+"";
 		}
 
 }

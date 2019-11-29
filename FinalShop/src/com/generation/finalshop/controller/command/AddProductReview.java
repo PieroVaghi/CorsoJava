@@ -24,8 +24,7 @@ public class AddProductReview extends DomainCommand {
 		
 		c.addReview(r);
 		p.addReview(r);
-		bl.save(r);
-		return "OK";
+		return bl.save(r)+"";
 	}
 	
 	
