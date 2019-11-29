@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<languagefile>
+	<codes>
+		<code>welcome</code>
+		<code>askcommand</code>
+	</codes>
+	<translations>
+		<italian>
+			<welcome>
+				Benvenuto al nostro negozio
+			</welcome>
+			<askcommand>
+				Pregasi inserire comando
+			</askcommand>		
+		</italian>
+		<english>
+			<welcome>
+				Welcome to our shop
+			</welcome>
+			<askcommand>
+				Please insert command
+			</askcommand>		
+		</english>
+	</translations>
+</languagefile>

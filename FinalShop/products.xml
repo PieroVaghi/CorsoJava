@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- la mia radice: list -->
 <list>
-	<!--
-		name: ATTRIBUTO del tag product
-		category: ATTRIBUTO
-		UN ATTRIBUTO e' un nodo, ma NON e' un elemento, NON e' un tag
-	-->
 	<product name="Dishonored" category="Videogame" quantity="10" price="5">
-		Dishonored is a stealth action game produced by Bethesda.
+		Dishonored is a stealth action game produced by Bethesda,
+		centering on revenge and mercy and set in a dystopic Victorian
+		metropolis which is equal parts London and Edinburgh.
+		<review customerid="1" title="Beautiful game" stars="50">
+			Dishonored is a game that will keep you entertained for a long time.
+		</review>
+		<review customerid="pippo" title="Non lo ho giocato ma mi fido" stars="5">
+			Ferdinando dice che pare bello.
+		</review>
 	</product>
-	<product name="Dishonored 2"  quantity="10" price="5"></product>
+	<product name="Dishonored 2"  quantity="10" price="5">
+		Dishonored 2 continues the saga, letting the player choose
+		between Corvo Attano, the protagonist of the previous game,
+		and his daughter Emily.
+		<review customerid="1" title="Good but not as good as the first" stars="4">
+			Dishonored 2 is a great game but suffers from some questionable
+			level design choices.
+		</review>
+	</product>
 </list>

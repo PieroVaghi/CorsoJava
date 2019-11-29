@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 	attributeFormDefault="unqualified" 
+			elementFormDefault="qualified" 
+			xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="product" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <xs:element name="review" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+					
+					  <xs:attribute name="customerid" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+							<xs:minInclusive value="1" />
+							<xs:maxInclusive value="1000000" />
+							</xs:restriction>
+						</xs:simpleType>
+					  </xs:attribute>
+
+
+                      <xs:attribute type="xs:string" name="title" use="required"/>
+                      
+					  <xs:attribute name="stars" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:byte">
+							<xs:minInclusive value="1" />
+							<xs:maxInclusive value="5" />
+							</xs:restriction>
+						</xs:simpleType>
+					  </xs:attribute>
+                    
+					</xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="name" use="required"/>
+            <xs:attribute type="xs:string" name="category" use="required"/>
+            <xs:attribute type="xs:byte" name="quantity" use="required"/>
+            <xs:attribute type="xs:byte" name="price" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
