@@ -25,4 +25,6 @@ public interface ShopBL
 	Boolean deleteJob(int id);
 	Boolean deleteReview(int id);
 	
+	public Customer login(String email, String password);
+	
 }

@@ -30,7 +30,7 @@ public abstract class DomainCommand extends com.generation.common.controller.com
 	@Override
 	public void init()
 	{
-		em = (E)
+		em = (EntityManager) Context.getInstance().get("em");
 		bl = (ShopBL) Context.getInstance().get("bl");
 		shopbi = (ShopBI) Context.getInstance().get("shopbi");
 		connection = (Connection) Context.getInstance().get("connection");

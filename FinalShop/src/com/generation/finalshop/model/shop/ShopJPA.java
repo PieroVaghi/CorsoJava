@@ -131,7 +131,18 @@ public class ShopJPA implements ShopBL
 		return em.find(Review.class, id);
 	}
 
+	@Override
+	public Customer login(String email, String password) 
+	{
+		List<Customer> list = 
+				(List<Customer>) 
+				em.createQuery
+				("select c from Customer c where c.email='"+email+"' and c.password='"+password+"'")
+				.getResultList();
+		
+		return list.size()>0 ? list.get(0) : null;
 	
+	}
 	
 
 }
