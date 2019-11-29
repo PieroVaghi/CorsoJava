@@ -8,6 +8,7 @@ import com.generation.common.controller.keyboard.Keyboard;
 import com.generation.common.view.language.Language;
 import com.generation.finalshop.controller.context.Context;
 import com.generation.finalshop.model.bi.ShopBI;
+import com.generation.finalshop.model.entities.Customer;
 import com.generation.finalshop.model.entities.FactoryShop;
 import com.generation.finalshop.model.shop.ShopBL;
 import com.generation.finalshop.view.ShopView;
@@ -23,13 +24,17 @@ public abstract class DomainCommand extends com.generation.common.controller.com
 	protected ShopView view;
 	protected FactoryShop fs;
 	protected EntityManager em;
+	protected Customer user;
 	
-	
+	public boolean autorized(String level) {
+		return (bl.loadCustomer(user.getId()).getJob().getRole().equalsIgnoreCase(level))? true :false;
+	}
 	
 		
 	@Override
 	public void init()
 	{
+		user = (Customer) Context.getInstance().get("user");
 		em = (EntityManager) Context.getInstance().get("em");
 		bl = (ShopBL) Context.getInstance().get("bl");
 		shopbi = (ShopBI) Context.getInstance().get("shopbi");

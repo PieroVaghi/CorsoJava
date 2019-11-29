@@ -4,8 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.generation.common.model.entities.Entity;
+import com.generation.common.model.entities.IEntity;
 
-public interface EntityView<E extends Entity> 
+public interface EntityView<E extends IEntity> 
 {
 	
 	/**

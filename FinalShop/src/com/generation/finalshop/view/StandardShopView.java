@@ -79,22 +79,6 @@ public class StandardShopView implements ShopView
 		return customer.getName() + customer.getSurname();
 	}
 
-	@Override
-	public String render(List<IEntity> list) {
-		String res = "";
-		for(IEntity ie:list) {
-			if (ie instanceof Product) 	
-				res+=render((Product)ie);
-			if (ie instanceof Customer) 	
-				res+=render((Customer)ie);
-			if (ie instanceof Job) 	
-				res+=render((Job)ie);
-			if (ie instanceof Review) 	
-				res+=render((Review)ie);
-		}
-		return res;
-	}
-
-	
+		
 	
 }

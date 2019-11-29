@@ -18,7 +18,8 @@ public abstract class Command
 	public String run()
 	{
 		init();
-		String res = execute();
+		String res = "";
+		res = execute();
 		Log.getInstance().addEvent(new Event(System.nanoTime(),"Executed "+this.getClass().getName()+":"+res));
 		return res;
 	}

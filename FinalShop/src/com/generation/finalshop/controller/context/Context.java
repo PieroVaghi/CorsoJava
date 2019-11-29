@@ -21,7 +21,8 @@ import com.generation.finalshop.controller.command.AddProduct;
 import com.generation.finalshop.controller.command.AddProductReview;
 import com.generation.finalshop.controller.command.AskCommand;
 import com.generation.finalshop.controller.command.DomainCommand;
-import com.generation.finalshop.controller.command.List;
+import com.generation.finalshop.controller.command.Inventory;
+import com.generation.finalshop.controller.command.LogIn;
 import com.generation.finalshop.controller.command.QuantityForCategory;
 import com.generation.finalshop.controller.command.QuitCommand;
 import com.generation.finalshop.controller.command.RemoveReview;
@@ -30,6 +31,7 @@ import com.generation.finalshop.controller.command.UpdateProduct;
 import com.generation.finalshop.controller.command.XMLAbsorb;
 import com.generation.finalshop.model.bi.FactoryShopBI;
 import com.generation.finalshop.model.bi.ShopBI;
+import com.generation.finalshop.model.entities.Customer;
 import com.generation.finalshop.model.entities.FactoryShop;
 import com.generation.finalshop.model.shop.FactoryShopBL;
 import com.generation.finalshop.model.shop.ShopBL;
@@ -66,19 +68,20 @@ public class Context extends com.generation.common.controller.context.Context {
 		    put("em", em);
 		    ShopBL bl = FactoryShopBL.make(em);
 		    put("bl", bl);
+		    
 		    //Il comportamento
 		    Behaviour behaviour = BehaviourFactory.make
 		    (
 		    	new String[] 	{
-		    			"quit","askcommand","addcustomer", "addcustomerjob", "addproduct",	
+		    			"login","quit","askcommand","addcustomer", "addcustomerjob", "addproduct",	
 		    			"addproductreview","removereview","avgcategory","quantityforcategory",
 		    			"updateproduct","xmlabsorb","inventory","searchproduct"
 		    					},	
 		    	new DomainCommand[] {	
-		    							new QuitCommand(), new AskCommand(), new AddCustomer(),
+		    							new LogIn(), new QuitCommand(), new AskCommand(), new AddCustomer(),
 		    							new AddCustomerJob(), new AddProduct(), new AddProductReview(),
 		    							new RemoveReview(), new AVGCategory(), new QuantityForCategory(),
-		    							new UpdateProduct(), new XMLAbsorb(), new List(), new SearchProduct()
+		    							new UpdateProduct(), new XMLAbsorb(), new Inventory(), new SearchProduct()
 		    						}	
 		    );
 		    put("behaviour", behaviour);
@@ -101,6 +104,9 @@ public class Context extends com.generation.common.controller.context.Context {
 		    ShopView shopview = FactoryShopView.make(language);
 		    put("view", shopview);
 		    
+		    //logCustomer
+		    Customer user = (Customer) fs.make("Customer", null);
+		    put("user", user);
 		    
 		    
 		} 
