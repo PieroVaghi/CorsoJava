@@ -65,10 +65,18 @@ public class StandardShopView implements ShopView
 		res+=language.translate("REVIEWTITLE")+review.getTitle()+"\n";
 		res+=language.translate("REVIEWCONTENT")+review.getContent()+"\n";
 		res+=language.translate("REVIEWSTARS")+review.getStars()+"\n";
-		res+=language.translate("REVIEWCOSTUMER")+ render(review.getCustomer())+"\n";
-		res+=language.translate("REVIEWPRODUCT")+render(review.getProduct())+"\n";
+		res+=language.translate("REVIEWCOSTUMER")+ _getSingleCustomer(review.getCustomer())+"\n";
+		res+=language.translate("REVIEWPRODUCT")+_getSingleCustomer(review.getProduct())+"\n";
 		res+="============================================================\n";
 		return res;
+	}
+	
+	private String _getSingleCustomer(Product product) {
+		return product.getName() + product.getCategory();
+	}
+
+	public String _getSingleCustomer(Customer customer) {
+		return customer.getName() + customer.getSurname();
 	}
 
 	@Override

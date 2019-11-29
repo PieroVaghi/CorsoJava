@@ -17,9 +17,11 @@ public class XMLAbsorb extends DomainCommand {
 		for(Product p : imp.getValid()) {
 			try {
 				view.render((Product)bl.save(p));
-				res &= true;
+				
 			} catch (Exception e) {
-				res &= false;
+				res = false;
+				System.out.println("qualcosa non si è salvato");
+				System.out.println(imp.getValid());
 			}
 		}
 		return res+"";

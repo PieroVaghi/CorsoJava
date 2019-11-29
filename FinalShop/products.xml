@@ -7,7 +7,7 @@
 		<review customerid="1" title="Beautiful game" stars="50">
 			Dishonored is a game that will keep you entertained for a long time.
 		</review>
-		<review customerid="pippo" title="Non lo ho giocato ma mi fido" stars="5">
+		<review customerid="2" title="Non lo ho giocato ma mi fido" stars="5">
 			Ferdinando dice che pare bello.
 		</review>
 	</product>
