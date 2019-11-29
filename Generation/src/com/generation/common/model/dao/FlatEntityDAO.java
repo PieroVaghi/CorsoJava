@@ -1,4 +1,4 @@
-package com.generation.common.model.dao.deprecated;
+package com.generation.common.model.dao;
 import java.lang.reflect.Method;
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,7 +8,8 @@ import java.util.Map;
 
 import com.generation.common.model.entities.*;
 
-public class FlatEntityDAO<E extends IEntity> implements EntityDAO<E>
+@Deprecated
+public class FlatEntityDAO<E extends com.generation.common.model.entities.Entity> implements EntityDAO<E>
 {
 	//DIPENDENZE
 	Connection connection;

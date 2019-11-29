@@ -3,7 +3,7 @@ package com.generation.megacorp.controller.command;
 import java.util.Scanner;
 
 import com.generation.common.controller.command.Command;
-import com.generation.common.model.dao.deprecated.EntityDAO;
+import com.generation.common.model.dao.EntityDAO;
 import com.generation.megacorp.controller.context.Context;
 import com.generation.megacorp.model.entities.Employee;
 

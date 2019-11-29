@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.generation.common.model.dao.deprecated.*;
+import com.generation.common.model.dao.*;
 
 import generation.office.entities.Employee;
 import generation.office.statistics.StatisticsImpl;

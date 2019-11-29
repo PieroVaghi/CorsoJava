@@ -1,13 +1,7 @@
 package com.generation.common.controller.context;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.generation.common.model.dao.deprecated.FlatEntityDAO;
-import com.generation.common.model.entities.Factory;
-import com.generation.common.model.entities.FlatEntityFactory;
 
 public abstract class Context 
 {

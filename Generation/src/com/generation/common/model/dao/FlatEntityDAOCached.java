@@ -1,18 +1,18 @@
-package com.generation.common.model.dao.deprecated;
+package com.generation.common.model.dao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.generation.common.model.entities.IEntity;
+import com.generation.common.model.entities.Entity;
 
 /**
  * è un PROXY di FlatEntityDAO
  * @author FreePC
  *
  */
-public class FlatEntityDAOCached<E extends IEntity> implements EntityDAO<E>
+public class FlatEntityDAOCached<E extends Entity> implements EntityDAO<E>
 {
 	//oggetto reale, PROXATO. lui fa il suo lavoro, io faccio il mio
 	FlatEntityDAO<E> real;

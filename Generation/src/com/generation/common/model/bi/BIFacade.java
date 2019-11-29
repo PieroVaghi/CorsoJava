@@ -32,6 +32,7 @@ public interface BIFacade
 	// facade.rows("select profession, avg(salary) as avg from soldier group by profession");
 	List<Map<String,String>> rows(String sql) throws SQLException;
 	
+	// TEMPLATE METHOD
 	default Map<String,String> row(String sql) throws SQLException
 	{
 		List<Map<String,String>> rows = rows(sql);

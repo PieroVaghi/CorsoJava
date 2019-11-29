@@ -35,7 +35,7 @@ public class ProductXMLImporter implements Importer<Product>
 		} 
 		catch (Exception e) 
 		{
-			res.getErrors().add("roba..");
+			res.getErrors().add("bha..");
 			e.printStackTrace();
 			return null;
 		}		

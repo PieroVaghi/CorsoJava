@@ -25,6 +25,7 @@ import com.generation.finalshop.controller.command.QuantityForCategory;
 import com.generation.finalshop.controller.command.QuitCommand;
 import com.generation.finalshop.controller.command.RemoveReview;
 import com.generation.finalshop.controller.command.UpdateProduct;
+import com.generation.finalshop.controller.command.XMLAbsorb;
 import com.generation.finalshop.model.bi.FactoryShopBI;
 import com.generation.finalshop.model.bi.ShopBI;
 import com.generation.finalshop.model.entities.FactoryShop;
@@ -68,13 +69,13 @@ public class Context extends com.generation.common.controller.context.Context {
 		    	new String[] 	{
 		    			"quit","askcommand","addcustomer", "addcustomerjob", "addproduct",	
 		    			"addproductreview","removereview","avgcategory","quantityforcategory",
-		    			"updateproduct"
+		    			"updateproduct","xmlabsorb"
 		    					},	
 		    	new DomainCommand[] {	
 		    							new QuitCommand(), new AskCommand(), new AddCustomer(),
 		    							new AddCustomerJob(), new AddProduct(), new AddProductReview(),
 		    							new RemoveReview(), new AVGCategory(), new QuantityForCategory(),
-		    							new UpdateProduct()
+		    							new UpdateProduct(), new XMLAbsorb()
 		    						}	
 		    );
 		    put("behaviour", behaviour);

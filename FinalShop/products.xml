@@ -7,9 +7,7 @@
 		UN ATTRIBUTO e' un nodo, ma NON e' un elemento, NON e' un tag
 	-->
 	<product name="Dishonored" category="Videogame" quantity="10" price="5">
-		Dishonored is a stealth action game produced by Bethesda,
-		centering on revenge and mercy and set in a dystopic Victorian
-		metropolis which is equal parts London and Edinburgh.
+		Dishonored is a stealth action game produced by Bethesda.
 	</product>
 	<product name="Dishonored 2"  quantity="10" price="5"></product>
 </list>

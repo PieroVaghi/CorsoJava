@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import com.generation.common.controller.command.Behaviour;
 import com.generation.common.controller.command.Command;
-import com.generation.common.model.dao.deprecated.FlatEntityDAO;
+import com.generation.common.model.dao.FlatEntityDAO;
 import com.generation.megacorp.controller.command.*;
 import com.generation.megacorp.model.dao.EmployeeDAO;
 import com.generation.megacorp.model.entities.Certificate;

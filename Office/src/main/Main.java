@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.net.SocketTimeoutException;
 import java.util.List;
 
-import com.generation.common.model.dao.deprecated.*;
+import com.generation.common.model.dao.*;
 
 import generation.office.context.Context;
 import generation.office.entities.Employee;

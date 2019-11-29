@@ -1,7 +1,9 @@
-package com.generation.common.model.importer;
+package com.generation.common.model.entities.importer;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.generation.common.model.entities.Entity;
 
 /**
  * Questa classe è il tipo di ritorno di una operazione di importazione
@@ -13,18 +15,18 @@ import java.util.List;
  *
  * @param <E>
  */
-public class ImportResult
+public class ImportResult<E extends Entity> 
 {
 		
-	List<Object> valid = new ArrayList<Object>();
-	List<Object> invalid = new ArrayList<Object>();
+	List<E> valid = new ArrayList<E>();
+	List<E> invalid = new ArrayList<E>();
 	List<String> errors = new ArrayList<String>();
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public List<Object> getValid() {
+	public List<E> getValid() {
 		return valid;
 	}
 	
@@ -32,7 +34,7 @@ public class ImportResult
 	 * 
 	 * @param valid
 	 */
-	public void setValid(List<Object> valid) {
+	public void setValid(List<E> valid) {
 		this.valid = valid;
 	}
 	
@@ -41,14 +43,14 @@ public class ImportResult
 	 * 
 	 * @return
 	 */
-	public List<Object> getInvalid() {
+	public List<E> getInvalid() {
 		return invalid;
 	}
 	/**
 	 * 
 	 * @param invalid
 	 */
-	public void setInvalid(List<Object> invalid) {
+	public void setInvalid(List<E> invalid) {
 		this.invalid = invalid;
 	}
 	/**

@@ -3,7 +3,7 @@ package com.generation.common.model.log;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Log 
+public class Log implements ILog
 {
 	List<Event> content = new ArrayList<Event>();
 
@@ -19,6 +19,13 @@ public class Log
 	public void addEvent(Event e)
 	{
 		content.add(e);
+	}
+
+
+	@Override
+	public List<Event> getEvents() 
+	{
+		return content;
 	}
 	
 	

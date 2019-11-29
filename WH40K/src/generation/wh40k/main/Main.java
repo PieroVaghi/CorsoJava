@@ -2,7 +2,7 @@ package generation.wh40k.main;
 import java.sql.Connection;
 import java.util.Scanner;
 
-import com.generation.common.model.dao.deprecated.EntityDAO;
+import com.generation.common.model.dao.EntityDAO;
 
 import generation.wh40k.entities.*;
 import generation.wh40k.businessintelligence.Statistics;

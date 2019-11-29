@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import com.generation.common.controller.command.Behaviour;
 import com.generation.common.controller.command.Command;
-import com.generation.common.model.dao.deprecated.FlatEntityDAO;
+import com.generation.common.model.dao.FlatEntityDAO;
 import com.generation.persondrama.controller.command.BIavgage;
 import com.generation.persondrama.controller.command.BIavgdrama;
 import com.generation.persondrama.controller.command.Delete;

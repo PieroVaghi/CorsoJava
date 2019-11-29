@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.generation.common.model.dao.deprecated.*;
+import com.generation.common.model.dao.*;
 
 import generation.common.entities.Factory;
 import generation.common.entities.FlatEntityFactory;

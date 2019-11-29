@@ -9,42 +9,25 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;  
 
-//Facade per:
-//DocumentBuilderFactory, DocumentBuilder,Document, NodeList, Element
+//Adapter di Document
 public class XMLDocumentImpl implements XMLDocument
 {
-	String xmlfile;
-
+	//Adaptee
+	Document doc;
 		
-	public XMLDocumentImpl(String xmlfile) 
+	public XMLDocumentImpl(Document doc) throws Exception
 	{
-		this.xmlfile = xmlfile;
+		this.doc = doc;
 	}
-
-
 
 	@Override
 	public List<XMLElement> list(String tagName) throws Exception
 	{
 		List<XMLElement> res = new ArrayList<XMLElement>();
-		File file = new File(xmlfile);  
-		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();  
-		DocumentBuilder db = dbf.newDocumentBuilder();  
-		Document doc = db.parse(file);  
-		doc.getDocumentElement().normalize();  		
-		
-		//Cosa è doc? Un document XML per la libreria standard
-		
-		//Nodelist = la versione bruttissima di List<XMLElement>
 		NodeList list = doc.getElementsByTagName(tagName);
-		
-		//La devo trasformare nei miei bellissimi XML Element
-		
 		for(int i=0;i<list.getLength();i++)
 			res.add(new XMLElement((Element) list.item(i)));
-		
 		return res;
-		
 	}
 	
 	

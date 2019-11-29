@@ -1,9 +1,7 @@
-package com.generation.common.model.dao.deprecated;
+package com.generation.common.model.dao;
 import java.util.List;
 
-import com.generation.common.model.entities.IEntity;
-
-public interface EntityDAO<E extends IEntity>
+public interface EntityDAO<E extends com.generation.common.model.entities.Entity>
 {
 	E load(int id) throws Exception;
 

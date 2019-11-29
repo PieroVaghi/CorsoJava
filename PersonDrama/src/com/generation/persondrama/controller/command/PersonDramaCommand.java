@@ -3,7 +3,7 @@ package com.generation.persondrama.controller.command;
 import java.util.Scanner;
 
 import com.generation.common.controller.command.Command;
-import com.generation.common.model.dao.deprecated.EntityDAO;
+import com.generation.common.model.dao.EntityDAO;
 import com.generation.persondrama.controller.context.Context;
 import com.generation.persondrama.model.entities.Person;
 import com.generation.persondrama.model.insert.CasualInsert;

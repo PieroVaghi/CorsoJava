@@ -2,8 +2,8 @@ package com.generation.megacorp.model.dao;
 
 import java.util.List;
 
-import com.generation.common.model.dao.deprecated.EntityDAO;
-import com.generation.common.model.dao.deprecated.FlatEntityDAO;
+import com.generation.common.model.dao.EntityDAO;
+import com.generation.common.model.dao.FlatEntityDAO;
 import com.generation.megacorp.model.entities.*;
 
 

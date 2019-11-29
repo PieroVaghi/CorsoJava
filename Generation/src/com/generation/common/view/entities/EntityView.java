@@ -3,9 +3,9 @@ package com.generation.common.view.entities;
 import java.util.List;
 import java.util.Map;
 
-import com.generation.common.model.entities.IEntity;
+import com.generation.common.model.entities.Entity;
 
-public interface EntityView<E extends IEntity> 
+public interface EntityView<E extends Entity> 
 {
 	
 	/**
