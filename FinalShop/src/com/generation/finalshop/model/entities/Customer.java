@@ -29,6 +29,8 @@ public class Customer implements Serializable , IEntity{
 	private String password;
 
 	private String surname;
+	
+	private String role;
 
 	//bi-directional many-to-one association to Review
 	@OneToMany(mappedBy="customer", cascade=CascadeType.PERSIST)
@@ -111,6 +113,14 @@ public class Customer implements Serializable , IEntity{
 	{
 		job.setId(this.getId());
 		this.job = job;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	@Override

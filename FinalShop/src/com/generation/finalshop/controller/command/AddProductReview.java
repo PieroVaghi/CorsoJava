@@ -10,7 +10,7 @@ public class AddProductReview extends DomainCommand {
 
 	@Override
 	protected String execute() {
-		if(autorized("Costumer")) {
+		
 			int idp = keyboard.readInt("ASKPRODUCTID", 0, Integer.MAX_VALUE, "ID non Corretto!");
 			Product p = bl.loadProduct(idp);
 			int idc = keyboard.readInt("ASKCUSTOMERID", 0, Integer.MAX_VALUE, "ID non Corretto!");
@@ -26,9 +26,7 @@ public class AddProductReview extends DomainCommand {
 			c.addReview(r);
 			p.addReview(r);
 			return bl.save(r)+"";
-		} else {
-			return language.translate("NOTAUTORIZED");
-		}
+	
 	}
 	
 	

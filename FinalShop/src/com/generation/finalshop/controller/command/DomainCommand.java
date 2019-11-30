@@ -26,8 +26,15 @@ public abstract class DomainCommand extends com.generation.common.controller.com
 	protected EntityManager em;
 	protected Customer user;
 	
-	public boolean autorized(String level) {
-		return (bl.loadCustomer(user.getId()).getJob().getRole().equalsIgnoreCase(level))? true :false;
+	public boolean autorized(String[] level) {
+		if(user.getId()==0)
+			return false;
+		String role = bl.loadCustomer(user.getId()).getRole();
+		if(role == null)
+			return false;
+		for(String s : level)
+			return (role.equalsIgnoreCase(s))? true :false;
+		return false;
 	}
 	
 		
