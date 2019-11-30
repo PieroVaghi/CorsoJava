@@ -7,11 +7,12 @@ import com.generation.finalshop.model.entities.Customer;
 
 public class AddCustomer extends DomainCommand{
 	
+	private static String[] authorized = {"admin","Clerk"};
 
 		@Override
 		protected String execute() {
 			
-			if(autorized("Admin")) {
+			if(access(authorized)) {
 				Map<String,String> map = new HashMap<String,String>();
 				
 				map.put("name", keyboard.readLine("ASKCUSTOMERNAME"));

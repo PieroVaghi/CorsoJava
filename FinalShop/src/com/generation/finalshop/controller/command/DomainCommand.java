@@ -26,7 +26,7 @@ public abstract class DomainCommand extends com.generation.common.controller.com
 	protected EntityManager em;
 	protected Customer user;
 	
-	public boolean autorized(String[] level) {
+	public boolean access(String[] level) {
 		if(user.getId()==0)
 			return false;
 		String role = bl.loadCustomer(user.getId()).getRole();

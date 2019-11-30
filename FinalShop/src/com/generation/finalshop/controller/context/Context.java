@@ -88,7 +88,7 @@ public class Context extends com.generation.common.controller.context.Context {
 		    
 		    
 		    //La lingua
-		    Language language = LanguageFactory.make("Ita.lang");
+		    Language language = LanguageFactory.makeXML("language.xml", "italian");
 		    put("language", language);
 
 		    //La tastiera (per ora)

@@ -7,15 +7,23 @@ public class LogIn extends DomainCommand {
 
 	@Override
 	protected String execute() {
-		String mail = keyboard.readLine("ASKMAILLOGIN");
-		String pwd = keyboard.readLine("ASKPWDLOGIN");
-		Customer user = bl.login(mail, pwd);
-		if(user!=null) {
-			Context.getInstance().put("user", user);
-			return "LOG SUCCESS";
-		} else {
-			return "LOG FAIL";
+		System.out.println(language.translate("WELCOME"));
+		System.out.println(language.translate("LOGINIT"));
+		boolean flag = false;
+		boolean log = false;
+		while(!flag) {
+			String mail = keyboard.readLine("ASKMAILLOGIN");
+			String pwd = keyboard.readLine("ASKPWDLOGIN");
+			Customer user = bl.login(mail, pwd);
+			if(user!=null) {
+				Context.getInstance().put("user", user);
+				log = true;
+				flag = true;
+			} else {
+				flag = (keyboard.readLine("RETRYLOG").equalsIgnoreCase("y"))? false : true;
+			}
 		}
+		return (log) ? language.translate("LOGSUCCESS") : language.translate("LOGFAIL");
 	}
 
 }

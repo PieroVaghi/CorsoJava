@@ -23,16 +23,21 @@ public class XMLLanguage implements Language
 		this.document = XMLDocumentFactory.make(filename);
 		this.language = language;
 		//attenzione... facade scritta veramente male... dopo va ottimizzata.
-		for(XMLElement element:document.list("code"))
+		for(XMLElement element:document.list("code")) {
+//			System.out.println(element.getContent());
 			codes.add(element.getContent());
+		}
+//		System.out.println(document.list(language).get(0));
 		//mi aspetto di trovare solo un nodo italian o solo un nodo english
 		XMLElement languageNode = document.list(language).get(0);
-		for(String code:codes)
+		for(String code:codes) {
 			translations.put
 			(
 				code,
 				languageNode.contained(code).get(0).getContent()
 			);
+//			System.out.println(code + " ----- " +languageNode.contained(code).get(0).getContent());
+		}
 	}
 
 	@Override

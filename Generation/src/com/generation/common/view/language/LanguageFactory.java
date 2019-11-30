@@ -35,6 +35,7 @@ public abstract class LanguageFactory
 		}
 		catch(Exception e)
 		{
+//			System.out.println("sei in dummy");
 			return dummy;
 		}
 	}

@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <languagefile>
 	<codes>
-		<code>welcome</code>
-		<code>askcommand</code>
+		<code>WELCOME</code>
+		<code>ASKCOMMAND</code>
+		<code>ASKMAILLOGIN</code>
+		<code>LOGINIT</code>
+		<code>ASKPWDLOGIN</code>
+		<code>RETRYLOG</code>
+		<code>LOGSUCCESS</code>
+		<code>LOGFAIL</code>
+		<code>BADCOMMAND</code>
 	</codes>
 	<translations>
 		<italian>
-			<welcome>
-				Benvenuto al nostro negozio
-			</welcome>
-			<askcommand>
-				Pregasi inserire comando
-			</askcommand>		
+			<WELCOME>
+Benvenuto al nostro negozio</WELCOME>
+			<ASKCOMMAND>Pregasi inserire comando</ASKCOMMAND>
+			<LOGINIT>Siete pregati di effettuare l'accesso!
+Vi ricordiamo che un utilizzo del software senza l'autenticazione lo priverà di alcune funzioni!</LOGINIT>	
+			<ASKMAILLOGIN>Pregasi inserire mail utente:</ASKMAILLOGIN>	
+			<ASKPWDLOGIN>Pregasi inserire Password</ASKPWDLOGIN>
+			<RETRYLOG>Il login non è andato a buon fine.. Vuoi riprovare a loggarti? (y/n)</RETRYLOG>
+			<LOGSUCCESS>Login avvenuto!</LOGSUCCESS>
+			<LOGFAIL>ATTENZIONE! Si è scelto di proseguire senza LogIn, alcune funzioni risulteranno disabilitate!</LOGFAIL>
+			<BADCOMMAND>Comando errato razza di Lullone!!!</BADCOMMAND>
 		</italian>
 		<english>
 			<welcome>
