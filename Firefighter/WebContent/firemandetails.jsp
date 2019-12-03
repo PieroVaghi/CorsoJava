@@ -36,7 +36,7 @@
 			.redbackground
 			{
 				color:#ffffff;
-				background-color:#b30b1f;
+				background-color:#6b0311;
 			}
 	
 			
@@ -56,8 +56,7 @@
 				<%=f.getSalary()%>  &euro;
 				<br />
 				<br />
-				<input type="hidden" name="cmd" value="" />
-				<input type="submit" value="back" class="w3-btn rientrostandard redbackground" />
+				<a href="Index?cmd=" class="w3-btn redbackground">Back</a>
 			</form>
 		</div>
 		<div class="w3-quarter" id="newbadge">

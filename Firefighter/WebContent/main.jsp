@@ -31,14 +31,15 @@
 			.redbackground
 			{
 				color:#ffffff;
-				background-color:#b30b1f;
+				background-color:#6b0311;
 			}
 	
 		</style>
 	</head>
 	<body>
 		<div class="w3-card-4 redbackground rientrostandard">
-			<h1> GENERATION FIRE DEPARTMENT </h1>
+			<h1> GENERATION FIRE DEPARTMENT <a href="Index?cmd=bella">?</a></h1>
+			
 		</div>
 		<%
 		for(Fireman f:firemans)
@@ -55,6 +56,7 @@
 		<%
 		}
 		%>	
+			
 			
 		
 	</body>
