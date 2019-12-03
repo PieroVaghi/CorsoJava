@@ -33,13 +33,18 @@
 				color:#ffffff;
 				background-color:#6b0311;
 			}
+			.center 
+			{
+				margin: auto;
+				width: 100%;
+				padding: 10px;
+			}
 	
 		</style>
 	</head>
 	<body>
-		<div class="w3-card-4 redbackground rientrostandard">
-			<h1> GENERATION FIRE DEPARTMENT <a href="Index?cmd=bella">?</a></h1>
-			
+		<div class="w3-card-4 redbackground rientrostandard center">
+			<h1> GENERATION FIRE DEPARTMENT <a href="Index?cmd=bella">?</a></h1>	
 		</div>
 		<%
 		for(Fireman f:firemans)

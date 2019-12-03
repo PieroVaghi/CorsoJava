@@ -6,11 +6,11 @@
 <meta charset="ISO-8859-1">
 <title>WrongWrongWrongWrong</title>
 </head>
-<body>
-	<div color-background=#000000>
-	<img src="ezgif-6-a8a9098b9921.gif" alt="lollone">
-	<img src="giphy.gif" alt="lollone">
-	<img src="ezgif-6-a8a9098b9921.gif" alt="lollone">
+<body style="background-color:Black;">
+	<div>
+		<img src="ezgif-6-a8a9098b9921.gif" alt="lollone">
+		<img src="giphy.gif" alt="lollone">
+		<img src="ezgif-6-a8a9098b9921.gif" alt="lollone">
 	</div>
 	
 </body>
