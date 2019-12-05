@@ -70,5 +70,14 @@
 			<a href="Index?cmd=logout"  style="float:right;margin-right:10px" class="w3-btn w3-indigo">Logout</a>
 			<%					
 			}
-			%>			
+			%>	
+			<%
+			if(user.getLevel()==2)
+			{
+			%>
+			<a href="Index?cmd=formnewuser"  style="float:right;margin-right:10px" class="w3-btn w3-indigo">Add User</a>
+			<%					
+			}
+			%>
+			
 		</div>

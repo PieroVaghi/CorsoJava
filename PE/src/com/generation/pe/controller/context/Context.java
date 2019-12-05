@@ -4,9 +4,11 @@ import com.generation.pe.controller.servlet.command.AddExpense;
 import com.generation.pe.controller.servlet.command.BadRequest;
 import com.generation.pe.controller.servlet.command.Behaviour;
 import com.generation.pe.controller.servlet.command.FormLogin;
+import com.generation.pe.controller.servlet.command.FormNewUser;
 import com.generation.pe.controller.servlet.command.ListProfile;
 import com.generation.pe.controller.servlet.command.Login;
 import com.generation.pe.controller.servlet.command.Logout;
+import com.generation.pe.controller.servlet.command.NewUser;
 import com.generation.pe.controller.servlet.command.NotFound;
 import com.generation.pe.controller.servlet.command.OwnProfile;
 import com.generation.pe.controller.servlet.command.RemoveExpense;
@@ -30,10 +32,12 @@ public class Context extends com.generation.common.controller.context.Context
 				(
 						new String[] 	 {	"notfound","formlogin","login","logout",
 											"ownprofile","deleteexpense","badrequest",
-											"addexpense","listprofile"}, 
+											"addexpense","listprofile","formnewuser",
+											"newuser"}, 
 						new WebCommand[] {	new NotFound(), new FormLogin(), new Login(), new Logout(),
 											new OwnProfile(), new RemoveExpense(), new BadRequest(),
-											new AddExpense(), new ListProfile()}
+											new AddExpense(), new ListProfile(), new FormNewUser(),
+											new NewUser()}
 				)
 		);
 	
